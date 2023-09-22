@@ -23,6 +23,9 @@ Concepts:
 
 The model may provide special type of activities for convenience - start, end, fork/join, port - input/output/call.
 
+Model elements may maintain a list of issues and actions may collect duration metrics. They also may contain durations - scalar values or discributions. Durations may be derived from collected. 
+All of this would allow to run simulations and report change in flow execution duration over time, e.g. as a result of implementing improvements.
+
 ## Inheritance
 
 Actions in a flow are keyed by a string ID, as well as all other contained elements such as actions/flows/participants/resources/requirements in a package.
@@ -105,13 +108,17 @@ Some options to implement flow execution:
     * Action executors inspect commits to determine whether there is work for them. E.g. an executor may "watch" an "input queue" folder and perform activity for every file in that folder. 
     * Action executors may modify the content of the repository and commit changes - it would trigger other executors. E.g. an executor may write a file to the input queue folder for another executor.
     * With this approach humans may inspect the flow and participate in the flow in the same way as automated participants.
-    
-    
-GitLab URIHandler, Maven resolver    
-    
-
-
-
+* GitLab-based flow execution:
+    * Executors are activated by web hooks
+    * They use [GitLab model](https://github.com/Nasdanika-Models/gitlab) or [gitlab4j-api](https://github.com/gitlab4j/gitlab4j-api) to pull commit info and decide whether they need to act on it. They may also use the aforementioned methods to access repository files they need and commit changes. They may operate on the model level and the model would abstract low-level operations. Custom URIConverter and URIHandler can be used to access repository files as model resources using, say, ``gitlab`` URI scheme: ``gitlab://<server alias>/<project alias or id>/<branch>/<repository path>``. With this approach select files from multiple repositories may be accessed and manipulated without having to close entire repositories. Changes can be committed when action processing is completed using some form of 2-phase commit if committing to more than one data source.
+* Jira-based flow execution:
+    * External ID is used to match issues to flow elements
+    * Jira may be used for manual tasks
+    * Automated tasks may be triggered by web hooks or polling
+    * Automated tasks may also be stored in Jira and assigned to non-human users or use external ID to match tasks to executors
+    * Issue hierarchies may be generated from flow definitions and linked to flow documentation.
+* Maven or [Maven Resolver](https://maven.apache.org/resolver/index.html) may be used to implement loading of executors from Maven repositories - action definitions for automated tasks would contain Maven coordinates, repository connectivity parameters such as URL and credentials, Action implementation class name, and configuration. Action executor would download required artifacts, create a classloader and execute the Action class. See https://github.com/yahro/maven-classloader/blob/master/src/main/java/com/bigfatgun/MavenClassLoader.java for an old example of creating a classloader from Maven coordinates.     
+           
 ## Visualizations
 
 In addition to manually created and then auto-instrumented Drawio diagrams the following visualizations may be used with flows:
@@ -124,23 +131,30 @@ In addition to manually created and then auto-instrumented Drawio diagrams the f
     * [3D Bar](https://echarts.apache.org/examples/en/index.html#chart-type-bar3D) can be used as the above with time dimension - showing how tasks progress through the flow over time.
 * [PlantUML](https://plantuml.com/) and [Mermaid](https://mermaid.js.org/intro/) can be used to generate flow visualizations. This approach may save time for small flows, but generated visualization might be difficult to comprehend in case of flows with a large number of elements.
 
-     
-    
-    
-    
-    
-
-
 ## Use Cases
 
 ### Documentation
 
-Ent cont
+The model can be used to generate process documentation with cross-referencing of model elements. E.g. listing all actions where a resource (tool) is used a participant plays a role (has responsibility). 
+Without use of inheritance and mix-ins this approach allows to have versioned process documentation which can be branched and forked. I.e. developed as code via a number of iterations.
+
+Inheritance and mix-ins allow to create a continuum[^1]/tree of flow definitions with adaptations for different contexts similar to how Docker images are created from other images:
+
+* A vendor may create flows explaining how to use their product
+* The vendor may also create mix-ins for different integrations and implementation options 
+* A central function in an enterprise may create generic flows explaining how to to use a vendor product in the context of the organization. The central function may also create mix-ins for different options which lower levels of the organization may choose from. 
+* Org. units may further specialize flow definitions
+
+[^1]: See [TOGAF Enterprise Continuum](https://pubs.opengroup.org/togaf-standard/introduction/chap03.html#tag_03_10)
 
 ### Execution Governance
 
-pull from Jira
+A flow may reflect a long-running transformation process, e.g. a technology upgrade. There might be multiple instances of the flow executed by multiple teams. 
+Individual work items would reside in backlogs of those teams. Some teams may use, say, Jira, while other may use some other tracking mechanism. 
+An extraction process would collect work items status and create a consolidated report for that particular flow. 
 
-### Mixed Automated/Manual execution
+Report options:
 
-Git/GitLab Maven resolver
+* Create report pages for multiple levels in the organization with roll-up. For each level it would show distribution of instances by actions/stages and statuses. Diferent representations - tabular, charts, diagrams (see below). See the "Visualizations" section above for more details.
+* For each page display the flow's Drawio diagram with injected statistics - number of flows at a particular stage, status. 
+

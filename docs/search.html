@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.1.0/github-markdown.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21.2/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/components/table.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>    
+</head>
+  <body>
+    <div class="container-fluid nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="https://github.com/Nasdanika-Models" data-nsd-label-uuid="955c1033-2bf3-436f-b341-364289429e7e" class="nsd-app-header-title">
+            <img src="https://docs.nasdanika.org/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika Models</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item"><span data-nsd-label-uuid="8405ce5b-488f-44ab-ac66-bb8514b40194" class="navbar-text"><span class="fas fa-search nsd-app-label-icon"></span>Search</span>
+            </li>
+            <li class="nav-item">
+              <a href="glossary.html" data-nsd-label-uuid="c7778eaa-b5fa-45b6-8e7e-1a9b6ce3e059" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Glossary</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-navbar">
+          <ul class="navbar navbar-light navbar-expand-lg">
+            <a href="index.html" data-nsd-label-uuid="0b5a5a8b-24aa-4b5e-96ec-327e3f6d1aaa" class="navbar-brand">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EPackage.gif" class="nsd-app-label-icon"/>flow</a>
+            <button type="button" data-toggle="collapse" data-target="#nsd_2d" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="nsd_2d" class="collapse navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a href="classifiers.html" data-nsd-label-uuid="426e2c99-7b8f-461c-8a6e-6547e4780723" class="nav-link">Classifiers</a>
+                </li>
+                <li class="nav-item">
+                  <a href="diagram.html" data-nsd-label-uuid="96a7536b-d7c3-4878-9fa2-ebdea04e6698" class="nav-link"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Diagram</a>
+                </li>
+                <li class="nav-item">
+                  <li data-nsd-label-uuid="3a4c1082-3e49-47f4-8351-9ecabf6ffec1" class="dropdown">
+                    <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle">
+                      <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png" class="nsd-app-label-icon"/>Graphs</a>
+                    <div class="dropdown-menu">
+                      <a href="default-graph.html" data-nsd-label-uuid="6cd3d195-742a-47d6-b80c-2675510283f5" class="dropdown-item">Default Graph</a>
+                      <a href="circular-layout-graph.html" data-nsd-label-uuid="4d9b61c3-73ea-459b-a313-e431ca78e1fd" class="dropdown-item">Circular Graph</a>
+                      <a href="force-layout-graph.html" data-nsd-label-uuid="896d84ab-7108-4bfb-b243-e98961ea77b0" class="dropdown-item">Force Graph</a>
+                      <div title="With dependencies and sub-packages" class="dropdown-divider"></div>
+                      <a href="default-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="1a810509-7f26-459d-b6b4-a913682b7816" class="dropdown-item">Default Graph</a>
+                      <a href="circular-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="d6d53594-9a50-4fe8-90dc-25c6842653dc" class="dropdown-item">Circular Graph</a>
+                      <a href="force-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="8f24fbda-b5df-4dbc-a21c-c770691a1562" class="dropdown-item">Force Graph</a>
+                    </div>
+                  </li>
+                </li>
+              </ul>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <div class="col nsd-app-navigation-panel">
+          <div class="list-group list-group-flush">
+            <a href="references/eClassifiers/Flow/index.html" data-nsd-label-uuid="41596b8e-9848-4bae-a579-13e6612287c4" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"/>Flow</a>
+            <a href="references/eClassifiers/Package/index.html" data-nsd-label-uuid="6f31666c-37cf-4305-a5ad-bafaaf66fc62" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"/>Package</a>
+          </div>
+        </div>
+        <div data-nsd-label-uuid="8405ce5b-488f-44ab-ac66-bb8514b40194" data-nsd-action-uris="uuid:8405ce5b-488f-44ab-ac66-bb8514b40194" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <H1><span data-nsd-label-uuid="8405ce5b-488f-44ab-ac66-bb8514b40194" class="nsd-app-content-panel-title"><span class="fas fa-search nsd-app-label-icon"></span>Search</span>
+                </H1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col">		<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>     
+		<script src="search-documents.js"></script>     
+     	<div id="search-app" class="container-fluid">
+     		<div class="row">
+     			<div class="col">
+					<b-form-group
+			          label="Filter"
+			          label-for="filter-input"
+			          label-cols-sm="3"
+			          label-align-sm="right"
+			          label-size="sm"
+			          class="mb-0"
+					  description="You can use wildcards, e.g. 'foo*' or 'f*o'; title or content fields, e.g. 'title:foo* bar'; boosts, e.g. 'foo^10 bar'; fuzzy matches, e.g. 'foo~1'; and term presence, e.g. '+foo bar -baz'"	          
+			        >
+			          <b-input-group size="sm">
+			            <b-form-input
+			              id="filter-input"
+			              v-model="filter"
+			              type="search"
+			              placeholder="Type to Search"
+			              debounce="700"
+			            ></b-form-input>
+			
+			            <b-input-group-append>
+			              <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
+			            </b-input-group-append>
+			          </b-input-group>
+			        </b-form-group>		
+     			</div>     		
+     		</div>
+	        
+	        <div class="row flex-nowrap">
+	        	<div class="col-auto border-right border-secondary pb-1">
+	        		<div id="nsd-site-map-tree">
+	        		</div>
+	        	</div>
+	        	<div class="col">
+			        <b-card 
+			        	v-for="searchResult in searchResults" 
+			        	:header-html="searchResult.title" 
+			        	:footer="searchResult.path"
+			        	class="my-1"
+			        	>
+			        	
+			        	<b-card-text><span v-html="searchResult.content"></span></b-card-text>
+			        </b-card>
+	        	</div>
+	        </div>	        
+     	</div>
+     
+		<script>		      
+			new Vue({
+				  el: '#search-app',
+				  data: {
+			        	filter: null,
+				      searchIndex : lunr(function () {
+						  this.ref('url');
+						  this.field('title');
+						  this.field('content');
+						  this.metadataWhitelist = ['position'];
+	
+						  for (const key in searchDocuments) {
+							  let doc = searchDocuments[key];
+							this.add({
+								url: key,
+								title: doc.title,
+								path: doc.path,
+								content: doc.content
+							});  
+						  }
+						})
+				  },				  
+				  computed: {
+					searchResults: function() {
+						if (this.filter) {
+							let searchResult = this.searchIndex.search(this.filter);
+							let actionUuids = searchResult.map(match => searchDocuments[match.ref]['action-uuid']).join(" ");
+							setTimeout(() => {
+								let treeSearchCallback = $('#nsd-site-map-tree').jstree(true).search;
+								if (treeSearchCallback) {
+									$('#nsd-site-map-tree').jstree(true).search(actionUuids);								
+								}
+							});
+							
+							return searchResult.map(function(e) {
+								let doc = searchDocuments[e.ref];
+								let titleMatches = [];
+								let contentMatches = [];
+								let matchMetaData = e.matchData.metadata;
+								for (const term in matchMetaData) {
+									if (matchMetaData[term]['title']) {
+										let positions = matchMetaData[term]['title'].position;
+										for (const match in positions) {
+											titleMatches.push(positions[match]);
+										}										
+									}
+									if (matchMetaData[term]['content']) {
+										let positions = matchMetaData[term]['content'].position;
+										for (const match in positions) {
+											contentMatches.push(positions[match]);
+										}										
+									}
+								}
+								
+								// Title highlighting
+								titleMatches.sort(function (a, b) { return a[0] - b[0] });
+								let titleElements = [];
+								let idx = 0;
+								for (const matchIdx in titleMatches) {
+									let match = titleMatches[matchIdx];
+									if (match[0] > idx) {
+										titleElements.push(doc.title.substring(idx, match[0]));
+									}
+									idx =  match[0] + match[1];
+									titleElements.push(`<span class='nsd-mark'>${doc.title.substring(match[0], idx)}</span>`);
+								}
+								if (idx < doc.title.length - 1) {
+									titleElements.push(doc.title.substring(idx, doc.title.length));
+								}
+								
+								// Content ellipsing and highlighting
+								contentMatches.sort(function (a, b) { return a[0] - b[0] });
+								let contentElements = [];
+								let snippetLength = 10;
+								idx = 0;
+								for (const matchIdx in contentMatches) {
+									let match = contentMatches[matchIdx];
+									if (match[0] > idx) {
+										let words = doc.content.substring(idx, match[0]).split(' ');
+										let snippetedWords = [];
+										if (idx == 0) {
+											if (words.length <= snippetLength) {
+												snippetedWords = words;
+											} else {
+												snippetedWords.push("&hellip;");
+												words.slice(words.length - snippetLength, words.length).forEach(e => snippetedWords.push(e));
+											}
+										} else {
+											if (words.length <= snippetLength * 2) {
+												snippetedWords = words;
+											} else {
+												words.slice(0, snippetLength).forEach(e => snippetedWords.push(e));
+												snippetedWords.push("&hellip;");
+												words.slice(words.length - snippetLength, words.length).forEach(e => snippetedWords.push(e));
+											}
+											
+										}
+										contentElements.push(snippetedWords.join(' '));
+									}
+									idx =  match[0] + match[1];
+									contentElements.push(`<span class='nsd-mark'>${doc.content.substring(match[0], idx)}</span>`);
+								}
+								if (idx < doc.content.length - 1) {
+									let words = doc.content.substring(idx, doc.content.length).split(' ');
+									if (idx == 0) {
+										if (words.length < snippetLength * 2) {
+											contentElements.push(doc.content);
+										} else {
+											let snippetedWords = [];
+											words.slice(0, snippetLength * 2).forEach(e => snippetedWords.push(e));
+											snippetedWords.push("&hellip;");
+											contentElements.push(snippetedWords.join(' '));
+										}
+									} else {
+										let snippetedWords = [];
+										if (words.length <= snippetLength) {
+											snippetedWords = words;
+										} else {
+											words.slice(0, snippetLength).forEach(e => snippetedWords.push(e));
+											snippetedWords.push("&hellip;");
+										}
+										contentElements.push(snippetedWords.join(' '));
+									}
+								}
+								return {
+									title: `<h5><a href="${e.ref}">${titleElements.join('')}</a></h5>`,
+									path: doc.path,
+									content: contentElements.join('')
+								};									
+							});
+						} 
+						setTimeout(() => {
+							let treeSearchCallback = $('#nsd-site-map-tree').jstree(true).search;
+							if (treeSearchCallback) {
+								$('#nsd-site-map-tree').jstree(true).search('');								
+							}
+						});
+						return [];
+					}  
+				  }
+			});   			
+		</script>
+		
+
+<script>$(document).ready( function() {
+$('#nsd-site-map-tree').jstree(function(tree) { tree.state.filter = function(state) { delete state.core.selected; return state; }; tree.search.search_callback = (results, node) => results.split(' ').includes(node.original['data-nsd-label-uuid']); return tree; }({"core":{"data":[{"a_attr":{"onclick":"window.location='https://github.com/Nasdanika-Models';"},"children":[{"children":[{"data-nsd-label-uuid":"8405ce5b-488f-44ab-ac66-bb8514b40194","icon":"fas fa-search","id":"e88bc8cc-0715-4ffa-bffd-07e8c7e3f6e5","text":"Search","type":"leaf"},{"a_attr":{"onclick":"window.location='glossary.html';"},"data-nsd-label-uuid":"c7778eaa-b5fa-45b6-8e7e-1a9b6ce3e059","icon":"fas fa-book","id":"7069a494-c514-45c0-87ae-2936077f00c8","text":"Glossary","type":"leaf"}],"text":"Children"},{"children":[{"a_attr":{"onclick":"window.location='https://github.com/Nasdanika-Models/flow';"},"data-nsd-label-uuid":"8e313bce-7006-4bce-887c-cd7b572eddee","icon":"fab fa-github","id":"d55fe23b-3c03-4b49-a4f2-7bc25284ce3d","text":"Sources","type":"leaf"}],"text":"Navigation"}],"data-nsd-label-uuid":"955c1033-2bf3-436f-b341-364289429e7e","icon":"https://docs.nasdanika.org/images/nasdanika-logo.png","id":"dbf1f46f-0238-414c-bee0-0184a56474ea","text":"Nasdanika Models","type":"leaf"},{"a_attr":{"onclick":"window.location='index.html';"},"children":[{"children":[{"a_attr":{"onclick":"window.location='references/eClassifiers/Flow/index.html';"},"data-nsd-label-uuid":"41596b8e-9848-4bae-a579-13e6612287c4","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"b05b5432-5bd2-4b21-829d-93c00d213c26","text":"Flow","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Package/index.html';"},"children":[{"children":[{"a_attr":{"onclick":"window.location='references/eClassifiers/Package/references/eStructuralFeatures/id/index.html';"},"data-nsd-label-uuid":"a475ab37-961c-4f3c-be73-4921a93c52d3","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EAttribute.gif","id":"12c4637d-45a0-40be-9d2d-162b807acbeb","text":"id","type":"leaf"}],"text":"E structural features"}],"data-nsd-label-uuid":"6f31666c-37cf-4305-a5ad-bafaaf66fc62","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"02e41760-dc28-446b-b704-a1d0a1b5baf2","text":"Package","type":"leaf"}],"text":"E classifiers"}],"data-nsd-label-uuid":"0b5a5a8b-24aa-4b5e-96ec-327e3f6d1aaa","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EPackage.gif","id":"350c7749-daf3-4506-8896-1f3dea7917e7","text":"flow","type":"leaf"},{"children":[{"data-nsd-label-uuid":"2a9da5a4-4b54-45b9-a6d1-c06d23847feb","icon":"far fa-question-circle","id":"44bd3205-105c-4b85-a599-06e39f40dc97","text":"(blank)","type":"leaf"}],"text":"Decorator"},{"children":[{"a_attr":{"onclick":"window.location='references/eClassifiers/Flow/attributes.html';"},"data-nsd-label-uuid":"5bea8a46-5dbb-44e8-92ee-72ce62bdab5c","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EAttribute.gif","id":"9d48935e-262c-44ee-b50e-906f8e8def9e","text":"Attributes","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Flow/inheritance.html';"},"children":[{"children":[{"a_attr":{"onclick":"window.location='references/eClassifiers/Flow/inheritance.html#uuid-0e2982d9-ccef-475d-b098-d98bac5715d3';"},"data-nsd-label-uuid":"0e2982d9-ccef-475d-b098-d98bac5715d3","id":"180f0b94-37dd-47c7-9e6f-85f062a6843a","text":"Supertypes","type":"leaf"}],"text":"Sections"}],"data-nsd-label-uuid":"c9da0ab6-604e-4115-8369-b91fbfe91bd4","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EGenericSuperType.gif","id":"41df1f1d-ea27-4ef7-9806-e5d5bed7ce55","text":"Inheritance","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Flow/references.html';"},"data-nsd-label-uuid":"35b27ff0-2801-400f-805c-169a03932869","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif","id":"8f0b2253-3ce1-42a0-9755-140da01f61c9","text":"References","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Flow/diagram.html';"},"data-nsd-label-uuid":"768e98c6-1c88-46d7-a6f1-2319ab9bad94","icon":"fas fa-project-diagram","id":"93a97fd4-16e2-4518-82ae-4c3c0c6815ab","text":"Diagram","type":"leaf"},{"children":[{"children":[{"a_attr":{"onclick":"window.location='references/eClassifiers/Flow/default-graph.html';"},"children":[{"children":[{"data-nsd-label-uuid":"75dbf37a-3263-463c-90f4-630c6afbedc7","icon":"far fa-question-circle","id":"fdd0b927-3cd3-4b32-8d0f-2e64f4a460ff","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"b63043fe-9aff-4ee5-96c0-875ad8e8dc1d","id":"b325d479-7c47-445a-b38b-3e69c6287804","text":"Default Graph","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Flow/circular-layout-graph.html';"},"children":[{"children":[{"data-nsd-label-uuid":"f265a7e3-34d0-4f42-aece-fc1c55064016","icon":"far fa-question-circle","id":"b34f6276-95a4-4e83-b130-8d0061e8eb04","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"148a2afc-37c2-4967-a01a-82352caaadd0","id":"54df72d7-dc30-4694-9af4-428b380efffa","text":"Circular Graph","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Flow/force-layout-graph.html';"},"children":[{"children":[{"data-nsd-label-uuid":"79b6ddb9-f5a5-413a-8335-48106cd49fa4","icon":"far fa-question-circle","id":"b381caec-c382-44a2-b12e-2db47df8f508","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"409832b1-e87e-4f49-990f-94190cd4f766","id":"b22d9979-2465-460e-9e6e-b26955610aef","text":"Force Graph","type":"leaf"}],"text":"Children"},{"children":[{"data-nsd-label-uuid":"e646fe31-d7d9-458a-9df3-89c600771780","icon":"far fa-question-circle","id":"nsd_k","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"009906a2-cf92-437a-83f5-37596906af65","icon":"https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png","id":"0c8a77d2-8089-44e5-829f-da0d3e3cf961","text":"Graphs","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Flow/load-specification.html';"},"data-nsd-label-uuid":"3bbe1436-64da-4820-bb9e-be252f2bada8","id":"4d162e46-eaa0-4d5a-9c07-96f842f64486","text":"Load specification","type":"leaf"}],"text":"Navigation"},{"children":[{"data-nsd-label-uuid":"d435e834-5f8f-4fc1-a64e-6231794bd39c","icon":"far fa-question-circle","id":"77606a8c-9483-48ce-9cdf-0dba1cef9214","text":"(blank)","type":"leaf"}],"text":"Decorator"},{"children":[{"a_attr":{"onclick":"window.location='references/eClassifiers/Package/attributes.html';"},"data-nsd-label-uuid":"dd43612e-9e54-4024-b5a9-76efd0309261","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EAttribute.gif","id":"ff46a0f8-6794-475c-97b2-a39050155b7a","text":"Attributes","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Package/inheritance.html';"},"children":[{"children":[{"a_attr":{"onclick":"window.location='references/eClassifiers/Package/inheritance.html#uuid-7badda29-9a22-4008-9cc3-1694e074de6f';"},"data-nsd-label-uuid":"7badda29-9a22-4008-9cc3-1694e074de6f","id":"36c7abc4-75b8-4766-b9aa-c60c4c297429","text":"Supertypes","type":"leaf"}],"text":"Sections"}],"data-nsd-label-uuid":"e9b9a6e4-bb43-4b83-9e8e-24aea833bc81","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EGenericSuperType.gif","id":"735c7943-573e-424a-87e8-012bc56ae3e7","text":"Inheritance","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Package/references.html';"},"data-nsd-label-uuid":"f39359e6-dba5-44c8-8d20-64c054cbdbc7","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif","id":"923c495b-be59-440c-87a3-2a9e73c5de9c","text":"References","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Package/diagram.html';"},"data-nsd-label-uuid":"a40ac746-2ad2-4c72-92d7-3e4f22b9d3bc","icon":"fas fa-project-diagram","id":"7914dc7a-8a39-4190-86d8-cc54c9c16cd3","text":"Diagram","type":"leaf"},{"children":[{"children":[{"a_attr":{"onclick":"window.location='references/eClassifiers/Package/default-graph.html';"},"children":[{"children":[{"data-nsd-label-uuid":"aa7e2aa3-b6a9-4d5b-8253-1adf106ebbb8","icon":"far fa-question-circle","id":"d49cd882-1169-4332-9dfc-cb761d9aaf85","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"685aec24-8070-46ef-a766-dd76f29f15e3","id":"deef1f79-ba3b-4849-80ae-3ba70a339b7a","text":"Default Graph","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Package/circular-layout-graph.html';"},"children":[{"children":[{"data-nsd-label-uuid":"96b0fb9e-5096-4ced-a00a-721fe0d2065a","icon":"far fa-question-circle","id":"60e25b8b-15a5-4917-b08c-0a5b3de8473e","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"88e86a45-8ea2-491a-a2ed-dd302c4cf01f","id":"3066e89c-70ae-47e8-8b28-d6b9fad753ac","text":"Circular Graph","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Package/force-layout-graph.html';"},"children":[{"children":[{"data-nsd-label-uuid":"c1703820-0fa8-4320-9577-db43b3a248b1","icon":"far fa-question-circle","id":"7fa9ef4e-ffb6-4681-b8aa-75252ef5bd5d","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"9e716519-2424-44b3-9e48-5e6b6f5527e1","id":"f39582ff-d5e3-4ef0-a08d-09530f020342","text":"Force Graph","type":"leaf"}],"text":"Children"},{"children":[{"data-nsd-label-uuid":"99b76e1d-44a6-4ff6-9483-69ee7b78d845","icon":"far fa-question-circle","id":"nsd_12","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"5d7213b5-380f-4505-813d-d0f52202d02c","icon":"https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png","id":"ff73b4aa-c9fd-46a9-88a8-a979ffa5f02a","text":"Graphs","type":"leaf"},{"a_attr":{"onclick":"window.location='references/eClassifiers/Package/load-specification.html';"},"data-nsd-label-uuid":"16e37848-402b-4fb7-90e7-dbd1578bf8ff","id":"1fa06d04-6e8d-4995-b935-0264b4620223","text":"Load specification","type":"leaf"}],"text":"Navigation"},{"children":[{"data-nsd-label-uuid":"f68e22c2-5c4d-46dc-aa1f-a78dd76f8dd6","icon":"far fa-question-circle","id":"10b2a0ea-4af8-46f0-a2ec-ca50ceaec3f4","text":"(blank)","type":"leaf"}],"text":"Decorator"},{"children":[{"data-nsd-label-uuid":"b065eb44-26d9-466e-94f1-1e0890d3a632","icon":"far fa-question-circle","id":"6c42cb9b-0a5c-4d19-994e-332628a03569","text":"(blank)","type":"leaf"}],"text":"Decorator"},{"children":[{"a_attr":{"onclick":"window.location='classifiers.html';"},"data-nsd-label-uuid":"426e2c99-7b8f-461c-8a6e-6547e4780723","id":"1f5d7910-3c83-40f8-a5d1-2813c104c8ee","text":"Classifiers","type":"leaf"},{"a_attr":{"onclick":"window.location='diagram.html';"},"children":[{"children":[{"data-nsd-label-uuid":"3c04c196-1ea5-46e0-99e1-8f828043ad34","icon":"far fa-question-circle","id":"09df0270-4eed-4aa3-ad48-afc29d26201c","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"96a7536b-d7c3-4878-9fa2-ebdea04e6698","icon":"fas fa-project-diagram","id":"06165a54-fdc1-4c2c-b95a-ddc3572937f6","text":"Diagram","type":"leaf"},{"children":[{"children":[{"a_attr":{"onclick":"window.location='default-graph.html';"},"children":[{"children":[{"data-nsd-label-uuid":"1b42840a-ff75-4a6f-92e8-4ad2da0639ad","icon":"far fa-question-circle","id":"6773e22c-3604-4334-835b-364c7f6a1e43","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"6cd3d195-742a-47d6-b80c-2675510283f5","id":"a8f08b6c-8ee7-4d7c-a758-03f63dc024e9","text":"Default Graph","type":"leaf"},{"a_attr":{"onclick":"window.location='circular-layout-graph.html';"},"children":[{"children":[{"data-nsd-label-uuid":"607bd063-147c-40a3-94ee-54ca6249db2c","icon":"far fa-question-circle","id":"218ad64f-995a-4707-964b-08d3a6311ce7","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"4d9b61c3-73ea-459b-a313-e431ca78e1fd","id":"232c69d6-c01b-44d6-a6e5-1db5373e258b","text":"Circular Graph","type":"leaf"},{"a_attr":{"onclick":"window.location='force-layout-graph.html';"},"children":[{"children":[{"data-nsd-label-uuid":"1fe5bb92-2e59-4785-8b7a-c739c59e1d4a","icon":"far fa-question-circle","id":"a33189c4-66de-40b6-9e48-5989617761da","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"896d84ab-7108-4bfb-b243-e98961ea77b0","id":"28e9bd7d-30bd-43ca-a909-9f495922faa9","text":"Force Graph","type":"leaf"},{"data-nsd-label-uuid":"d6f87bf0-62d5-4828-b174-38dee8f3cef8","id":"nsd_1f","text":"(blank)","type":"leaf"},{"a_attr":{"onclick":"window.location='default-graph-with-dependencies-and-subpackages.html';"},"children":[{"children":[{"data-nsd-label-uuid":"761e6277-a8fa-4003-96d4-1efcaddece95","icon":"far fa-question-circle","id":"37721067-b40c-4ebe-9aca-1087c054bb13","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"1a810509-7f26-459d-b6b4-a913682b7816","id":"20d58711-fa63-4891-a34c-a47f02bcd752","text":"Default Graph","type":"leaf"},{"a_attr":{"onclick":"window.location='circular-layout-graph-with-dependencies-and-subpackages.html';"},"children":[{"children":[{"data-nsd-label-uuid":"a59ce7e0-8521-41e0-bb76-8782feca9a08","icon":"far fa-question-circle","id":"95d532c1-33b8-4a89-bd26-744aa6451801","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"d6d53594-9a50-4fe8-90dc-25c6842653dc","id":"1e200d3c-1d12-4563-a457-46c50db9ff2b","text":"Circular Graph","type":"leaf"},{"a_attr":{"onclick":"window.location='force-layout-graph-with-dependencies-and-subpackages.html';"},"children":[{"children":[{"data-nsd-label-uuid":"b20b18b1-9f55-4ea3-b9f4-792151d10cd1","icon":"far fa-question-circle","id":"aad0a21c-649b-46de-936b-1467f04341f0","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"8f24fbda-b5df-4dbc-a21c-c770691a1562","id":"cd309a0e-32a1-4e19-b219-a9277bbb92f7","text":"Force Graph","type":"leaf"}],"text":"Children"},{"children":[{"data-nsd-label-uuid":"c0e521c9-a41f-4122-9275-bb6e9edbc2cf","icon":"far fa-question-circle","id":"nsd_1m","text":"(blank)","type":"leaf"}],"text":"Decorator"}],"data-nsd-label-uuid":"3a4c1082-3e49-47f4-8351-9ecabf6ffec1","icon":"https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png","id":"ad6a550d-e172-4cd3-9003-1fdad7f6ca05","text":"Graphs","type":"leaf"}],"text":"Navigation"}]},"search":{"show_only_matches":true},"plugins":["state","search"],"state":{"key":"nsd-site-map-tree"}}));
+});</script>
+				
+		</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika-Models/flow" data-nsd-label-uuid="8e313bce-7006-4bce-887c-cd7b572eddee" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>Sources</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
