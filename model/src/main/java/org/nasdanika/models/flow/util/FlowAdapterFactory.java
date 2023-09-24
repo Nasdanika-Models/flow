@@ -10,8 +10,31 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.nasdanika.common.Adaptable;
+import org.nasdanika.models.flow.Activity;
+import org.nasdanika.models.flow.Artifact;
+import org.nasdanika.models.flow.ArtifactInfo;
+import org.nasdanika.models.flow.Call;
+import org.nasdanika.models.flow.ComplexDataElement;
+import org.nasdanika.models.flow.Connection;
+import org.nasdanika.models.flow.DataElement;
+import org.nasdanika.models.flow.DataType;
+import org.nasdanika.models.flow.EcoreDataType;
+import org.nasdanika.models.flow.End;
 import org.nasdanika.models.flow.Flow;
+import org.nasdanika.models.flow.FlowElement;
 import org.nasdanika.models.flow.FlowPackage;
+import org.nasdanika.models.flow.ForkJoin;
+import org.nasdanika.models.flow.InputPort;
+import org.nasdanika.models.flow.Node;
+import org.nasdanika.models.flow.OutputPort;
+import org.nasdanika.models.flow.Participant;
+import org.nasdanika.models.flow.Resource;
+import org.nasdanika.models.flow.Role;
+import org.nasdanika.models.flow.SimpleDataElement;
+import org.nasdanika.models.flow.Source;
+import org.nasdanika.models.flow.Start;
+import org.nasdanika.models.flow.Target;
+import org.nasdanika.models.flow.Transition;
 import org.nasdanika.ncore.Documented;
 import org.nasdanika.ncore.DocumentedNamedElement;
 import org.nasdanika.ncore.ModelElement;
@@ -76,12 +99,108 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	protected FlowSwitch<Adapter> modelSwitch =
 		new FlowSwitch<Adapter>() {
 			@Override
-			public Adapter casePackage(org.nasdanika.models.flow.Package object) {
-				return createPackageAdapter();
+			public Adapter caseModelElement(org.nasdanika.models.flow.ModelElement object) {
+				return createModelElementAdapter();
+			}
+			@Override
+			public Adapter caseConnection(Connection object) {
+				return createConnectionAdapter();
+			}
+			@Override
+			public Adapter caseSource(Source object) {
+				return createSourceAdapter();
+			}
+			@Override
+			public Adapter caseStart(Start object) {
+				return createStartAdapter();
+			}
+			@Override
+			public Adapter caseInputPort(InputPort object) {
+				return createInputPortAdapter();
+			}
+			@Override
+			public Adapter caseTarget(Target object) {
+				return createTargetAdapter();
+			}
+			@Override
+			public Adapter caseEnd(End object) {
+				return createEndAdapter();
+			}
+			@Override
+			public Adapter caseOutputPort(OutputPort object) {
+				return createOutputPortAdapter();
+			}
+			@Override
+			public Adapter caseNode(Node object) {
+				return createNodeAdapter();
+			}
+			@Override
+			public Adapter caseForkJoin(ForkJoin object) {
+				return createForkJoinAdapter();
+			}
+			@Override
+			public Adapter caseTransition(Transition object) {
+				return createTransitionAdapter();
+			}
+			@Override
+			public Adapter caseCall(Call object) {
+				return createCallAdapter();
+			}
+			@Override
+			public Adapter caseFlowElement(FlowElement object) {
+				return createFlowElementAdapter();
+			}
+			@Override
+			public Adapter caseActivity(Activity object) {
+				return createActivityAdapter();
 			}
 			@Override
 			public Adapter caseFlow(Flow object) {
 				return createFlowAdapter();
+			}
+			@Override
+			public Adapter caseArtifact(Artifact object) {
+				return createArtifactAdapter();
+			}
+			@Override
+			public Adapter caseResource(Resource object) {
+				return createResourceAdapter();
+			}
+			@Override
+			public Adapter caseParticipant(Participant object) {
+				return createParticipantAdapter();
+			}
+			@Override
+			public Adapter caseRole(Role object) {
+				return createRoleAdapter();
+			}
+			@Override
+			public Adapter caseArtifactInfo(ArtifactInfo object) {
+				return createArtifactInfoAdapter();
+			}
+			@Override
+			public Adapter casePackage(org.nasdanika.models.flow.Package object) {
+				return createPackageAdapter();
+			}
+			@Override
+			public Adapter caseDataType(DataType object) {
+				return createDataTypeAdapter();
+			}
+			@Override
+			public Adapter caseDataElement(DataElement object) {
+				return createDataElementAdapter();
+			}
+			@Override
+			public Adapter caseComplexDataElement(ComplexDataElement object) {
+				return createComplexDataElementAdapter();
+			}
+			@Override
+			public Adapter caseSimpleDataElement(SimpleDataElement object) {
+				return createSimpleDataElementAdapter();
+			}
+			@Override
+			public Adapter caseEcoreDataType(EcoreDataType object) {
+				return createEcoreDataTypeAdapter();
 			}
 			@Override
 			public Adapter caseIMarked(Marked object) {
@@ -96,8 +215,8 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 				return createAdaptableAdapter();
 			}
 			@Override
-			public Adapter caseModelElement(ModelElement object) {
-				return createModelElementAdapter();
+			public Adapter caseNcore_ModelElement(ModelElement object) {
+				return createNcore_ModelElementAdapter();
 			}
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
@@ -146,6 +265,76 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.DataType <em>Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.DataType
+	 * @generated
+	 */
+	public Adapter createDataTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.DataElement <em>Data Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.DataElement
+	 * @generated
+	 */
+	public Adapter createDataElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.ComplexDataElement <em>Complex Data Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.ComplexDataElement
+	 * @generated
+	 */
+	public Adapter createComplexDataElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.SimpleDataElement <em>Simple Data Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.SimpleDataElement
+	 * @generated
+	 */
+	public Adapter createSimpleDataElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.EcoreDataType <em>Ecore Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.EcoreDataType
+	 * @generated
+	 */
+	public Adapter createEcoreDataTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Flow <em>Flow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -156,6 +345,76 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFlowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Artifact <em>Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Artifact
+	 * @generated
+	 */
+	public Adapter createArtifactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Resource <em>Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Resource
+	 * @generated
+	 */
+	public Adapter createResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Participant <em>Participant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Participant
+	 * @generated
+	 */
+	public Adapter createParticipantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Role <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Role
+	 * @generated
+	 */
+	public Adapter createRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.ArtifactInfo <em>Artifact Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.ArtifactInfo
+	 * @generated
+	 */
+	public Adapter createArtifactInfoAdapter() {
 		return null;
 	}
 
@@ -211,7 +470,203 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.nasdanika.ncore.ModelElement
 	 * @generated
 	 */
+	public Adapter createNcore_ModelElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.ModelElement <em>Model Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.ModelElement
+	 * @generated
+	 */
 	public Adapter createModelElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Connection <em>Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Connection
+	 * @generated
+	 */
+	public Adapter createConnectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Source <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Source
+	 * @generated
+	 */
+	public Adapter createSourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Start <em>Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Start
+	 * @generated
+	 */
+	public Adapter createStartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.InputPort <em>Input Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.InputPort
+	 * @generated
+	 */
+	public Adapter createInputPortAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Target <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Target
+	 * @generated
+	 */
+	public Adapter createTargetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.End <em>End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.End
+	 * @generated
+	 */
+	public Adapter createEndAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.OutputPort <em>Output Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.OutputPort
+	 * @generated
+	 */
+	public Adapter createOutputPortAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Node <em>Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Node
+	 * @generated
+	 */
+	public Adapter createNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.ForkJoin <em>Fork Join</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.ForkJoin
+	 * @generated
+	 */
+	public Adapter createForkJoinAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Transition <em>Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Transition
+	 * @generated
+	 */
+	public Adapter createTransitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Call <em>Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Call
+	 * @generated
+	 */
+	public Adapter createCallAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.FlowElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.FlowElement
+	 * @generated
+	 */
+	public Adapter createFlowElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Activity <em>Activity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Activity
+	 * @generated
+	 */
+	public Adapter createActivityAdapter() {
 		return null;
 	}
 

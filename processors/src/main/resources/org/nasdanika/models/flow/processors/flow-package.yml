@@ -1,0 +1,11 @@
+app-action:
+    text: Flow
+    tooltip: TODO
+    content:
+      content-markdown:
+        style: true
+        source:
+          content-resource: 
+            location: flow-package.md
+            interpolate: true
+    
