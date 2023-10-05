@@ -13,7 +13,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.models.flow.ArtifactConsumer;
 import org.nasdanika.models.flow.ArtifactInfo;
+import org.nasdanika.models.flow.ArtifactProcessor;
+import org.nasdanika.models.flow.ArtifactProducer;
 import org.nasdanika.models.flow.Connection;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.InputPort;
@@ -30,17 +33,17 @@ import org.nasdanika.models.flow.Target;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.flow.impl.NodeImpl#getOutgoingConnections <em>Outgoing Connections</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.NodeImpl#getOutputs <em>Outputs</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.impl.NodeImpl#getIncomingConnections <em>Incoming Connections</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.NodeImpl#getOutgoingConnections <em>Outgoing Connections</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.NodeImpl#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.NodeImpl#getIncomingConnections <em>Incoming Connections</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.NodeImpl#getInputPorts <em>Input Ports</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.NodeImpl#getOutputPorts <em>Output Ports</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NodeImpl extends FlowElementImpl implements Node {
+public class NodeImpl extends ProcessElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -79,7 +82,7 @@ public class NodeImpl extends FlowElementImpl implements Node {
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<ArtifactInfo> getOutputs() {
-		return (EList<ArtifactInfo>)eDynamicGet(FlowPackage.NODE__OUTPUTS, FlowPackage.Literals.SOURCE__OUTPUTS, true, true);
+		return (EList<ArtifactInfo>)eDynamicGet(FlowPackage.NODE__OUTPUTS, FlowPackage.Literals.ARTIFACT_PRODUCER__OUTPUTS, true, true);
 	}
 
 	/**
@@ -101,7 +104,7 @@ public class NodeImpl extends FlowElementImpl implements Node {
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<ArtifactInfo> getInputs() {
-		return (EList<ArtifactInfo>)eDynamicGet(FlowPackage.NODE__INPUTS, FlowPackage.Literals.TARGET__INPUTS, true, true);
+		return (EList<ArtifactInfo>)eDynamicGet(FlowPackage.NODE__INPUTS, FlowPackage.Literals.ARTIFACT_CONSUMER__INPUTS, true, true);
 	}
 
 	/**
@@ -149,14 +152,14 @@ public class NodeImpl extends FlowElementImpl implements Node {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FlowPackage.NODE__OUTGOING_CONNECTIONS:
-				return ((InternalEList<?>)getOutgoingConnections()).basicRemove(otherEnd, msgs);
 			case FlowPackage.NODE__OUTPUTS:
 				return ((InternalEList<?>)getOutputs()).basicRemove(otherEnd, msgs);
-			case FlowPackage.NODE__INCOMING_CONNECTIONS:
-				return ((InternalEList<?>)getIncomingConnections()).basicRemove(otherEnd, msgs);
+			case FlowPackage.NODE__OUTGOING_CONNECTIONS:
+				return ((InternalEList<?>)getOutgoingConnections()).basicRemove(otherEnd, msgs);
 			case FlowPackage.NODE__INPUTS:
 				return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
+			case FlowPackage.NODE__INCOMING_CONNECTIONS:
+				return ((InternalEList<?>)getIncomingConnections()).basicRemove(otherEnd, msgs);
 			case FlowPackage.NODE__INPUT_PORTS:
 				return ((InternalEList<?>)getInputPorts()).basicRemove(otherEnd, msgs);
 			case FlowPackage.NODE__OUTPUT_PORTS:
@@ -173,14 +176,14 @@ public class NodeImpl extends FlowElementImpl implements Node {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FlowPackage.NODE__OUTGOING_CONNECTIONS:
-				return getOutgoingConnections();
 			case FlowPackage.NODE__OUTPUTS:
 				return getOutputs();
-			case FlowPackage.NODE__INCOMING_CONNECTIONS:
-				return getIncomingConnections();
+			case FlowPackage.NODE__OUTGOING_CONNECTIONS:
+				return getOutgoingConnections();
 			case FlowPackage.NODE__INPUTS:
 				return getInputs();
+			case FlowPackage.NODE__INCOMING_CONNECTIONS:
+				return getIncomingConnections();
 			case FlowPackage.NODE__INPUT_PORTS:
 				return getInputPorts();
 			case FlowPackage.NODE__OUTPUT_PORTS:
@@ -198,21 +201,21 @@ public class NodeImpl extends FlowElementImpl implements Node {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FlowPackage.NODE__OUTGOING_CONNECTIONS:
-				getOutgoingConnections().clear();
-				getOutgoingConnections().addAll((Collection<? extends Connection>)newValue);
-				return;
 			case FlowPackage.NODE__OUTPUTS:
 				getOutputs().clear();
 				getOutputs().addAll((Collection<? extends ArtifactInfo>)newValue);
 				return;
-			case FlowPackage.NODE__INCOMING_CONNECTIONS:
-				getIncomingConnections().clear();
-				getIncomingConnections().addAll((Collection<? extends Connection>)newValue);
+			case FlowPackage.NODE__OUTGOING_CONNECTIONS:
+				getOutgoingConnections().clear();
+				getOutgoingConnections().addAll((Collection<? extends Connection>)newValue);
 				return;
 			case FlowPackage.NODE__INPUTS:
 				getInputs().clear();
 				getInputs().addAll((Collection<? extends ArtifactInfo>)newValue);
+				return;
+			case FlowPackage.NODE__INCOMING_CONNECTIONS:
+				getIncomingConnections().clear();
+				getIncomingConnections().addAll((Collection<? extends Connection>)newValue);
 				return;
 			case FlowPackage.NODE__INPUT_PORTS:
 				getInputPorts().clear();
@@ -234,17 +237,17 @@ public class NodeImpl extends FlowElementImpl implements Node {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FlowPackage.NODE__OUTGOING_CONNECTIONS:
-				getOutgoingConnections().clear();
-				return;
 			case FlowPackage.NODE__OUTPUTS:
 				getOutputs().clear();
 				return;
-			case FlowPackage.NODE__INCOMING_CONNECTIONS:
-				getIncomingConnections().clear();
+			case FlowPackage.NODE__OUTGOING_CONNECTIONS:
+				getOutgoingConnections().clear();
 				return;
 			case FlowPackage.NODE__INPUTS:
 				getInputs().clear();
+				return;
+			case FlowPackage.NODE__INCOMING_CONNECTIONS:
+				getIncomingConnections().clear();
 				return;
 			case FlowPackage.NODE__INPUT_PORTS:
 				getInputPorts().clear();
@@ -264,14 +267,14 @@ public class NodeImpl extends FlowElementImpl implements Node {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FlowPackage.NODE__OUTGOING_CONNECTIONS:
-				return !getOutgoingConnections().isEmpty();
 			case FlowPackage.NODE__OUTPUTS:
 				return !getOutputs().isEmpty();
-			case FlowPackage.NODE__INCOMING_CONNECTIONS:
-				return !getIncomingConnections().isEmpty();
+			case FlowPackage.NODE__OUTGOING_CONNECTIONS:
+				return !getOutgoingConnections().isEmpty();
 			case FlowPackage.NODE__INPUTS:
 				return !getInputs().isEmpty();
+			case FlowPackage.NODE__INCOMING_CONNECTIONS:
+				return !getIncomingConnections().isEmpty();
 			case FlowPackage.NODE__INPUT_PORTS:
 				return !getInputPorts().isEmpty();
 			case FlowPackage.NODE__OUTPUT_PORTS:
@@ -287,17 +290,32 @@ public class NodeImpl extends FlowElementImpl implements Node {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ArtifactProducer.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.NODE__OUTPUTS: return FlowPackage.ARTIFACT_PRODUCER__OUTPUTS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Source.class) {
 			switch (derivedFeatureID) {
 				case FlowPackage.NODE__OUTGOING_CONNECTIONS: return FlowPackage.SOURCE__OUTGOING_CONNECTIONS;
-				case FlowPackage.NODE__OUTPUTS: return FlowPackage.SOURCE__OUTPUTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ArtifactConsumer.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.NODE__INPUTS: return FlowPackage.ARTIFACT_CONSUMER__INPUTS;
 				default: return -1;
 			}
 		}
 		if (baseClass == Target.class) {
 			switch (derivedFeatureID) {
 				case FlowPackage.NODE__INCOMING_CONNECTIONS: return FlowPackage.TARGET__INCOMING_CONNECTIONS;
-				case FlowPackage.NODE__INPUTS: return FlowPackage.TARGET__INPUTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ArtifactProcessor.class) {
+			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
@@ -311,17 +329,32 @@ public class NodeImpl extends FlowElementImpl implements Node {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ArtifactProducer.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.ARTIFACT_PRODUCER__OUTPUTS: return FlowPackage.NODE__OUTPUTS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Source.class) {
 			switch (baseFeatureID) {
 				case FlowPackage.SOURCE__OUTGOING_CONNECTIONS: return FlowPackage.NODE__OUTGOING_CONNECTIONS;
-				case FlowPackage.SOURCE__OUTPUTS: return FlowPackage.NODE__OUTPUTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ArtifactConsumer.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.ARTIFACT_CONSUMER__INPUTS: return FlowPackage.NODE__INPUTS;
 				default: return -1;
 			}
 		}
 		if (baseClass == Target.class) {
 			switch (baseFeatureID) {
 				case FlowPackage.TARGET__INCOMING_CONNECTIONS: return FlowPackage.NODE__INCOMING_CONNECTIONS;
-				case FlowPackage.TARGET__INPUTS: return FlowPackage.NODE__INPUTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ArtifactProcessor.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * An information about how an artifact is used
+ * Information about input/output artifact
  * <!-- end-model-doc -->
  *
  * <p>
@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.flow.ArtifactInfo#getArtifact <em>Artifact</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.ArtifactInfo#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.ArtifactInfo#getResources <em>Resources</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.ArtifactInfo#getParticipants <em>Participants</em>}</li>
  * </ul>
@@ -56,30 +55,13 @@ public interface ArtifactInfo extends ModelElement {
 	void setArtifact(Artifact value);
 
 	/**
-	 * Returns the value of the '<em><b>Roles</b></em>' reference list.
-	 * The list contents are of type {@link org.nasdanika.models.flow.Role}.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.flow.Role#getInfos <em>Infos</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Roles workig on the artifact
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Roles</em>' reference list.
-	 * @see org.nasdanika.models.flow.FlowPackage#getArtifactInfo_Roles()
-	 * @see org.nasdanika.models.flow.Role#getInfos
-	 * @model opposite="infos"
-	 * @generated
-	 */
-	EList<Role> getRoles();
-
-	/**
 	 * Returns the value of the '<em><b>Resources</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.models.flow.Resource}.
 	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.flow.Resource#getInfos <em>Infos</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Resources used to work on the artifact
+	 * Resources used to work on the artifact or store the artifact
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resources</em>' reference list.
 	 * @see org.nasdanika.models.flow.FlowPackage#getArtifactInfo_Resources()

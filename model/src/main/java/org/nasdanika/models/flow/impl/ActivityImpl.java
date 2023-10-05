@@ -25,9 +25,9 @@ import org.nasdanika.models.flow.Role;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.flow.impl.ActivityImpl#getRoles <em>Roles</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.impl.ActivityImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ActivityImpl#getParticipants <em>Participants</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.ActivityImpl#getResources <em>Resources</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.ActivityImpl#getRoles <em>Roles</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,7 +71,7 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<Resource> getResources() {
-		return (EList<Resource>)eDynamicGet(FlowPackage.ACTIVITY__RESOURCES, FlowPackage.Literals.ACTIVITY__RESOURCES, true, true);
+		return (EList<Resource>)eDynamicGet(FlowPackage.ACTIVITY__RESOURCES, FlowPackage.Literals.ROLE__RESOURCES, true, true);
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<Participant> getParticipants() {
-		return (EList<Participant>)eDynamicGet(FlowPackage.ACTIVITY__PARTICIPANTS, FlowPackage.Literals.ACTIVITY__PARTICIPANTS, true, true);
+		return (EList<Participant>)eDynamicGet(FlowPackage.ACTIVITY__PARTICIPANTS, FlowPackage.Literals.ROLE__PARTICIPANTS, true, true);
 	}
 
 	/**
@@ -94,10 +94,10 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FlowPackage.ACTIVITY__RESOURCES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
 			case FlowPackage.ACTIVITY__PARTICIPANTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParticipants()).basicAdd(otherEnd, msgs);
+			case FlowPackage.ACTIVITY__RESOURCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -110,10 +110,10 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FlowPackage.ACTIVITY__RESOURCES:
-				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ACTIVITY__PARTICIPANTS:
 				return ((InternalEList<?>)getParticipants()).basicRemove(otherEnd, msgs);
+			case FlowPackage.ACTIVITY__RESOURCES:
+				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -126,12 +126,12 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FlowPackage.ACTIVITY__ROLES:
-				return getRoles();
-			case FlowPackage.ACTIVITY__RESOURCES:
-				return getResources();
 			case FlowPackage.ACTIVITY__PARTICIPANTS:
 				return getParticipants();
+			case FlowPackage.ACTIVITY__RESOURCES:
+				return getResources();
+			case FlowPackage.ACTIVITY__ROLES:
+				return getRoles();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -145,17 +145,17 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FlowPackage.ACTIVITY__ROLES:
-				getRoles().clear();
-				getRoles().addAll((Collection<? extends Role>)newValue);
+			case FlowPackage.ACTIVITY__PARTICIPANTS:
+				getParticipants().clear();
+				getParticipants().addAll((Collection<? extends Participant>)newValue);
 				return;
 			case FlowPackage.ACTIVITY__RESOURCES:
 				getResources().clear();
 				getResources().addAll((Collection<? extends Resource>)newValue);
 				return;
-			case FlowPackage.ACTIVITY__PARTICIPANTS:
-				getParticipants().clear();
-				getParticipants().addAll((Collection<? extends Participant>)newValue);
+			case FlowPackage.ACTIVITY__ROLES:
+				getRoles().clear();
+				getRoles().addAll((Collection<? extends Role>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -169,14 +169,14 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FlowPackage.ACTIVITY__ROLES:
-				getRoles().clear();
+			case FlowPackage.ACTIVITY__PARTICIPANTS:
+				getParticipants().clear();
 				return;
 			case FlowPackage.ACTIVITY__RESOURCES:
 				getResources().clear();
 				return;
-			case FlowPackage.ACTIVITY__PARTICIPANTS:
-				getParticipants().clear();
+			case FlowPackage.ACTIVITY__ROLES:
+				getRoles().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -190,14 +190,48 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FlowPackage.ACTIVITY__ROLES:
-				return !getRoles().isEmpty();
-			case FlowPackage.ACTIVITY__RESOURCES:
-				return !getResources().isEmpty();
 			case FlowPackage.ACTIVITY__PARTICIPANTS:
 				return !getParticipants().isEmpty();
+			case FlowPackage.ACTIVITY__RESOURCES:
+				return !getResources().isEmpty();
+			case FlowPackage.ACTIVITY__ROLES:
+				return !getRoles().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Role.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.ACTIVITY__PARTICIPANTS: return FlowPackage.ROLE__PARTICIPANTS;
+				case FlowPackage.ACTIVITY__RESOURCES: return FlowPackage.ROLE__RESOURCES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Role.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.ROLE__PARTICIPANTS: return FlowPackage.ACTIVITY__PARTICIPANTS;
+				case FlowPackage.ROLE__RESOURCES: return FlowPackage.ACTIVITY__RESOURCES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //ActivityImpl

@@ -18,10 +18,9 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.flow.Artifact#getResources <em>Resources</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.Artifact#getDataElements <em>Data Elements</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.Artifact#getInfos <em>Infos</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.Artifact#getParticipants <em>Participants</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.Artifact#getRoles <em>Roles</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.Artifact#getInfos <em>Infos</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.Artifact#getDataElements <em>Data Elements</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getArtifact()
@@ -96,22 +95,5 @@ public interface Artifact extends ModelElement {
 	 * @generated
 	 */
 	EList<Participant> getParticipants();
-
-	/**
-	 * Returns the value of the '<em><b>Roles</b></em>' reference list.
-	 * The list contents are of type {@link org.nasdanika.models.flow.Role}.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.flow.Role#getArtifacts <em>Artifacts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Roles which use this artifact
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Roles</em>' reference list.
-	 * @see org.nasdanika.models.flow.FlowPackage#getArtifact_Roles()
-	 * @see org.nasdanika.models.flow.Role#getArtifacts
-	 * @model opposite="artifacts"
-	 * @generated
-	 */
-	EList<Role> getRoles();
 
 } // Artifact

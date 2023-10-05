@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.flow.Package#getSubPackages <em>Sub Packages</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.Package#getFlows <em>Flows</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.Package#getProcesses <em>Processes</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.Package#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.Package#getResources <em>Resources</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.Package#getArtifacts <em>Artifacts</em>}</li>
@@ -47,19 +47,19 @@ public interface Package extends ModelElement {
 	EList<Package> getSubPackages();
 
 	/**
-	 * Returns the value of the '<em><b>Flows</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.flow.Flow}.
+	 * Returns the value of the '<em><b>Processes</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.flow.Process}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Flows defined in this package
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Flows</em>' containment reference list.
-	 * @see org.nasdanika.models.flow.FlowPackage#getPackage_Flows()
+	 * @return the value of the '<em>Processes</em>' containment reference list.
+	 * @see org.nasdanika.models.flow.FlowPackage#getPackage_Processes()
 	 * @model containment="true" keys="id"
 	 * @generated
 	 */
-	EList<Flow> getFlows();
+	EList<org.nasdanika.models.flow.Process> getProcesses();
 
 	/**
 	 * Returns the value of the '<em><b>Participants</b></em>' containment reference list.

@@ -31,6 +31,15 @@ public interface FlowFactory extends EFactory {
 	Connection createConnection();
 
 	/**
+	 * Returns a new object of class '<em>Process Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Process Element</em>'.
+	 * @generated
+	 */
+	ProcessElement createProcessElement();
+
+	/**
 	 * Returns a new object of class '<em>Start</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,13 +85,13 @@ public interface FlowFactory extends EFactory {
 	Node createNode();
 
 	/**
-	 * Returns a new object of class '<em>Fork Join</em>'.
+	 * Returns a new object of class '<em>Gateway</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Fork Join</em>'.
+	 * @return a new object of class '<em>Gateway</em>'.
 	 * @generated
 	 */
-	ForkJoin createForkJoin();
+	Gateway createGateway();
 
 	/**
 	 * Returns a new object of class '<em>Transition</em>'.
@@ -110,6 +119,15 @@ public interface FlowFactory extends EFactory {
 	 * @generated
 	 */
 	Activity createActivity();
+
+	/**
+	 * Returns a new object of class '<em>Process</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Process</em>'.
+	 * @generated
+	 */
+	Process createProcess();
 
 	/**
 	 * Returns a new object of class '<em>Package</em>'.
@@ -164,15 +182,6 @@ public interface FlowFactory extends EFactory {
 	 * @generated
 	 */
 	EcoreDataType createEcoreDataType();
-
-	/**
-	 * Returns a new object of class '<em>Flow</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Flow</em>'.
-	 * @generated
-	 */
-	Flow createFlow();
 
 	/**
 	 * Returns a new object of class '<em>Artifact</em>'.

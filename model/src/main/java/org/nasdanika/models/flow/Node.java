@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Node extends FlowElement, Source, Target {
+public interface Node extends ProcessElement, Source, Target, ArtifactProcessor {
 	/**
 	 * Returns the value of the '<em><b>Input Ports</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.models.flow.InputPort}.

@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.flow.Artifact;
 import org.nasdanika.models.flow.DataElement;
 import org.nasdanika.models.flow.DataType;
-import org.nasdanika.models.flow.Flow;
 import org.nasdanika.models.flow.FlowPackage;
 
 import org.nasdanika.models.flow.Participant;
@@ -31,7 +30,7 @@ import org.nasdanika.models.flow.Resource;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getSubPackages <em>Sub Packages</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getFlows <em>Flows</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getProcesses <em>Processes</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getArtifacts <em>Artifacts</em>}</li>
@@ -79,8 +78,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Flow> getFlows() {
-		return (EList<Flow>)eDynamicGet(FlowPackage.PACKAGE__FLOWS, FlowPackage.Literals.PACKAGE__FLOWS, true, true);
+	public EList<org.nasdanika.models.flow.Process> getProcesses() {
+		return (EList<org.nasdanika.models.flow.Process>)eDynamicGet(FlowPackage.PACKAGE__PROCESSES, FlowPackage.Literals.PACKAGE__PROCESSES, true, true);
 	}
 
 	/**
@@ -148,8 +147,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 		switch (featureID) {
 			case FlowPackage.PACKAGE__SUB_PACKAGES:
 				return ((InternalEList<?>)getSubPackages()).basicRemove(otherEnd, msgs);
-			case FlowPackage.PACKAGE__FLOWS:
-				return ((InternalEList<?>)getFlows()).basicRemove(otherEnd, msgs);
+			case FlowPackage.PACKAGE__PROCESSES:
+				return ((InternalEList<?>)getProcesses()).basicRemove(otherEnd, msgs);
 			case FlowPackage.PACKAGE__PARTICIPANTS:
 				return ((InternalEList<?>)getParticipants()).basicRemove(otherEnd, msgs);
 			case FlowPackage.PACKAGE__RESOURCES:
@@ -174,8 +173,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 		switch (featureID) {
 			case FlowPackage.PACKAGE__SUB_PACKAGES:
 				return getSubPackages();
-			case FlowPackage.PACKAGE__FLOWS:
-				return getFlows();
+			case FlowPackage.PACKAGE__PROCESSES:
+				return getProcesses();
 			case FlowPackage.PACKAGE__PARTICIPANTS:
 				return getParticipants();
 			case FlowPackage.PACKAGE__RESOURCES:
@@ -203,9 +202,9 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 				getSubPackages().clear();
 				getSubPackages().addAll((Collection<? extends org.nasdanika.models.flow.Package>)newValue);
 				return;
-			case FlowPackage.PACKAGE__FLOWS:
-				getFlows().clear();
-				getFlows().addAll((Collection<? extends Flow>)newValue);
+			case FlowPackage.PACKAGE__PROCESSES:
+				getProcesses().clear();
+				getProcesses().addAll((Collection<? extends org.nasdanika.models.flow.Process>)newValue);
 				return;
 			case FlowPackage.PACKAGE__PARTICIPANTS:
 				getParticipants().clear();
@@ -242,8 +241,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 			case FlowPackage.PACKAGE__SUB_PACKAGES:
 				getSubPackages().clear();
 				return;
-			case FlowPackage.PACKAGE__FLOWS:
-				getFlows().clear();
+			case FlowPackage.PACKAGE__PROCESSES:
+				getProcesses().clear();
 				return;
 			case FlowPackage.PACKAGE__PARTICIPANTS:
 				getParticipants().clear();
@@ -274,8 +273,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 		switch (featureID) {
 			case FlowPackage.PACKAGE__SUB_PACKAGES:
 				return !getSubPackages().isEmpty();
-			case FlowPackage.PACKAGE__FLOWS:
-				return !getFlows().isEmpty();
+			case FlowPackage.PACKAGE__PROCESSES:
+				return !getProcesses().isEmpty();
 			case FlowPackage.PACKAGE__PARTICIPANTS:
 				return !getParticipants().isEmpty();
 			case FlowPackage.PACKAGE__RESOURCES:

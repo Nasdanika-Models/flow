@@ -13,5 +13,6 @@ Export-Package: org.nasdanika.models.flow,
  org.nasdanika.models.flow.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
+ org.nasdanika.models.capability;visibility:=reexport,
  org.nasdanika.ncore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

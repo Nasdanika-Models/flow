@@ -12,9 +12,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.nasdanika.models.flow.Artifact;
+import org.nasdanika.models.flow.ArtifactConsumer;
 import org.nasdanika.models.flow.ArtifactInfo;
+import org.nasdanika.models.flow.ArtifactProcessor;
+import org.nasdanika.models.flow.ArtifactProducer;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.Participant;
 import org.nasdanika.models.flow.Resource;
@@ -28,10 +29,10 @@ import org.nasdanika.models.flow.Role;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.flow.impl.RoleImpl#getPlayers <em>Players</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.impl.RoleImpl#getArtifacts <em>Artifacts</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.RoleImpl#getOutputs <em>Outputs</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.RoleImpl#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.RoleImpl#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.RoleImpl#getResources <em>Resources</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.impl.RoleImpl#getInfos <em>Infos</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,8 +64,8 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Participant> getPlayers() {
-		return (EList<Participant>)eDynamicGet(FlowPackage.ROLE__PLAYERS, FlowPackage.Literals.ROLE__PLAYERS, true, true);
+	public EList<ArtifactInfo> getOutputs() {
+		return (EList<ArtifactInfo>)eDynamicGet(FlowPackage.ROLE__OUTPUTS, FlowPackage.Literals.ARTIFACT_PRODUCER__OUTPUTS, true, true);
 	}
 
 	/**
@@ -74,8 +75,19 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Artifact> getArtifacts() {
-		return (EList<Artifact>)eDynamicGet(FlowPackage.ROLE__ARTIFACTS, FlowPackage.Literals.ROLE__ARTIFACTS, true, true);
+	public EList<ArtifactInfo> getInputs() {
+		return (EList<ArtifactInfo>)eDynamicGet(FlowPackage.ROLE__INPUTS, FlowPackage.Literals.ARTIFACT_CONSUMER__INPUTS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Participant> getParticipants() {
+		return (EList<Participant>)eDynamicGet(FlowPackage.ROLE__PARTICIPANTS, FlowPackage.Literals.ROLE__PARTICIPANTS, true, true);
 	}
 
 	/**
@@ -96,27 +108,12 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<ArtifactInfo> getInfos() {
-		return (EList<ArtifactInfo>)eDynamicGet(FlowPackage.ROLE__INFOS, FlowPackage.Literals.ROLE__INFOS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FlowPackage.ROLE__PLAYERS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPlayers()).basicAdd(otherEnd, msgs);
-			case FlowPackage.ROLE__ARTIFACTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getArtifacts()).basicAdd(otherEnd, msgs);
+			case FlowPackage.ROLE__PARTICIPANTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParticipants()).basicAdd(otherEnd, msgs);
 			case FlowPackage.ROLE__RESOURCES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
-			case FlowPackage.ROLE__INFOS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInfos()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -129,14 +126,14 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FlowPackage.ROLE__PLAYERS:
-				return ((InternalEList<?>)getPlayers()).basicRemove(otherEnd, msgs);
-			case FlowPackage.ROLE__ARTIFACTS:
-				return ((InternalEList<?>)getArtifacts()).basicRemove(otherEnd, msgs);
+			case FlowPackage.ROLE__OUTPUTS:
+				return ((InternalEList<?>)getOutputs()).basicRemove(otherEnd, msgs);
+			case FlowPackage.ROLE__INPUTS:
+				return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
+			case FlowPackage.ROLE__PARTICIPANTS:
+				return ((InternalEList<?>)getParticipants()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ROLE__RESOURCES:
 				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
-			case FlowPackage.ROLE__INFOS:
-				return ((InternalEList<?>)getInfos()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -149,14 +146,14 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FlowPackage.ROLE__PLAYERS:
-				return getPlayers();
-			case FlowPackage.ROLE__ARTIFACTS:
-				return getArtifacts();
+			case FlowPackage.ROLE__OUTPUTS:
+				return getOutputs();
+			case FlowPackage.ROLE__INPUTS:
+				return getInputs();
+			case FlowPackage.ROLE__PARTICIPANTS:
+				return getParticipants();
 			case FlowPackage.ROLE__RESOURCES:
 				return getResources();
-			case FlowPackage.ROLE__INFOS:
-				return getInfos();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,21 +167,21 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FlowPackage.ROLE__PLAYERS:
-				getPlayers().clear();
-				getPlayers().addAll((Collection<? extends Participant>)newValue);
+			case FlowPackage.ROLE__OUTPUTS:
+				getOutputs().clear();
+				getOutputs().addAll((Collection<? extends ArtifactInfo>)newValue);
 				return;
-			case FlowPackage.ROLE__ARTIFACTS:
-				getArtifacts().clear();
-				getArtifacts().addAll((Collection<? extends Artifact>)newValue);
+			case FlowPackage.ROLE__INPUTS:
+				getInputs().clear();
+				getInputs().addAll((Collection<? extends ArtifactInfo>)newValue);
+				return;
+			case FlowPackage.ROLE__PARTICIPANTS:
+				getParticipants().clear();
+				getParticipants().addAll((Collection<? extends Participant>)newValue);
 				return;
 			case FlowPackage.ROLE__RESOURCES:
 				getResources().clear();
 				getResources().addAll((Collection<? extends Resource>)newValue);
-				return;
-			case FlowPackage.ROLE__INFOS:
-				getInfos().clear();
-				getInfos().addAll((Collection<? extends ArtifactInfo>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -198,17 +195,17 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FlowPackage.ROLE__PLAYERS:
-				getPlayers().clear();
+			case FlowPackage.ROLE__OUTPUTS:
+				getOutputs().clear();
 				return;
-			case FlowPackage.ROLE__ARTIFACTS:
-				getArtifacts().clear();
+			case FlowPackage.ROLE__INPUTS:
+				getInputs().clear();
+				return;
+			case FlowPackage.ROLE__PARTICIPANTS:
+				getParticipants().clear();
 				return;
 			case FlowPackage.ROLE__RESOURCES:
 				getResources().clear();
-				return;
-			case FlowPackage.ROLE__INFOS:
-				getInfos().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -222,16 +219,70 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FlowPackage.ROLE__PLAYERS:
-				return !getPlayers().isEmpty();
-			case FlowPackage.ROLE__ARTIFACTS:
-				return !getArtifacts().isEmpty();
+			case FlowPackage.ROLE__OUTPUTS:
+				return !getOutputs().isEmpty();
+			case FlowPackage.ROLE__INPUTS:
+				return !getInputs().isEmpty();
+			case FlowPackage.ROLE__PARTICIPANTS:
+				return !getParticipants().isEmpty();
 			case FlowPackage.ROLE__RESOURCES:
 				return !getResources().isEmpty();
-			case FlowPackage.ROLE__INFOS:
-				return !getInfos().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ArtifactProducer.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.ROLE__OUTPUTS: return FlowPackage.ARTIFACT_PRODUCER__OUTPUTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ArtifactConsumer.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.ROLE__INPUTS: return FlowPackage.ARTIFACT_CONSUMER__INPUTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ArtifactProcessor.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ArtifactProducer.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.ARTIFACT_PRODUCER__OUTPUTS: return FlowPackage.ROLE__OUTPUTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ArtifactConsumer.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.ARTIFACT_CONSUMER__INPUTS: return FlowPackage.ROLE__INPUTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ArtifactProcessor.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //RoleImpl

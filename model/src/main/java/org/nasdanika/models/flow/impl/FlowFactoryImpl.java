@@ -9,6 +9,29 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.nasdanika.models.flow.Activity;
+import org.nasdanika.models.flow.Artifact;
+import org.nasdanika.models.flow.ArtifactInfo;
+import org.nasdanika.models.flow.Call;
+import org.nasdanika.models.flow.ComplexDataElement;
+import org.nasdanika.models.flow.Connection;
+import org.nasdanika.models.flow.DataElement;
+import org.nasdanika.models.flow.DataType;
+import org.nasdanika.models.flow.EcoreDataType;
+import org.nasdanika.models.flow.End;
+import org.nasdanika.models.flow.FlowFactory;
+import org.nasdanika.models.flow.FlowPackage;
+import org.nasdanika.models.flow.Gateway;
+import org.nasdanika.models.flow.InputPort;
+import org.nasdanika.models.flow.Node;
+import org.nasdanika.models.flow.OutputPort;
+import org.nasdanika.models.flow.Participant;
+import org.nasdanika.models.flow.ProcessElement;
+import org.nasdanika.models.flow.Resource;
+import org.nasdanika.models.flow.Role;
+import org.nasdanika.models.flow.SimpleDataElement;
+import org.nasdanika.models.flow.Start;
+import org.nasdanika.models.flow.Transition;
 import org.nasdanika.models.flow.*;
 
 /**
@@ -55,22 +78,23 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case FlowPackage.ARTIFACT: return createArtifact();
+			case FlowPackage.ARTIFACT_INFO: return createArtifactInfo();
 			case FlowPackage.CONNECTION: return createConnection();
+			case FlowPackage.PROCESS_ELEMENT: return createProcessElement();
 			case FlowPackage.START: return createStart();
 			case FlowPackage.INPUT_PORT: return createInputPort();
 			case FlowPackage.END: return createEnd();
 			case FlowPackage.OUTPUT_PORT: return createOutputPort();
+			case FlowPackage.ROLE: return createRole();
 			case FlowPackage.NODE: return createNode();
-			case FlowPackage.FORK_JOIN: return createForkJoin();
+			case FlowPackage.GATEWAY: return createGateway();
 			case FlowPackage.TRANSITION: return createTransition();
 			case FlowPackage.CALL: return createCall();
 			case FlowPackage.ACTIVITY: return createActivity();
-			case FlowPackage.FLOW: return createFlow();
-			case FlowPackage.ARTIFACT: return createArtifact();
+			case FlowPackage.PROCESS: return createProcess();
 			case FlowPackage.RESOURCE: return createResource();
 			case FlowPackage.PARTICIPANT: return createParticipant();
-			case FlowPackage.ROLE: return createRole();
-			case FlowPackage.ARTIFACT_INFO: return createArtifactInfo();
 			case FlowPackage.PACKAGE: return createPackage();
 			case FlowPackage.DATA_TYPE: return createDataType();
 			case FlowPackage.DATA_ELEMENT: return createDataElement();
@@ -91,6 +115,17 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	public Connection createConnection() {
 		ConnectionImpl connection = new ConnectionImpl();
 		return connection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ProcessElement createProcessElement() {
+		ProcessElementImpl processElement = new ProcessElementImpl();
+		return processElement;
 	}
 
 	/**
@@ -154,9 +189,9 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	 * @generated
 	 */
 	@Override
-	public ForkJoin createForkJoin() {
-		ForkJoinImpl forkJoin = new ForkJoinImpl();
-		return forkJoin;
+	public Gateway createGateway() {
+		GatewayImpl gateway = new GatewayImpl();
+		return gateway;
 	}
 
 	/**
@@ -190,6 +225,17 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	public Activity createActivity() {
 		ActivityImpl activity = new ActivityImpl();
 		return activity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public org.nasdanika.models.flow.Process createProcess() {
+		ProcessImpl process = new ProcessImpl();
+		return process;
 	}
 
 	/**
@@ -256,17 +302,6 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	public EcoreDataType createEcoreDataType() {
 		EcoreDataTypeImpl ecoreDataType = new EcoreDataTypeImpl();
 		return ecoreDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Flow createFlow() {
-		FlowImpl flow = new FlowImpl();
-		return flow;
 	}
 
 	/**

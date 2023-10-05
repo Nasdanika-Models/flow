@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.flow;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +19,7 @@ package org.nasdanika.models.flow;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.flow.DataType#getBase <em>Base</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.DataType#getExtensions <em>Extensions</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getDataType()
@@ -26,6 +29,7 @@ package org.nasdanika.models.flow;
 public interface DataType extends ModelElement {
 	/**
 	 * Returns the value of the '<em><b>Base</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.flow.DataType#getExtensions <em>Extensions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -34,7 +38,8 @@ public interface DataType extends ModelElement {
 	 * @return the value of the '<em>Base</em>' reference.
 	 * @see #setBase(DataType)
 	 * @see org.nasdanika.models.flow.FlowPackage#getDataType_Base()
-	 * @model
+	 * @see org.nasdanika.models.flow.DataType#getExtensions
+	 * @model opposite="extensions"
 	 * @generated
 	 */
 	DataType getBase();
@@ -48,5 +53,19 @@ public interface DataType extends ModelElement {
 	 * @generated
 	 */
 	void setBase(DataType value);
+
+	/**
+	 * Returns the value of the '<em><b>Extensions</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.flow.DataType}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.flow.DataType#getBase <em>Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Extensions</em>' reference list.
+	 * @see org.nasdanika.models.flow.FlowPackage#getDataType_Extensions()
+	 * @see org.nasdanika.models.flow.DataType#getBase
+	 * @model opposite="base"
+	 * @generated
+	 */
+	EList<DataType> getExtensions();
 
 } // DataType

@@ -19,7 +19,6 @@ import org.nasdanika.models.flow.DataElement;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.Participant;
 import org.nasdanika.models.flow.Resource;
-import org.nasdanika.models.flow.Role;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,10 +29,9 @@ import org.nasdanika.models.flow.Role;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.flow.impl.ArtifactImpl#getResources <em>Resources</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.impl.ArtifactImpl#getDataElements <em>Data Elements</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.impl.ArtifactImpl#getInfos <em>Infos</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ArtifactImpl#getParticipants <em>Participants</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.impl.ArtifactImpl#getRoles <em>Roles</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.ArtifactImpl#getInfos <em>Infos</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.ArtifactImpl#getDataElements <em>Data Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -109,29 +107,16 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Role> getRoles() {
-		return (EList<Role>)eDynamicGet(FlowPackage.ARTIFACT__ROLES, FlowPackage.Literals.ARTIFACT__ROLES, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FlowPackage.ARTIFACT__RESOURCES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
-			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDataElements()).basicAdd(otherEnd, msgs);
-			case FlowPackage.ARTIFACT__INFOS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInfos()).basicAdd(otherEnd, msgs);
 			case FlowPackage.ARTIFACT__PARTICIPANTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParticipants()).basicAdd(otherEnd, msgs);
-			case FlowPackage.ARTIFACT__ROLES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRoles()).basicAdd(otherEnd, msgs);
+			case FlowPackage.ARTIFACT__INFOS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInfos()).basicAdd(otherEnd, msgs);
+			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDataElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -146,14 +131,12 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 		switch (featureID) {
 			case FlowPackage.ARTIFACT__RESOURCES:
 				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
-			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
-				return ((InternalEList<?>)getDataElements()).basicRemove(otherEnd, msgs);
-			case FlowPackage.ARTIFACT__INFOS:
-				return ((InternalEList<?>)getInfos()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ARTIFACT__PARTICIPANTS:
 				return ((InternalEList<?>)getParticipants()).basicRemove(otherEnd, msgs);
-			case FlowPackage.ARTIFACT__ROLES:
-				return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
+			case FlowPackage.ARTIFACT__INFOS:
+				return ((InternalEList<?>)getInfos()).basicRemove(otherEnd, msgs);
+			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
+				return ((InternalEList<?>)getDataElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -168,14 +151,12 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 		switch (featureID) {
 			case FlowPackage.ARTIFACT__RESOURCES:
 				return getResources();
-			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
-				return getDataElements();
-			case FlowPackage.ARTIFACT__INFOS:
-				return getInfos();
 			case FlowPackage.ARTIFACT__PARTICIPANTS:
 				return getParticipants();
-			case FlowPackage.ARTIFACT__ROLES:
-				return getRoles();
+			case FlowPackage.ARTIFACT__INFOS:
+				return getInfos();
+			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
+				return getDataElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -193,21 +174,17 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 				getResources().clear();
 				getResources().addAll((Collection<? extends Resource>)newValue);
 				return;
-			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
-				getDataElements().clear();
-				getDataElements().addAll((Collection<? extends DataElement>)newValue);
+			case FlowPackage.ARTIFACT__PARTICIPANTS:
+				getParticipants().clear();
+				getParticipants().addAll((Collection<? extends Participant>)newValue);
 				return;
 			case FlowPackage.ARTIFACT__INFOS:
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends ArtifactInfo>)newValue);
 				return;
-			case FlowPackage.ARTIFACT__PARTICIPANTS:
-				getParticipants().clear();
-				getParticipants().addAll((Collection<? extends Participant>)newValue);
-				return;
-			case FlowPackage.ARTIFACT__ROLES:
-				getRoles().clear();
-				getRoles().addAll((Collection<? extends Role>)newValue);
+			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
+				getDataElements().clear();
+				getDataElements().addAll((Collection<? extends DataElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -224,17 +201,14 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 			case FlowPackage.ARTIFACT__RESOURCES:
 				getResources().clear();
 				return;
-			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
-				getDataElements().clear();
+			case FlowPackage.ARTIFACT__PARTICIPANTS:
+				getParticipants().clear();
 				return;
 			case FlowPackage.ARTIFACT__INFOS:
 				getInfos().clear();
 				return;
-			case FlowPackage.ARTIFACT__PARTICIPANTS:
-				getParticipants().clear();
-				return;
-			case FlowPackage.ARTIFACT__ROLES:
-				getRoles().clear();
+			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
+				getDataElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -250,14 +224,12 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 		switch (featureID) {
 			case FlowPackage.ARTIFACT__RESOURCES:
 				return !getResources().isEmpty();
-			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
-				return !getDataElements().isEmpty();
-			case FlowPackage.ARTIFACT__INFOS:
-				return !getInfos().isEmpty();
 			case FlowPackage.ARTIFACT__PARTICIPANTS:
 				return !getParticipants().isEmpty();
-			case FlowPackage.ARTIFACT__ROLES:
-				return !getRoles().isEmpty();
+			case FlowPackage.ARTIFACT__INFOS:
+				return !getInfos().isEmpty();
+			case FlowPackage.ARTIFACT__DATA_ELEMENTS:
+				return !getDataElements().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

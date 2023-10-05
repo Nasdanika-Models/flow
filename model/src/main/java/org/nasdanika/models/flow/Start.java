@@ -17,5 +17,5 @@ package org.nasdanika.models.flow;
  * @model
  * @generated
  */
-public interface Start extends FlowElement, Source {
+public interface Start extends ProcessElement, Source {
 } // Start

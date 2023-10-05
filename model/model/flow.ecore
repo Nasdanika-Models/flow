@@ -11,6 +11,58 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Artifact" eSuperTypes="#//ModelElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Information passed between flow elements and operated on by participants using resources"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Resource" eOpposite="#//Resource/artifacts">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Resorces which operate with this artifact. E.g. a Java source file artifact is edited in a Java IDE resource and stored in a version control repository resource."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
+        eType="#//Participant" eOpposite="#//Participant/artifacts">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Participants which use this artifact"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="infos" upperBound="-1"
+        eType="#//ArtifactInfo" eOpposite="#//ArtifactInfo/artifact">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Opposite to ArtifactInfo.artifact - all infos which use this artifact."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataElements" upperBound="-1"
+        eType="#//DataElement" eOpposite="#//DataElement/artifacts">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Data element used in this artifact. E.g. a JSON structure may use Person data element/type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArtifactInfo" eSuperTypes="#//ModelElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Information about input/output artifact"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" lowerBound="1"
+        eType="#//Artifact" eOpposite="#//Artifact/infos">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Artifact"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Resource" eOpposite="#//Resource/infos">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Resources used to work on the artifact or store the artifact"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
+        eType="#//Participant" eOpposite="#//Participant/infos">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Participants working on the artifact using resources - an alternative to roles"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connection" eSuperTypes="#//ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for Transitions and Calls. Contained by its source."/>
@@ -22,7 +74,17 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Source" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="ArtifactProducer" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
+        eType="#//ArtifactInfo" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Information about produced artifacts"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessElement" eSuperTypes="#//ModelElement ../../org.nasdanika.models.capability/model/capability.ecore#//RequirementConsumer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Source" abstract="true" interface="true"
+      eSuperTypes="#//ArtifactProducer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Source of connections"/>
     </eAnnotations>
@@ -32,14 +94,8 @@
         <details key="documentation" value="Source outgoing connections"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
-        eType="#//ArtifactInfo" containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Outputs of this source used by one or more transitions"/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//FlowElement #//Source">
+  <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//ProcessElement #//Source">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Start pseudo-state"/>
     </eAnnotations>
@@ -49,7 +105,16 @@
       <details key="documentation" value="Nodes may have input ports and connections may use input ports as targets"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Target" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="ArtifactConsumer" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
+        eType="#//ArtifactInfo" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Inputs to this target coming from one or more connections"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Target" abstract="true" interface="true"
+      eSuperTypes="#//ArtifactConsumer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for connection targets"/>
     </eAnnotations>
@@ -59,14 +124,8 @@
         <details key="documentation" value="Incoming connections - opposite to Connection.target"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
-        eType="#//ArtifactInfo" containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Inputs to this target coming from one or more connections"/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//FlowElement #//Target">
+  <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//ProcessElement #//Target">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="End pseudo-state"/>
     </eAnnotations>
@@ -76,7 +135,26 @@
       <details key="documentation" value="Nodes may have output ports with connection starting from those ports"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//FlowElement #//Source #//Target">
+  <eClassifiers xsi:type="ecore:EClass" name="ArtifactProcessor" abstract="true" interface="true"
+      eSuperTypes="#//ArtifactProducer #//ArtifactConsumer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//ModelElement #//ArtifactProcessor">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A role of a participant in an activity"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
+        eType="#//Participant" eOpposite="#//Participant/roles">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Participants playing this role"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Resource" eOpposite="#//Resource/roles">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Resources used by this role"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//ProcessElement #//Source #//Target #//ArtifactProcessor">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A flow element which supports both outgoing and incoming connections"/>
     </eAnnotations>
@@ -93,7 +171,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ForkJoin" eSuperTypes="#//Node">
+  <eClassifiers xsi:type="ecore:EClass" name="Gateway" eSuperTypes="#//Node">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A flow element which can combine (join) and dispatch (fork) its inputs"/>
     </eAnnotations>
@@ -120,12 +198,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FlowElement" abstract="true" eSuperTypes="#//ModelElement">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Base class for flow elements"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="#//Node">
+  <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="#//Node #//Role">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An activity is performed by participants in roles using resources and input artifacts to produce output artifacts"/>
     </eAnnotations>
@@ -135,62 +208,15 @@
         <details key="documentation" value="Participant roles for this activity"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
-        eType="#//Resource" eOpposite="#//Resource/activities">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Resources used in this activity. Resources can also be specified via roles and artifact info."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
-        eType="#//Participant" eOpposite="#//Participant/activities">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Partipants of this activity. Can be used if grouping by roles is not required."/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="#//Activity">
+  <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//Node">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Flow is a composite activity"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//FlowElement" containment="true" eKeys="#//ModelElement/id">
+        eType="#//ProcessElement" containment="true" eKeys="#//ModelElement/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Flow elements"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Artifact" eSuperTypes="#//ModelElement">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Information passed between flow elements and operated on by participants using resources"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
-        eType="#//Resource" eOpposite="#//Resource/artifacts">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Resorces which operate with this artifact. E.g. a Java source file artifact is edited in a Java IDE resource and stored in a version control repository resource."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dataElements" upperBound="-1"
-        eType="#//DataElement" eOpposite="#//DataElement/artifacts">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Data element used in this artifact. E.g. a JSON structure may use Person data element/type"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="infos" upperBound="-1"
-        eType="#//ArtifactInfo" eOpposite="#//ArtifactInfo/artifact">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Opposite to ArtifactInfo.artifact - all infos which use this artifact."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
-        eType="#//Participant" eOpposite="#//Participant/artifacts">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Participants which use this artifact"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
-        eType="#//Role" eOpposite="#//Role/artifacts">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Roles which use this artifact"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -222,19 +248,13 @@
         <details key="documentation" value="ArtifactInfo which reference this resource"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activities" upperBound="-1"
-        eType="#//Activity" eOpposite="#//Activity/resources">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Activities which use this resource"/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Participant" eSuperTypes="#//ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Participates in flow execution by playing roles in activities "/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
-        eType="#//Role" eOpposite="#//Role/players">
+        eType="#//Role" eOpposite="#//Role/participants">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Roles played by this participant"/>
       </eAnnotations>
@@ -251,74 +271,10 @@
         <details key="documentation" value="Artifacts this participant works on"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activities" upperBound="-1"
-        eType="#//Activity" eOpposite="#//Activity/participants">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Activities of this participant."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="infos" upperBound="-1"
         eType="#//ArtifactInfo" eOpposite="#//ArtifactInfo/participants">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Artifact infos referencing this participant. An alternative to using roles."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//ModelElement">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A role of a participant in an activity"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="players" upperBound="-1"
-        eType="#//Participant" eOpposite="#//Participant/roles">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Participants playing this role"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
-        eType="#//Artifact" eOpposite="#//Artifact/roles">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Artifacts used by this role"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
-        eType="#//Resource" eOpposite="#//Resource/roles">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Resources used by this role"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="infos" upperBound="-1"
-        eType="#//ArtifactInfo" eOpposite="#//ArtifactInfo/roles">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Artifact infos mentioning this role"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArtifactInfo" eSuperTypes="#//ModelElement">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="An information about how an artifact is used"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" lowerBound="1"
-        eType="#//Artifact" eOpposite="#//Artifact/infos">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Artifact"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
-        eType="#//Role" eOpposite="#//Role/infos">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Roles workig on the artifact"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
-        eType="#//Resource" eOpposite="#//Resource/infos">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Resources used to work on the artifact"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
-        eType="#//Participant" eOpposite="#//Participant/infos">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Participants working on the artifact using resources - an alternative to roles"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -332,8 +288,8 @@
         <details key="documentation" value="Packages may form a hierarchy"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
-        eType="#//Flow" containment="true" eKeys="#//ModelElement/id">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
+        eType="#//Process" containment="true" eKeys="#//ModelElement/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Flows defined in this package"/>
       </eAnnotations>
@@ -373,11 +329,14 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Type of data. E.g. Number, Date, Text, Person"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//DataType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//DataType"
+        eOpposite="#//DataType/extensions">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Base of this data type. E.g. SSN data type may have Text data type as its base."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extensions" upperBound="-1"
+        eType="#//DataType" eOpposite="#//DataType/base"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataElement" eSuperTypes="#//ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -426,7 +385,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A data type defined in Ecore model"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Type Eclassifier"/>
       </eAnnotations>

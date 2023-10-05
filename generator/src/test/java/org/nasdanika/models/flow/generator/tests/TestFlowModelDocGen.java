@@ -44,6 +44,7 @@ import org.nasdanika.html.model.app.Link;
 import org.nasdanika.html.model.app.gen.ActionSiteGenerator;
 import org.nasdanika.html.model.app.graph.WidgetFactory;
 import org.nasdanika.html.model.app.graph.emf.EObjectReflectiveProcessorFactoryProvider;
+import org.nasdanika.models.capability.CapabilityPackage;
 import org.nasdanika.models.ecore.graph.EcoreGraphFactory;
 import org.nasdanika.models.ecore.graph.processors.EcoreNodeProcessorFactory;
 import org.nasdanika.models.flow.FlowPackage;
@@ -59,7 +60,11 @@ public class TestFlowModelDocGen {
 	
 	@Test
 	public void testGenerateFlowModelDoc() throws IOException, DiagnosticException {
-		List<EPackage> ePackages = Arrays.asList(EcorePackage.eINSTANCE, NcorePackage.eINSTANCE, FlowPackage.eINSTANCE);
+		List<EPackage> ePackages = Arrays.asList(
+				EcorePackage.eINSTANCE, 
+				NcorePackage.eINSTANCE, 
+				CapabilityPackage.eINSTANCE, 
+				FlowPackage.eINSTANCE);
 		ProgressMonitor progressMonitor = new NullProgressMonitor(); // new PrintStreamProgressMonitor();
 		Transformer<EObject,Element> graphFactory = new Transformer<>(new EcoreGraphFactory());
 		Map<EObject, Element> graph = graphFactory.transform(ePackages, false, progressMonitor);
@@ -106,6 +111,7 @@ public class TestFlowModelDocGen {
 		Map<EPackage, URI> packageURIMap = Map.ofEntries(
 			Map.entry(EcorePackage.eINSTANCE, URI.createURI("https://ecore.models.nasdanika.org/")),			
 			Map.entry(NcorePackage.eINSTANCE, URI.createURI("https://ncore.models.nasdanika.org/")),			
+			Map.entry(CapabilityPackage.eINSTANCE, URI.createURI("https://capability.models.nasdanika.org/")),			
 			Map.entry(FlowPackage.eINSTANCE, baseActionURI)	
 		);
 		

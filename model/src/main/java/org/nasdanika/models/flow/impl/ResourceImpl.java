@@ -12,8 +12,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.nasdanika.models.flow.Activity;
 import org.nasdanika.models.flow.Artifact;
 import org.nasdanika.models.flow.ArtifactInfo;
 import org.nasdanika.models.flow.FlowPackage;
@@ -33,7 +31,6 @@ import org.nasdanika.models.flow.Role;
  *   <li>{@link org.nasdanika.models.flow.impl.ResourceImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ResourceImpl#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ResourceImpl#getInfos <em>Infos</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.impl.ResourceImpl#getActivities <em>Activities</em>}</li>
  * </ul>
  *
  * @generated
@@ -109,17 +106,6 @@ public class ResourceImpl extends ModelElementImpl implements Resource {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Activity> getActivities() {
-		return (EList<Activity>)eDynamicGet(FlowPackage.RESOURCE__ACTIVITIES, FlowPackage.Literals.RESOURCE__ACTIVITIES, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FlowPackage.RESOURCE__ARTIFACTS:
@@ -130,8 +116,6 @@ public class ResourceImpl extends ModelElementImpl implements Resource {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParticipants()).basicAdd(otherEnd, msgs);
 			case FlowPackage.RESOURCE__INFOS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInfos()).basicAdd(otherEnd, msgs);
-			case FlowPackage.RESOURCE__ACTIVITIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getActivities()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -152,8 +136,6 @@ public class ResourceImpl extends ModelElementImpl implements Resource {
 				return ((InternalEList<?>)getParticipants()).basicRemove(otherEnd, msgs);
 			case FlowPackage.RESOURCE__INFOS:
 				return ((InternalEList<?>)getInfos()).basicRemove(otherEnd, msgs);
-			case FlowPackage.RESOURCE__ACTIVITIES:
-				return ((InternalEList<?>)getActivities()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -174,8 +156,6 @@ public class ResourceImpl extends ModelElementImpl implements Resource {
 				return getParticipants();
 			case FlowPackage.RESOURCE__INFOS:
 				return getInfos();
-			case FlowPackage.RESOURCE__ACTIVITIES:
-				return getActivities();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -205,10 +185,6 @@ public class ResourceImpl extends ModelElementImpl implements Resource {
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends ArtifactInfo>)newValue);
 				return;
-			case FlowPackage.RESOURCE__ACTIVITIES:
-				getActivities().clear();
-				getActivities().addAll((Collection<? extends Activity>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -233,9 +209,6 @@ public class ResourceImpl extends ModelElementImpl implements Resource {
 			case FlowPackage.RESOURCE__INFOS:
 				getInfos().clear();
 				return;
-			case FlowPackage.RESOURCE__ACTIVITIES:
-				getActivities().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -256,8 +229,6 @@ public class ResourceImpl extends ModelElementImpl implements Resource {
 				return !getParticipants().isEmpty();
 			case FlowPackage.RESOURCE__INFOS:
 				return !getInfos().isEmpty();
-			case FlowPackage.RESOURCE__ACTIVITIES:
-				return !getActivities().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

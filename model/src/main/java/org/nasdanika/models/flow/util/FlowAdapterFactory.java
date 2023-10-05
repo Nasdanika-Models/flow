@@ -10,31 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.nasdanika.common.Adaptable;
-import org.nasdanika.models.flow.Activity;
-import org.nasdanika.models.flow.Artifact;
-import org.nasdanika.models.flow.ArtifactInfo;
-import org.nasdanika.models.flow.Call;
-import org.nasdanika.models.flow.ComplexDataElement;
-import org.nasdanika.models.flow.Connection;
-import org.nasdanika.models.flow.DataElement;
-import org.nasdanika.models.flow.DataType;
-import org.nasdanika.models.flow.EcoreDataType;
-import org.nasdanika.models.flow.End;
-import org.nasdanika.models.flow.Flow;
-import org.nasdanika.models.flow.FlowElement;
-import org.nasdanika.models.flow.FlowPackage;
-import org.nasdanika.models.flow.ForkJoin;
-import org.nasdanika.models.flow.InputPort;
-import org.nasdanika.models.flow.Node;
-import org.nasdanika.models.flow.OutputPort;
-import org.nasdanika.models.flow.Participant;
-import org.nasdanika.models.flow.Resource;
-import org.nasdanika.models.flow.Role;
-import org.nasdanika.models.flow.SimpleDataElement;
-import org.nasdanika.models.flow.Source;
-import org.nasdanika.models.flow.Start;
-import org.nasdanika.models.flow.Target;
-import org.nasdanika.models.flow.Transition;
+import org.nasdanika.models.capability.RequirementConsumer;
 import org.nasdanika.ncore.Documented;
 import org.nasdanika.ncore.DocumentedNamedElement;
 import org.nasdanika.ncore.ModelElement;
@@ -103,8 +79,24 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
+			public Adapter caseArtifact(Artifact object) {
+				return createArtifactAdapter();
+			}
+			@Override
+			public Adapter caseArtifactInfo(ArtifactInfo object) {
+				return createArtifactInfoAdapter();
+			}
+			@Override
 			public Adapter caseConnection(Connection object) {
 				return createConnectionAdapter();
+			}
+			@Override
+			public Adapter caseArtifactProducer(ArtifactProducer object) {
+				return createArtifactProducerAdapter();
+			}
+			@Override
+			public Adapter caseProcessElement(ProcessElement object) {
+				return createProcessElementAdapter();
 			}
 			@Override
 			public Adapter caseSource(Source object) {
@@ -119,6 +111,10 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 				return createInputPortAdapter();
 			}
 			@Override
+			public Adapter caseArtifactConsumer(ArtifactConsumer object) {
+				return createArtifactConsumerAdapter();
+			}
+			@Override
 			public Adapter caseTarget(Target object) {
 				return createTargetAdapter();
 			}
@@ -131,12 +127,20 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 				return createOutputPortAdapter();
 			}
 			@Override
+			public Adapter caseArtifactProcessor(ArtifactProcessor object) {
+				return createArtifactProcessorAdapter();
+			}
+			@Override
+			public Adapter caseRole(Role object) {
+				return createRoleAdapter();
+			}
+			@Override
 			public Adapter caseNode(Node object) {
 				return createNodeAdapter();
 			}
 			@Override
-			public Adapter caseForkJoin(ForkJoin object) {
-				return createForkJoinAdapter();
+			public Adapter caseGateway(Gateway object) {
+				return createGatewayAdapter();
 			}
 			@Override
 			public Adapter caseTransition(Transition object) {
@@ -147,20 +151,12 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 				return createCallAdapter();
 			}
 			@Override
-			public Adapter caseFlowElement(FlowElement object) {
-				return createFlowElementAdapter();
-			}
-			@Override
 			public Adapter caseActivity(Activity object) {
 				return createActivityAdapter();
 			}
 			@Override
-			public Adapter caseFlow(Flow object) {
-				return createFlowAdapter();
-			}
-			@Override
-			public Adapter caseArtifact(Artifact object) {
-				return createArtifactAdapter();
+			public Adapter caseProcess(org.nasdanika.models.flow.Process object) {
+				return createProcessAdapter();
 			}
 			@Override
 			public Adapter caseResource(Resource object) {
@@ -169,14 +165,6 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseParticipant(Participant object) {
 				return createParticipantAdapter();
-			}
-			@Override
-			public Adapter caseRole(Role object) {
-				return createRoleAdapter();
-			}
-			@Override
-			public Adapter caseArtifactInfo(ArtifactInfo object) {
-				return createArtifactInfoAdapter();
 			}
 			@Override
 			public Adapter casePackage(org.nasdanika.models.flow.Package object) {
@@ -229,6 +217,10 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDocumentedNamedElement(DocumentedNamedElement object) {
 				return createDocumentedNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseRequirementConsumer(RequirementConsumer object) {
+				return createRequirementConsumerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -331,20 +323,6 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEcoreDataTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Flow <em>Flow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.models.flow.Flow
-	 * @generated
-	 */
-	public Adapter createFlowAdapter() {
 		return null;
 	}
 
@@ -503,6 +481,34 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.ArtifactProducer <em>Artifact Producer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.ArtifactProducer
+	 * @generated
+	 */
+	public Adapter createArtifactProducerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.ProcessElement <em>Process Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.ProcessElement
+	 * @generated
+	 */
+	public Adapter createProcessElementAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Source <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -541,6 +547,20 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInputPortAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.ArtifactConsumer <em>Artifact Consumer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.ArtifactConsumer
+	 * @generated
+	 */
+	public Adapter createArtifactConsumerAdapter() {
 		return null;
 	}
 
@@ -587,6 +607,20 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.ArtifactProcessor <em>Artifact Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.ArtifactProcessor
+	 * @generated
+	 */
+	public Adapter createArtifactProcessorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -601,16 +635,16 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.ForkJoin <em>Fork Join</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Gateway <em>Gateway</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.models.flow.ForkJoin
+	 * @see org.nasdanika.models.flow.Gateway
 	 * @generated
 	 */
-	public Adapter createForkJoinAdapter() {
+	public Adapter createGatewayAdapter() {
 		return null;
 	}
 
@@ -643,20 +677,6 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.FlowElement <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.models.flow.FlowElement
-	 * @generated
-	 */
-	public Adapter createFlowElementAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Activity <em>Activity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -667,6 +687,20 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActivityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Process <em>Process</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Process
+	 * @generated
+	 */
+	public Adapter createProcessAdapter() {
 		return null;
 	}
 
@@ -709,6 +743,20 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDocumentedNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.capability.RequirementConsumer <em>Requirement Consumer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.capability.RequirementConsumer
+	 * @generated
+	 */
+	public Adapter createRequirementConsumerAdapter() {
 		return null;
 	}
 

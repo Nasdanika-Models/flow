@@ -18,7 +18,6 @@ import org.nasdanika.models.flow.ArtifactInfo;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.Participant;
 import org.nasdanika.models.flow.Resource;
-import org.nasdanika.models.flow.Role;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +28,6 @@ import org.nasdanika.models.flow.Role;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.flow.impl.ArtifactInfoImpl#getArtifact <em>Artifact</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.impl.ArtifactInfoImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ArtifactInfoImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ArtifactInfoImpl#getParticipants <em>Participants</em>}</li>
  * </ul>
@@ -102,17 +100,6 @@ public class ArtifactInfoImpl extends ModelElementImpl implements ArtifactInfo {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Role> getRoles() {
-		return (EList<Role>)eDynamicGet(FlowPackage.ARTIFACT_INFO__ROLES, FlowPackage.Literals.ARTIFACT_INFO__ROLES, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
 	public EList<Resource> getResources() {
 		return (EList<Resource>)eDynamicGet(FlowPackage.ARTIFACT_INFO__RESOURCES, FlowPackage.Literals.ARTIFACT_INFO__RESOURCES, true, true);
 	}
@@ -142,8 +129,6 @@ public class ArtifactInfoImpl extends ModelElementImpl implements ArtifactInfo {
 				if (artifact != null)
 					msgs = ((InternalEObject)artifact).eInverseRemove(this, FlowPackage.ARTIFACT__INFOS, Artifact.class, msgs);
 				return basicSetArtifact((Artifact)otherEnd, msgs);
-			case FlowPackage.ARTIFACT_INFO__ROLES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRoles()).basicAdd(otherEnd, msgs);
 			case FlowPackage.ARTIFACT_INFO__RESOURCES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
 			case FlowPackage.ARTIFACT_INFO__PARTICIPANTS:
@@ -162,8 +147,6 @@ public class ArtifactInfoImpl extends ModelElementImpl implements ArtifactInfo {
 		switch (featureID) {
 			case FlowPackage.ARTIFACT_INFO__ARTIFACT:
 				return basicSetArtifact(null, msgs);
-			case FlowPackage.ARTIFACT_INFO__ROLES:
-				return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ARTIFACT_INFO__RESOURCES:
 				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ARTIFACT_INFO__PARTICIPANTS:
@@ -183,8 +166,6 @@ public class ArtifactInfoImpl extends ModelElementImpl implements ArtifactInfo {
 			case FlowPackage.ARTIFACT_INFO__ARTIFACT:
 				if (resolve) return getArtifact();
 				return basicGetArtifact();
-			case FlowPackage.ARTIFACT_INFO__ROLES:
-				return getRoles();
 			case FlowPackage.ARTIFACT_INFO__RESOURCES:
 				return getResources();
 			case FlowPackage.ARTIFACT_INFO__PARTICIPANTS:
@@ -204,10 +185,6 @@ public class ArtifactInfoImpl extends ModelElementImpl implements ArtifactInfo {
 		switch (featureID) {
 			case FlowPackage.ARTIFACT_INFO__ARTIFACT:
 				setArtifact((Artifact)newValue);
-				return;
-			case FlowPackage.ARTIFACT_INFO__ROLES:
-				getRoles().clear();
-				getRoles().addAll((Collection<? extends Role>)newValue);
 				return;
 			case FlowPackage.ARTIFACT_INFO__RESOURCES:
 				getResources().clear();
@@ -232,9 +209,6 @@ public class ArtifactInfoImpl extends ModelElementImpl implements ArtifactInfo {
 			case FlowPackage.ARTIFACT_INFO__ARTIFACT:
 				setArtifact((Artifact)null);
 				return;
-			case FlowPackage.ARTIFACT_INFO__ROLES:
-				getRoles().clear();
-				return;
 			case FlowPackage.ARTIFACT_INFO__RESOURCES:
 				getResources().clear();
 				return;
@@ -255,8 +229,6 @@ public class ArtifactInfoImpl extends ModelElementImpl implements ArtifactInfo {
 		switch (featureID) {
 			case FlowPackage.ARTIFACT_INFO__ARTIFACT:
 				return basicGetArtifact() != null;
-			case FlowPackage.ARTIFACT_INFO__ROLES:
-				return !getRoles().isEmpty();
 			case FlowPackage.ARTIFACT_INFO__RESOURCES:
 				return !getResources().isEmpty();
 			case FlowPackage.ARTIFACT_INFO__PARTICIPANTS:

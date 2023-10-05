@@ -5,5 +5,5 @@ module org.nasdanika.models.flow {
 	
 	requires transitive org.eclipse.emf.ecore;
 	requires transitive org.eclipse.emf.common;
-	requires transitive org.nasdanika.ncore;
+	requires transitive org.nasdanika.models.capability;
 }

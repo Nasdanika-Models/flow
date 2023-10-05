@@ -8,31 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.nasdanika.common.Adaptable;
-import org.nasdanika.models.flow.Activity;
-import org.nasdanika.models.flow.Artifact;
-import org.nasdanika.models.flow.ArtifactInfo;
-import org.nasdanika.models.flow.Call;
-import org.nasdanika.models.flow.ComplexDataElement;
-import org.nasdanika.models.flow.Connection;
-import org.nasdanika.models.flow.DataElement;
-import org.nasdanika.models.flow.DataType;
-import org.nasdanika.models.flow.EcoreDataType;
-import org.nasdanika.models.flow.End;
-import org.nasdanika.models.flow.Flow;
-import org.nasdanika.models.flow.FlowElement;
-import org.nasdanika.models.flow.FlowPackage;
-import org.nasdanika.models.flow.ForkJoin;
-import org.nasdanika.models.flow.InputPort;
-import org.nasdanika.models.flow.Node;
-import org.nasdanika.models.flow.OutputPort;
-import org.nasdanika.models.flow.Participant;
-import org.nasdanika.models.flow.Resource;
-import org.nasdanika.models.flow.Role;
-import org.nasdanika.models.flow.SimpleDataElement;
-import org.nasdanika.models.flow.Source;
-import org.nasdanika.models.flow.Start;
-import org.nasdanika.models.flow.Target;
-import org.nasdanika.models.flow.Transition;
+import org.nasdanika.models.capability.RequirementConsumer;
 import org.nasdanika.ncore.Documented;
 import org.nasdanika.ncore.DocumentedNamedElement;
 import org.nasdanika.ncore.ModelElement;
@@ -110,6 +86,34 @@ public class FlowSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FlowPackage.ARTIFACT: {
+				Artifact artifact = (Artifact)theEObject;
+				T result = caseArtifact(artifact);
+				if (result == null) result = caseModelElement(artifact);
+				if (result == null) result = caseDocumentedNamedElement(artifact);
+				if (result == null) result = caseNamedElement(artifact);
+				if (result == null) result = caseDocumented(artifact);
+				if (result == null) result = caseNcore_ModelElement(artifact);
+				if (result == null) result = caseMarked(artifact);
+				if (result == null) result = caseAdaptable(artifact);
+				if (result == null) result = caseIMarked(artifact);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FlowPackage.ARTIFACT_INFO: {
+				ArtifactInfo artifactInfo = (ArtifactInfo)theEObject;
+				T result = caseArtifactInfo(artifactInfo);
+				if (result == null) result = caseModelElement(artifactInfo);
+				if (result == null) result = caseDocumentedNamedElement(artifactInfo);
+				if (result == null) result = caseNamedElement(artifactInfo);
+				if (result == null) result = caseDocumented(artifactInfo);
+				if (result == null) result = caseNcore_ModelElement(artifactInfo);
+				if (result == null) result = caseMarked(artifactInfo);
+				if (result == null) result = caseAdaptable(artifactInfo);
+				if (result == null) result = caseIMarked(artifactInfo);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FlowPackage.CONNECTION: {
 				Connection connection = (Connection)theEObject;
 				T result = caseConnection(connection);
@@ -124,18 +128,42 @@ public class FlowSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FlowPackage.ARTIFACT_PRODUCER: {
+				ArtifactProducer artifactProducer = (ArtifactProducer)theEObject;
+				T result = caseArtifactProducer(artifactProducer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FlowPackage.PROCESS_ELEMENT: {
+				ProcessElement processElement = (ProcessElement)theEObject;
+				T result = caseProcessElement(processElement);
+				if (result == null) result = caseModelElement(processElement);
+				if (result == null) result = caseRequirementConsumer(processElement);
+				if (result == null) result = caseDocumentedNamedElement(processElement);
+				if (result == null) result = caseNamedElement(processElement);
+				if (result == null) result = caseDocumented(processElement);
+				if (result == null) result = caseNcore_ModelElement(processElement);
+				if (result == null) result = caseMarked(processElement);
+				if (result == null) result = caseAdaptable(processElement);
+				if (result == null) result = caseIMarked(processElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FlowPackage.SOURCE: {
 				Source source = (Source)theEObject;
 				T result = caseSource(source);
+				if (result == null) result = caseArtifactProducer(source);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case FlowPackage.START: {
 				Start start = (Start)theEObject;
 				T result = caseStart(start);
-				if (result == null) result = caseFlowElement(start);
+				if (result == null) result = caseProcessElement(start);
 				if (result == null) result = caseSource(start);
 				if (result == null) result = caseModelElement(start);
+				if (result == null) result = caseRequirementConsumer(start);
+				if (result == null) result = caseArtifactProducer(start);
 				if (result == null) result = caseDocumentedNamedElement(start);
 				if (result == null) result = caseNamedElement(start);
 				if (result == null) result = caseDocumented(start);
@@ -152,6 +180,7 @@ public class FlowSwitch<T> extends Switch<T> {
 				if (result == null) result = caseModelElement(inputPort);
 				if (result == null) result = caseSource(inputPort);
 				if (result == null) result = caseDocumentedNamedElement(inputPort);
+				if (result == null) result = caseArtifactProducer(inputPort);
 				if (result == null) result = caseNamedElement(inputPort);
 				if (result == null) result = caseDocumented(inputPort);
 				if (result == null) result = caseNcore_ModelElement(inputPort);
@@ -161,18 +190,27 @@ public class FlowSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FlowPackage.ARTIFACT_CONSUMER: {
+				ArtifactConsumer artifactConsumer = (ArtifactConsumer)theEObject;
+				T result = caseArtifactConsumer(artifactConsumer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FlowPackage.TARGET: {
 				Target target = (Target)theEObject;
 				T result = caseTarget(target);
+				if (result == null) result = caseArtifactConsumer(target);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case FlowPackage.END: {
 				End end = (End)theEObject;
 				T result = caseEnd(end);
-				if (result == null) result = caseFlowElement(end);
+				if (result == null) result = caseProcessElement(end);
 				if (result == null) result = caseTarget(end);
 				if (result == null) result = caseModelElement(end);
+				if (result == null) result = caseRequirementConsumer(end);
+				if (result == null) result = caseArtifactConsumer(end);
 				if (result == null) result = caseDocumentedNamedElement(end);
 				if (result == null) result = caseNamedElement(end);
 				if (result == null) result = caseDocumented(end);
@@ -189,6 +227,7 @@ public class FlowSwitch<T> extends Switch<T> {
 				if (result == null) result = caseModelElement(outputPort);
 				if (result == null) result = caseTarget(outputPort);
 				if (result == null) result = caseDocumentedNamedElement(outputPort);
+				if (result == null) result = caseArtifactConsumer(outputPort);
 				if (result == null) result = caseNamedElement(outputPort);
 				if (result == null) result = caseDocumented(outputPort);
 				if (result == null) result = caseNcore_ModelElement(outputPort);
@@ -198,13 +237,42 @@ public class FlowSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FlowPackage.ARTIFACT_PROCESSOR: {
+				ArtifactProcessor artifactProcessor = (ArtifactProcessor)theEObject;
+				T result = caseArtifactProcessor(artifactProcessor);
+				if (result == null) result = caseArtifactProducer(artifactProcessor);
+				if (result == null) result = caseArtifactConsumer(artifactProcessor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FlowPackage.ROLE: {
+				Role role = (Role)theEObject;
+				T result = caseRole(role);
+				if (result == null) result = caseModelElement(role);
+				if (result == null) result = caseArtifactProcessor(role);
+				if (result == null) result = caseDocumentedNamedElement(role);
+				if (result == null) result = caseArtifactProducer(role);
+				if (result == null) result = caseArtifactConsumer(role);
+				if (result == null) result = caseNamedElement(role);
+				if (result == null) result = caseDocumented(role);
+				if (result == null) result = caseNcore_ModelElement(role);
+				if (result == null) result = caseMarked(role);
+				if (result == null) result = caseAdaptable(role);
+				if (result == null) result = caseIMarked(role);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FlowPackage.NODE: {
 				Node node = (Node)theEObject;
 				T result = caseNode(node);
-				if (result == null) result = caseFlowElement(node);
+				if (result == null) result = caseProcessElement(node);
 				if (result == null) result = caseSource(node);
 				if (result == null) result = caseTarget(node);
+				if (result == null) result = caseArtifactProcessor(node);
 				if (result == null) result = caseModelElement(node);
+				if (result == null) result = caseRequirementConsumer(node);
+				if (result == null) result = caseArtifactProducer(node);
+				if (result == null) result = caseArtifactConsumer(node);
 				if (result == null) result = caseDocumentedNamedElement(node);
 				if (result == null) result = caseNamedElement(node);
 				if (result == null) result = caseDocumented(node);
@@ -215,21 +283,25 @@ public class FlowSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FlowPackage.FORK_JOIN: {
-				ForkJoin forkJoin = (ForkJoin)theEObject;
-				T result = caseForkJoin(forkJoin);
-				if (result == null) result = caseNode(forkJoin);
-				if (result == null) result = caseFlowElement(forkJoin);
-				if (result == null) result = caseSource(forkJoin);
-				if (result == null) result = caseTarget(forkJoin);
-				if (result == null) result = caseModelElement(forkJoin);
-				if (result == null) result = caseDocumentedNamedElement(forkJoin);
-				if (result == null) result = caseNamedElement(forkJoin);
-				if (result == null) result = caseDocumented(forkJoin);
-				if (result == null) result = caseNcore_ModelElement(forkJoin);
-				if (result == null) result = caseMarked(forkJoin);
-				if (result == null) result = caseAdaptable(forkJoin);
-				if (result == null) result = caseIMarked(forkJoin);
+			case FlowPackage.GATEWAY: {
+				Gateway gateway = (Gateway)theEObject;
+				T result = caseGateway(gateway);
+				if (result == null) result = caseNode(gateway);
+				if (result == null) result = caseProcessElement(gateway);
+				if (result == null) result = caseSource(gateway);
+				if (result == null) result = caseTarget(gateway);
+				if (result == null) result = caseArtifactProcessor(gateway);
+				if (result == null) result = caseModelElement(gateway);
+				if (result == null) result = caseRequirementConsumer(gateway);
+				if (result == null) result = caseArtifactProducer(gateway);
+				if (result == null) result = caseArtifactConsumer(gateway);
+				if (result == null) result = caseDocumentedNamedElement(gateway);
+				if (result == null) result = caseNamedElement(gateway);
+				if (result == null) result = caseDocumented(gateway);
+				if (result == null) result = caseNcore_ModelElement(gateway);
+				if (result == null) result = caseMarked(gateway);
+				if (result == null) result = caseAdaptable(gateway);
+				if (result == null) result = caseIMarked(gateway);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -264,28 +336,19 @@ public class FlowSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FlowPackage.FLOW_ELEMENT: {
-				FlowElement flowElement = (FlowElement)theEObject;
-				T result = caseFlowElement(flowElement);
-				if (result == null) result = caseModelElement(flowElement);
-				if (result == null) result = caseDocumentedNamedElement(flowElement);
-				if (result == null) result = caseNamedElement(flowElement);
-				if (result == null) result = caseDocumented(flowElement);
-				if (result == null) result = caseNcore_ModelElement(flowElement);
-				if (result == null) result = caseMarked(flowElement);
-				if (result == null) result = caseAdaptable(flowElement);
-				if (result == null) result = caseIMarked(flowElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FlowPackage.ACTIVITY: {
 				Activity activity = (Activity)theEObject;
 				T result = caseActivity(activity);
 				if (result == null) result = caseNode(activity);
-				if (result == null) result = caseFlowElement(activity);
+				if (result == null) result = caseRole(activity);
+				if (result == null) result = caseProcessElement(activity);
 				if (result == null) result = caseSource(activity);
 				if (result == null) result = caseTarget(activity);
+				if (result == null) result = caseArtifactProcessor(activity);
 				if (result == null) result = caseModelElement(activity);
+				if (result == null) result = caseRequirementConsumer(activity);
+				if (result == null) result = caseArtifactProducer(activity);
+				if (result == null) result = caseArtifactConsumer(activity);
 				if (result == null) result = caseDocumentedNamedElement(activity);
 				if (result == null) result = caseNamedElement(activity);
 				if (result == null) result = caseDocumented(activity);
@@ -296,36 +359,25 @@ public class FlowSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FlowPackage.FLOW: {
-				Flow flow = (Flow)theEObject;
-				T result = caseFlow(flow);
-				if (result == null) result = caseActivity(flow);
-				if (result == null) result = caseNode(flow);
-				if (result == null) result = caseFlowElement(flow);
-				if (result == null) result = caseSource(flow);
-				if (result == null) result = caseTarget(flow);
-				if (result == null) result = caseModelElement(flow);
-				if (result == null) result = caseDocumentedNamedElement(flow);
-				if (result == null) result = caseNamedElement(flow);
-				if (result == null) result = caseDocumented(flow);
-				if (result == null) result = caseNcore_ModelElement(flow);
-				if (result == null) result = caseMarked(flow);
-				if (result == null) result = caseAdaptable(flow);
-				if (result == null) result = caseIMarked(flow);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FlowPackage.ARTIFACT: {
-				Artifact artifact = (Artifact)theEObject;
-				T result = caseArtifact(artifact);
-				if (result == null) result = caseModelElement(artifact);
-				if (result == null) result = caseDocumentedNamedElement(artifact);
-				if (result == null) result = caseNamedElement(artifact);
-				if (result == null) result = caseDocumented(artifact);
-				if (result == null) result = caseNcore_ModelElement(artifact);
-				if (result == null) result = caseMarked(artifact);
-				if (result == null) result = caseAdaptable(artifact);
-				if (result == null) result = caseIMarked(artifact);
+			case FlowPackage.PROCESS: {
+				org.nasdanika.models.flow.Process process = (org.nasdanika.models.flow.Process)theEObject;
+				T result = caseProcess(process);
+				if (result == null) result = caseNode(process);
+				if (result == null) result = caseProcessElement(process);
+				if (result == null) result = caseSource(process);
+				if (result == null) result = caseTarget(process);
+				if (result == null) result = caseArtifactProcessor(process);
+				if (result == null) result = caseModelElement(process);
+				if (result == null) result = caseRequirementConsumer(process);
+				if (result == null) result = caseArtifactProducer(process);
+				if (result == null) result = caseArtifactConsumer(process);
+				if (result == null) result = caseDocumentedNamedElement(process);
+				if (result == null) result = caseNamedElement(process);
+				if (result == null) result = caseDocumented(process);
+				if (result == null) result = caseNcore_ModelElement(process);
+				if (result == null) result = caseMarked(process);
+				if (result == null) result = caseAdaptable(process);
+				if (result == null) result = caseIMarked(process);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -354,34 +406,6 @@ public class FlowSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMarked(participant);
 				if (result == null) result = caseAdaptable(participant);
 				if (result == null) result = caseIMarked(participant);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FlowPackage.ROLE: {
-				Role role = (Role)theEObject;
-				T result = caseRole(role);
-				if (result == null) result = caseModelElement(role);
-				if (result == null) result = caseDocumentedNamedElement(role);
-				if (result == null) result = caseNamedElement(role);
-				if (result == null) result = caseDocumented(role);
-				if (result == null) result = caseNcore_ModelElement(role);
-				if (result == null) result = caseMarked(role);
-				if (result == null) result = caseAdaptable(role);
-				if (result == null) result = caseIMarked(role);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FlowPackage.ARTIFACT_INFO: {
-				ArtifactInfo artifactInfo = (ArtifactInfo)theEObject;
-				T result = caseArtifactInfo(artifactInfo);
-				if (result == null) result = caseModelElement(artifactInfo);
-				if (result == null) result = caseDocumentedNamedElement(artifactInfo);
-				if (result == null) result = caseNamedElement(artifactInfo);
-				if (result == null) result = caseDocumented(artifactInfo);
-				if (result == null) result = caseNcore_ModelElement(artifactInfo);
-				if (result == null) result = caseMarked(artifactInfo);
-				if (result == null) result = caseAdaptable(artifactInfo);
-				if (result == null) result = caseIMarked(artifactInfo);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -508,6 +532,36 @@ public class FlowSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Artifact Producer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Artifact Producer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArtifactProducer(ArtifactProducer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Process Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Process Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProcessElement(ProcessElement object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Source</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -549,6 +603,21 @@ public class FlowSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInputPort(InputPort object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Artifact Consumer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Artifact Consumer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArtifactConsumer(ArtifactConsumer object) {
 		return null;
 	}
 
@@ -598,6 +667,21 @@ public class FlowSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Artifact Processor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Artifact Processor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArtifactProcessor(ArtifactProcessor object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -613,17 +697,17 @@ public class FlowSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Fork Join</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Gateway</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Fork Join</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Gateway</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseForkJoin(ForkJoin object) {
+	public T caseGateway(Gateway object) {
 		return null;
 	}
 
@@ -658,21 +742,6 @@ public class FlowSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFlowElement(FlowElement object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Activity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -684,6 +753,21 @@ public class FlowSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseActivity(Activity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Process</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Process</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProcess(org.nasdanika.models.flow.Process object) {
 		return null;
 	}
 
@@ -774,21 +858,6 @@ public class FlowSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEcoreDataType(EcoreDataType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Flow</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Flow</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFlow(Flow object) {
 		return null;
 	}
 
@@ -969,6 +1038,21 @@ public class FlowSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDocumentedNamedElement(DocumentedNamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Requirement Consumer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Requirement Consumer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRequirementConsumer(RequirementConsumer object) {
 		return null;
 	}
 

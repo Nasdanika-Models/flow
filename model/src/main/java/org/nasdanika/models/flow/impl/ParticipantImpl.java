@@ -12,8 +12,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.nasdanika.models.flow.Activity;
 import org.nasdanika.models.flow.Artifact;
 import org.nasdanika.models.flow.ArtifactInfo;
 import org.nasdanika.models.flow.FlowPackage;
@@ -32,7 +30,6 @@ import org.nasdanika.models.flow.Role;
  *   <li>{@link org.nasdanika.models.flow.impl.ParticipantImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ParticipantImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ParticipantImpl#getArtifacts <em>Artifacts</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.impl.ParticipantImpl#getActivities <em>Activities</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ParticipantImpl#getInfos <em>Infos</em>}</li>
  * </ul>
  *
@@ -98,17 +95,6 @@ public class ParticipantImpl extends ModelElementImpl implements Participant {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Activity> getActivities() {
-		return (EList<Activity>)eDynamicGet(FlowPackage.PARTICIPANT__ACTIVITIES, FlowPackage.Literals.PARTICIPANT__ACTIVITIES, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
 	public EList<ArtifactInfo> getInfos() {
 		return (EList<ArtifactInfo>)eDynamicGet(FlowPackage.PARTICIPANT__INFOS, FlowPackage.Literals.PARTICIPANT__INFOS, true, true);
 	}
@@ -128,8 +114,6 @@ public class ParticipantImpl extends ModelElementImpl implements Participant {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
 			case FlowPackage.PARTICIPANT__ARTIFACTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getArtifacts()).basicAdd(otherEnd, msgs);
-			case FlowPackage.PARTICIPANT__ACTIVITIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getActivities()).basicAdd(otherEnd, msgs);
 			case FlowPackage.PARTICIPANT__INFOS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInfos()).basicAdd(otherEnd, msgs);
 		}
@@ -150,8 +134,6 @@ public class ParticipantImpl extends ModelElementImpl implements Participant {
 				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
 			case FlowPackage.PARTICIPANT__ARTIFACTS:
 				return ((InternalEList<?>)getArtifacts()).basicRemove(otherEnd, msgs);
-			case FlowPackage.PARTICIPANT__ACTIVITIES:
-				return ((InternalEList<?>)getActivities()).basicRemove(otherEnd, msgs);
 			case FlowPackage.PARTICIPANT__INFOS:
 				return ((InternalEList<?>)getInfos()).basicRemove(otherEnd, msgs);
 		}
@@ -172,8 +154,6 @@ public class ParticipantImpl extends ModelElementImpl implements Participant {
 				return getResources();
 			case FlowPackage.PARTICIPANT__ARTIFACTS:
 				return getArtifacts();
-			case FlowPackage.PARTICIPANT__ACTIVITIES:
-				return getActivities();
 			case FlowPackage.PARTICIPANT__INFOS:
 				return getInfos();
 		}
@@ -201,10 +181,6 @@ public class ParticipantImpl extends ModelElementImpl implements Participant {
 				getArtifacts().clear();
 				getArtifacts().addAll((Collection<? extends Artifact>)newValue);
 				return;
-			case FlowPackage.PARTICIPANT__ACTIVITIES:
-				getActivities().clear();
-				getActivities().addAll((Collection<? extends Activity>)newValue);
-				return;
 			case FlowPackage.PARTICIPANT__INFOS:
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends ArtifactInfo>)newValue);
@@ -230,9 +206,6 @@ public class ParticipantImpl extends ModelElementImpl implements Participant {
 			case FlowPackage.PARTICIPANT__ARTIFACTS:
 				getArtifacts().clear();
 				return;
-			case FlowPackage.PARTICIPANT__ACTIVITIES:
-				getActivities().clear();
-				return;
 			case FlowPackage.PARTICIPANT__INFOS:
 				getInfos().clear();
 				return;
@@ -254,8 +227,6 @@ public class ParticipantImpl extends ModelElementImpl implements Participant {
 				return !getResources().isEmpty();
 			case FlowPackage.PARTICIPANT__ARTIFACTS:
 				return !getArtifacts().isEmpty();
-			case FlowPackage.PARTICIPANT__ACTIVITIES:
-				return !getActivities().isEmpty();
 			case FlowPackage.PARTICIPANT__INFOS:
 				return !getInfos().isEmpty();
 		}

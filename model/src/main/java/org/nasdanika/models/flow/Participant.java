@@ -20,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.models.flow.Participant#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.Participant#getResources <em>Resources</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.Participant#getArtifacts <em>Artifacts</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.Participant#getActivities <em>Activities</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.Participant#getInfos <em>Infos</em>}</li>
  * </ul>
  *
@@ -32,7 +31,7 @@ public interface Participant extends ModelElement {
 	/**
 	 * Returns the value of the '<em><b>Roles</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.models.flow.Role}.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.flow.Role#getPlayers <em>Players</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.flow.Role#getParticipants <em>Participants</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -40,8 +39,8 @@ public interface Participant extends ModelElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Roles</em>' reference list.
 	 * @see org.nasdanika.models.flow.FlowPackage#getParticipant_Roles()
-	 * @see org.nasdanika.models.flow.Role#getPlayers
-	 * @model opposite="players"
+	 * @see org.nasdanika.models.flow.Role#getParticipants
+	 * @model opposite="participants"
 	 * @generated
 	 */
 	EList<Role> getRoles();
@@ -79,23 +78,6 @@ public interface Participant extends ModelElement {
 	 * @generated
 	 */
 	EList<Artifact> getArtifacts();
-
-	/**
-	 * Returns the value of the '<em><b>Activities</b></em>' reference list.
-	 * The list contents are of type {@link org.nasdanika.models.flow.Activity}.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.flow.Activity#getParticipants <em>Participants</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Activities of this participant.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Activities</em>' reference list.
-	 * @see org.nasdanika.models.flow.FlowPackage#getParticipant_Activities()
-	 * @see org.nasdanika.models.flow.Activity#getParticipants
-	 * @model opposite="participants"
-	 * @generated
-	 */
-	EList<Activity> getActivities();
 
 	/**
 	 * Returns the value of the '<em><b>Infos</b></em>' reference list.

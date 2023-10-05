@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.models.flow.Resource#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.Resource#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.Resource#getInfos <em>Infos</em>}</li>
- *   <li>{@link org.nasdanika.models.flow.Resource#getActivities <em>Activities</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getResource()
@@ -96,22 +95,5 @@ public interface Resource extends ModelElement {
 	 * @generated
 	 */
 	EList<ArtifactInfo> getInfos();
-
-	/**
-	 * Returns the value of the '<em><b>Activities</b></em>' reference list.
-	 * The list contents are of type {@link org.nasdanika.models.flow.Activity}.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.flow.Activity#getResources <em>Resources</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Activities which use this resource
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Activities</em>' reference list.
-	 * @see org.nasdanika.models.flow.FlowPackage#getResource_Activities()
-	 * @see org.nasdanika.models.flow.Activity#getResources
-	 * @model opposite="resources"
-	 * @generated
-	 */
-	EList<Activity> getActivities();
 
 } // Resource
