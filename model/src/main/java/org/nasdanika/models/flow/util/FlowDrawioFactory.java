@@ -61,7 +61,7 @@ public class FlowDrawioFactory {
 			Consumer<BiConsumer<Map<EObject, EObject>,ProgressMonitor>> registry,
 			ProgressMonitor progressMonitor) {
 		
-		Package pkg = createPackage();
+		Package pkg = createPackage(progressMonitor);
 		String source = document.getSource();
 		if (!Util.isBlank(source)) {
 			pkg.getRepresentations().put("drawio", source);
@@ -72,7 +72,7 @@ public class FlowDrawioFactory {
 		return pkg;
 	}
 	
-	protected org.nasdanika.models.flow.Package createPackage() {
+	protected org.nasdanika.models.flow.Package createPackage(ProgressMonitor progressMonitor) {
 		return factory.createPackage();
 	}
 		
@@ -93,7 +93,7 @@ public class FlowDrawioFactory {
 			Consumer<BiConsumer<Map<EObject, EObject>,ProgressMonitor>> registry,
 			ProgressMonitor progressMonitor) {
 		
-		Process process = createProcess();
+		Process process = createProcess(progressMonitor);
 		process.setName(page.getName());
 		process.setAnnotation("page-id", page.getId());
 		
@@ -119,7 +119,7 @@ public class FlowDrawioFactory {
 		return page.getLinks().isEmpty();
 	}
 
-	protected org.nasdanika.models.flow.Process createProcess() {
+	protected org.nasdanika.models.flow.Process createProcess(ProgressMonitor progressMonitor) {
 		return factory.createProcess();
 	}
 	

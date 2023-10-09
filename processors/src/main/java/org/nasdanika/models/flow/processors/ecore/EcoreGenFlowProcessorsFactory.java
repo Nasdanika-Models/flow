@@ -1,4 +1,4 @@
-package org.nasdanika.models.flow.processors;
+package org.nasdanika.models.flow.processors.ecore;
 
 import java.util.function.BiConsumer;
 

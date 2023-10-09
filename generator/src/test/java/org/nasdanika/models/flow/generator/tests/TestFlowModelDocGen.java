@@ -48,7 +48,7 @@ import org.nasdanika.models.capability.CapabilityPackage;
 import org.nasdanika.models.ecore.graph.EcoreGraphFactory;
 import org.nasdanika.models.ecore.graph.processors.EcoreNodeProcessorFactory;
 import org.nasdanika.models.flow.FlowPackage;
-import org.nasdanika.models.flow.processors.EcoreGenFlowProcessorsFactory;
+import org.nasdanika.models.flow.processors.ecore.EcoreGenFlowProcessorsFactory;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -180,7 +180,7 @@ public class TestFlowModelDocGen {
 		ActionSiteGenerator actionSiteGenerator = new ActionSiteGenerator() {
 			
 			protected boolean isDeleteOutputPath(String path) {
-				return !"CNAME".equals(path);				
+				return !"CNAME".equals(path) && !"demo".equals(path);				
 			};
 			
 		};		
