@@ -63,6 +63,11 @@
 		    <version>2.35.0</version>
 		</dependency> 		
 		<dependency>
+		    <groupId>org.nasdanika.core</groupId>
+		    <artifactId>drawio-model</artifactId>
+		    <version>${core.version}</version>
+		</dependency> 		
+		<dependency>
 		    <groupId>org.nasdanika.models.capability</groupId>
 		    <artifactId>model</artifactId>
 		    <version>2023.9.0</version>

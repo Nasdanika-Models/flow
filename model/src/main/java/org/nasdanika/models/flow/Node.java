@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getNode()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Node extends ProcessElement, Source, Target, ArtifactProcessor {

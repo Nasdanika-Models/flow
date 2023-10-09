@@ -9,29 +9,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.nasdanika.models.flow.Activity;
-import org.nasdanika.models.flow.Artifact;
-import org.nasdanika.models.flow.ArtifactInfo;
-import org.nasdanika.models.flow.Call;
-import org.nasdanika.models.flow.ComplexDataElement;
-import org.nasdanika.models.flow.Connection;
-import org.nasdanika.models.flow.DataElement;
-import org.nasdanika.models.flow.DataType;
-import org.nasdanika.models.flow.EcoreDataType;
-import org.nasdanika.models.flow.End;
-import org.nasdanika.models.flow.FlowFactory;
-import org.nasdanika.models.flow.FlowPackage;
-import org.nasdanika.models.flow.Gateway;
-import org.nasdanika.models.flow.InputPort;
-import org.nasdanika.models.flow.Node;
-import org.nasdanika.models.flow.OutputPort;
-import org.nasdanika.models.flow.Participant;
-import org.nasdanika.models.flow.ProcessElement;
-import org.nasdanika.models.flow.Resource;
-import org.nasdanika.models.flow.Role;
-import org.nasdanika.models.flow.SimpleDataElement;
-import org.nasdanika.models.flow.Start;
-import org.nasdanika.models.flow.Transition;
 import org.nasdanika.models.flow.*;
 
 /**
@@ -87,7 +64,6 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 			case FlowPackage.END: return createEnd();
 			case FlowPackage.OUTPUT_PORT: return createOutputPort();
 			case FlowPackage.ROLE: return createRole();
-			case FlowPackage.NODE: return createNode();
 			case FlowPackage.GATEWAY: return createGateway();
 			case FlowPackage.TRANSITION: return createTransition();
 			case FlowPackage.CALL: return createCall();
@@ -170,17 +146,6 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	public OutputPort createOutputPort() {
 		OutputPortImpl outputPort = new OutputPortImpl();
 		return outputPort;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Node createNode() {
-		NodeImpl node = new NodeImpl();
-		return node;
 	}
 
 	/**

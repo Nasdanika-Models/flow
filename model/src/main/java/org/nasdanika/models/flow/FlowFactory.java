@@ -76,15 +76,6 @@ public interface FlowFactory extends EFactory {
 	OutputPort createOutputPort();
 
 	/**
-	 * Returns a new object of class '<em>Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Node</em>'.
-	 * @generated
-	 */
-	Node createNode();
-
-	/**
 	 * Returns a new object of class '<em>Gateway</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

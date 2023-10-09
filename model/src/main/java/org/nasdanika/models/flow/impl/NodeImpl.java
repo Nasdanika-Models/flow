@@ -43,7 +43,7 @@ import org.nasdanika.models.flow.Target;
  *
  * @generated
  */
-public class NodeImpl extends ProcessElementImpl implements Node {
+public abstract class NodeImpl extends ProcessElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
