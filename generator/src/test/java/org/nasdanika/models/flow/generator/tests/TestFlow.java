@@ -21,7 +21,6 @@ import org.nasdanika.common.DiagramGenerator;
 import org.nasdanika.common.ExecutionException;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.NasdanikaException;
-import org.nasdanika.common.NullProgressMonitor;
 import org.nasdanika.common.PrintStreamProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Transformer;
@@ -91,16 +90,15 @@ public class TestFlow {
 	
 	@Test
 	public void testGenerateFlowDoc() throws Exception {
-		ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(org.eclipse.emf.ecore.resource.Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-		
-		resourceSet.getPackageRegistry().put(NcorePackage.eNS_URI, NcorePackage.eINSTANCE);
+		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
+		MutableContext context = Context.EMPTY_CONTEXT.fork();
+		context.register(DiagramGenerator.class, new PlantUMLDiagramGenerator());
+		ResourceSet resourceSet = org.nasdanika.html.model.app.gen.Util.createResourceSet(context, progressMonitor);
 		resourceSet.getPackageRegistry().put(FlowPackage.eNS_URI, FlowPackage.eINSTANCE);
 		
 		URI flowURI = URI.createFileURI(new File("target/flow.xmi").getCanonicalPath());
 		Resource flowResource = resourceSet.getResource(flowURI, true);
 		
-		ProgressMonitor progressMonitor = new NullProgressMonitor(); // new PrintStreamProgressMonitor();
 		Transformer<EObject,Element> graphFactory = new Transformer<>(new EObjectGraphFactory());
 		Map<EObject, Element> graph = graphFactory.transform(flowResource.getContents(), false, progressMonitor);
 
@@ -116,8 +114,6 @@ public class TestFlow {
 		Transformer<Element,ProcessorConfig> processorConfigTransformer = new Transformer<>(configFactory);				
 		Map<Element, ProcessorConfig> configs = processorConfigTransformer.transform(graph.values(), false, progressMonitor);
 		
-		MutableContext context = Context.EMPTY_CONTEXT.fork();
-		context.register(DiagramGenerator.class, new PlantUMLDiagramGenerator());
 		Consumer<Diagnostic> diagnosticConsumer = d -> d.dump(System.out, 0);
 		FlowNodeProcessorFactory flowNodeProcessorFactory = new FlowNodeProcessorFactory(context, null);		
 		

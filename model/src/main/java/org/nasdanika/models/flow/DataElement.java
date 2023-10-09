@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getDataElement()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface DataElement extends ModelElement {

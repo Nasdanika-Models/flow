@@ -15,6 +15,12 @@ public class PackageNodeProcessor extends ModelElementNodeProcessor<org.nasdanik
 		super(config, context, prototypeProvider);
 	}	
 	
-	// 
-	
+//	EList<org.nasdanika.models.flow.Process> getProcesses();
+//	EList<Participant> getParticipants();
+//	EList<Resource> getResources();
+//	EList<Artifact> getArtifacts();
+//	EList<Package> getSubPackages();
+//	EList<DataElement> getDataElements();
+//	EList<DataType> getDataTypes();
+		
 }

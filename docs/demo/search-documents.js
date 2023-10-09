@@ -1,0 +1,1 @@
+var searchDocuments = {"glossary.html":{"action-uuid":"1a6e5369-a08f-4a67-9628-e66455b436a5","title":"Glossary","content":"Clear Identifier(s) Hide UUID {{data.value.name}} {{data.value[0].value}} {{item.value}}"},"index.html":{"action-uuid":"555496d3-3861-4351-9a18-f1b35e90b8b9","title":"Demo","content":"Documentation Hello"}}

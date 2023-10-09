@@ -1,2 +1,7 @@
 name: Demo
 id: demo
+documentation:
+  content-markdown:
+    style: true
+    source:
+      content-resource: flow.drawio.md

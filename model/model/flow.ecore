@@ -338,7 +338,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="extensions" upperBound="-1"
         eType="#//DataType" eOpposite="#//DataType/base"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataElement" eSuperTypes="#//ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DataElement" abstract="true" eSuperTypes="#//ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Element of data"/>
     </eAnnotations>

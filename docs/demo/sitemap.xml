@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" >
+  <url>
+    <loc>https://flow.models.nasdanika.org/demo/glossary.html</loc>
+    <lastmod>2023-10-09T16:53:46.026-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://flow.models.nasdanika.org/demo/index.html</loc>
+    <lastmod>2023-10-09T16:53:46.015-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://flow.models.nasdanika.org/demo/search.html</loc>
+    <lastmod>2023-10-09T16:53:46.024-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+</urlset>

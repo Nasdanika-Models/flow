@@ -139,15 +139,6 @@ public interface FlowFactory extends EFactory {
 	DataType createDataType();
 
 	/**
-	 * Returns a new object of class '<em>Data Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Element</em>'.
-	 * @generated
-	 */
-	DataElement createDataElement();
-
-	/**
 	 * Returns a new object of class '<em>Complex Data Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

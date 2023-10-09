@@ -9,6 +9,27 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.nasdanika.models.flow.Activity;
+import org.nasdanika.models.flow.Artifact;
+import org.nasdanika.models.flow.ArtifactInfo;
+import org.nasdanika.models.flow.Call;
+import org.nasdanika.models.flow.ComplexDataElement;
+import org.nasdanika.models.flow.Connection;
+import org.nasdanika.models.flow.DataType;
+import org.nasdanika.models.flow.EcoreDataType;
+import org.nasdanika.models.flow.End;
+import org.nasdanika.models.flow.FlowFactory;
+import org.nasdanika.models.flow.FlowPackage;
+import org.nasdanika.models.flow.Gateway;
+import org.nasdanika.models.flow.InputPort;
+import org.nasdanika.models.flow.OutputPort;
+import org.nasdanika.models.flow.Participant;
+import org.nasdanika.models.flow.ProcessElement;
+import org.nasdanika.models.flow.Resource;
+import org.nasdanika.models.flow.Role;
+import org.nasdanika.models.flow.SimpleDataElement;
+import org.nasdanika.models.flow.Start;
+import org.nasdanika.models.flow.Transition;
 import org.nasdanika.models.flow.*;
 
 /**
@@ -73,7 +94,6 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 			case FlowPackage.PARTICIPANT: return createParticipant();
 			case FlowPackage.PACKAGE: return createPackage();
 			case FlowPackage.DATA_TYPE: return createDataType();
-			case FlowPackage.DATA_ELEMENT: return createDataElement();
 			case FlowPackage.COMPLEX_DATA_ELEMENT: return createComplexDataElement();
 			case FlowPackage.SIMPLE_DATA_ELEMENT: return createSimpleDataElement();
 			case FlowPackage.ECORE_DATA_TYPE: return createEcoreDataType();
@@ -223,17 +243,6 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	public DataType createDataType() {
 		DataTypeImpl dataType = new DataTypeImpl();
 		return dataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DataElement createDataElement() {
-		DataElementImpl dataElement = new DataElementImpl();
-		return dataElement;
 	}
 
 	/**

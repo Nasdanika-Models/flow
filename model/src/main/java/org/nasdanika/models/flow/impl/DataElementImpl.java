@@ -32,7 +32,7 @@ import org.nasdanika.models.flow.FlowPackage;
  *
  * @generated
  */
-public class DataElementImpl extends ModelElementImpl implements DataElement {
+public abstract class DataElementImpl extends ModelElementImpl implements DataElement {
 	/**
 	 * The default value of the '{@link #getLowerBound() <em>Lower Bound</em>}' attribute.
 	 * <!-- begin-user-doc -->
