@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.flow.Activity;
+import org.nasdanika.models.flow.ArtifactProcessorRole;
+import org.nasdanika.models.flow.Collaboratable;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.Participant;
 import org.nasdanika.models.flow.Resource;
@@ -59,8 +61,8 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Role> getRoles() {
-		return (EList<Role>)eDynamicGet(FlowPackage.ACTIVITY__ROLES, FlowPackage.Literals.ACTIVITY__ROLES, true, true);
+	public EList<ArtifactProcessorRole> getRoles() {
+		return (EList<ArtifactProcessorRole>)eDynamicGet(FlowPackage.ACTIVITY__ROLES, FlowPackage.Literals.COLLABORATABLE__ROLES, true, true);
 	}
 
 	/**
@@ -114,6 +116,8 @@ public class ActivityImpl extends NodeImpl implements Activity {
 				return ((InternalEList<?>)getParticipants()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ACTIVITY__RESOURCES:
 				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
+			case FlowPackage.ACTIVITY__ROLES:
+				return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -155,7 +159,7 @@ public class ActivityImpl extends NodeImpl implements Activity {
 				return;
 			case FlowPackage.ACTIVITY__ROLES:
 				getRoles().clear();
-				getRoles().addAll((Collection<? extends Role>)newValue);
+				getRoles().addAll((Collection<? extends ArtifactProcessorRole>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -214,6 +218,17 @@ public class ActivityImpl extends NodeImpl implements Activity {
 				default: return -1;
 			}
 		}
+		if (baseClass == ArtifactProcessorRole.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == Collaboratable.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.ACTIVITY__ROLES: return FlowPackage.COLLABORATABLE__ROLES;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -228,6 +243,17 @@ public class ActivityImpl extends NodeImpl implements Activity {
 			switch (baseFeatureID) {
 				case FlowPackage.ROLE__PARTICIPANTS: return FlowPackage.ACTIVITY__PARTICIPANTS;
 				case FlowPackage.ROLE__RESOURCES: return FlowPackage.ACTIVITY__RESOURCES;
+				default: return -1;
+			}
+		}
+		if (baseClass == ArtifactProcessorRole.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == Collaboratable.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.COLLABORATABLE__ROLES: return FlowPackage.ACTIVITY__ROLES;
 				default: return -1;
 			}
 		}

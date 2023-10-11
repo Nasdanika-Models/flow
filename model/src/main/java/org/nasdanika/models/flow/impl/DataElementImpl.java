@@ -14,8 +14,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.models.flow.Artifact;
+import org.nasdanika.models.flow.Collaboratable;
 import org.nasdanika.models.flow.DataElement;
 import org.nasdanika.models.flow.FlowPackage;
+import org.nasdanika.models.flow.Role;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +27,7 @@ import org.nasdanika.models.flow.FlowPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.models.flow.impl.DataElementImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.DataElementImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.DataElementImpl#getUpperBound <em>Upper Bound</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.DataElementImpl#getArtifacts <em>Artifacts</em>}</li>
@@ -70,6 +73,17 @@ public abstract class DataElementImpl extends ModelElementImpl implements DataEl
 	@Override
 	protected EClass eStaticClass() {
 		return FlowPackage.Literals.DATA_ELEMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Role> getRoles() {
+		return (EList<Role>)eDynamicGet(FlowPackage.DATA_ELEMENT__ROLES, FlowPackage.Literals.COLLABORATABLE__ROLES, true, true);
 	}
 
 	/**
@@ -146,6 +160,8 @@ public abstract class DataElementImpl extends ModelElementImpl implements DataEl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FlowPackage.DATA_ELEMENT__ROLES:
+				return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
 			case FlowPackage.DATA_ELEMENT__ARTIFACTS:
 				return ((InternalEList<?>)getArtifacts()).basicRemove(otherEnd, msgs);
 		}
@@ -160,6 +176,8 @@ public abstract class DataElementImpl extends ModelElementImpl implements DataEl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FlowPackage.DATA_ELEMENT__ROLES:
+				return getRoles();
 			case FlowPackage.DATA_ELEMENT__LOWER_BOUND:
 				return getLowerBound();
 			case FlowPackage.DATA_ELEMENT__UPPER_BOUND:
@@ -179,6 +197,10 @@ public abstract class DataElementImpl extends ModelElementImpl implements DataEl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FlowPackage.DATA_ELEMENT__ROLES:
+				getRoles().clear();
+				getRoles().addAll((Collection<? extends Role>)newValue);
+				return;
 			case FlowPackage.DATA_ELEMENT__LOWER_BOUND:
 				setLowerBound((Integer)newValue);
 				return;
@@ -201,6 +223,9 @@ public abstract class DataElementImpl extends ModelElementImpl implements DataEl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FlowPackage.DATA_ELEMENT__ROLES:
+				getRoles().clear();
+				return;
 			case FlowPackage.DATA_ELEMENT__LOWER_BOUND:
 				setLowerBound(LOWER_BOUND_EDEFAULT);
 				return;
@@ -222,6 +247,8 @@ public abstract class DataElementImpl extends ModelElementImpl implements DataEl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FlowPackage.DATA_ELEMENT__ROLES:
+				return !getRoles().isEmpty();
 			case FlowPackage.DATA_ELEMENT__LOWER_BOUND:
 				return getLowerBound() != LOWER_BOUND_EDEFAULT;
 			case FlowPackage.DATA_ELEMENT__UPPER_BOUND:
@@ -230,6 +257,38 @@ public abstract class DataElementImpl extends ModelElementImpl implements DataEl
 				return !getArtifacts().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Collaboratable.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.DATA_ELEMENT__ROLES: return FlowPackage.COLLABORATABLE__ROLES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Collaboratable.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.COLLABORATABLE__ROLES: return FlowPackage.DATA_ELEMENT__ROLES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //DataElementImpl

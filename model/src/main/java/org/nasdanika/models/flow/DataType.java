@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DataType extends ModelElement {
+public interface DataType extends ModelElement, Collaboratable<Role> {
 	/**
 	 * Returns the value of the '<em><b>Base</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.flow.DataType#getExtensions <em>Extensions</em>}'.

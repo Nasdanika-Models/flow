@@ -85,6 +85,15 @@ public interface FlowFactory extends EFactory {
 	Gateway createGateway();
 
 	/**
+	 * Returns a new object of class '<em>Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service</em>'.
+	 * @generated
+	 */
+	Service createService();
+
+	/**
 	 * Returns a new object of class '<em>Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -200,6 +209,15 @@ public interface FlowFactory extends EFactory {
 	 * @generated
 	 */
 	Role createRole();
+
+	/**
+	 * Returns a new object of class '<em>Artifact Processor Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Artifact Processor Role</em>'.
+	 * @generated
+	 */
+	ArtifactProcessorRole createArtifactProcessorRole();
 
 	/**
 	 * Returns a new object of class '<em>Artifact Info</em>'.

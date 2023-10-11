@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface DataElement extends ModelElement {
+public interface DataElement extends ModelElement, Collaboratable<Role> {
 	/**
 	 * Returns the value of the '<em><b>Lower Bound</b></em>' attribute.
 	 * <!-- begin-user-doc -->

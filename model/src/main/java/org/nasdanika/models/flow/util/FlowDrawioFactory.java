@@ -15,13 +15,16 @@ import org.nasdanika.common.Util;
 import org.nasdanika.drawio.model.Document;
 import org.nasdanika.drawio.model.Node;
 import org.nasdanika.drawio.model.Page;
+import org.nasdanika.models.flow.Activity;
 import org.nasdanika.models.flow.FlowFactory;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.InputPort;
 import org.nasdanika.models.flow.OutputPort;
 import org.nasdanika.models.flow.Package;
+import org.nasdanika.models.flow.Participant;
 import org.nasdanika.models.flow.Process;
 import org.nasdanika.models.flow.ProcessElement;
+import org.nasdanika.models.flow.Resource;
 import org.nasdanika.ncore.Marker;
 import org.nasdanika.persistence.ConfigurationException;
 
@@ -276,6 +279,25 @@ public class FlowDrawioFactory {
 				throw new ConfigurationException("Connection target is not of org.nasdanika.models.flow.Target kind", drawioConnection);
 			}
 		}
+				
+		// Activity to containing participant(s) and resource(s) 
+		if (flowModelElement instanceof Activity) {
+			Activity activity = (Activity) flowModelElement;
+			for (EObject container = drawioModelElement.eContainer(); container != null; container = container.eContainer()) {
+				EObject fContainer = registry.get(container);
+				if (fContainer instanceof Participant) {
+					activity.getParticipants().add(((Participant) fContainer));
+				}
+				if (fContainer instanceof Resource) {
+					activity.getResources().add(((Resource) fContainer));
+				}
+			}			
+			
+			// TODO - support references
+		}
+		
+		// TODO - resources and participants to package, report duplicates
+		
 	}
 	
 	protected EObject findContainer(

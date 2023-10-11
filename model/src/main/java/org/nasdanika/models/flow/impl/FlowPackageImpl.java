@@ -4,9 +4,11 @@ package org.nasdanika.models.flow.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -16,8 +18,10 @@ import org.nasdanika.models.flow.Artifact;
 import org.nasdanika.models.flow.ArtifactConsumer;
 import org.nasdanika.models.flow.ArtifactInfo;
 import org.nasdanika.models.flow.ArtifactProcessor;
+import org.nasdanika.models.flow.ArtifactProcessorRole;
 import org.nasdanika.models.flow.ArtifactProducer;
 import org.nasdanika.models.flow.Call;
+import org.nasdanika.models.flow.Collaboratable;
 import org.nasdanika.models.flow.ComplexDataElement;
 import org.nasdanika.models.flow.Connection;
 import org.nasdanika.models.flow.DataElement;
@@ -35,6 +39,7 @@ import org.nasdanika.models.flow.Participant;
 import org.nasdanika.models.flow.ProcessElement;
 import org.nasdanika.models.flow.Resource;
 import org.nasdanika.models.flow.Role;
+import org.nasdanika.models.flow.Service;
 import org.nasdanika.models.flow.SimpleDataElement;
 import org.nasdanika.models.flow.Source;
 import org.nasdanika.models.flow.Start;
@@ -126,6 +131,12 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass collaboratableEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass nodeEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +144,12 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	private EClass gatewayEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -217,6 +234,12 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	private EClass roleEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass artifactProcessorRoleEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -475,6 +498,26 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getCollaboratable() {
+		return collaboratableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCollaboratable_Roles() {
+		return (EReference)collaboratableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNode() {
 		return nodeEClass;
 	}
@@ -507,6 +550,26 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	@Override
 	public EClass getGateway() {
 		return gatewayEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getService() {
+		return serviceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getService_Process() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -565,16 +628,6 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getActivity_Roles() {
-		return (EReference)activityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getProcess() {
 		return processEClass;
 	}
@@ -587,6 +640,16 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	@Override
 	public EReference getProcess_Elements() {
 		return (EReference)processEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProcess_Services() {
+		return (EReference)processEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -985,6 +1048,16 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getArtifactProcessorRole() {
+		return artifactProcessorRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getArtifactInfo() {
 		return artifactInfoEClass;
 	}
@@ -1089,15 +1162,23 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		artifactProcessorEClass = createEClass(ARTIFACT_PROCESSOR);
 
+		collaboratableEClass = createEClass(COLLABORATABLE);
+		createEReference(collaboratableEClass, COLLABORATABLE__ROLES);
+
 		roleEClass = createEClass(ROLE);
 		createEReference(roleEClass, ROLE__PARTICIPANTS);
 		createEReference(roleEClass, ROLE__RESOURCES);
+
+		artifactProcessorRoleEClass = createEClass(ARTIFACT_PROCESSOR_ROLE);
 
 		nodeEClass = createEClass(NODE);
 		createEReference(nodeEClass, NODE__INPUT_PORTS);
 		createEReference(nodeEClass, NODE__OUTPUT_PORTS);
 
 		gatewayEClass = createEClass(GATEWAY);
+
+		serviceEClass = createEClass(SERVICE);
+		createEReference(serviceEClass, SERVICE__PROCESS);
 
 		transitionEClass = createEClass(TRANSITION);
 		createEReference(transitionEClass, TRANSITION__PAYLOAD);
@@ -1106,10 +1187,10 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		createEReference(callEClass, CALL__RESPONSE);
 
 		activityEClass = createEClass(ACTIVITY);
-		createEReference(activityEClass, ACTIVITY__ROLES);
 
 		processEClass = createEClass(PROCESS);
 		createEReference(processEClass, PROCESS__ELEMENTS);
+		createEReference(processEClass, PROCESS__SERVICES);
 
 		resourceEClass = createEClass(RESOURCE);
 		createEReference(resourceEClass, RESOURCE__ARTIFACTS);
@@ -1180,12 +1261,20 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
+		ETypeParameter collaboratableEClass_R = addETypeParameter(collaboratableEClass, "R");
 
 		// Set bounds for type parameters
+		EGenericType g1 = createEGenericType(this.getRole());
+		collaboratableEClass_R.getEBounds().add(g1);
 
 		// Add supertypes to classes
 		modelElementEClass.getESuperTypes().add(theNcorePackage.getDocumentedNamedElement());
-		artifactEClass.getESuperTypes().add(this.getModelElement());
+		g1 = createEGenericType(this.getModelElement());
+		artifactEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getCollaboratable());
+		EGenericType g2 = createEGenericType(this.getRole());
+		g1.getETypeArguments().add(g2);
+		artifactEClass.getEGenericSuperTypes().add(g1);
 		artifactInfoEClass.getESuperTypes().add(this.getModelElement());
 		connectionEClass.getESuperTypes().add(this.getModelElement());
 		processElementEClass.getESuperTypes().add(this.getModelElement());
@@ -1203,22 +1292,40 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		artifactProcessorEClass.getESuperTypes().add(this.getArtifactProducer());
 		artifactProcessorEClass.getESuperTypes().add(this.getArtifactConsumer());
 		roleEClass.getESuperTypes().add(this.getModelElement());
-		roleEClass.getESuperTypes().add(this.getArtifactProcessor());
+		artifactProcessorRoleEClass.getESuperTypes().add(this.getRole());
+		artifactProcessorRoleEClass.getESuperTypes().add(this.getArtifactProcessor());
 		nodeEClass.getESuperTypes().add(this.getProcessElement());
 		nodeEClass.getESuperTypes().add(this.getSource());
 		nodeEClass.getESuperTypes().add(this.getTarget());
 		nodeEClass.getESuperTypes().add(this.getArtifactProcessor());
 		gatewayEClass.getESuperTypes().add(this.getNode());
+		serviceEClass.getESuperTypes().add(this.getNode());
 		transitionEClass.getESuperTypes().add(this.getConnection());
 		callEClass.getESuperTypes().add(this.getTransition());
-		activityEClass.getESuperTypes().add(this.getNode());
-		activityEClass.getESuperTypes().add(this.getRole());
-		processEClass.getESuperTypes().add(this.getNode());
+		g1 = createEGenericType(this.getNode());
+		activityEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getArtifactProcessorRole());
+		activityEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getCollaboratable());
+		g2 = createEGenericType(this.getArtifactProcessorRole());
+		g1.getETypeArguments().add(g2);
+		activityEClass.getEGenericSuperTypes().add(g1);
+		processEClass.getESuperTypes().add(this.getActivity());
 		resourceEClass.getESuperTypes().add(this.getModelElement());
 		participantEClass.getESuperTypes().add(this.getModelElement());
 		packageEClass.getESuperTypes().add(this.getModelElement());
-		dataTypeEClass.getESuperTypes().add(this.getModelElement());
-		dataElementEClass.getESuperTypes().add(this.getModelElement());
+		g1 = createEGenericType(this.getModelElement());
+		dataTypeEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getCollaboratable());
+		g2 = createEGenericType(this.getRole());
+		g1.getETypeArguments().add(g2);
+		dataTypeEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getModelElement());
+		dataElementEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getCollaboratable());
+		g2 = createEGenericType(this.getRole());
+		g1.getETypeArguments().add(g2);
+		dataElementEClass.getEGenericSuperTypes().add(g1);
 		complexDataElementEClass.getESuperTypes().add(this.getDataElement());
 		complexDataElementEClass.getESuperTypes().add(this.getDataType());
 		simpleDataElementEClass.getESuperTypes().add(this.getDataElement());
@@ -1267,9 +1374,16 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(artifactProcessorEClass, ArtifactProcessor.class, "ArtifactProcessor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(collaboratableEClass, Collaboratable.class, "Collaboratable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(collaboratableEClass_R);
+		initEReference(getCollaboratable_Roles(), g1, null, "roles", null, 0, -1, Collaboratable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getCollaboratable_Roles().getEKeys().add(this.getModelElement_Id());
+
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRole_Participants(), this.getParticipant(), this.getParticipant_Roles(), "participants", null, 0, -1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRole_Resources(), this.getResource(), this.getResource_Roles(), "resources", null, 0, -1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(artifactProcessorRoleEClass, ArtifactProcessorRole.class, "ArtifactProcessorRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNode_InputPorts(), this.getInputPort(), null, "inputPorts", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1279,6 +1393,9 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(gatewayEClass, Gateway.class, "Gateway", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getService_Process(), this.getProcess(), this.getProcess_Services(), "process", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTransition_Payload(), this.getArtifactInfo(), null, "payload", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1286,12 +1403,11 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		initEReference(getCall_Response(), this.getArtifactInfo(), null, "response", null, 0, -1, Call.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(activityEClass, Activity.class, "Activity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getActivity_Roles(), this.getRole(), null, "roles", null, 0, -1, Activity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getActivity_Roles().getEKeys().add(this.getModelElement_Id());
 
 		initEClass(processEClass, org.nasdanika.models.flow.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProcess_Elements(), this.getProcessElement(), null, "elements", null, 0, -1, org.nasdanika.models.flow.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getProcess_Elements().getEKeys().add(this.getModelElement_Id());
+		initEReference(getProcess_Services(), this.getService(), this.getService_Process(), "services", null, 0, -1, org.nasdanika.models.flow.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResource_Artifacts(), this.getArtifact(), this.getArtifact_Resources(), "artifacts", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1494,10 +1610,16 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 			   "documentation", "Nodes may have output ports with connection starting from those ports"
 		   });
 		addAnnotation
+		  (collaboratableEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Something that particpants in roles can collaborate on"
+		   });
+		addAnnotation
 		  (roleEClass,
 		   source,
 		   new String[] {
-			   "documentation", "A role of a participant in an activity"
+			   "documentation", "A role of a participant in collaboration with other particpants in roles"
 		   });
 		addAnnotation
 		  (getRole_Participants(),
@@ -1510,6 +1632,12 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Resources used by this role"
+		   });
+		addAnnotation
+		  (artifactProcessorRoleEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A role which works on artifacts"
 		   });
 		addAnnotation
 		  (nodeEClass,
@@ -1534,6 +1662,18 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		   source,
 		   new String[] {
 			   "documentation", "A flow element which can combine (join) and dispatch (fork) its inputs"
+		   });
+		addAnnotation
+		  (serviceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A flow element which references a (shared) process"
+		   });
+		addAnnotation
+		  (getService_Process(),
+		   source,
+		   new String[] {
+			   "documentation", "A process which this service represents"
 		   });
 		addAnnotation
 		  (transitionEClass,
@@ -1566,12 +1706,6 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 			   "documentation", "An activity is performed by participants in roles using resources and input artifacts to produce output artifacts"
 		   });
 		addAnnotation
-		  (getActivity_Roles(),
-		   source,
-		   new String[] {
-			   "documentation", "Participant roles for this activity"
-		   });
-		addAnnotation
 		  (processEClass,
 		   source,
 		   new String[] {
@@ -1582,6 +1716,12 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Flow elements"
+		   });
+		addAnnotation
+		  (getProcess_Services(),
+		   source,
+		   new String[] {
+			   "documentation", "Services referencing this process"
 		   });
 		addAnnotation
 		  (resourceEClass,

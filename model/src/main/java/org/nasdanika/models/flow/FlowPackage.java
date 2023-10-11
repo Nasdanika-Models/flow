@@ -302,7 +302,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getNode()
 	 * @generated
 	 */
-	int NODE = 15;
+	int NODE = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.GatewayImpl <em>Gateway</em>}' class.
@@ -312,7 +312,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getGateway()
 	 * @generated
 	 */
-	int GATEWAY = 16;
+	int GATEWAY = 18;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.TransitionImpl <em>Transition</em>}' class.
@@ -322,7 +322,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getTransition()
 	 * @generated
 	 */
-	int TRANSITION = 17;
+	int TRANSITION = 20;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.CallImpl <em>Call</em>}' class.
@@ -332,7 +332,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCall()
 	 * @generated
 	 */
-	int CALL = 18;
+	int CALL = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ActivityImpl <em>Activity</em>}' class.
@@ -342,7 +342,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getActivity()
 	 * @generated
 	 */
-	int ACTIVITY = 19;
+	int ACTIVITY = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ProcessImpl <em>Process</em>}' class.
@@ -352,7 +352,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getProcess()
 	 * @generated
 	 */
-	int PROCESS = 20;
+	int PROCESS = 23;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.PackageImpl <em>Package</em>}' class.
@@ -362,7 +362,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 23;
+	int PACKAGE = 26;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.DataTypeImpl <em>Data Type</em>}' class.
@@ -372,7 +372,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 24;
+	int DATA_TYPE = 27;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.DataElementImpl <em>Data Element</em>}' class.
@@ -382,7 +382,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataElement()
 	 * @generated
 	 */
-	int DATA_ELEMENT = 25;
+	int DATA_ELEMENT = 28;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ComplexDataElementImpl <em>Complex Data Element</em>}' class.
@@ -392,7 +392,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getComplexDataElement()
 	 * @generated
 	 */
-	int COMPLEX_DATA_ELEMENT = 26;
+	int COMPLEX_DATA_ELEMENT = 29;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.SimpleDataElementImpl <em>Simple Data Element</em>}' class.
@@ -402,7 +402,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSimpleDataElement()
 	 * @generated
 	 */
-	int SIMPLE_DATA_ELEMENT = 27;
+	int SIMPLE_DATA_ELEMENT = 30;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.EcoreDataTypeImpl <em>Ecore Data Type</em>}' class.
@@ -412,7 +412,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getEcoreDataType()
 	 * @generated
 	 */
-	int ECORE_DATA_TYPE = 28;
+	int ECORE_DATA_TYPE = 31;
 
 
 	/**
@@ -602,6 +602,27 @@ public interface FlowPackage extends EPackage {
 	EClass getArtifactProcessor();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Collaboratable <em>Collaboratable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Collaboratable</em>'.
+	 * @see org.nasdanika.models.flow.Collaboratable
+	 * @generated
+	 */
+	EClass getCollaboratable();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.Collaboratable#getRoles <em>Roles</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Roles</em>'.
+	 * @see org.nasdanika.models.flow.Collaboratable#getRoles()
+	 * @see #getCollaboratable()
+	 * @generated
+	 */
+	EReference getCollaboratable_Roles();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -642,6 +663,27 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGateway();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Service <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service</em>'.
+	 * @see org.nasdanika.models.flow.Service
+	 * @generated
+	 */
+	EClass getService();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.models.flow.Service#getProcess <em>Process</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Process</em>'.
+	 * @see org.nasdanika.models.flow.Service#getProcess()
+	 * @see #getService()
+	 * @generated
+	 */
+	EReference getService_Process();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Transition <em>Transition</em>}'.
@@ -696,17 +738,6 @@ public interface FlowPackage extends EPackage {
 	EClass getActivity();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.flow.Activity#getRoles <em>Roles</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Roles</em>'.
-	 * @see org.nasdanika.models.flow.Activity#getRoles()
-	 * @see #getActivity()
-	 * @generated
-	 */
-	EReference getActivity_Roles();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Process <em>Process</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -726,6 +757,17 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProcess_Elements();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.flow.Process#getServices <em>Services</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Services</em>'.
+	 * @see org.nasdanika.models.flow.Process#getServices()
+	 * @see #getProcess()
+	 * @generated
+	 */
+	EReference getProcess_Services();
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ArtifactImpl <em>Artifact</em>}' class.
@@ -837,13 +879,22 @@ public interface FlowPackage extends EPackage {
 	int ARTIFACT__ID = MODEL_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__ROLES = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Resources</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int ARTIFACT__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Participants</b></em>' reference list.
@@ -852,7 +903,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int ARTIFACT__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' reference list.
@@ -861,7 +912,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__INFOS = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int ARTIFACT__INFOS = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Data Elements</b></em>' reference list.
@@ -870,7 +921,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__DATA_ELEMENTS = MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int ARTIFACT__DATA_ELEMENTS = MODEL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Artifact</em>' class.
@@ -879,7 +930,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int ARTIFACT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Artifact</em>' class.
@@ -898,7 +949,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 21;
+	int RESOURCE = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ParticipantImpl <em>Participant</em>}' class.
@@ -908,7 +959,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getParticipant()
 	 * @generated
 	 */
-	int PARTICIPANT = 22;
+	int PARTICIPANT = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.RoleImpl <em>Role</em>}' class.
@@ -918,7 +969,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 14;
+	int ROLE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ArtifactInfoImpl <em>Artifact Info</em>}' class.
@@ -2047,6 +2098,43 @@ public interface FlowPackage extends EPackage {
 	int ARTIFACT_PROCESSOR_OPERATION_COUNT = ARTIFACT_PRODUCER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.Collaboratable <em>Collaboratable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.Collaboratable
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCollaboratable()
+	 * @generated
+	 */
+	int COLLABORATABLE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLABORATABLE__ROLES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Collaboratable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLABORATABLE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Collaboratable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLABORATABLE_OPERATION_COUNT = 0;
+
+	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2146,31 +2234,13 @@ public interface FlowPackage extends EPackage {
 	int ROLE__ID = MODEL_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE__OUTPUTS = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE__INPUTS = MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Participants</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int ROLE__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' reference list.
@@ -2179,7 +2249,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int ROLE__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Role</em>' class.
@@ -2188,7 +2258,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int ROLE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Role</em>' class.
@@ -2198,6 +2268,169 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROLE_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ArtifactProcessorRoleImpl <em>Artifact Processor Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.ArtifactProcessorRoleImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactProcessorRole()
+	 * @generated
+	 */
+	int ARTIFACT_PROCESSOR_ROLE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__MARKERS = ROLE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__URIS = ROLE__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__DESCRIPTION = ROLE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__UUID = ROLE__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__LABEL_PROTOTYPE = ROLE__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__REPRESENTATIONS = ROLE__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__ANNOTATIONS = ROLE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__NAME = ROLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__DOCUMENTATION = ROLE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__CONTEXT_HELP = ROLE__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__ID = ROLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Participants</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__PARTICIPANTS = ROLE__PARTICIPANTS;
+
+	/**
+	 * The feature id for the '<em><b>Resources</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__RESOURCES = ROLE__RESOURCES;
+
+	/**
+	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__OUTPUTS = ROLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__INPUTS = ROLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Artifact Processor Role</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Artifact Processor Role</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE_OPERATION_COUNT = ROLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2558,6 +2791,205 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int GATEWAY_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ServiceImpl <em>Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.ServiceImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getService()
+	 * @generated
+	 */
+	int SERVICE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__MARKERS = NODE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__URIS = NODE__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__DESCRIPTION = NODE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__UUID = NODE__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__LABEL_PROTOTYPE = NODE__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__REPRESENTATIONS = NODE__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__ANNOTATIONS = NODE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__NAME = NODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__DOCUMENTATION = NODE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__CONTEXT_HELP = NODE__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__ID = NODE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__REQUIREMENTS = NODE__REQUIREMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__OUTPUTS = NODE__OUTPUTS;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Connections</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__OUTGOING_CONNECTIONS = NODE__OUTGOING_CONNECTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__INPUTS = NODE__INPUTS;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Connections</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__INCOMING_CONNECTIONS = NODE__INCOMING_CONNECTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Input Ports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__INPUT_PORTS = NODE__INPUT_PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Output Ports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__OUTPUT_PORTS = NODE__OUTPUT_PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__PROCESS = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -3019,7 +3451,7 @@ public interface FlowPackage extends EPackage {
 	int ACTIVITY__RESOURCES = NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Roles</b></em>' reference list.
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3052,7 +3484,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__MARKERS = NODE__MARKERS;
+	int PROCESS__MARKERS = ACTIVITY__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
@@ -3061,7 +3493,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__URIS = NODE__URIS;
+	int PROCESS__URIS = ACTIVITY__URIS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3070,7 +3502,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__DESCRIPTION = NODE__DESCRIPTION;
+	int PROCESS__DESCRIPTION = ACTIVITY__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -3079,7 +3511,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__UUID = NODE__UUID;
+	int PROCESS__UUID = ACTIVITY__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
@@ -3088,7 +3520,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__LABEL_PROTOTYPE = NODE__LABEL_PROTOTYPE;
+	int PROCESS__LABEL_PROTOTYPE = ACTIVITY__LABEL_PROTOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' map.
@@ -3097,7 +3529,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__REPRESENTATIONS = NODE__REPRESENTATIONS;
+	int PROCESS__REPRESENTATIONS = ACTIVITY__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -3106,7 +3538,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__ANNOTATIONS = NODE__ANNOTATIONS;
+	int PROCESS__ANNOTATIONS = ACTIVITY__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3115,7 +3547,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__NAME = NODE__NAME;
+	int PROCESS__NAME = ACTIVITY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
@@ -3124,7 +3556,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__DOCUMENTATION = NODE__DOCUMENTATION;
+	int PROCESS__DOCUMENTATION = ACTIVITY__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
@@ -3133,7 +3565,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__CONTEXT_HELP = NODE__CONTEXT_HELP;
+	int PROCESS__CONTEXT_HELP = ACTIVITY__CONTEXT_HELP;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3142,7 +3574,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__ID = NODE__ID;
+	int PROCESS__ID = ACTIVITY__ID;
 
 	/**
 	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
@@ -3151,7 +3583,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__REQUIREMENTS = NODE__REQUIREMENTS;
+	int PROCESS__REQUIREMENTS = ACTIVITY__REQUIREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -3160,7 +3592,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__OUTPUTS = NODE__OUTPUTS;
+	int PROCESS__OUTPUTS = ACTIVITY__OUTPUTS;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Connections</b></em>' containment reference list.
@@ -3169,7 +3601,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__OUTGOING_CONNECTIONS = NODE__OUTGOING_CONNECTIONS;
+	int PROCESS__OUTGOING_CONNECTIONS = ACTIVITY__OUTGOING_CONNECTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -3178,7 +3610,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__INPUTS = NODE__INPUTS;
+	int PROCESS__INPUTS = ACTIVITY__INPUTS;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Connections</b></em>' reference list.
@@ -3187,7 +3619,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__INCOMING_CONNECTIONS = NODE__INCOMING_CONNECTIONS;
+	int PROCESS__INCOMING_CONNECTIONS = ACTIVITY__INCOMING_CONNECTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Input Ports</b></em>' containment reference list.
@@ -3196,7 +3628,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__INPUT_PORTS = NODE__INPUT_PORTS;
+	int PROCESS__INPUT_PORTS = ACTIVITY__INPUT_PORTS;
 
 	/**
 	 * The feature id for the '<em><b>Output Ports</b></em>' containment reference list.
@@ -3205,7 +3637,34 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__OUTPUT_PORTS = NODE__OUTPUT_PORTS;
+	int PROCESS__OUTPUT_PORTS = ACTIVITY__OUTPUT_PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Participants</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS__PARTICIPANTS = ACTIVITY__PARTICIPANTS;
+
+	/**
+	 * The feature id for the '<em><b>Resources</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS__RESOURCES = ACTIVITY__RESOURCES;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS__ROLES = ACTIVITY__ROLES;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -3214,7 +3673,16 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__ELEMENTS = NODE_FEATURE_COUNT + 0;
+	int PROCESS__ELEMENTS = ACTIVITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Services</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS__SERVICES = ACTIVITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Process</em>' class.
@@ -3223,7 +3691,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
+	int PROCESS_FEATURE_COUNT = ACTIVITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Process</em>' class.
@@ -3232,7 +3700,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
+	int PROCESS_OPERATION_COUNT = ACTIVITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -3820,13 +4288,22 @@ public interface FlowPackage extends EPackage {
 	int DATA_TYPE__ID = MODEL_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__ROLES = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Base</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__BASE = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int DATA_TYPE__BASE = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Extensions</b></em>' reference list.
@@ -3835,7 +4312,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__EXTENSIONS = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int DATA_TYPE__EXTENSIONS = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Data Type</em>' class.
@@ -3844,7 +4321,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int DATA_TYPE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Data Type</em>' class.
@@ -3955,13 +4432,22 @@ public interface FlowPackage extends EPackage {
 	int DATA_ELEMENT__ID = MODEL_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__ROLES = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_ELEMENT__LOWER_BOUND = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int DATA_ELEMENT__LOWER_BOUND = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
@@ -3970,7 +4456,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_ELEMENT__UPPER_BOUND = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int DATA_ELEMENT__UPPER_BOUND = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Artifacts</b></em>' reference list.
@@ -3979,7 +4465,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_ELEMENT__ARTIFACTS = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int DATA_ELEMENT__ARTIFACTS = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Data Element</em>' class.
@@ -3988,7 +4474,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int DATA_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Data Element</em>' class.
@@ -4097,6 +4583,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_DATA_ELEMENT__ID = DATA_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_DATA_ELEMENT__ROLES = DATA_ELEMENT__ROLES;
 
 	/**
 	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
@@ -4270,6 +4765,15 @@ public interface FlowPackage extends EPackage {
 	int SIMPLE_DATA_ELEMENT__ID = DATA_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_DATA_ELEMENT__ROLES = DATA_ELEMENT__ROLES;
+
+	/**
 	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4421,6 +4925,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int ECORE_DATA_TYPE__ID = DATA_TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__ROLES = DATA_TYPE__ROLES;
 
 	/**
 	 * The feature id for the '<em><b>Base</b></em>' reference.
@@ -4888,6 +5401,16 @@ public interface FlowPackage extends EPackage {
 	EReference getRole_Resources();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ArtifactProcessorRole <em>Artifact Processor Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Artifact Processor Role</em>'.
+	 * @see org.nasdanika.models.flow.ArtifactProcessorRole
+	 * @generated
+	 */
+	EClass getArtifactProcessorRole();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ArtifactInfo <em>Artifact Info</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5104,6 +5627,22 @@ public interface FlowPackage extends EPackage {
 		 */
 		EClass ARTIFACT_PROCESSOR = eINSTANCE.getArtifactProcessor();
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.Collaboratable <em>Collaboratable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.Collaboratable
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCollaboratable()
+		 * @generated
+		 */
+		EClass COLLABORATABLE = eINSTANCE.getCollaboratable();
+		/**
+		 * The meta object literal for the '<em><b>Roles</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLLABORATABLE__ROLES = eINSTANCE.getCollaboratable_Roles();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.NodeImpl <em>Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5135,6 +5674,22 @@ public interface FlowPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GATEWAY = eINSTANCE.getGateway();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ServiceImpl <em>Service</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.ServiceImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getService()
+		 * @generated
+		 */
+		EClass SERVICE = eINSTANCE.getService();
+		/**
+		 * The meta object literal for the '<em><b>Process</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE__PROCESS = eINSTANCE.getService_Process();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.TransitionImpl <em>Transition</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -5177,13 +5732,6 @@ public interface FlowPackage extends EPackage {
 		 */
 		EClass ACTIVITY = eINSTANCE.getActivity();
 		/**
-		 * The meta object literal for the '<em><b>Roles</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTIVITY__ROLES = eINSTANCE.getActivity_Roles();
-		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ProcessImpl <em>Process</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5199,6 +5747,13 @@ public interface FlowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROCESS__ELEMENTS = eINSTANCE.getProcess_Elements();
+		/**
+		 * The meta object literal for the '<em><b>Services</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCESS__SERVICES = eINSTANCE.getProcess_Services();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.PackageImpl <em>Package</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -5492,6 +6047,15 @@ public interface FlowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROLE__RESOURCES = eINSTANCE.getRole_Resources();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ArtifactProcessorRoleImpl <em>Artifact Processor Role</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.ArtifactProcessorRoleImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactProcessorRole()
+		 * @generated
+		 */
+		EClass ARTIFACT_PROCESSOR_ROLE = eINSTANCE.getArtifactProcessorRole();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ArtifactInfoImpl <em>Artifact Info</em>}' class.
 		 * <!-- begin-user-doc -->

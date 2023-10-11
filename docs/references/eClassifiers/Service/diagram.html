@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="EN">
+  <head>
+    <title>Diagram</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.1.0/github-markdown.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21.2/dist/bootstrap-vue.css">
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/components/table.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>    
+
+<script src="../../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['action-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+</head>
+  <body>
+    <div class="container-fluid nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="https://github.com/Nasdanika-Models" data-nsd-label-uuid="c9a0abc3-3ea0-49f2-bbe0-c46e4cbc2576" class="nsd-app-header-title">
+            <img src="https://docs.nasdanika.org/images/nasdanika-logo.png" class="nsd-app-label-icon">Nasdanika Models</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <a href="../../../search.html" data-nsd-label-uuid="f79756ba-86df-4978-b3e9-7bb7d903afcb" class="nav-link"><span class="fas fa-search nsd-app-label-icon"></span>Search</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../../glossary.html" data-nsd-label-uuid="a14a0adb-96c0-4810-99d4-dc2a1d6bddac" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Glossary</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-navbar">
+          <ul class="navbar navbar-light navbar-expand-lg">
+            <a href="../../../index.html" title="TODO" data-nsd-label-uuid="a11311de-6e04-4013-9cd9-8b559437177f" class="navbar-brand">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EPackage.gif" class="nsd-app-label-icon">Flow</a>
+            <button type="button" data-toggle="collapse" data-target="#nsd_2c1" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="nsd_2c1" class="collapse navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a href="../../../classifiers.html" data-nsd-label-uuid="c8b01ce4-7a32-4fdc-9eac-f4bb441a252c" class="nav-link">Classifiers</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../../diagram.html" data-nsd-label-uuid="187b9723-fb89-40c6-8798-c23940a520a3" class="nav-link"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Diagram</a>
+                </li>
+                <li class="nav-item">
+                  </li><li data-nsd-label-uuid="eff62079-2265-48b8-ae52-99faade12607" class="dropdown">
+                    <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle">
+                      <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png" class="nsd-app-label-icon">Graphs</a>
+                    <div class="dropdown-menu">
+                      <a href="../../../default-graph.html" data-nsd-label-uuid="02e77d58-bc98-456a-9916-82968eb04157" class="dropdown-item">Default Graph</a>
+                      <a href="../../../circular-layout-graph.html" data-nsd-label-uuid="d57211bd-fd5b-4350-8ed4-6e435f6ab352" class="dropdown-item">Circular Graph</a>
+                      <a href="../../../force-layout-graph.html" data-nsd-label-uuid="48df375b-c4db-45aa-be36-8923ae7a6cab" class="dropdown-item">Force Graph</a>
+                      <div title="With dependencies and sub-packages" class="dropdown-divider"></div>
+                      <a href="../../../default-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="e94892f7-a0b0-4894-8972-cfb50f6e766d" class="dropdown-item">Default Graph</a>
+                      <a href="../../../circular-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="e18af503-4896-4485-9fd2-3cc946935d72" class="dropdown-item">Circular Graph</a>
+                      <a href="../../../force-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="61aad36f-fdf3-45f4-81f8-fcc753cabdde" class="dropdown-item">Force Graph</a>
+                    </div>
+                  </li>
+                
+              </ul>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <div class="col nsd-app-navigation-panel">
+          <div class="list-group list-group-flush">
+            <a href="../Activity/index.html" title="An activity is performed by participants in roles using resources and input artifacts to produce output artifacts" data-nsd-label-uuid="d4ff8b53-dccd-4af6-bf12-236cb336d8bc" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Activity</a>
+            <a href="../Artifact/index.html" title="Information passed between flow elements and operated on by participants using resources" data-nsd-label-uuid="b030708f-e5d9-414b-b15f-e374c588ed75" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Artifact</a>
+            <a href="../ArtifactConsumer/index.html" data-nsd-label-uuid="80cb6649-2cd9-4c1d-bd02-01b859952dfc" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>ArtifactConsumer</i></a>
+            <a href="../ArtifactInfo/index.html" title="Information about input/output artifact" data-nsd-label-uuid="4c6a2fb3-6f77-4366-8566-8952753413c9" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ArtifactInfo</a>
+            <a href="../ArtifactProcessor/index.html" data-nsd-label-uuid="72c85467-b361-401f-a88a-c11a2775e547" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>ArtifactProcessor</i></a>
+            <a href="../ArtifactProcessorRole/index.html" title="A role which works on artifacts" data-nsd-label-uuid="c575517a-2405-4238-bf31-37f5ed5b5374" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ArtifactProcessorRole</a>
+            <a href="../ArtifactProducer/index.html" data-nsd-label-uuid="12cccc82-3802-4e9b-b82f-9bf219497470" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>ArtifactProducer</i></a>
+            <a href="../Call/index.html" title="Sends a request payload to its target and returns response to its source. Request-response semantics." data-nsd-label-uuid="25b9dfa7-ce4d-4123-98d4-9a265f141a8a" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Call</a>
+            <a href="../Collaboratable/index.html" title="Something that particpants in roles can collaborate on" data-nsd-label-uuid="094225ac-567e-45df-90ee-38d7166de0a4" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>Collaboratable</i></a>
+            <a href="../ComplexDataElement/index.html" title="A data element consisting of other data elements, a structure/class" data-nsd-label-uuid="df19c51f-b702-426b-942e-4a392d62ffd7" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ComplexDataElement</a>
+            <a href="../Connection/index.html" title="Base class for Transitions and Calls. Contained by its source." data-nsd-label-uuid="7f2dec6a-2cd1-4ee1-9568-5cb9d5840958" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Connection</a>
+            <a href="../DataElement/index.html" title="Element of data" data-nsd-label-uuid="3efb04ce-a33e-4f1d-8486-6109615df874" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>DataElement</i></a>
+            <a href="../DataType/index.html" title="Type of data. E.g. Number, Date, Text, Person" data-nsd-label-uuid="34845bd3-c9a8-4330-916b-4cff6bcfb347" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">DataType</a>
+            <a href="../EcoreDataType/index.html" title="A data type defined in Ecore model" data-nsd-label-uuid="f15604b0-c978-4503-9b97-61f8d8a84207" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">EcoreDataType</a>
+            <a href="../End/index.html" title="End pseudo-state" data-nsd-label-uuid="64fdf3cc-bb85-4246-87b9-a344c9faa87c" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">End</a>
+            <a href="../Gateway/index.html" title="A flow element which can combine (join) and dispatch (fork) its inputs" data-nsd-label-uuid="82e33105-60a5-4393-9b4e-a1cafe64629e" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Gateway</a>
+            <a href="../InputPort/index.html" title="Nodes may have input ports and connections may use input ports as targets" data-nsd-label-uuid="052d724c-0253-44f3-a2fd-a7462e955bbd" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">InputPort</a>
+            <a href="../ModelElement/index.html" title="Base class for flow model elements" data-nsd-label-uuid="8cf95878-6454-42d5-8805-743c83e0a977" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>ModelElement</i></a>
+            <a href="../Node/index.html" title="A flow element which supports both outgoing and incoming connections" data-nsd-label-uuid="226891ac-124b-4e0d-ba3f-8a99a4c974b7" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>Node</i></a>
+            <a href="../OutputPort/index.html" title="Nodes may have output ports with connection starting from those ports" data-nsd-label-uuid="fdbde4c3-5bed-4a82-9eae-16b819f6276b" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">OutputPort</a>
+            <a href="../Package/index.html" title="A group of flows and elements they reference - participants, ..." data-nsd-label-uuid="c971f9bf-22e8-4742-8c31-46bc67753c2a" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Package</a>
+            <a href="../Participant/index.html" title="Participates in flow execution by playing roles in activities " data-nsd-label-uuid="b10124e6-0894-4140-bfc5-412d5497e848" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Participant</a>
+            <a href="../Process/index.html" title="Flow is a composite activity" data-nsd-label-uuid="b0109431-e123-4218-8446-fec478fad908" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Process</a>
+            <a href="../ProcessElement/index.html" data-nsd-label-uuid="a0aadf11-b653-4810-87b9-27787367d91b" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ProcessElement</a>
+            <a href="../Resource/index.html" title="Resource is something used by participants/roles to work with artifacts. It may be a tool, or a repository." data-nsd-label-uuid="215b85ee-7502-49b4-9507-e18db2c7f9a7" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Resource</a>
+            <a href="../Role/index.html" title="A role of a participant in collaboration with other particpants in roles" data-nsd-label-uuid="ff0d0dea-fa3e-4374-984e-4ae89b25b0db" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Role</a>
+            <a href="index.html" title="A flow element which references a (shared) process" data-nsd-label-uuid="1388606e-5cf8-4053-9775-ea504da850d6" class="list-group-item list-group-action active">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Service</a>
+            <a href="../SimpleDataElement/index.html" title="A scalar, but may contain multiple values of the same type" data-nsd-label-uuid="10929a9e-fcda-4757-b7ac-a2d3e4d5a59e" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">SimpleDataElement</a>
+            <a href="../Source/index.html" title="Source of connections" data-nsd-label-uuid="75b0680b-55e7-4daa-ac83-235917216793" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>Source</i></a>
+            <a href="../Start/index.html" title="Start pseudo-state" data-nsd-label-uuid="b5e04840-ff29-4767-8648-7881988e966b" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Start</a>
+            <a href="../Target/index.html" title="Base class for connection targets" data-nsd-label-uuid="746be2d7-1b5f-49ec-a6cb-c480a82e86a3" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>Target</i></a>
+            <a href="../Transition/index.html" title="Transition passes control and payload from its source to its target. Fire-and-forget semantics." data-nsd-label-uuid="28b90b5b-a76b-4364-911e-3697ef321d11" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Transition</a>
+          </div>
+        </div>
+        <div data-nsd-label-uuid="4cac59fc-775d-4add-a9f7-ce58ffb39361" data-nsd-action-uris="uuid:4cac59fc-775d-4add-a9f7-ce58ffb39361" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="index.html" title="A flow element which references a (shared) process" data-nsd-label-uuid="1388606e-5cf8-4053-9775-ea504da850d6">
+                        <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Service</a>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="4cac59fc-775d-4add-a9f7-ce58ffb39361"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Diagram</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <h1><span data-nsd-label-uuid="4cac59fc-775d-4add-a9f7-ce58ffb39361" class="nsd-app-content-panel-title"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Diagram</span>
+                </h1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><img src="data:image/png;base64, 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" usemap="#plantuml_map_f21dbfff-042b-466f-8433-bce644981ddf">
+<map id="plantuml_map_f21dbfff-042b-466f-8433-bce644981ddf" name="plantuml_map_f21dbfff-042b-466f-8433-bce644981ddf">
+<area shape="rect" id="id1" href="../Target/index.html" title="Base class for connection targets" alt="" coords="13,76,55,94">
+<area shape="rect" id="id2" href="references/eStructuralFeatures/process/index.html" title="A process which this service represents" alt="" coords="226,148,272,164">
+<area shape="rect" id="id3" href="../Process/references/eStructuralFeatures/services/index.html" title="Services referencing this process" alt="" coords="154,211,201,227">
+<area shape="rect" id="id4" href="../Activity/index.html" title="An activity is performed by participants in roles using resources and input artifacts to produce output artifacts" alt="" coords="222,76,266,94">
+<area shape="rect" id="id5" href="../Source/index.html" title="Source of connections" alt="" coords="13,59,58,76">
+<area shape="rect" id="id6" href="../InputPort/index.html" title="Nodes may have input ports and connections may use input ports as targets" alt="" coords="89,127,146,145">
+<area shape="rect" id="id7" href="../OutputPort/index.html" title="Nodes may have output ports with connection starting from those ports" alt="" coords="98,145,167,163">
+<area shape="rect" id="id8" href="../ProcessElement/index.html" title="../ProcessElement/index.html" alt="" coords="291,110,393,128">
+<area shape="rect" id="id9" href="../ProcessElement/index.html" title="../ProcessElement/index.html" alt="" coords="13,41,115,59">
+<area shape="rect" id="id10" href="../ArtifactProcessor/index.html" title="../ArtifactProcessor/index.html" alt="" coords="13,94,121,111">
+<area shape="rect" id="id11" href="../Node/references/eStructuralFeatures/inputPorts/index.html" title="Input ports may be used to group incoming connections" alt="" coords="13,127,154,145">
+<area shape="rect" id="id12" href="../Node/references/eStructuralFeatures/outputPorts/index.html" title="Output ports can be used to group outgoing connections" alt="" coords="13,145,175,163">
+<area shape="rect" id="id13" href="../Process/references/eStructuralFeatures/elements/index.html" title="Flow elements" alt="" coords="222,110,401,128">
+<area shape="rect" id="id14" href="" title="A flow element which references a (shared) process" alt="" coords="163,237,242,285">
+<area shape="rect" id="id15" href="../Process/index.html" title="Flow is a composite activity" alt="" coords="216,42,407,141">
+<area shape="rect" id="id16" href="../Node/index.html" title="A flow element which supports both outgoing and incoming connections" alt="" coords="7,7,181,176">
+</map>
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika-Models/flow" data-nsd-label-uuid="ec4018dd-2daf-49f4-a9e9-c63b1d1ca341" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>Sources</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

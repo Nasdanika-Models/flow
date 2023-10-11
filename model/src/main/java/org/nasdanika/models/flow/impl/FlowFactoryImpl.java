@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.nasdanika.models.flow.Activity;
 import org.nasdanika.models.flow.Artifact;
 import org.nasdanika.models.flow.ArtifactInfo;
+import org.nasdanika.models.flow.ArtifactProcessorRole;
 import org.nasdanika.models.flow.Call;
 import org.nasdanika.models.flow.ComplexDataElement;
 import org.nasdanika.models.flow.Connection;
@@ -27,6 +28,7 @@ import org.nasdanika.models.flow.Participant;
 import org.nasdanika.models.flow.ProcessElement;
 import org.nasdanika.models.flow.Resource;
 import org.nasdanika.models.flow.Role;
+import org.nasdanika.models.flow.Service;
 import org.nasdanika.models.flow.SimpleDataElement;
 import org.nasdanika.models.flow.Start;
 import org.nasdanika.models.flow.Transition;
@@ -85,7 +87,9 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 			case FlowPackage.END: return createEnd();
 			case FlowPackage.OUTPUT_PORT: return createOutputPort();
 			case FlowPackage.ROLE: return createRole();
+			case FlowPackage.ARTIFACT_PROCESSOR_ROLE: return createArtifactProcessorRole();
 			case FlowPackage.GATEWAY: return createGateway();
+			case FlowPackage.SERVICE: return createService();
 			case FlowPackage.TRANSITION: return createTransition();
 			case FlowPackage.CALL: return createCall();
 			case FlowPackage.ACTIVITY: return createActivity();
@@ -177,6 +181,17 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	public Gateway createGateway() {
 		GatewayImpl gateway = new GatewayImpl();
 		return gateway;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Service createService() {
+		ServiceImpl service = new ServiceImpl();
+		return service;
 	}
 
 	/**
@@ -320,6 +335,17 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	public Role createRole() {
 		RoleImpl role = new RoleImpl();
 		return role;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ArtifactProcessorRole createArtifactProcessorRole() {
+		ArtifactProcessorRoleImpl artifactProcessorRole = new ArtifactProcessorRoleImpl();
+		return artifactProcessorRole;
 	}
 
 	/**

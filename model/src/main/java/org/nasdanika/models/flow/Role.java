@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A role of a participant in an activity
+ * A role of a participant in collaboration with other particpants in roles
  * <!-- end-model-doc -->
  *
  * <p>
@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Role extends ModelElement, ArtifactProcessor {
+public interface Role extends ModelElement {
 	/**
 	 * Returns the value of the '<em><b>Participants</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.models.flow.Participant}.

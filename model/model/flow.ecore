@@ -11,7 +11,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Artifact" eSuperTypes="#//ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Artifact">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Information passed between flow elements and operated on by participants using resources"/>
     </eAnnotations>
@@ -39,6 +39,10 @@
         <details key="documentation" value="Data element used in this artifact. E.g. a JSON structure may use Person data element/type"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//ModelElement"/>
+    <eGenericSuperTypes eClassifier="#//Collaboratable">
+      <eTypeArguments eClassifier="#//Role"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArtifactInfo" eSuperTypes="#//ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -137,9 +141,21 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArtifactProcessor" abstract="true" interface="true"
       eSuperTypes="#//ArtifactProducer #//ArtifactConsumer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//ModelElement #//ArtifactProcessor">
+  <eClassifiers xsi:type="ecore:EClass" name="Collaboratable" abstract="true" interface="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A role of a participant in an activity"/>
+      <details key="documentation" value="Something that particpants in roles can collaborate on"/>
+    </eAnnotations>
+    <eTypeParameters name="R">
+      <eBounds eClassifier="#//Role"/>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
+        containment="true" eKeys="#//ModelElement/id">
+      <eGenericType eTypeParameter="#//Collaboratable/R"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//ModelElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A role of a participant in collaboration with other particpants in roles"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
         eType="#//Participant" eOpposite="#//Participant/roles">
@@ -153,6 +169,11 @@
         <details key="documentation" value="Resources used by this role"/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArtifactProcessorRole" eSuperTypes="#//Role #//ArtifactProcessor">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A role which works on artifacts"/>
+    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//ProcessElement #//Source #//Target #//ArtifactProcessor">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -176,6 +197,17 @@
       <details key="documentation" value="A flow element which can combine (join) and dispatch (fork) its inputs"/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="#//Node">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A flow element which references a (shared) process"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//Process"
+        eOpposite="#//Process/services">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A process which this service represents"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//Connection">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Transition passes control and payload from its source to its target. Fire-and-forget semantics."/>
@@ -198,18 +230,17 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="#//Node #//Role">
+  <eClassifiers xsi:type="ecore:EClass" name="Activity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An activity is performed by participants in roles using resources and input artifacts to produce output artifacts"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
-        eType="#//Role" eKeys="#//ModelElement/id">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Participant roles for this activity"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//Node"/>
+    <eGenericSuperTypes eClassifier="#//ArtifactProcessorRole"/>
+    <eGenericSuperTypes eClassifier="#//Collaboratable">
+      <eTypeArguments eClassifier="#//ArtifactProcessorRole"/>
+    </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//Node">
+  <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//Activity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Flow is a composite activity"/>
     </eAnnotations>
@@ -217,6 +248,12 @@
         eType="#//ProcessElement" containment="true" eKeys="#//ModelElement/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Flow elements"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//Service" eOpposite="#//Service/process">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Services referencing this process"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -325,7 +362,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataType" eSuperTypes="#//ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DataType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Type of data. E.g. Number, Date, Text, Person"/>
     </eAnnotations>
@@ -337,8 +374,12 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extensions" upperBound="-1"
         eType="#//DataType" eOpposite="#//DataType/base"/>
+    <eGenericSuperTypes eClassifier="#//ModelElement"/>
+    <eGenericSuperTypes eClassifier="#//Collaboratable">
+      <eTypeArguments eClassifier="#//Role"/>
+    </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataElement" abstract="true" eSuperTypes="#//ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DataElement" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Element of data"/>
     </eAnnotations>
@@ -359,6 +400,10 @@
         <details key="documentation" value="Data element may be used in multiple artifacts"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//ModelElement"/>
+    <eGenericSuperTypes eClassifier="#//Collaboratable">
+      <eTypeArguments eClassifier="#//Role"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComplexDataElement" eSuperTypes="#//DataElement #//DataType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

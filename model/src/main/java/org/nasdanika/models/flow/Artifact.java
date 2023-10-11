@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Artifact extends ModelElement {
+public interface Artifact extends ModelElement, Collaboratable<Role> {
 	/**
 	 * Returns the value of the '<em><b>Resources</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.models.flow.Resource}.

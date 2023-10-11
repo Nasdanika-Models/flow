@@ -9,7 +9,7 @@ import org.nasdanika.html.model.app.Action;
 import org.nasdanika.html.model.app.graph.WidgetFactory;
 import org.nasdanika.models.flow.Activity;
 
-public class ActivityNodeProcessor extends NodeNodeProcessor<Activity> {
+public class ActivityNodeProcessor<T extends Activity> extends NodeNodeProcessor<T> {
 	
 	public ActivityNodeProcessor(
 			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 

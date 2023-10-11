@@ -15,10 +15,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.models.flow.Artifact;
 import org.nasdanika.models.flow.ArtifactInfo;
+import org.nasdanika.models.flow.Collaboratable;
 import org.nasdanika.models.flow.DataElement;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.Participant;
 import org.nasdanika.models.flow.Resource;
+import org.nasdanika.models.flow.Role;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +30,7 @@ import org.nasdanika.models.flow.Resource;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.models.flow.impl.ArtifactImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ArtifactImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ArtifactImpl#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ArtifactImpl#getInfos <em>Infos</em>}</li>
@@ -54,6 +57,17 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 	@Override
 	protected EClass eStaticClass() {
 		return FlowPackage.Literals.ARTIFACT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Role> getRoles() {
+		return (EList<Role>)eDynamicGet(FlowPackage.ARTIFACT__ROLES, FlowPackage.Literals.COLLABORATABLE__ROLES, true, true);
 	}
 
 	/**
@@ -129,6 +143,8 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FlowPackage.ARTIFACT__ROLES:
+				return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ARTIFACT__RESOURCES:
 				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ARTIFACT__PARTICIPANTS:
@@ -149,6 +165,8 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FlowPackage.ARTIFACT__ROLES:
+				return getRoles();
 			case FlowPackage.ARTIFACT__RESOURCES:
 				return getResources();
 			case FlowPackage.ARTIFACT__PARTICIPANTS:
@@ -170,6 +188,10 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FlowPackage.ARTIFACT__ROLES:
+				getRoles().clear();
+				getRoles().addAll((Collection<? extends Role>)newValue);
+				return;
 			case FlowPackage.ARTIFACT__RESOURCES:
 				getResources().clear();
 				getResources().addAll((Collection<? extends Resource>)newValue);
@@ -198,6 +220,9 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FlowPackage.ARTIFACT__ROLES:
+				getRoles().clear();
+				return;
 			case FlowPackage.ARTIFACT__RESOURCES:
 				getResources().clear();
 				return;
@@ -222,6 +247,8 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FlowPackage.ARTIFACT__ROLES:
+				return !getRoles().isEmpty();
 			case FlowPackage.ARTIFACT__RESOURCES:
 				return !getResources().isEmpty();
 			case FlowPackage.ARTIFACT__PARTICIPANTS:
@@ -232,6 +259,38 @@ public class ArtifactImpl extends ModelElementImpl implements Artifact {
 				return !getDataElements().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Collaboratable.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.ARTIFACT__ROLES: return FlowPackage.COLLABORATABLE__ROLES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Collaboratable.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.COLLABORATABLE__ROLES: return FlowPackage.ARTIFACT__ROLES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //ArtifactImpl
