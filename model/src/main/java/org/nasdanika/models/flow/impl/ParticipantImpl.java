@@ -35,7 +35,7 @@ import org.nasdanika.models.flow.Role;
  *
  * @generated
  */
-public class ParticipantImpl extends ModelElementImpl implements Participant {
+public class ParticipantImpl extends ParticipantDomainElementImpl implements Participant {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

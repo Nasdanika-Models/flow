@@ -29,7 +29,7 @@ import org.nasdanika.models.flow.Role;
  *
  * @generated
  */
-public class DataTypeImpl extends ModelElementImpl implements DataType {
+public class DataTypeImpl extends DataTypeDomainElementImpl implements DataType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

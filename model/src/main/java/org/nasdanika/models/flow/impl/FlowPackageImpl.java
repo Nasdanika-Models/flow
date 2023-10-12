@@ -16,6 +16,8 @@ import org.nasdanika.models.capability.CapabilityPackage;
 import org.nasdanika.models.flow.Activity;
 import org.nasdanika.models.flow.Artifact;
 import org.nasdanika.models.flow.ArtifactConsumer;
+import org.nasdanika.models.flow.ArtifactDomain;
+import org.nasdanika.models.flow.ArtifactDomainElement;
 import org.nasdanika.models.flow.ArtifactInfo;
 import org.nasdanika.models.flow.ArtifactProcessor;
 import org.nasdanika.models.flow.ArtifactProcessorRole;
@@ -23,9 +25,15 @@ import org.nasdanika.models.flow.ArtifactProducer;
 import org.nasdanika.models.flow.Call;
 import org.nasdanika.models.flow.Collaboratable;
 import org.nasdanika.models.flow.ComplexDataElement;
+import org.nasdanika.models.flow.CompositeArtifact;
+import org.nasdanika.models.flow.CompositeResource;
 import org.nasdanika.models.flow.Connection;
+import org.nasdanika.models.flow.DataDomain;
+import org.nasdanika.models.flow.DataDomainElement;
 import org.nasdanika.models.flow.DataElement;
 import org.nasdanika.models.flow.DataType;
+import org.nasdanika.models.flow.DataTypeDomain;
+import org.nasdanika.models.flow.DataTypeDomainElement;
 import org.nasdanika.models.flow.EcoreDataType;
 import org.nasdanika.models.flow.End;
 import org.nasdanika.models.flow.FlowFactory;
@@ -36,8 +44,14 @@ import org.nasdanika.models.flow.ModelElement;
 import org.nasdanika.models.flow.Node;
 import org.nasdanika.models.flow.OutputPort;
 import org.nasdanika.models.flow.Participant;
+import org.nasdanika.models.flow.ParticipantDomain;
+import org.nasdanika.models.flow.ParticipantDomainElement;
+import org.nasdanika.models.flow.ProcessDomain;
+import org.nasdanika.models.flow.ProcessDomainElement;
 import org.nasdanika.models.flow.ProcessElement;
 import org.nasdanika.models.flow.Resource;
+import org.nasdanika.models.flow.ResourceDomain;
+import org.nasdanika.models.flow.ResourceDomainElement;
 import org.nasdanika.models.flow.Role;
 import org.nasdanika.models.flow.Service;
 import org.nasdanika.models.flow.SimpleDataElement;
@@ -60,6 +74,18 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	private EClass modelElementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass artifactDomainElementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass artifactDomainEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,7 +199,31 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass processDomainElementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass processDomainEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass processEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceDomainElementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceDomainEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -215,7 +265,25 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass dataDomainElementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataDomainEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass artifactEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass compositeArtifactEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,7 +295,37 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass compositeResourceEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass participantDomainElementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass participantDomainEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass participantEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataTypeDomainElementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataTypeDomainEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -328,8 +426,28 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getModelElement_Id() {
-		return (EAttribute)modelElementEClass.getEStructuralFeatures().get(0);
+	public EClass getArtifactDomainElement() {
+		return artifactDomainElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getArtifactDomain() {
+		return artifactDomainEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getArtifactDomain_Artifacts() {
+		return (EReference)artifactDomainEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -628,6 +746,36 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getProcessDomainElement() {
+		return processDomainElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getProcessDomain() {
+		return processDomainEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProcessDomain_Processes() {
+		return (EReference)processDomainEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getProcess() {
 		return processEClass;
 	}
@@ -658,6 +806,36 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getResourceDomainElement() {
+		return resourceDomainElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getResourceDomain() {
+		return resourceDomainEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getResourceDomain_Resources() {
+		return (EReference)resourceDomainEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPackage() {
 		return packageEClass;
 	}
@@ -670,66 +848,6 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	@Override
 	public EReference getPackage_SubPackages() {
 		return (EReference)packageEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPackage_Processes() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPackage_Participants() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPackage_Resources() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPackage_Artifacts() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPackage_DataElements() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPackage_DataTypes() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -868,6 +986,36 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getDataDomainElement() {
+		return dataDomainElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDataDomain() {
+		return dataDomainEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDataDomain_DataElements() {
+		return (EReference)dataDomainEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getArtifact() {
 		return artifactEClass;
 	}
@@ -890,6 +1038,26 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	@Override
 	public EReference getArtifact_DataElements() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCompositeArtifact() {
+		return compositeArtifactEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCompositeArtifact_Children() {
+		return (EReference)compositeArtifactEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -968,6 +1136,56 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getCompositeResource() {
+		return compositeResourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCompositeResource_Children() {
+		return (EReference)compositeResourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getParticipantDomainElement() {
+		return participantDomainElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getParticipantDomain() {
+		return participantDomainEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParticipantDomain_Participants() {
+		return (EReference)participantDomainEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getParticipant() {
 		return participantEClass;
 	}
@@ -1010,6 +1228,36 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	@Override
 	public EReference getParticipant_Infos() {
 		return (EReference)participantEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDataTypeDomainElement() {
+		return dataTypeDomainElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDataTypeDomain() {
+		return dataTypeDomainEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDataTypeDomain_DataTypes() {
+		return (EReference)dataTypeDomainEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1122,13 +1370,20 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		// Create classes and their features
 		modelElementEClass = createEClass(MODEL_ELEMENT);
-		createEAttribute(modelElementEClass, MODEL_ELEMENT__ID);
+
+		artifactDomainElementEClass = createEClass(ARTIFACT_DOMAIN_ELEMENT);
+
+		artifactDomainEClass = createEClass(ARTIFACT_DOMAIN);
+		createEReference(artifactDomainEClass, ARTIFACT_DOMAIN__ARTIFACTS);
 
 		artifactEClass = createEClass(ARTIFACT);
 		createEReference(artifactEClass, ARTIFACT__RESOURCES);
 		createEReference(artifactEClass, ARTIFACT__PARTICIPANTS);
 		createEReference(artifactEClass, ARTIFACT__INFOS);
 		createEReference(artifactEClass, ARTIFACT__DATA_ELEMENTS);
+
+		compositeArtifactEClass = createEClass(COMPOSITE_ARTIFACT);
+		createEReference(compositeArtifactEClass, COMPOSITE_ARTIFACT__CHILDREN);
 
 		artifactInfoEClass = createEClass(ARTIFACT_INFO);
 		createEReference(artifactInfoEClass, ARTIFACT_INFO__ARTIFACT);
@@ -1188,9 +1443,19 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		activityEClass = createEClass(ACTIVITY);
 
+		processDomainElementEClass = createEClass(PROCESS_DOMAIN_ELEMENT);
+
+		processDomainEClass = createEClass(PROCESS_DOMAIN);
+		createEReference(processDomainEClass, PROCESS_DOMAIN__PROCESSES);
+
 		processEClass = createEClass(PROCESS);
 		createEReference(processEClass, PROCESS__ELEMENTS);
 		createEReference(processEClass, PROCESS__SERVICES);
+
+		resourceDomainElementEClass = createEClass(RESOURCE_DOMAIN_ELEMENT);
+
+		resourceDomainEClass = createEClass(RESOURCE_DOMAIN);
+		createEReference(resourceDomainEClass, RESOURCE_DOMAIN__RESOURCES);
 
 		resourceEClass = createEClass(RESOURCE);
 		createEReference(resourceEClass, RESOURCE__ARTIFACTS);
@@ -1198,24 +1463,36 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		createEReference(resourceEClass, RESOURCE__PARTICIPANTS);
 		createEReference(resourceEClass, RESOURCE__INFOS);
 
+		compositeResourceEClass = createEClass(COMPOSITE_RESOURCE);
+		createEReference(compositeResourceEClass, COMPOSITE_RESOURCE__CHILDREN);
+
+		participantDomainElementEClass = createEClass(PARTICIPANT_DOMAIN_ELEMENT);
+
+		participantDomainEClass = createEClass(PARTICIPANT_DOMAIN);
+		createEReference(participantDomainEClass, PARTICIPANT_DOMAIN__PARTICIPANTS);
+
 		participantEClass = createEClass(PARTICIPANT);
 		createEReference(participantEClass, PARTICIPANT__ROLES);
 		createEReference(participantEClass, PARTICIPANT__RESOURCES);
 		createEReference(participantEClass, PARTICIPANT__ARTIFACTS);
 		createEReference(participantEClass, PARTICIPANT__INFOS);
 
-		packageEClass = createEClass(PACKAGE);
-		createEReference(packageEClass, PACKAGE__SUB_PACKAGES);
-		createEReference(packageEClass, PACKAGE__PROCESSES);
-		createEReference(packageEClass, PACKAGE__PARTICIPANTS);
-		createEReference(packageEClass, PACKAGE__RESOURCES);
-		createEReference(packageEClass, PACKAGE__ARTIFACTS);
-		createEReference(packageEClass, PACKAGE__DATA_ELEMENTS);
-		createEReference(packageEClass, PACKAGE__DATA_TYPES);
+		dataTypeDomainElementEClass = createEClass(DATA_TYPE_DOMAIN_ELEMENT);
+
+		dataTypeDomainEClass = createEClass(DATA_TYPE_DOMAIN);
+		createEReference(dataTypeDomainEClass, DATA_TYPE_DOMAIN__DATA_TYPES);
 
 		dataTypeEClass = createEClass(DATA_TYPE);
 		createEReference(dataTypeEClass, DATA_TYPE__BASE);
 		createEReference(dataTypeEClass, DATA_TYPE__EXTENSIONS);
+
+		ecoreDataTypeEClass = createEClass(ECORE_DATA_TYPE);
+		createEReference(ecoreDataTypeEClass, ECORE_DATA_TYPE__TYPE);
+
+		dataDomainElementEClass = createEClass(DATA_DOMAIN_ELEMENT);
+
+		dataDomainEClass = createEClass(DATA_DOMAIN);
+		createEReference(dataDomainEClass, DATA_DOMAIN__DATA_ELEMENTS);
 
 		dataElementEClass = createEClass(DATA_ELEMENT);
 		createEAttribute(dataElementEClass, DATA_ELEMENT__LOWER_BOUND);
@@ -1228,8 +1505,8 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		simpleDataElementEClass = createEClass(SIMPLE_DATA_ELEMENT);
 		createEReference(simpleDataElementEClass, SIMPLE_DATA_ELEMENT__TYPE);
 
-		ecoreDataTypeEClass = createEClass(ECORE_DATA_TYPE);
-		createEReference(ecoreDataTypeEClass, ECORE_DATA_TYPE__TYPE);
+		packageEClass = createEClass(PACKAGE);
+		createEReference(packageEClass, PACKAGE__SUB_PACKAGES);
 	}
 
 	/**
@@ -1268,13 +1545,16 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		collaboratableEClass_R.getEBounds().add(g1);
 
 		// Add supertypes to classes
-		modelElementEClass.getESuperTypes().add(theNcorePackage.getDocumentedNamedElement());
-		g1 = createEGenericType(this.getModelElement());
+		modelElementEClass.getESuperTypes().add(theNcorePackage.getDocumentedNamedElementWithID());
+		artifactDomainElementEClass.getESuperTypes().add(this.getModelElement());
+		artifactDomainEClass.getESuperTypes().add(this.getArtifactDomainElement());
+		g1 = createEGenericType(this.getArtifactDomainElement());
 		artifactEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getCollaboratable());
 		EGenericType g2 = createEGenericType(this.getRole());
 		g1.getETypeArguments().add(g2);
 		artifactEClass.getEGenericSuperTypes().add(g1);
+		compositeArtifactEClass.getESuperTypes().add(this.getArtifact());
 		artifactInfoEClass.getESuperTypes().add(this.getModelElement());
 		connectionEClass.getESuperTypes().add(this.getModelElement());
 		processElementEClass.getESuperTypes().add(this.getModelElement());
@@ -1310,17 +1590,29 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		g2 = createEGenericType(this.getArtifactProcessorRole());
 		g1.getETypeArguments().add(g2);
 		activityEClass.getEGenericSuperTypes().add(g1);
+		processDomainElementEClass.getESuperTypes().add(this.getModelElement());
+		processDomainEClass.getESuperTypes().add(this.getProcessDomainElement());
 		processEClass.getESuperTypes().add(this.getActivity());
-		resourceEClass.getESuperTypes().add(this.getModelElement());
-		participantEClass.getESuperTypes().add(this.getModelElement());
-		packageEClass.getESuperTypes().add(this.getModelElement());
-		g1 = createEGenericType(this.getModelElement());
+		processEClass.getESuperTypes().add(this.getProcessDomainElement());
+		resourceDomainElementEClass.getESuperTypes().add(this.getModelElement());
+		resourceDomainEClass.getESuperTypes().add(this.getResourceDomainElement());
+		resourceEClass.getESuperTypes().add(this.getResourceDomainElement());
+		compositeResourceEClass.getESuperTypes().add(this.getResource());
+		participantDomainElementEClass.getESuperTypes().add(this.getModelElement());
+		participantDomainEClass.getESuperTypes().add(this.getParticipantDomainElement());
+		participantEClass.getESuperTypes().add(this.getParticipantDomainElement());
+		dataTypeDomainElementEClass.getESuperTypes().add(this.getModelElement());
+		dataTypeDomainEClass.getESuperTypes().add(this.getDataTypeDomainElement());
+		g1 = createEGenericType(this.getDataTypeDomainElement());
 		dataTypeEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getCollaboratable());
 		g2 = createEGenericType(this.getRole());
 		g1.getETypeArguments().add(g2);
 		dataTypeEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getModelElement());
+		ecoreDataTypeEClass.getESuperTypes().add(this.getDataType());
+		dataDomainElementEClass.getESuperTypes().add(this.getModelElement());
+		dataDomainEClass.getESuperTypes().add(this.getDataDomainElement());
+		g1 = createEGenericType(this.getDataDomainElement());
 		dataElementEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getCollaboratable());
 		g2 = createEGenericType(this.getRole());
@@ -1329,17 +1621,32 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		complexDataElementEClass.getESuperTypes().add(this.getDataElement());
 		complexDataElementEClass.getESuperTypes().add(this.getDataType());
 		simpleDataElementEClass.getESuperTypes().add(this.getDataElement());
-		ecoreDataTypeEClass.getESuperTypes().add(this.getDataType());
+		packageEClass.getESuperTypes().add(this.getModelElement());
+		packageEClass.getESuperTypes().add(this.getParticipantDomain());
+		packageEClass.getESuperTypes().add(this.getArtifactDomain());
+		packageEClass.getESuperTypes().add(this.getResourceDomain());
+		packageEClass.getESuperTypes().add(this.getProcessDomain());
+		packageEClass.getESuperTypes().add(this.getDataTypeDomain());
+		packageEClass.getESuperTypes().add(this.getDataDomain());
+		packageEClass.getESuperTypes().add(theCapabilityPackage.getCapabilityDomain());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getModelElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(artifactDomainElementEClass, ArtifactDomainElement.class, "ArtifactDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(artifactDomainEClass, ArtifactDomain.class, "ArtifactDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getArtifactDomain_Artifacts(), this.getArtifact(), null, "artifacts", null, 0, -1, ArtifactDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getArtifact_Resources(), this.getResource(), this.getResource_Artifacts(), "resources", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Participants(), this.getParticipant(), this.getParticipant_Artifacts(), "participants", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Infos(), this.getArtifactInfo(), this.getArtifactInfo_Artifact(), "infos", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_DataElements(), this.getDataElement(), this.getDataElement_Artifacts(), "dataElements", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(compositeArtifactEClass, CompositeArtifact.class, "CompositeArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompositeArtifact_Children(), this.getArtifact(), null, "children", null, 0, -1, CompositeArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getCompositeArtifact_Children().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(artifactInfoEClass, ArtifactInfo.class, "ArtifactInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getArtifactInfo_Artifact(), this.getArtifact(), this.getArtifact_Infos(), "artifact", null, 1, 1, ArtifactInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1356,7 +1663,7 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(sourceEClass, Source.class, "Source", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSource_OutgoingConnections(), this.getConnection(), null, "outgoingConnections", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getSource_OutgoingConnections().getEKeys().add(this.getModelElement_Id());
+		getSource_OutgoingConnections().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(startEClass, Start.class, "Start", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1377,7 +1684,7 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		initEClass(collaboratableEClass, Collaboratable.class, "Collaboratable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(collaboratableEClass_R);
 		initEReference(getCollaboratable_Roles(), g1, null, "roles", null, 0, -1, Collaboratable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getCollaboratable_Roles().getEKeys().add(this.getModelElement_Id());
+		getCollaboratable_Roles().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRole_Participants(), this.getParticipant(), this.getParticipant_Roles(), "participants", null, 0, -1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1387,9 +1694,9 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNode_InputPorts(), this.getInputPort(), null, "inputPorts", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getNode_InputPorts().getEKeys().add(this.getModelElement_Id());
+		getNode_InputPorts().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 		initEReference(getNode_OutputPorts(), this.getOutputPort(), null, "outputPorts", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getNode_OutputPorts().getEKeys().add(this.getModelElement_Id());
+		getNode_OutputPorts().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(gatewayEClass, Gateway.class, "Gateway", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1404,10 +1711,22 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(activityEClass, Activity.class, "Activity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(processDomainElementEClass, ProcessDomainElement.class, "ProcessDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(processDomainEClass, ProcessDomain.class, "ProcessDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProcessDomain_Processes(), this.getProcess(), null, "processes", null, 0, -1, ProcessDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getProcessDomain_Processes().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
+
 		initEClass(processEClass, org.nasdanika.models.flow.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProcess_Elements(), this.getProcessElement(), null, "elements", null, 0, -1, org.nasdanika.models.flow.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getProcess_Elements().getEKeys().add(this.getModelElement_Id());
+		getProcess_Elements().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 		initEReference(getProcess_Services(), this.getService(), this.getService_Process(), "services", null, 0, -1, org.nasdanika.models.flow.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resourceDomainElementEClass, ResourceDomainElement.class, "ResourceDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(resourceDomainEClass, ResourceDomain.class, "ResourceDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResourceDomain_Resources(), this.getResource(), null, "resources", null, 0, -1, ResourceDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getResourceDomain_Resources().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResource_Artifacts(), this.getArtifact(), this.getArtifact_Resources(), "artifacts", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1415,30 +1734,40 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		initEReference(getResource_Participants(), this.getParticipant(), this.getParticipant_Resources(), "participants", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResource_Infos(), this.getArtifactInfo(), this.getArtifactInfo_Resources(), "infos", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(compositeResourceEClass, CompositeResource.class, "CompositeResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompositeResource_Children(), this.getResource(), null, "children", null, 0, -1, CompositeResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getCompositeResource_Children().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
+
+		initEClass(participantDomainElementEClass, ParticipantDomainElement.class, "ParticipantDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(participantDomainEClass, ParticipantDomain.class, "ParticipantDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParticipantDomain_Participants(), this.getParticipantDomainElement(), null, "participants", null, 0, -1, ParticipantDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getParticipantDomain_Participants().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
+
 		initEClass(participantEClass, Participant.class, "Participant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParticipant_Roles(), this.getRole(), this.getRole_Participants(), "roles", null, 0, -1, Participant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParticipant_Resources(), this.getResource(), this.getResource_Participants(), "resources", null, 0, -1, Participant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParticipant_Artifacts(), this.getArtifact(), this.getArtifact_Participants(), "artifacts", null, 0, -1, Participant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParticipant_Infos(), this.getArtifactInfo(), this.getArtifactInfo_Participants(), "infos", null, 0, -1, Participant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(packageEClass, org.nasdanika.models.flow.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPackage_SubPackages(), this.getPackage(), null, "subPackages", null, 0, -1, org.nasdanika.models.flow.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getPackage_SubPackages().getEKeys().add(this.getModelElement_Id());
-		initEReference(getPackage_Processes(), this.getProcess(), null, "processes", null, 0, -1, org.nasdanika.models.flow.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getPackage_Processes().getEKeys().add(this.getModelElement_Id());
-		initEReference(getPackage_Participants(), this.getParticipant(), null, "participants", null, 0, -1, org.nasdanika.models.flow.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getPackage_Participants().getEKeys().add(this.getModelElement_Id());
-		initEReference(getPackage_Resources(), this.getResource(), null, "resources", null, 0, -1, org.nasdanika.models.flow.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getPackage_Resources().getEKeys().add(this.getModelElement_Id());
-		initEReference(getPackage_Artifacts(), this.getArtifact(), null, "artifacts", null, 0, -1, org.nasdanika.models.flow.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_DataElements(), this.getDataElement(), null, "dataElements", null, 0, -1, org.nasdanika.models.flow.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getPackage_DataElements().getEKeys().add(this.getModelElement_Id());
-		initEReference(getPackage_DataTypes(), this.getDataType(), null, "dataTypes", null, 0, -1, org.nasdanika.models.flow.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getPackage_DataTypes().getEKeys().add(this.getModelElement_Id());
+		initEClass(dataTypeDomainElementEClass, DataTypeDomainElement.class, "DataTypeDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dataTypeDomainEClass, DataTypeDomain.class, "DataTypeDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataTypeDomain_DataTypes(), this.getDataType(), null, "dataTypes", null, 0, -1, DataTypeDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getDataTypeDomain_DataTypes().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(dataTypeEClass, DataType.class, "DataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataType_Base(), this.getDataType(), this.getDataType_Extensions(), "base", null, 0, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataType_Extensions(), this.getDataType(), this.getDataType_Base(), "extensions", null, 0, -1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ecoreDataTypeEClass, EcoreDataType.class, "EcoreDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEcoreDataType_Type(), theEcorePackage.getEClassifier(), null, "type", null, 0, 1, EcoreDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataDomainElementEClass, DataDomainElement.class, "DataDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dataDomainEClass, DataDomain.class, "DataDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataDomain_DataElements(), this.getDataElement(), null, "dataElements", null, 0, -1, DataDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getDataDomain_DataElements().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(dataElementEClass, DataElement.class, "DataElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataElement_LowerBound(), ecorePackage.getEInt(), "lowerBound", null, 0, 1, DataElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1447,13 +1776,14 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(complexDataElementEClass, ComplexDataElement.class, "ComplexDataElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComplexDataElement_Features(), this.getDataElement(), null, "features", null, 0, -1, ComplexDataElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getComplexDataElement_Features().getEKeys().add(this.getModelElement_Id());
+		getComplexDataElement_Features().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(simpleDataElementEClass, SimpleDataElement.class, "SimpleDataElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSimpleDataElement_Type(), this.getDataType(), null, "type", null, 0, 1, SimpleDataElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(ecoreDataTypeEClass, EcoreDataType.class, "EcoreDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEcoreDataType_Type(), theEcorePackage.getEClassifier(), null, "type", null, 0, 1, EcoreDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(packageEClass, org.nasdanika.models.flow.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPackage_SubPackages(), this.getPackage(), null, "subPackages", null, 0, -1, org.nasdanika.models.flow.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getPackage_SubPackages().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1478,10 +1808,16 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 			   "documentation", "Base class for flow model elements"
 		   });
 		addAnnotation
-		  (getModelElement_Id(),
+		  (artifactDomainEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Element ID used as eKey in containment references"
+			   "documentation", "A group of artifacts"
+		   });
+		addAnnotation
+		  (getArtifactDomain_Artifacts(),
+		   source,
+		   new String[] {
+			   "documentation", "Artifacts used in this package and sub-packages"
 		   });
 		addAnnotation
 		  (artifactEClass,
@@ -1512,6 +1848,12 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Data element used in this artifact. E.g. a JSON structure may use Person data element/type"
+		   });
+		addAnnotation
+		  (compositeArtifactEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Artifact containing other artifacts, e.g. a zip file"
 		   });
 		addAnnotation
 		  (artifactInfoEClass,
@@ -1706,6 +2048,18 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 			   "documentation", "An activity is performed by participants in roles using resources and input artifacts to produce output artifacts"
 		   });
 		addAnnotation
+		  (processDomainEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A group of processes"
+		   });
+		addAnnotation
+		  (getProcessDomain_Processes(),
+		   source,
+		   new String[] {
+			   "documentation", "Flows defined in this package"
+		   });
+		addAnnotation
 		  (processEClass,
 		   source,
 		   new String[] {
@@ -1722,6 +2076,18 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Services referencing this process"
+		   });
+		addAnnotation
+		  (resourceDomainEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A group of resources"
+		   });
+		addAnnotation
+		  (getResourceDomain_Resources(),
+		   source,
+		   new String[] {
+			   "documentation", "Resources used in activities in this package and sub-packages"
 		   });
 		addAnnotation
 		  (resourceEClass,
@@ -1754,6 +2120,24 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 			   "documentation", "ArtifactInfo which reference this resource"
 		   });
 		addAnnotation
+		  (compositeResourceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Resource containing other resources, e.g. a file system or a tool suite"
+		   });
+		addAnnotation
+		  (participantDomainEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A group of particpants"
+		   });
+		addAnnotation
+		  (getParticipantDomain_Participants(),
+		   source,
+		   new String[] {
+			   "documentation", "Participants of activities in this package and sub-packages"
+		   });
+		addAnnotation
 		  (participantEClass,
 		   source,
 		   new String[] {
@@ -1784,49 +2168,13 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 			   "documentation", "Artifact infos referencing this participant. An alternative to using roles."
 		   });
 		addAnnotation
-		  (packageEClass,
+		  (dataTypeDomainEClass,
 		   source,
 		   new String[] {
-			   "documentation", "A group of flows and elements they reference - participants, ..."
+			   "documentation", "A group of data types"
 		   });
 		addAnnotation
-		  (getPackage_SubPackages(),
-		   source,
-		   new String[] {
-			   "documentation", "Packages may form a hierarchy"
-		   });
-		addAnnotation
-		  (getPackage_Processes(),
-		   source,
-		   new String[] {
-			   "documentation", "Flows defined in this package"
-		   });
-		addAnnotation
-		  (getPackage_Participants(),
-		   source,
-		   new String[] {
-			   "documentation", "Participants of activities in this package and sub-packages"
-		   });
-		addAnnotation
-		  (getPackage_Resources(),
-		   source,
-		   new String[] {
-			   "documentation", "Resources used in activities in this package and sub-packages"
-		   });
-		addAnnotation
-		  (getPackage_Artifacts(),
-		   source,
-		   new String[] {
-			   "documentation", "Artifacts used in this package and sub-packages"
-		   });
-		addAnnotation
-		  (getPackage_DataElements(),
-		   source,
-		   new String[] {
-			   "documentation", "Data elements used in this package and sub-packages"
-		   });
-		addAnnotation
-		  (getPackage_DataTypes(),
+		  (getDataTypeDomain_DataTypes(),
 		   source,
 		   new String[] {
 			   "documentation", "Data types used in this package and sub-packages"
@@ -1842,6 +2190,30 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Base of this data type. E.g. SSN data type may have Text data type as its base."
+		   });
+		addAnnotation
+		  (ecoreDataTypeEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A data type defined in Ecore model"
+		   });
+		addAnnotation
+		  (getEcoreDataType_Type(),
+		   source,
+		   new String[] {
+			   "documentation", "Type Eclassifier"
+		   });
+		addAnnotation
+		  (dataDomainEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A group of data elements"
+		   });
+		addAnnotation
+		  (getDataDomain_DataElements(),
+		   source,
+		   new String[] {
+			   "documentation", "Data elements used in this package and sub-packages"
 		   });
 		addAnnotation
 		  (dataElementEClass,
@@ -1892,16 +2264,16 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 			   "documentation", "Element\'s type. E.g. ssn data element may be of SSN data type."
 		   });
 		addAnnotation
-		  (ecoreDataTypeEClass,
+		  (packageEClass,
 		   source,
 		   new String[] {
-			   "documentation", "A data type defined in Ecore model"
+			   "documentation", "A group of processes and elements they reference - participants, ..."
 		   });
 		addAnnotation
-		  (getEcoreDataType_Type(),
+		  (getPackage_SubPackages(),
 		   source,
 		   new String[] {
-			   "documentation", "Type Eclassifier"
+			   "documentation", "Packages may form a hierarchy"
 		   });
 	}
 

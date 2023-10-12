@@ -15,6 +15,8 @@ import org.nasdanika.models.flow.ArtifactInfo;
 import org.nasdanika.models.flow.ArtifactProcessorRole;
 import org.nasdanika.models.flow.Call;
 import org.nasdanika.models.flow.ComplexDataElement;
+import org.nasdanika.models.flow.CompositeArtifact;
+import org.nasdanika.models.flow.CompositeResource;
 import org.nasdanika.models.flow.Connection;
 import org.nasdanika.models.flow.DataType;
 import org.nasdanika.models.flow.EcoreDataType;
@@ -79,6 +81,7 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case FlowPackage.ARTIFACT: return createArtifact();
+			case FlowPackage.COMPOSITE_ARTIFACT: return createCompositeArtifact();
 			case FlowPackage.ARTIFACT_INFO: return createArtifactInfo();
 			case FlowPackage.CONNECTION: return createConnection();
 			case FlowPackage.PROCESS_ELEMENT: return createProcessElement();
@@ -95,12 +98,13 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 			case FlowPackage.ACTIVITY: return createActivity();
 			case FlowPackage.PROCESS: return createProcess();
 			case FlowPackage.RESOURCE: return createResource();
+			case FlowPackage.COMPOSITE_RESOURCE: return createCompositeResource();
 			case FlowPackage.PARTICIPANT: return createParticipant();
-			case FlowPackage.PACKAGE: return createPackage();
 			case FlowPackage.DATA_TYPE: return createDataType();
+			case FlowPackage.ECORE_DATA_TYPE: return createEcoreDataType();
 			case FlowPackage.COMPLEX_DATA_ELEMENT: return createComplexDataElement();
 			case FlowPackage.SIMPLE_DATA_ELEMENT: return createSimpleDataElement();
-			case FlowPackage.ECORE_DATA_TYPE: return createEcoreDataType();
+			case FlowPackage.PACKAGE: return createPackage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -310,9 +314,31 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	 * @generated
 	 */
 	@Override
+	public CompositeArtifact createCompositeArtifact() {
+		CompositeArtifactImpl compositeArtifact = new CompositeArtifactImpl();
+		return compositeArtifact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Resource createResource() {
 		ResourceImpl resource = new ResourceImpl();
 		return resource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CompositeResource createCompositeResource() {
+		CompositeResourceImpl compositeResource = new CompositeResourceImpl();
+		return compositeResource;
 	}
 
 	/**

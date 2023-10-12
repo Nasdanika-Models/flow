@@ -35,7 +35,7 @@ import org.nasdanika.models.flow.Role;
  *
  * @generated
  */
-public class ResourceImpl extends ModelElementImpl implements Resource {
+public class ResourceImpl extends ResourceDomainElementImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="EN">
+  <head>
+    <title>ProcessDomain</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.1.0/github-markdown.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21.2/dist/bootstrap-vue.css">
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/components/table.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>    
+
+<script src="../../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['action-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+</head>
+  <body>
+    <div class="container-fluid nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="https://github.com/Nasdanika-Models" data-nsd-label-uuid="81e00471-0a9c-419a-9ff0-c29cc0635dd3" class="nsd-app-header-title">
+            <img src="https://docs.nasdanika.org/images/nasdanika-logo.png" class="nsd-app-label-icon">Nasdanika Models</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <a href="../../../search.html" data-nsd-label-uuid="b0c6c3fb-8545-42e6-b724-8bc845700aac" class="nav-link"><span class="fas fa-search nsd-app-label-icon"></span>Search</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../../glossary.html" data-nsd-label-uuid="015eccf0-0fa6-4539-bc57-c648f79fce1a" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Glossary</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-navbar">
+          <ul class="navbar navbar-light navbar-expand-lg">
+            <a href="../../../index.html" title="TODO" data-nsd-label-uuid="de37432d-7077-4178-9476-620b01472584" class="navbar-brand">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EPackage.gif" class="nsd-app-label-icon">Flow</a>
+            <button type="button" data-toggle="collapse" data-target="#nsd_2qj" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="nsd_2qj" class="collapse navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a href="../../../classifiers.html" data-nsd-label-uuid="17edbbe2-d01b-4f6b-ac96-bde71c27fcaf" class="nav-link">Classifiers</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../../diagram.html" data-nsd-label-uuid="6cb1fdf1-92ba-4db3-8ff1-0d826b59ccca" class="nav-link"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Diagram</a>
+                </li>
+                <li class="nav-item">
+                  </li><li data-nsd-label-uuid="3f1dc3ff-15e6-4455-adc2-985ac423cbc9" class="dropdown">
+                    <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle">
+                      <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png" class="nsd-app-label-icon">Graphs</a>
+                    <div class="dropdown-menu">
+                      <a href="../../../default-graph.html" data-nsd-label-uuid="34f4dd0b-b782-40b9-ab23-4529ee92720c" class="dropdown-item">Default Graph</a>
+                      <a href="../../../circular-layout-graph.html" data-nsd-label-uuid="7d0deba7-563b-4a80-a587-246fa9521ef8" class="dropdown-item">Circular Graph</a>
+                      <a href="../../../force-layout-graph.html" data-nsd-label-uuid="1fb5c227-1c0a-478c-aee1-7de95c0b37b8" class="dropdown-item">Force Graph</a>
+                      <div title="With dependencies and sub-packages" class="dropdown-divider"></div>
+                      <a href="../../../default-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="e7547b80-f743-44ff-843b-f08e28c863c7" class="dropdown-item">Default Graph</a>
+                      <a href="../../../circular-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="41d8a77e-f3da-4321-b6e3-d7fa294f0794" class="dropdown-item">Circular Graph</a>
+                      <a href="../../../force-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="6e04bd1f-37ab-4295-b15c-08ab495917dd" class="dropdown-item">Force Graph</a>
+                    </div>
+                  </li>
+                
+              </ul>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <div class="col nsd-app-navigation-panel">
+          <div class="list-group list-group-flush">
+            <a href="../Activity/index.html" title="An activity is performed by participants in roles using resources and input artifacts to produce output artifacts" data-nsd-label-uuid="caa3a3b8-2038-4515-b5fe-09b32aa94135" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Activity</a>
+            <a href="../Artifact/index.html" title="Information passed between flow elements and operated on by participants using resources" data-nsd-label-uuid="c0fb603e-8844-4092-b1ab-4d0c583aa949" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Artifact</a>
+            <a href="../ArtifactConsumer/index.html" data-nsd-label-uuid="87f2e7da-d27b-42d8-8ec3-f1fbbd178ac8" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>ArtifactConsumer</i></a>
+            <a href="../ArtifactDomain/index.html" title="A group of artifacts" data-nsd-label-uuid="21623169-b363-4ae0-8bb6-226f71f66d29" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>ArtifactDomain</i></a>
+            <a href="../ArtifactDomainElement/index.html" data-nsd-label-uuid="90dadcc0-3e44-46c5-9f4e-bf18d0a99faf" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>ArtifactDomainElement</i></a>
+            <a href="../ArtifactInfo/index.html" title="Information about input/output artifact" data-nsd-label-uuid="14779d3f-cb49-4a97-b0d5-b32f1e29720d" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ArtifactInfo</a>
+            <a href="../ArtifactProcessor/index.html" data-nsd-label-uuid="1a23a8f9-6565-44c8-9209-ff171af110ea" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>ArtifactProcessor</i></a>
+            <a href="../ArtifactProcessorRole/index.html" title="A role which works on artifacts" data-nsd-label-uuid="08915903-8325-412d-a29d-a67b3efcf195" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ArtifactProcessorRole</a>
+            <a href="../ArtifactProducer/index.html" data-nsd-label-uuid="eda829ba-0ed1-4324-9c3b-a126d655dc69" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>ArtifactProducer</i></a>
+            <a href="../Call/index.html" title="Sends a request payload to its target and returns response to its source. Request-response semantics." data-nsd-label-uuid="2f6ebd74-337b-47ee-8341-cc3b8749a3c5" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Call</a>
+            <a href="../Collaboratable/index.html" title="Something that particpants in roles can collaborate on" data-nsd-label-uuid="6d932ebf-9bb6-48be-b3c7-43bf879c5da2" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>Collaboratable</i></a>
+            <a href="../ComplexDataElement/index.html" title="A data element consisting of other data elements, a structure/class" data-nsd-label-uuid="ee10eac4-1bfb-4325-bd7a-18fbdeff985f" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ComplexDataElement</a>
+            <a href="../CompositeArtifact/index.html" title="Artifact containing other artifacts, e.g. a zip file" data-nsd-label-uuid="44d10930-bdb8-40b1-b38d-ce3b0e2b5c5b" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">CompositeArtifact</a>
+            <a href="../CompositeResource/index.html" title="Resource containing other resources, e.g. a file system or a tool suite" data-nsd-label-uuid="b9d0b55f-90fb-45a9-883d-8868fcc742cd" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">CompositeResource</a>
+            <a href="../Connection/index.html" title="Base class for Transitions and Calls. Contained by its source." data-nsd-label-uuid="e60ff44e-a3df-417a-9717-6433a3b393b6" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Connection</a>
+            <a href="../DataDomain/index.html" title="A group of data elements" data-nsd-label-uuid="303c65c6-34e1-417e-bcbf-d63fc266d477" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>DataDomain</i></a>
+            <a href="../DataDomainElement/index.html" data-nsd-label-uuid="8822196f-5f6e-4ec6-ada9-19b61cd1c3e4" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>DataDomainElement</i></a>
+            <a href="../DataElement/index.html" title="Element of data" data-nsd-label-uuid="b8f65a53-51b0-4d9c-be07-18b4141fb999" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>DataElement</i></a>
+            <a href="../DataType/index.html" title="Type of data. E.g. Number, Date, Text, Person" data-nsd-label-uuid="3aa26315-41c8-43f4-ab1f-38117350bb56" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">DataType</a>
+            <a href="../DataTypeDomain/index.html" title="A group of data types" data-nsd-label-uuid="e4317d8f-843e-45dc-8252-8301746de0b9" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>DataTypeDomain</i></a>
+            <a href="../DataTypeDomainElement/index.html" data-nsd-label-uuid="90a10b3a-cd77-42e0-9e3f-5043900ff9cf" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>DataTypeDomainElement</i></a>
+            <a href="../EcoreDataType/index.html" title="A data type defined in Ecore model" data-nsd-label-uuid="0f222c72-e842-4110-9f50-ed3b7bebfc49" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">EcoreDataType</a>
+            <a href="../End/index.html" title="End pseudo-state" data-nsd-label-uuid="fd969d98-1245-4b26-9bfb-9c3df1802c37" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">End</a>
+            <a href="../Gateway/index.html" title="A flow element which can combine (join) and dispatch (fork) its inputs" data-nsd-label-uuid="57167da5-1f19-4fac-946d-ae924021d53e" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Gateway</a>
+            <a href="../InputPort/index.html" title="Nodes may have input ports and connections may use input ports as targets" data-nsd-label-uuid="a3b5c9d9-815d-488d-a8e1-793048d7f3ec" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">InputPort</a>
+            <a href="../ModelElement/index.html" title="Base class for flow model elements" data-nsd-label-uuid="6631143f-6a64-45d7-94ee-4c431811b2f5" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>ModelElement</i></a>
+            <a href="../Node/index.html" title="A flow element which supports both outgoing and incoming connections" data-nsd-label-uuid="ab822602-c509-49e2-be07-ad10a4011e8e" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>Node</i></a>
+            <a href="../OutputPort/index.html" title="Nodes may have output ports with connection starting from those ports" data-nsd-label-uuid="21eb91ef-cc3f-44ea-8583-52708659c1cf" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">OutputPort</a>
+            <a href="../Package/index.html" title="A group of processes and elements they reference - participants, ..." data-nsd-label-uuid="7e27f68b-79fe-48fe-bc53-dc3689c3d57d" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Package</a>
+            <a href="../Participant/index.html" title="Participates in flow execution by playing roles in activities " data-nsd-label-uuid="b4edf775-b485-405c-b8ca-3d817cb3a344" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Participant</a>
+            <a href="../ParticipantDomain/index.html" title="A group of particpants" data-nsd-label-uuid="43eef9c7-3a8d-4d44-87cb-15249d187871" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>ParticipantDomain</i></a>
+            <a href="../ParticipantDomainElement/index.html" data-nsd-label-uuid="30c7315d-15cd-4f63-a75a-d5925277f1aa" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>ParticipantDomainElement</i></a>
+            <a href="../Process/index.html" title="Flow is a composite activity" data-nsd-label-uuid="3f2fe9fe-3db4-4479-8740-9b20080cf95a" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Process</a><span title="A group of processes" data-nsd-label-uuid="acfbe7e3-31fa-4e62-859b-c132064705c4" class="list-group-item list-group-action active"><img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>ProcessDomain</i></span>
+            <a href="../ProcessDomainElement/index.html" data-nsd-label-uuid="3a7964ce-967f-42c8-9964-18d5d539aeac" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>ProcessDomainElement</i></a>
+            <a href="../ProcessElement/index.html" data-nsd-label-uuid="ab72f8e8-27b2-42e5-81cd-89cd17866a78" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ProcessElement</a>
+            <a href="../Resource/index.html" title="Resource is something used by participants/roles to work with artifacts. It may be a tool, or a repository." data-nsd-label-uuid="2ba38b61-1472-4d79-a3e2-83815def09ea" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Resource</a>
+            <a href="../ResourceDomain/index.html" title="A group of resources" data-nsd-label-uuid="fadf88cb-cf3b-4cd8-90e2-0ef09a0278dd" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>ResourceDomain</i></a>
+            <a href="../ResourceDomainElement/index.html" data-nsd-label-uuid="0340431d-ac22-4acd-ac13-877c14e41f64" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>ResourceDomainElement</i></a>
+            <a href="../Role/index.html" title="A role of a participant in collaboration with other particpants in roles" data-nsd-label-uuid="c6bb4936-e115-4057-bcff-b3995b378729" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Role</a>
+            <a href="../Service/index.html" title="A flow element which references a (shared) process" data-nsd-label-uuid="a34f91db-d48f-4092-8948-6c9f208cf45f" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Service</a>
+            <a href="../SimpleDataElement/index.html" title="A scalar, but may contain multiple values of the same type" data-nsd-label-uuid="1028b2f9-43a4-48ff-a191-d6dd9f8a5a0e" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">SimpleDataElement</a>
+            <a href="../Source/index.html" title="Source of connections" data-nsd-label-uuid="d5fd5def-619e-4962-963e-6256db67ad1d" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>Source</i></a>
+            <a href="../Start/index.html" title="Start pseudo-state" data-nsd-label-uuid="eb93b345-6055-46cc-96b8-3eb117d81e95" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Start</a>
+            <a href="../Target/index.html" title="Base class for connection targets" data-nsd-label-uuid="a933bedc-bf3b-4d64-b3c1-edfcce2281d8" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>Target</i></a>
+            <a href="../Transition/index.html" title="Transition passes control and payload from its source to its target. Fire-and-forget semantics." data-nsd-label-uuid="46a8d88f-f5d3-4c97-8224-52a7b2530cea" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Transition</a>
+          </div>
+        </div>
+        <div data-nsd-label-uuid="acfbe7e3-31fa-4e62-859b-c132064705c4" data-nsd-action-uris="uuid:acfbe7e3-31fa-4e62-859b-c132064705c4" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <h1><span title="A group of processes" data-nsd-label-uuid="acfbe7e3-31fa-4e62-859b-c132064705c4" class="nsd-app-content-panel-title"><img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>ProcessDomain</i><a href="https://ecore.models.nasdanika.org/references/eClassifiers/EClass/index.html" style="vertical-align:super;font-size:x-small;margin-left:0.2em"><span class="far fa-question-circle nsd-app-label-icon"></span></a></span>
+                </h1>
+              </div>
+              <div class="col">
+                <ul class="nav nsd-app-content-panel-navs">
+                  <li class="nav-item">
+                    <a href="attributes.html" data-nsd-label-uuid="ed7689c6-2e83-4dc6-90b1-e2b431d16fa6" class="nav-link">
+                      <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EAttribute.gif" class="nsd-app-label-icon">Attributes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="inheritance.html" data-nsd-label-uuid="3e612d48-43a8-4dcc-98f2-20c56bcbd0b7" class="nav-link">
+                      <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EGenericSuperType.gif" class="nsd-app-label-icon">Inheritance</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="references.html" data-nsd-label-uuid="568b428b-0359-4e93-8159-d039cd6934b1" class="nav-link">
+                      <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif" class="nsd-app-label-icon">References</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="diagram.html" data-nsd-label-uuid="36695b59-fd2a-4bfe-98fd-f0fee86013c8" class="nav-link"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Diagram</a>
+                  </li>
+                  <li class="nav-item">
+                    </li><li data-nsd-label-uuid="1c917eb0-e101-4b12-bcb0-e1cc4370f3cc" class="dropdown">
+                      <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle">
+                        <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png" class="nsd-app-label-icon">Graphs</a>
+                      <div class="dropdown-menu">
+                        <a href="default-graph.html" data-nsd-label-uuid="7b13a150-0fc4-440f-9d2d-bdd27300ffba" class="dropdown-item">Default Graph</a>
+                        <a href="circular-layout-graph.html" data-nsd-label-uuid="fd9f854c-daa1-43e0-b76e-44b12a65a5e9" class="dropdown-item">Circular Graph</a>
+                        <a href="force-layout-graph.html" data-nsd-label-uuid="3e46d7b4-b663-4d8e-8a8b-70cc1143808a" class="dropdown-item">Force Graph</a>
+                      </div>
+                    </li>
+                  
+                </ul>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><div class="markdown-body"><p>A group of processes</p>
+</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika-Models/flow" data-nsd-label-uuid="614dd304-5f85-4028-a969-956c94aed999" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>Sources</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

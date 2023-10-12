@@ -9,14 +9,19 @@
   <foreignModel>flow.ecore</foreignModel>
   <genPackages prefix="Flow" basePackage="org.nasdanika.models" disposableProviderFactory="true"
       ecorePackage="flow.ecore#/">
-    <genClasses image="false" ecoreClass="flow.ecore#//ModelElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flow.ecore#//ModelElement/id"/>
+    <genClasses image="false" ecoreClass="flow.ecore#//ModelElement"/>
+    <genClasses image="false" ecoreClass="flow.ecore#//ArtifactDomainElement"/>
+    <genClasses image="false" ecoreClass="flow.ecore#//ArtifactDomain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//ArtifactDomain/artifacts"/>
     </genClasses>
     <genClasses ecoreClass="flow.ecore#//Artifact">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Artifact/resources"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Artifact/participants"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Artifact/infos"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Artifact/dataElements"/>
+    </genClasses>
+    <genClasses ecoreClass="flow.ecore#//CompositeArtifact">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//CompositeArtifact/children"/>
     </genClasses>
     <genClasses ecoreClass="flow.ecore#//ArtifactInfo">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//ArtifactInfo/artifact"/>
@@ -68,9 +73,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Call/response"/>
     </genClasses>
     <genClasses ecoreClass="flow.ecore#//Activity"/>
+    <genClasses image="false" ecoreClass="flow.ecore#//ProcessDomainElement"/>
+    <genClasses image="false" ecoreClass="flow.ecore#//ProcessDomain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//ProcessDomain/processes"/>
+    </genClasses>
     <genClasses ecoreClass="flow.ecore#//Process">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Process/elements"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Process/services"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="flow.ecore#//ResourceDomainElement"/>
+    <genClasses image="false" ecoreClass="flow.ecore#//ResourceDomain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//ResourceDomain/resources"/>
     </genClasses>
     <genClasses ecoreClass="flow.ecore#//Resource">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Resource/artifacts"/>
@@ -78,24 +91,33 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Resource/participants"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Resource/infos"/>
     </genClasses>
+    <genClasses ecoreClass="flow.ecore#//CompositeResource">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//CompositeResource/children"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="flow.ecore#//ParticipantDomainElement"/>
+    <genClasses image="false" ecoreClass="flow.ecore#//ParticipantDomain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//ParticipantDomain/participants"/>
+    </genClasses>
     <genClasses ecoreClass="flow.ecore#//Participant">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Participant/roles"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Participant/resources"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Participant/artifacts"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Participant/infos"/>
     </genClasses>
-    <genClasses ecoreClass="flow.ecore#//Package">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Package/subPackages"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Package/processes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Package/participants"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Package/resources"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Package/artifacts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Package/dataElements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Package/dataTypes"/>
+    <genClasses image="false" ecoreClass="flow.ecore#//DataTypeDomainElement"/>
+    <genClasses image="false" ecoreClass="flow.ecore#//DataTypeDomain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//DataTypeDomain/dataTypes"/>
     </genClasses>
     <genClasses ecoreClass="flow.ecore#//DataType">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//DataType/base"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//DataType/extensions"/>
+    </genClasses>
+    <genClasses ecoreClass="flow.ecore#//EcoreDataType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//EcoreDataType/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="flow.ecore#//DataDomainElement"/>
+    <genClasses image="false" ecoreClass="flow.ecore#//DataDomain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//DataDomain/dataElements"/>
     </genClasses>
     <genClasses ecoreClass="flow.ecore#//DataElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flow.ecore#//DataElement/lowerBound"/>
@@ -108,8 +130,8 @@
     <genClasses ecoreClass="flow.ecore#//SimpleDataElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//SimpleDataElement/type"/>
     </genClasses>
-    <genClasses ecoreClass="flow.ecore#//EcoreDataType">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//EcoreDataType/type"/>
+    <genClasses ecoreClass="flow.ecore#//Package">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Package/subPackages"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

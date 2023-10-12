@@ -39,7 +39,7 @@ import org.nasdanika.models.flow.Role;
  *
  * @generated
  */
-public class ArtifactImpl extends ModelElementImpl implements Artifact {
+public class ArtifactImpl extends ArtifactDomainElementImpl implements Artifact {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

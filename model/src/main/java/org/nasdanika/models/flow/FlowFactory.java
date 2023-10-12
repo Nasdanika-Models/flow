@@ -184,6 +184,15 @@ public interface FlowFactory extends EFactory {
 	Artifact createArtifact();
 
 	/**
+	 * Returns a new object of class '<em>Composite Artifact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Composite Artifact</em>'.
+	 * @generated
+	 */
+	CompositeArtifact createCompositeArtifact();
+
+	/**
 	 * Returns a new object of class '<em>Resource</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -191,6 +200,15 @@ public interface FlowFactory extends EFactory {
 	 * @generated
 	 */
 	Resource createResource();
+
+	/**
+	 * Returns a new object of class '<em>Composite Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Composite Resource</em>'.
+	 * @generated
+	 */
+	CompositeResource createCompositeResource();
 
 	/**
 	 * Returns a new object of class '<em>Participant</em>'.

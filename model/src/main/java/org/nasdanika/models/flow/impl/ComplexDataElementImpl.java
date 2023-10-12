@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.flow.ComplexDataElement;
 import org.nasdanika.models.flow.DataElement;
 import org.nasdanika.models.flow.DataType;
+import org.nasdanika.models.flow.DataTypeDomainElement;
 import org.nasdanika.models.flow.FlowPackage;
 
 /**
@@ -241,6 +242,11 @@ public class ComplexDataElementImpl extends DataElementImpl implements ComplexDa
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == DataTypeDomainElement.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == DataType.class) {
 			switch (derivedFeatureID) {
 				case FlowPackage.COMPLEX_DATA_ELEMENT__BASE: return FlowPackage.DATA_TYPE__BASE;
@@ -258,6 +264,11 @@ public class ComplexDataElementImpl extends DataElementImpl implements ComplexDa
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == DataTypeDomainElement.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == DataType.class) {
 			switch (baseFeatureID) {
 				case FlowPackage.DATA_TYPE__BASE: return FlowPackage.COMPLEX_DATA_ELEMENT__BASE;

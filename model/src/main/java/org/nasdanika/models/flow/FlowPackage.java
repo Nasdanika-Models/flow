@@ -74,7 +74,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__MARKERS = NcorePackage.DOCUMENTED_NAMED_ELEMENT__MARKERS;
+	int MODEL_ELEMENT__MARKERS = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
@@ -83,7 +83,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__URIS = NcorePackage.DOCUMENTED_NAMED_ELEMENT__URIS;
+	int MODEL_ELEMENT__URIS = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__URIS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -92,7 +92,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__DESCRIPTION = NcorePackage.DOCUMENTED_NAMED_ELEMENT__DESCRIPTION;
+	int MODEL_ELEMENT__DESCRIPTION = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -101,7 +101,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__UUID = NcorePackage.DOCUMENTED_NAMED_ELEMENT__UUID;
+	int MODEL_ELEMENT__UUID = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
@@ -110,7 +110,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__LABEL_PROTOTYPE = NcorePackage.DOCUMENTED_NAMED_ELEMENT__LABEL_PROTOTYPE;
+	int MODEL_ELEMENT__LABEL_PROTOTYPE = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__LABEL_PROTOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' map.
@@ -119,7 +119,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__REPRESENTATIONS = NcorePackage.DOCUMENTED_NAMED_ELEMENT__REPRESENTATIONS;
+	int MODEL_ELEMENT__REPRESENTATIONS = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -128,7 +128,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__ANNOTATIONS = NcorePackage.DOCUMENTED_NAMED_ELEMENT__ANNOTATIONS;
+	int MODEL_ELEMENT__ANNOTATIONS = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -137,7 +137,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__NAME = NcorePackage.DOCUMENTED_NAMED_ELEMENT__NAME;
+	int MODEL_ELEMENT__NAME = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
@@ -146,7 +146,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__DOCUMENTATION = NcorePackage.DOCUMENTED_NAMED_ELEMENT__DOCUMENTATION;
+	int MODEL_ELEMENT__DOCUMENTATION = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
@@ -155,7 +155,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__CONTEXT_HELP = NcorePackage.DOCUMENTED_NAMED_ELEMENT__CONTEXT_HELP;
+	int MODEL_ELEMENT__CONTEXT_HELP = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__CONTEXT_HELP;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -164,7 +164,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__ID = NcorePackage.DOCUMENTED_NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int MODEL_ELEMENT__ID = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__ID;
 
 	/**
 	 * The number of structural features of the '<em>Model Element</em>' class.
@@ -173,7 +173,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = NcorePackage.DOCUMENTED_NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int MODEL_ELEMENT_FEATURE_COUNT = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Model Element</em>' class.
@@ -182,7 +182,270 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_OPERATION_COUNT = NcorePackage.DOCUMENTED_NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int MODEL_ELEMENT_OPERATION_COUNT = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ArtifactDomainElementImpl <em>Artifact Domain Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.ArtifactDomainElementImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactDomainElement()
+	 * @generated
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__MARKERS = MODEL_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__URIS = MODEL_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__UUID = MODEL_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__NAME = MODEL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__ID = MODEL_ELEMENT__ID;
+
+	/**
+	 * The number of structural features of the '<em>Artifact Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Artifact Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ArtifactDomainImpl <em>Artifact Domain</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.ArtifactDomainImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactDomain()
+	 * @generated
+	 */
+	int ARTIFACT_DOMAIN = 2;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__MARKERS = ARTIFACT_DOMAIN_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__URIS = ARTIFACT_DOMAIN_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__DESCRIPTION = ARTIFACT_DOMAIN_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__UUID = ARTIFACT_DOMAIN_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__LABEL_PROTOTYPE = ARTIFACT_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__REPRESENTATIONS = ARTIFACT_DOMAIN_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__ANNOTATIONS = ARTIFACT_DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__NAME = ARTIFACT_DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__DOCUMENTATION = ARTIFACT_DOMAIN_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__CONTEXT_HELP = ARTIFACT_DOMAIN_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__ID = ARTIFACT_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__ARTIFACTS = ARTIFACT_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Artifact Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_FEATURE_COUNT = ARTIFACT_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Artifact Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_OPERATION_COUNT = ARTIFACT_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ConnectionImpl <em>Connection</em>}' class.
@@ -192,7 +455,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getConnection()
 	 * @generated
 	 */
-	int CONNECTION = 3;
+	int CONNECTION = 6;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.ArtifactProducer <em>Artifact Producer</em>}' class.
@@ -202,7 +465,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactProducer()
 	 * @generated
 	 */
-	int ARTIFACT_PRODUCER = 4;
+	int ARTIFACT_PRODUCER = 7;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ProcessElementImpl <em>Process Element</em>}' class.
@@ -212,7 +475,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getProcessElement()
 	 * @generated
 	 */
-	int PROCESS_ELEMENT = 5;
+	int PROCESS_ELEMENT = 8;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.Source <em>Source</em>}' class.
@@ -222,7 +485,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSource()
 	 * @generated
 	 */
-	int SOURCE = 6;
+	int SOURCE = 9;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.StartImpl <em>Start</em>}' class.
@@ -232,7 +495,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getStart()
 	 * @generated
 	 */
-	int START = 7;
+	int START = 10;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.InputPortImpl <em>Input Port</em>}' class.
@@ -242,7 +505,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getInputPort()
 	 * @generated
 	 */
-	int INPUT_PORT = 8;
+	int INPUT_PORT = 11;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.ArtifactConsumer <em>Artifact Consumer</em>}' class.
@@ -252,7 +515,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactConsumer()
 	 * @generated
 	 */
-	int ARTIFACT_CONSUMER = 9;
+	int ARTIFACT_CONSUMER = 12;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.Target <em>Target</em>}' class.
@@ -262,7 +525,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getTarget()
 	 * @generated
 	 */
-	int TARGET = 10;
+	int TARGET = 13;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.EndImpl <em>End</em>}' class.
@@ -272,7 +535,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getEnd()
 	 * @generated
 	 */
-	int END = 11;
+	int END = 14;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.OutputPortImpl <em>Output Port</em>}' class.
@@ -282,7 +545,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getOutputPort()
 	 * @generated
 	 */
-	int OUTPUT_PORT = 12;
+	int OUTPUT_PORT = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.ArtifactProcessor <em>Artifact Processor</em>}' class.
@@ -292,7 +555,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactProcessor()
 	 * @generated
 	 */
-	int ARTIFACT_PROCESSOR = 13;
+	int ARTIFACT_PROCESSOR = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.NodeImpl <em>Node</em>}' class.
@@ -302,7 +565,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getNode()
 	 * @generated
 	 */
-	int NODE = 17;
+	int NODE = 20;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.GatewayImpl <em>Gateway</em>}' class.
@@ -312,7 +575,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getGateway()
 	 * @generated
 	 */
-	int GATEWAY = 18;
+	int GATEWAY = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.TransitionImpl <em>Transition</em>}' class.
@@ -322,7 +585,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getTransition()
 	 * @generated
 	 */
-	int TRANSITION = 20;
+	int TRANSITION = 23;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.CallImpl <em>Call</em>}' class.
@@ -332,7 +595,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCall()
 	 * @generated
 	 */
-	int CALL = 21;
+	int CALL = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ActivityImpl <em>Activity</em>}' class.
@@ -342,7 +605,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getActivity()
 	 * @generated
 	 */
-	int ACTIVITY = 22;
+	int ACTIVITY = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ProcessImpl <em>Process</em>}' class.
@@ -352,7 +615,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getProcess()
 	 * @generated
 	 */
-	int PROCESS = 23;
+	int PROCESS = 28;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.PackageImpl <em>Package</em>}' class.
@@ -362,7 +625,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 26;
+	int PACKAGE = 45;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.DataTypeImpl <em>Data Type</em>}' class.
@@ -372,7 +635,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 27;
+	int DATA_TYPE = 38;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.DataElementImpl <em>Data Element</em>}' class.
@@ -382,7 +645,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataElement()
 	 * @generated
 	 */
-	int DATA_ELEMENT = 28;
+	int DATA_ELEMENT = 42;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ComplexDataElementImpl <em>Complex Data Element</em>}' class.
@@ -392,7 +655,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getComplexDataElement()
 	 * @generated
 	 */
-	int COMPLEX_DATA_ELEMENT = 29;
+	int COMPLEX_DATA_ELEMENT = 43;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.SimpleDataElementImpl <em>Simple Data Element</em>}' class.
@@ -402,7 +665,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSimpleDataElement()
 	 * @generated
 	 */
-	int SIMPLE_DATA_ELEMENT = 30;
+	int SIMPLE_DATA_ELEMENT = 44;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.EcoreDataTypeImpl <em>Ecore Data Type</em>}' class.
@@ -412,7 +675,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getEcoreDataType()
 	 * @generated
 	 */
-	int ECORE_DATA_TYPE = 31;
+	int ECORE_DATA_TYPE = 39;
 
 
 	/**
@@ -426,15 +689,35 @@ public interface FlowPackage extends EPackage {
 	EClass getModelElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.flow.ModelElement#getId <em>Id</em>}'.
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ArtifactDomainElement <em>Artifact Domain Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see org.nasdanika.models.flow.ModelElement#getId()
-	 * @see #getModelElement()
+	 * @return the meta object for class '<em>Artifact Domain Element</em>'.
+	 * @see org.nasdanika.models.flow.ArtifactDomainElement
 	 * @generated
 	 */
-	EAttribute getModelElement_Id();
+	EClass getArtifactDomainElement();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ArtifactDomain <em>Artifact Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Artifact Domain</em>'.
+	 * @see org.nasdanika.models.flow.ArtifactDomain
+	 * @generated
+	 */
+	EClass getArtifactDomain();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.ArtifactDomain#getArtifacts <em>Artifacts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Artifacts</em>'.
+	 * @see org.nasdanika.models.flow.ArtifactDomain#getArtifacts()
+	 * @see #getArtifactDomain()
+	 * @generated
+	 */
+	EReference getArtifactDomain_Artifacts();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Connection <em>Connection</em>}'.
@@ -738,6 +1021,37 @@ public interface FlowPackage extends EPackage {
 	EClass getActivity();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ProcessDomainElement <em>Process Domain Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Process Domain Element</em>'.
+	 * @see org.nasdanika.models.flow.ProcessDomainElement
+	 * @generated
+	 */
+	EClass getProcessDomainElement();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ProcessDomain <em>Process Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Process Domain</em>'.
+	 * @see org.nasdanika.models.flow.ProcessDomain
+	 * @generated
+	 */
+	EClass getProcessDomain();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.ProcessDomain#getProcesses <em>Processes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Processes</em>'.
+	 * @see org.nasdanika.models.flow.ProcessDomain#getProcesses()
+	 * @see #getProcessDomain()
+	 * @generated
+	 */
+	EReference getProcessDomain_Processes();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Process <em>Process</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -770,6 +1084,37 @@ public interface FlowPackage extends EPackage {
 	EReference getProcess_Services();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ResourceDomainElement <em>Resource Domain Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Domain Element</em>'.
+	 * @see org.nasdanika.models.flow.ResourceDomainElement
+	 * @generated
+	 */
+	EClass getResourceDomainElement();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ResourceDomain <em>Resource Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Domain</em>'.
+	 * @see org.nasdanika.models.flow.ResourceDomain
+	 * @generated
+	 */
+	EClass getResourceDomain();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.ResourceDomain#getResources <em>Resources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resources</em>'.
+	 * @see org.nasdanika.models.flow.ResourceDomain#getResources()
+	 * @see #getResourceDomain()
+	 * @generated
+	 */
+	EReference getResourceDomain_Resources();
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ArtifactImpl <em>Artifact</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -777,7 +1122,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifact()
 	 * @generated
 	 */
-	int ARTIFACT = 1;
+	int ARTIFACT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -786,7 +1131,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__MARKERS = MODEL_ELEMENT__MARKERS;
+	int ARTIFACT__MARKERS = ARTIFACT_DOMAIN_ELEMENT__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
@@ -795,7 +1140,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__URIS = MODEL_ELEMENT__URIS;
+	int ARTIFACT__URIS = ARTIFACT_DOMAIN_ELEMENT__URIS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -804,7 +1149,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+	int ARTIFACT__DESCRIPTION = ARTIFACT_DOMAIN_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -813,7 +1158,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__UUID = MODEL_ELEMENT__UUID;
+	int ARTIFACT__UUID = ARTIFACT_DOMAIN_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
@@ -822,7 +1167,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
+	int ARTIFACT__LABEL_PROTOTYPE = ARTIFACT_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' map.
@@ -831,7 +1176,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
+	int ARTIFACT__REPRESENTATIONS = ARTIFACT_DOMAIN_ELEMENT__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -840,7 +1185,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
+	int ARTIFACT__ANNOTATIONS = ARTIFACT_DOMAIN_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -849,7 +1194,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__NAME = MODEL_ELEMENT__NAME;
+	int ARTIFACT__NAME = ARTIFACT_DOMAIN_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
@@ -858,7 +1203,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
+	int ARTIFACT__DOCUMENTATION = ARTIFACT_DOMAIN_ELEMENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
@@ -867,7 +1212,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
+	int ARTIFACT__CONTEXT_HELP = ARTIFACT_DOMAIN_ELEMENT__CONTEXT_HELP;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -876,7 +1221,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__ID = MODEL_ELEMENT__ID;
+	int ARTIFACT__ID = ARTIFACT_DOMAIN_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
@@ -885,7 +1230,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__ROLES = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int ARTIFACT__ROLES = ARTIFACT_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' reference list.
@@ -894,7 +1239,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int ARTIFACT__RESOURCES = ARTIFACT_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Participants</b></em>' reference list.
@@ -903,7 +1248,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int ARTIFACT__PARTICIPANTS = ARTIFACT_DOMAIN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' reference list.
@@ -912,7 +1257,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__INFOS = MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int ARTIFACT__INFOS = ARTIFACT_DOMAIN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Data Elements</b></em>' reference list.
@@ -921,7 +1266,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__DATA_ELEMENTS = MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int ARTIFACT__DATA_ELEMENTS = ARTIFACT_DOMAIN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Artifact</em>' class.
@@ -930,7 +1275,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 5;
+	int ARTIFACT_FEATURE_COUNT = ARTIFACT_DOMAIN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Artifact</em>' class.
@@ -939,7 +1284,188 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int ARTIFACT_OPERATION_COUNT = ARTIFACT_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.CompositeArtifactImpl <em>Composite Artifact</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.CompositeArtifactImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCompositeArtifact()
+	 * @generated
+	 */
+	int COMPOSITE_ARTIFACT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__MARKERS = ARTIFACT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__URIS = ARTIFACT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__DESCRIPTION = ARTIFACT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__UUID = ARTIFACT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__LABEL_PROTOTYPE = ARTIFACT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__REPRESENTATIONS = ARTIFACT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__ANNOTATIONS = ARTIFACT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__NAME = ARTIFACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__DOCUMENTATION = ARTIFACT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__CONTEXT_HELP = ARTIFACT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__ID = ARTIFACT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__ROLES = ARTIFACT__ROLES;
+
+	/**
+	 * The feature id for the '<em><b>Resources</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__RESOURCES = ARTIFACT__RESOURCES;
+
+	/**
+	 * The feature id for the '<em><b>Participants</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__PARTICIPANTS = ARTIFACT__PARTICIPANTS;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__INFOS = ARTIFACT__INFOS;
+
+	/**
+	 * The feature id for the '<em><b>Data Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__DATA_ELEMENTS = ARTIFACT__DATA_ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__CHILDREN = ARTIFACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Composite Artifact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT_FEATURE_COUNT = ARTIFACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Composite Artifact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT_OPERATION_COUNT = ARTIFACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ResourceImpl <em>Resource</em>}' class.
@@ -949,7 +1475,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 24;
+	int RESOURCE = 31;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ParticipantImpl <em>Participant</em>}' class.
@@ -959,7 +1485,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getParticipant()
 	 * @generated
 	 */
-	int PARTICIPANT = 25;
+	int PARTICIPANT = 35;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.RoleImpl <em>Role</em>}' class.
@@ -969,7 +1495,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 15;
+	int ROLE = 18;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ArtifactInfoImpl <em>Artifact Info</em>}' class.
@@ -979,7 +1505,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactInfo()
 	 * @generated
 	 */
-	int ARTIFACT_INFO = 2;
+	int ARTIFACT_INFO = 5;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2105,7 +2631,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCollaboratable()
 	 * @generated
 	 */
-	int COLLABORATABLE = 14;
+	int COLLABORATABLE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
@@ -2277,7 +2803,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactProcessorRole()
 	 * @generated
 	 */
-	int ARTIFACT_PROCESSOR_ROLE = 16;
+	int ARTIFACT_PROCESSOR_ROLE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2800,7 +3326,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getService()
 	 * @generated
 	 */
-	int SERVICE = 19;
+	int SERVICE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -3478,6 +4004,269 @@ public interface FlowPackage extends EPackage {
 	int ACTIVITY_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ProcessDomainElementImpl <em>Process Domain Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.ProcessDomainElementImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getProcessDomainElement()
+	 * @generated
+	 */
+	int PROCESS_DOMAIN_ELEMENT = 26;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT__MARKERS = MODEL_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT__URIS = MODEL_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT__UUID = MODEL_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT__NAME = MODEL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT__ID = MODEL_ELEMENT__ID;
+
+	/**
+	 * The number of structural features of the '<em>Process Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Process Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_ELEMENT_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ProcessDomainImpl <em>Process Domain</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.ProcessDomainImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getProcessDomain()
+	 * @generated
+	 */
+	int PROCESS_DOMAIN = 27;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__MARKERS = PROCESS_DOMAIN_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__URIS = PROCESS_DOMAIN_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__DESCRIPTION = PROCESS_DOMAIN_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__UUID = PROCESS_DOMAIN_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__LABEL_PROTOTYPE = PROCESS_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__REPRESENTATIONS = PROCESS_DOMAIN_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__ANNOTATIONS = PROCESS_DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__NAME = PROCESS_DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__DOCUMENTATION = PROCESS_DOMAIN_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__CONTEXT_HELP = PROCESS_DOMAIN_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__ID = PROCESS_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN__PROCESSES = PROCESS_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Process Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_FEATURE_COUNT = PROCESS_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Process Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_DOMAIN_OPERATION_COUNT = PROCESS_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3703,157 +4492,14 @@ public interface FlowPackage extends EPackage {
 	int PROCESS_OPERATION_COUNT = ACTIVITY_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ResourceDomainElementImpl <em>Resource Domain Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.ResourceDomainElementImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getResourceDomainElement()
 	 * @generated
-	 * @ordered
 	 */
-	int RESOURCE__MARKERS = MODEL_ELEMENT__MARKERS;
-
-	/**
-	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__URIS = MODEL_ELEMENT__URIS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__UUID = MODEL_ELEMENT__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
-
-	/**
-	 * The feature id for the '<em><b>Representations</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__NAME = MODEL_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
-
-	/**
-	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__ID = MODEL_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Artifacts</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__ARTIFACTS = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Roles</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__ROLES = MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Participants</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__INFOS = MODEL_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Resource</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of operations of the '<em>Resource</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int RESOURCE_DOMAIN_ELEMENT = 29;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -3862,7 +4508,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__MARKERS = MODEL_ELEMENT__MARKERS;
+	int RESOURCE_DOMAIN_ELEMENT__MARKERS = MODEL_ELEMENT__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
@@ -3871,7 +4517,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__URIS = MODEL_ELEMENT__URIS;
+	int RESOURCE_DOMAIN_ELEMENT__URIS = MODEL_ELEMENT__URIS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3880,7 +4526,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+	int RESOURCE_DOMAIN_ELEMENT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -3889,7 +4535,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__UUID = MODEL_ELEMENT__UUID;
+	int RESOURCE_DOMAIN_ELEMENT__UUID = MODEL_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
@@ -3898,7 +4544,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
+	int RESOURCE_DOMAIN_ELEMENT__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' map.
@@ -3907,7 +4553,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
+	int RESOURCE_DOMAIN_ELEMENT__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -3916,7 +4562,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
+	int RESOURCE_DOMAIN_ELEMENT__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3925,7 +4571,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__NAME = MODEL_ELEMENT__NAME;
+	int RESOURCE_DOMAIN_ELEMENT__NAME = MODEL_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
@@ -3934,7 +4580,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
+	int RESOURCE_DOMAIN_ELEMENT__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
@@ -3943,7 +4589,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
+	int RESOURCE_DOMAIN_ELEMENT__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3952,61 +4598,35 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__ID = MODEL_ELEMENT__ID;
+	int RESOURCE_DOMAIN_ELEMENT__ID = MODEL_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Roles</b></em>' reference list.
+	 * The number of structural features of the '<em>Resource Domain Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__ROLES = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Resources</b></em>' reference list.
+	 * The number of operations of the '<em>Resource Domain Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int RESOURCE_DOMAIN_ELEMENT_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Artifacts</b></em>' reference list.
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ResourceDomainImpl <em>Resource Domain</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.ResourceDomainImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getResourceDomain()
 	 * @generated
-	 * @ordered
 	 */
-	int PARTICIPANT__ARTIFACTS = MODEL_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTICIPANT__INFOS = MODEL_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Participant</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTICIPANT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of operations of the '<em>Participant</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTICIPANT_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int RESOURCE_DOMAIN = 30;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -4015,7 +4635,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__MARKERS = MODEL_ELEMENT__MARKERS;
+	int RESOURCE_DOMAIN__MARKERS = RESOURCE_DOMAIN_ELEMENT__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
@@ -4024,7 +4644,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__URIS = MODEL_ELEMENT__URIS;
+	int RESOURCE_DOMAIN__URIS = RESOURCE_DOMAIN_ELEMENT__URIS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -4033,7 +4653,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+	int RESOURCE_DOMAIN__DESCRIPTION = RESOURCE_DOMAIN_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -4042,7 +4662,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__UUID = MODEL_ELEMENT__UUID;
+	int RESOURCE_DOMAIN__UUID = RESOURCE_DOMAIN_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
@@ -4051,7 +4671,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
+	int RESOURCE_DOMAIN__LABEL_PROTOTYPE = RESOURCE_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' map.
@@ -4060,7 +4680,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
+	int RESOURCE_DOMAIN__REPRESENTATIONS = RESOURCE_DOMAIN_ELEMENT__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4069,7 +4689,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
+	int RESOURCE_DOMAIN__ANNOTATIONS = RESOURCE_DOMAIN_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4078,7 +4698,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__NAME = MODEL_ELEMENT__NAME;
+	int RESOURCE_DOMAIN__NAME = RESOURCE_DOMAIN_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
@@ -4087,7 +4707,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
+	int RESOURCE_DOMAIN__DOCUMENTATION = RESOURCE_DOMAIN_ELEMENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
@@ -4096,7 +4716,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
+	int RESOURCE_DOMAIN__CONTEXT_HELP = RESOURCE_DOMAIN_ELEMENT__CONTEXT_HELP;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4105,34 +4725,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__ID = MODEL_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Sub Packages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__SUB_PACKAGES = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__PROCESSES = MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Participants</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int RESOURCE_DOMAIN__ID = RESOURCE_DOMAIN_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
@@ -4141,52 +4734,25 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int RESOURCE_DOMAIN__RESOURCES = RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Resource Domain</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__ARTIFACTS = MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int RESOURCE_DOMAIN_FEATURE_COUNT = RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Data Elements</b></em>' containment reference list.
+	 * The number of operations of the '<em>Resource Domain</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__DATA_ELEMENTS = MODEL_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Data Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__DATA_TYPES = MODEL_ELEMENT_FEATURE_COUNT + 6;
-
-	/**
-	 * The number of structural features of the '<em>Package</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>Package</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int RESOURCE_DOMAIN_OPERATION_COUNT = RESOURCE_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -4195,7 +4761,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__MARKERS = MODEL_ELEMENT__MARKERS;
+	int RESOURCE__MARKERS = RESOURCE_DOMAIN_ELEMENT__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
@@ -4204,7 +4770,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__URIS = MODEL_ELEMENT__URIS;
+	int RESOURCE__URIS = RESOURCE_DOMAIN_ELEMENT__URIS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -4213,7 +4779,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+	int RESOURCE__DESCRIPTION = RESOURCE_DOMAIN_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -4222,7 +4788,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__UUID = MODEL_ELEMENT__UUID;
+	int RESOURCE__UUID = RESOURCE_DOMAIN_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
@@ -4231,7 +4797,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
+	int RESOURCE__LABEL_PROTOTYPE = RESOURCE_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' map.
@@ -4240,7 +4806,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
+	int RESOURCE__REPRESENTATIONS = RESOURCE_DOMAIN_ELEMENT__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4249,7 +4815,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
+	int RESOURCE__ANNOTATIONS = RESOURCE_DOMAIN_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4258,7 +4824,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__NAME = MODEL_ELEMENT__NAME;
+	int RESOURCE__NAME = RESOURCE_DOMAIN_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
@@ -4267,7 +4833,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
+	int RESOURCE__DOCUMENTATION = RESOURCE_DOMAIN_ELEMENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
@@ -4276,7 +4842,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
+	int RESOURCE__CONTEXT_HELP = RESOURCE_DOMAIN_ELEMENT__CONTEXT_HELP;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4285,178 +4851,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__ID = MODEL_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__ROLES = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Base</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__BASE = MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Extensions</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__EXTENSIONS = MODEL_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Data Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Data Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__MARKERS = MODEL_ELEMENT__MARKERS;
-
-	/**
-	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__URIS = MODEL_ELEMENT__URIS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__UUID = MODEL_ELEMENT__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
-
-	/**
-	 * The feature id for the '<em><b>Representations</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__NAME = MODEL_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
-
-	/**
-	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__ID = MODEL_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__ROLES = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__LOWER_BOUND = MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ELEMENT__UPPER_BOUND = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int RESOURCE__ID = RESOURCE_DOMAIN_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Artifacts</b></em>' reference list.
@@ -4465,7 +4860,1599 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_ELEMENT__ARTIFACTS = MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int RESOURCE__ARTIFACTS = RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__ROLES = RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Participants</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__PARTICIPANTS = RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__INFOS = RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_FEATURE_COUNT = RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_OPERATION_COUNT = RESOURCE_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.CompositeResourceImpl <em>Composite Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.CompositeResourceImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCompositeResource()
+	 * @generated
+	 */
+	int COMPOSITE_RESOURCE = 32;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__MARKERS = RESOURCE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__URIS = RESOURCE__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__DESCRIPTION = RESOURCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__UUID = RESOURCE__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__LABEL_PROTOTYPE = RESOURCE__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__REPRESENTATIONS = RESOURCE__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__ANNOTATIONS = RESOURCE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__NAME = RESOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__DOCUMENTATION = RESOURCE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__CONTEXT_HELP = RESOURCE__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__ID = RESOURCE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Artifacts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__ARTIFACTS = RESOURCE__ARTIFACTS;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__ROLES = RESOURCE__ROLES;
+
+	/**
+	 * The feature id for the '<em><b>Participants</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__PARTICIPANTS = RESOURCE__PARTICIPANTS;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__INFOS = RESOURCE__INFOS;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__CHILDREN = RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Composite Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Composite Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ParticipantDomainElementImpl <em>Participant Domain Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.ParticipantDomainElementImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getParticipantDomainElement()
+	 * @generated
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT = 33;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__MARKERS = MODEL_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__URIS = MODEL_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__UUID = MODEL_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__NAME = MODEL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__ID = MODEL_ELEMENT__ID;
+
+	/**
+	 * The number of structural features of the '<em>Participant Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Participant Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ParticipantDomainImpl <em>Participant Domain</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.ParticipantDomainImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getParticipantDomain()
+	 * @generated
+	 */
+	int PARTICIPANT_DOMAIN = 34;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__MARKERS = PARTICIPANT_DOMAIN_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__URIS = PARTICIPANT_DOMAIN_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__DESCRIPTION = PARTICIPANT_DOMAIN_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__UUID = PARTICIPANT_DOMAIN_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__LABEL_PROTOTYPE = PARTICIPANT_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__REPRESENTATIONS = PARTICIPANT_DOMAIN_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__ANNOTATIONS = PARTICIPANT_DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__NAME = PARTICIPANT_DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__DOCUMENTATION = PARTICIPANT_DOMAIN_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__CONTEXT_HELP = PARTICIPANT_DOMAIN_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__ID = PARTICIPANT_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Participants</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__PARTICIPANTS = PARTICIPANT_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Participant Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_FEATURE_COUNT = PARTICIPANT_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Participant Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_OPERATION_COUNT = PARTICIPANT_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__MARKERS = PARTICIPANT_DOMAIN_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__URIS = PARTICIPANT_DOMAIN_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__DESCRIPTION = PARTICIPANT_DOMAIN_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__UUID = PARTICIPANT_DOMAIN_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__LABEL_PROTOTYPE = PARTICIPANT_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__REPRESENTATIONS = PARTICIPANT_DOMAIN_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__ANNOTATIONS = PARTICIPANT_DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__NAME = PARTICIPANT_DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__DOCUMENTATION = PARTICIPANT_DOMAIN_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__CONTEXT_HELP = PARTICIPANT_DOMAIN_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__ID = PARTICIPANT_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__ROLES = PARTICIPANT_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Resources</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__RESOURCES = PARTICIPANT_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Artifacts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__ARTIFACTS = PARTICIPANT_DOMAIN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__INFOS = PARTICIPANT_DOMAIN_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Participant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_FEATURE_COUNT = PARTICIPANT_DOMAIN_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Participant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_OPERATION_COUNT = PARTICIPANT_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.DataTypeDomainElementImpl <em>Data Type Domain Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.DataTypeDomainElementImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataTypeDomainElement()
+	 * @generated
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT = 36;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT__MARKERS = MODEL_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT__URIS = MODEL_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT__UUID = MODEL_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT__NAME = MODEL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT__ID = MODEL_ELEMENT__ID;
+
+	/**
+	 * The number of structural features of the '<em>Data Type Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Data Type Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_ELEMENT_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.DataTypeDomainImpl <em>Data Type Domain</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.DataTypeDomainImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataTypeDomain()
+	 * @generated
+	 */
+	int DATA_TYPE_DOMAIN = 37;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__MARKERS = DATA_TYPE_DOMAIN_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__URIS = DATA_TYPE_DOMAIN_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__DESCRIPTION = DATA_TYPE_DOMAIN_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__UUID = DATA_TYPE_DOMAIN_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__LABEL_PROTOTYPE = DATA_TYPE_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__REPRESENTATIONS = DATA_TYPE_DOMAIN_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__ANNOTATIONS = DATA_TYPE_DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__NAME = DATA_TYPE_DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__DOCUMENTATION = DATA_TYPE_DOMAIN_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__CONTEXT_HELP = DATA_TYPE_DOMAIN_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__ID = DATA_TYPE_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Data Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN__DATA_TYPES = DATA_TYPE_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Data Type Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_FEATURE_COUNT = DATA_TYPE_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Data Type Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_DOMAIN_OPERATION_COUNT = DATA_TYPE_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__MARKERS = DATA_TYPE_DOMAIN_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__URIS = DATA_TYPE_DOMAIN_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__DESCRIPTION = DATA_TYPE_DOMAIN_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__UUID = DATA_TYPE_DOMAIN_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__LABEL_PROTOTYPE = DATA_TYPE_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__REPRESENTATIONS = DATA_TYPE_DOMAIN_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__ANNOTATIONS = DATA_TYPE_DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__NAME = DATA_TYPE_DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__DOCUMENTATION = DATA_TYPE_DOMAIN_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__CONTEXT_HELP = DATA_TYPE_DOMAIN_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__ID = DATA_TYPE_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__ROLES = DATA_TYPE_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Base</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__BASE = DATA_TYPE_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__EXTENSIONS = DATA_TYPE_DOMAIN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_FEATURE_COUNT = DATA_TYPE_DOMAIN_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_OPERATION_COUNT = DATA_TYPE_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__MARKERS = DATA_TYPE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__URIS = DATA_TYPE__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__DESCRIPTION = DATA_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__UUID = DATA_TYPE__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__LABEL_PROTOTYPE = DATA_TYPE__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__REPRESENTATIONS = DATA_TYPE__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__ANNOTATIONS = DATA_TYPE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__NAME = DATA_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__DOCUMENTATION = DATA_TYPE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__CONTEXT_HELP = DATA_TYPE__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__ID = DATA_TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__ROLES = DATA_TYPE__ROLES;
+
+	/**
+	 * The feature id for the '<em><b>Base</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__BASE = DATA_TYPE__BASE;
+
+	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__EXTENSIONS = DATA_TYPE__EXTENSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE__TYPE = DATA_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ecore Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Ecore Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_DATA_TYPE_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.DataDomainElementImpl <em>Data Domain Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.DataDomainElementImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataDomainElement()
+	 * @generated
+	 */
+	int DATA_DOMAIN_ELEMENT = 40;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT__MARKERS = MODEL_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT__URIS = MODEL_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT__UUID = MODEL_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT__NAME = MODEL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT__ID = MODEL_ELEMENT__ID;
+
+	/**
+	 * The number of structural features of the '<em>Data Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Data Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_ELEMENT_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.DataDomainImpl <em>Data Domain</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.DataDomainImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataDomain()
+	 * @generated
+	 */
+	int DATA_DOMAIN = 41;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__MARKERS = DATA_DOMAIN_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__URIS = DATA_DOMAIN_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__DESCRIPTION = DATA_DOMAIN_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__UUID = DATA_DOMAIN_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__LABEL_PROTOTYPE = DATA_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__REPRESENTATIONS = DATA_DOMAIN_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__ANNOTATIONS = DATA_DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__NAME = DATA_DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__DOCUMENTATION = DATA_DOMAIN_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__CONTEXT_HELP = DATA_DOMAIN_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__ID = DATA_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Data Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN__DATA_ELEMENTS = DATA_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Data Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_FEATURE_COUNT = DATA_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Data Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DOMAIN_OPERATION_COUNT = DATA_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__MARKERS = DATA_DOMAIN_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__URIS = DATA_DOMAIN_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__DESCRIPTION = DATA_DOMAIN_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__UUID = DATA_DOMAIN_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__LABEL_PROTOTYPE = DATA_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__REPRESENTATIONS = DATA_DOMAIN_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__ANNOTATIONS = DATA_DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__NAME = DATA_DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__DOCUMENTATION = DATA_DOMAIN_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__CONTEXT_HELP = DATA_DOMAIN_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__ID = DATA_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__ROLES = DATA_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__LOWER_BOUND = DATA_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__UPPER_BOUND = DATA_DOMAIN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Artifacts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ELEMENT__ARTIFACTS = DATA_DOMAIN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Data Element</em>' class.
@@ -4474,7 +6461,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int DATA_ELEMENT_FEATURE_COUNT = DATA_DOMAIN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Data Element</em>' class.
@@ -4483,7 +6470,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_ELEMENT_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int DATA_ELEMENT_OPERATION_COUNT = DATA_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -4834,7 +6821,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__MARKERS = DATA_TYPE__MARKERS;
+	int PACKAGE__MARKERS = MODEL_ELEMENT__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
@@ -4843,7 +6830,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__URIS = DATA_TYPE__URIS;
+	int PACKAGE__URIS = MODEL_ELEMENT__URIS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -4852,7 +6839,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__DESCRIPTION = DATA_TYPE__DESCRIPTION;
+	int PACKAGE__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -4861,7 +6848,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__UUID = DATA_TYPE__UUID;
+	int PACKAGE__UUID = MODEL_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
@@ -4870,7 +6857,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__LABEL_PROTOTYPE = DATA_TYPE__LABEL_PROTOTYPE;
+	int PACKAGE__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' map.
@@ -4879,7 +6866,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__REPRESENTATIONS = DATA_TYPE__REPRESENTATIONS;
+	int PACKAGE__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4888,7 +6875,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__ANNOTATIONS = DATA_TYPE__ANNOTATIONS;
+	int PACKAGE__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4897,7 +6884,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__NAME = DATA_TYPE__NAME;
+	int PACKAGE__NAME = MODEL_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
@@ -4906,7 +6893,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__DOCUMENTATION = DATA_TYPE__DOCUMENTATION;
+	int PACKAGE__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
@@ -4915,7 +6902,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__CONTEXT_HELP = DATA_TYPE__CONTEXT_HELP;
+	int PACKAGE__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4924,61 +6911,97 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__ID = DATA_TYPE__ID;
+	int PACKAGE__ID = MODEL_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Participants</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__ROLES = DATA_TYPE__ROLES;
+	int PACKAGE__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Base</b></em>' reference.
+	 * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__BASE = DATA_TYPE__BASE;
+	int PACKAGE__ARTIFACTS = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Extensions</b></em>' reference list.
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__EXTENSIONS = DATA_TYPE__EXTENSIONS;
+	int PACKAGE__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE__TYPE = DATA_TYPE_FEATURE_COUNT + 0;
+	int PACKAGE__PROCESSES = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Ecore Data Type</em>' class.
+	 * The feature id for the '<em><b>Data Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 1;
+	int PACKAGE__DATA_TYPES = MODEL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of operations of the '<em>Ecore Data Type</em>' class.
+	 * The feature id for the '<em><b>Data Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECORE_DATA_TYPE_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
+	int PACKAGE__DATA_ELEMENTS = MODEL_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__CAPABILITIES = MODEL_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Sub Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__SUB_PACKAGES = MODEL_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The number of structural features of the '<em>Package</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The number of operations of the '<em>Package</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -5001,72 +7024,6 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPackage_SubPackages();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.Package#getProcesses <em>Processes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Processes</em>'.
-	 * @see org.nasdanika.models.flow.Package#getProcesses()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_Processes();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.Package#getParticipants <em>Participants</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Participants</em>'.
-	 * @see org.nasdanika.models.flow.Package#getParticipants()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_Participants();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.Package#getResources <em>Resources</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Resources</em>'.
-	 * @see org.nasdanika.models.flow.Package#getResources()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_Resources();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.Package#getArtifacts <em>Artifacts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Artifacts</em>'.
-	 * @see org.nasdanika.models.flow.Package#getArtifacts()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_Artifacts();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.Package#getDataElements <em>Data Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Data Elements</em>'.
-	 * @see org.nasdanika.models.flow.Package#getDataElements()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_DataElements();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.Package#getDataTypes <em>Data Types</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Data Types</em>'.
-	 * @see org.nasdanika.models.flow.Package#getDataTypes()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_DataTypes();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.DataType <em>Data Type</em>}'.
@@ -5207,6 +7164,37 @@ public interface FlowPackage extends EPackage {
 	EReference getEcoreDataType_Type();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.DataDomainElement <em>Data Domain Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Domain Element</em>'.
+	 * @see org.nasdanika.models.flow.DataDomainElement
+	 * @generated
+	 */
+	EClass getDataDomainElement();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.DataDomain <em>Data Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Domain</em>'.
+	 * @see org.nasdanika.models.flow.DataDomain
+	 * @generated
+	 */
+	EClass getDataDomain();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.DataDomain#getDataElements <em>Data Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data Elements</em>'.
+	 * @see org.nasdanika.models.flow.DataDomain#getDataElements()
+	 * @see #getDataDomain()
+	 * @generated
+	 */
+	EReference getDataDomain_DataElements();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Artifact <em>Artifact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5237,6 +7225,27 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getArtifact_DataElements();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.CompositeArtifact <em>Composite Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Composite Artifact</em>'.
+	 * @see org.nasdanika.models.flow.CompositeArtifact
+	 * @generated
+	 */
+	EClass getCompositeArtifact();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.CompositeArtifact#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see org.nasdanika.models.flow.CompositeArtifact#getChildren()
+	 * @see #getCompositeArtifact()
+	 * @generated
+	 */
+	EReference getCompositeArtifact_Children();
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.nasdanika.models.flow.Artifact#getInfos <em>Infos</em>}'.
@@ -5315,6 +7324,58 @@ public interface FlowPackage extends EPackage {
 	EReference getResource_Infos();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.CompositeResource <em>Composite Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Composite Resource</em>'.
+	 * @see org.nasdanika.models.flow.CompositeResource
+	 * @generated
+	 */
+	EClass getCompositeResource();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.CompositeResource#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see org.nasdanika.models.flow.CompositeResource#getChildren()
+	 * @see #getCompositeResource()
+	 * @generated
+	 */
+	EReference getCompositeResource_Children();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ParticipantDomainElement <em>Participant Domain Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Participant Domain Element</em>'.
+	 * @see org.nasdanika.models.flow.ParticipantDomainElement
+	 * @generated
+	 */
+	EClass getParticipantDomainElement();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ParticipantDomain <em>Participant Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Participant Domain</em>'.
+	 * @see org.nasdanika.models.flow.ParticipantDomain
+	 * @generated
+	 */
+	EClass getParticipantDomain();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.ParticipantDomain#getParticipants <em>Participants</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Participants</em>'.
+	 * @see org.nasdanika.models.flow.ParticipantDomain#getParticipants()
+	 * @see #getParticipantDomain()
+	 * @generated
+	 */
+	EReference getParticipantDomain_Participants();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Participant <em>Participant</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5367,6 +7428,37 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getParticipant_Infos();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.DataTypeDomainElement <em>Data Type Domain Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Type Domain Element</em>'.
+	 * @see org.nasdanika.models.flow.DataTypeDomainElement
+	 * @generated
+	 */
+	EClass getDataTypeDomainElement();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.DataTypeDomain <em>Data Type Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Type Domain</em>'.
+	 * @see org.nasdanika.models.flow.DataTypeDomain
+	 * @generated
+	 */
+	EClass getDataTypeDomain();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.DataTypeDomain#getDataTypes <em>Data Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data Types</em>'.
+	 * @see org.nasdanika.models.flow.DataTypeDomain#getDataTypes()
+	 * @see #getDataTypeDomain()
+	 * @generated
+	 */
+	EReference getDataTypeDomain_DataTypes();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Role <em>Role</em>}'.
@@ -5486,12 +7578,30 @@ public interface FlowPackage extends EPackage {
 		 */
 		EClass MODEL_ELEMENT = eINSTANCE.getModelElement();
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ArtifactDomainElementImpl <em>Artifact Domain Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.ArtifactDomainElementImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactDomainElement()
+		 * @generated
+		 */
+		EClass ARTIFACT_DOMAIN_ELEMENT = eINSTANCE.getArtifactDomainElement();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ArtifactDomainImpl <em>Artifact Domain</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.ArtifactDomainImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactDomain()
+		 * @generated
+		 */
+		EClass ARTIFACT_DOMAIN = eINSTANCE.getArtifactDomain();
+		/**
+		 * The meta object literal for the '<em><b>Artifacts</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MODEL_ELEMENT__ID = eINSTANCE.getModelElement_Id();
+		EReference ARTIFACT_DOMAIN__ARTIFACTS = eINSTANCE.getArtifactDomain_Artifacts();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ConnectionImpl <em>Connection</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -5732,6 +7842,31 @@ public interface FlowPackage extends EPackage {
 		 */
 		EClass ACTIVITY = eINSTANCE.getActivity();
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ProcessDomainElementImpl <em>Process Domain Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.ProcessDomainElementImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getProcessDomainElement()
+		 * @generated
+		 */
+		EClass PROCESS_DOMAIN_ELEMENT = eINSTANCE.getProcessDomainElement();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ProcessDomainImpl <em>Process Domain</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.ProcessDomainImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getProcessDomain()
+		 * @generated
+		 */
+		EClass PROCESS_DOMAIN = eINSTANCE.getProcessDomain();
+		/**
+		 * The meta object literal for the '<em><b>Processes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCESS_DOMAIN__PROCESSES = eINSTANCE.getProcessDomain_Processes();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ProcessImpl <em>Process</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5755,6 +7890,31 @@ public interface FlowPackage extends EPackage {
 		 */
 		EReference PROCESS__SERVICES = eINSTANCE.getProcess_Services();
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ResourceDomainElementImpl <em>Resource Domain Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.ResourceDomainElementImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getResourceDomainElement()
+		 * @generated
+		 */
+		EClass RESOURCE_DOMAIN_ELEMENT = eINSTANCE.getResourceDomainElement();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ResourceDomainImpl <em>Resource Domain</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.ResourceDomainImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getResourceDomain()
+		 * @generated
+		 */
+		EClass RESOURCE_DOMAIN = eINSTANCE.getResourceDomain();
+		/**
+		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_DOMAIN__RESOURCES = eINSTANCE.getResourceDomain_Resources();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.PackageImpl <em>Package</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5770,48 +7930,6 @@ public interface FlowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PACKAGE__SUB_PACKAGES = eINSTANCE.getPackage_SubPackages();
-		/**
-		 * The meta object literal for the '<em><b>Processes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__PROCESSES = eINSTANCE.getPackage_Processes();
-		/**
-		 * The meta object literal for the '<em><b>Participants</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__PARTICIPANTS = eINSTANCE.getPackage_Participants();
-		/**
-		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__RESOURCES = eINSTANCE.getPackage_Resources();
-		/**
-		 * The meta object literal for the '<em><b>Artifacts</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__ARTIFACTS = eINSTANCE.getPackage_Artifacts();
-		/**
-		 * The meta object literal for the '<em><b>Data Elements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__DATA_ELEMENTS = eINSTANCE.getPackage_DataElements();
-		/**
-		 * The meta object literal for the '<em><b>Data Types</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__DATA_TYPES = eINSTANCE.getPackage_DataTypes();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.DataTypeImpl <em>Data Type</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -5914,6 +8032,31 @@ public interface FlowPackage extends EPackage {
 		 */
 		EReference ECORE_DATA_TYPE__TYPE = eINSTANCE.getEcoreDataType_Type();
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.DataDomainElementImpl <em>Data Domain Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.DataDomainElementImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataDomainElement()
+		 * @generated
+		 */
+		EClass DATA_DOMAIN_ELEMENT = eINSTANCE.getDataDomainElement();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.DataDomainImpl <em>Data Domain</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.DataDomainImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataDomain()
+		 * @generated
+		 */
+		EClass DATA_DOMAIN = eINSTANCE.getDataDomain();
+		/**
+		 * The meta object literal for the '<em><b>Data Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_DOMAIN__DATA_ELEMENTS = eINSTANCE.getDataDomain_DataElements();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ArtifactImpl <em>Artifact</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5936,6 +8079,22 @@ public interface FlowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ARTIFACT__DATA_ELEMENTS = eINSTANCE.getArtifact_DataElements();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.CompositeArtifactImpl <em>Composite Artifact</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.CompositeArtifactImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCompositeArtifact()
+		 * @generated
+		 */
+		EClass COMPOSITE_ARTIFACT = eINSTANCE.getCompositeArtifact();
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOSITE_ARTIFACT__CHILDREN = eINSTANCE.getCompositeArtifact_Children();
 		/**
 		 * The meta object literal for the '<em><b>Infos</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
@@ -5988,6 +8147,47 @@ public interface FlowPackage extends EPackage {
 		 */
 		EReference RESOURCE__INFOS = eINSTANCE.getResource_Infos();
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.CompositeResourceImpl <em>Composite Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.CompositeResourceImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCompositeResource()
+		 * @generated
+		 */
+		EClass COMPOSITE_RESOURCE = eINSTANCE.getCompositeResource();
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOSITE_RESOURCE__CHILDREN = eINSTANCE.getCompositeResource_Children();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ParticipantDomainElementImpl <em>Participant Domain Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.ParticipantDomainElementImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getParticipantDomainElement()
+		 * @generated
+		 */
+		EClass PARTICIPANT_DOMAIN_ELEMENT = eINSTANCE.getParticipantDomainElement();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ParticipantDomainImpl <em>Participant Domain</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.ParticipantDomainImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getParticipantDomain()
+		 * @generated
+		 */
+		EClass PARTICIPANT_DOMAIN = eINSTANCE.getParticipantDomain();
+		/**
+		 * The meta object literal for the '<em><b>Participants</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTICIPANT_DOMAIN__PARTICIPANTS = eINSTANCE.getParticipantDomain_Participants();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ParticipantImpl <em>Participant</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6024,6 +8224,31 @@ public interface FlowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARTICIPANT__INFOS = eINSTANCE.getParticipant_Infos();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.DataTypeDomainElementImpl <em>Data Type Domain Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.DataTypeDomainElementImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataTypeDomainElement()
+		 * @generated
+		 */
+		EClass DATA_TYPE_DOMAIN_ELEMENT = eINSTANCE.getDataTypeDomainElement();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.DataTypeDomainImpl <em>Data Type Domain</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.DataTypeDomainImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataTypeDomain()
+		 * @generated
+		 */
+		EClass DATA_TYPE_DOMAIN = eINSTANCE.getDataTypeDomain();
+		/**
+		 * The meta object literal for the '<em><b>Data Types</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_TYPE_DOMAIN__DATA_TYPES = eINSTANCE.getDataTypeDomain_DataTypes();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.RoleImpl <em>Role</em>}' class.
 		 * <!-- begin-user-doc -->

@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Process extends Activity {
+public interface Process extends Activity, ProcessDomainElement {
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.models.flow.ProcessElement}.

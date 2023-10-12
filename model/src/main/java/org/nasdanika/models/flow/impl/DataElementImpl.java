@@ -35,7 +35,7 @@ import org.nasdanika.models.flow.Role;
  *
  * @generated
  */
-public abstract class DataElementImpl extends ModelElementImpl implements DataElement {
+public abstract class DataElementImpl extends DataDomainElementImpl implements DataElement {
 	/**
 	 * The default value of the '{@link #getLowerBound() <em>Lower Bound</em>}' attribute.
 	 * <!-- begin-user-doc -->
