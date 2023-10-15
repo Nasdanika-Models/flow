@@ -17,9 +17,7 @@ public class ActivityNodeProcessor<T extends Activity> extends NodeNodeProcessor
 			java.util.function.Function<ProgressMonitor, Action> prototypeProvider) {
 		super(config, context, prototypeProvider);
 	}	
-	
-	// Role features
-	
-//	EList<Role> getRoles();
+
+	// Facets: ArtifactProcessorRole, Collaboratable<ArtifactProcessorRole>
 
 } 

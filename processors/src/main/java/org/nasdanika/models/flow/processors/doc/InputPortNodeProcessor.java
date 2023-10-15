@@ -19,6 +19,6 @@ public class InputPortNodeProcessor extends ModelElementNodeProcessor<InputPort>
 	}	
 	
 	
-	// Source features
+	// Source facet
 	
 } 

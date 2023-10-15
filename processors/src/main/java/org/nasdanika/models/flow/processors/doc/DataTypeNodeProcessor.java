@@ -9,7 +9,7 @@ import org.nasdanika.html.model.app.Action;
 import org.nasdanika.html.model.app.graph.WidgetFactory;
 import org.nasdanika.models.flow.DataType;
 
-public class DataTypeNodeProcessor<T extends DataType> extends ModelElementNodeProcessor<T> {
+public class DataTypeNodeProcessor<T extends DataType> extends DataTypeDomainElementNodeProcessor<T> {
 
 	public DataTypeNodeProcessor(
 			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 

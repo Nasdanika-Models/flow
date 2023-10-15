@@ -18,6 +18,6 @@ public class StartNodeProcessor extends ProcessElementNodeProcessor<Start> {
 		super(config, context, prototypeProvider);
 	}	
 		
-	// Source features
+	// Source facet
 	
 } 

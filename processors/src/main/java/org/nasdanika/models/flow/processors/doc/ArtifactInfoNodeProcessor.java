@@ -7,20 +7,19 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.graph.processor.NodeProcessorConfig;
 import org.nasdanika.html.model.app.Action;
 import org.nasdanika.html.model.app.graph.WidgetFactory;
-import org.nasdanika.models.flow.Participant;
+import org.nasdanika.models.flow.ArtifactInfo;
 
-public class ParticipantNodeProcessor extends ParticipantDomainElementNodeProcessor<Participant> {
-	
-	public ParticipantNodeProcessor(
+public class ArtifactInfoNodeProcessor extends ModelElementNodeProcessor<ArtifactInfo> {
+
+	public ArtifactInfoNodeProcessor(
 			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
 			Context context,
 			java.util.function.Function<ProgressMonitor, Action> prototypeProvider) {
 		super(config, context, prototypeProvider);
 	}	
 	
-//	EList<Role> getRoles();
+//	Artifact getArtifact();
 //	EList<Resource> getResources();
-//	EList<Artifact> getArtifacts();
-//	EList<ArtifactInfo> getInfos();
+//	EList<Participant> getParticipants();
 
 } 

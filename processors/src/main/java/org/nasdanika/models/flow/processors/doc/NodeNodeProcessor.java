@@ -18,9 +18,9 @@ public class NodeNodeProcessor<T extends Node> extends ProcessElementNodeProcess
 		super(config, context, prototypeProvider);
 	}	
 	
-	// Source features
-	// Target features
-	// ArtifactProcessor features
+	// Source facet
+	// Target facet
+	// ArtifactProcessor facet
 	
 //	EList<InputPort> getInputPorts();
 //	EList<OutputPort> getOutputPorts();

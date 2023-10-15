@@ -9,14 +9,16 @@ import org.nasdanika.html.model.app.Action;
 import org.nasdanika.html.model.app.graph.WidgetFactory;
 import org.nasdanika.models.flow.Artifact;
 
-public class ArtifactNodeProcessor extends ModelElementNodeProcessor<Artifact> {
+public class ArtifactNodeProcessor extends ArtifactDomainElementNodeProcessor<Artifact> {
 	
 	public ArtifactNodeProcessor(
 			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
 			Context context,
 			java.util.function.Function<ProgressMonitor, Action> prototypeProvider) {
 		super(config, context, prototypeProvider);
-	}	
+	}
+	
+	// Facet: Collaboratable<Role>
 	
 //	EList<Resource> getResources();
 //	EList<DataElement> getDataElements();

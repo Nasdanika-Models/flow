@@ -9,7 +9,7 @@ import org.nasdanika.html.model.app.Action;
 import org.nasdanika.html.model.app.graph.WidgetFactory;
 import org.nasdanika.models.flow.Role;
 
-public class RoleNodeProcessor extends ModelElementNodeProcessor<Role> {
+public class RoleNodeProcessor<T extends Role> extends ModelElementNodeProcessor<T> {
 	
 	public RoleNodeProcessor(
 			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 

@@ -19,6 +19,6 @@ public class OutputPortNodeProcessor extends ModelElementNodeProcessor<OutputPor
 	}	
 	
 	
-	// Target features
+	// Target facet
 	
 } 

@@ -52,6 +52,56 @@ public class FlowNodeProcessorFactory {
 		this.context = context;
 		this.prototypeProvider = prototypeProvider;
 	}
+	
+	//	Activity.java
+	//	Artifact.java
+	//	ArtifactConsumer.java
+	//	ArtifactDomain.java
+	//	ArtifactDomainElement.java
+	//	ArtifactInfo.java
+	//	ArtifactProcessor.java
+	//	ArtifactProcessorRole.java
+	//	ArtifactProducer.java
+	//	Call.java
+	//	Collaboratable.java
+	//	ComplexDataElement.java
+	//	CompositeArtifact.java
+	//	CompositeResource.java
+	//	Connection.java
+	//	DataDomain.java
+	//	DataDomainElement.java
+	//	DataElement.java
+	//	DataType.java
+	//	DataTypeDomain.java
+	//	DataTypeDomainElement.java
+	//	EcoreDataType.java
+	//	End.java
+	//	FlowFactory.java
+	//	FlowPackage.java
+	//	Gateway.java
+	//	InputPort.java
+	//	ModelElement.java
+	//	Node.java
+	//	OutputPort.java
+	//	Package.java
+	//	Participant.java
+	//	ParticipantDomain.java
+	//	ParticipantDomainElement.java
+	//	Process.java
+	//	ProcessDomain.java
+	//	ProcessDomainElement.java
+	//	ProcessElement.java
+	//	Resource.java
+	//	ResourceDomain.java
+	//	ResourceDomainElement.java
+	//	Role.java
+	//	Service.java
+	//	SimpleDataElement.java
+	//	Source.java
+	//	Start.java
+	//	Target.java
+	//	Transition.java
+	
 			
 	@EObjectNodeProcessor(type = org.nasdanika.models.flow.Activity.class)
 	public Object createActivityNodeProcessor(
@@ -232,6 +282,8 @@ public class FlowNodeProcessorFactory {
 		
 		return new TransitionNodeProcessor<Transition>(config, context, getPrototypeProvider(config));
 	}	
+
+	
 	
 
 }

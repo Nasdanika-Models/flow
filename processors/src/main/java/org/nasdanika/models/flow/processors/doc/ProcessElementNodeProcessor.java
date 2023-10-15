@@ -18,6 +18,6 @@ public class ProcessElementNodeProcessor<T extends ProcessElement> extends Model
 		super(config, context, prototypeProvider);
 	}	
 	
-	// RequirementConsumer features
+	// RequirementConsumer facet
 	
 } // ProcessElement

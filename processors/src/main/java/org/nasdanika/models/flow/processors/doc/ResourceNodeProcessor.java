@@ -9,7 +9,7 @@ import org.nasdanika.html.model.app.Action;
 import org.nasdanika.html.model.app.graph.WidgetFactory;
 import org.nasdanika.models.flow.Resource;
 
-public class ResourceNodeProcessor extends ModelElementNodeProcessor<Resource> {
+public class ResourceNodeProcessor<T extends Resource> extends ResourceDomainElementNodeProcessor<Resource> {
 	
 	public ResourceNodeProcessor(
 			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 

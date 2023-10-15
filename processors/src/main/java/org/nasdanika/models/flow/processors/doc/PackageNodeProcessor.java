@@ -13,14 +13,10 @@ public class PackageNodeProcessor extends ModelElementNodeProcessor<org.nasdanik
 			Context context,
 			java.util.function.Function<ProgressMonitor, Action> prototypeProvider) {
 		super(config, context, prototypeProvider);
-	}	
+	}
 	
-//	EList<org.nasdanika.models.flow.Process> getProcesses();
-//	EList<Participant> getParticipants();
-//	EList<Resource> getResources();
-//	EList<Artifact> getArtifacts();
-//	EList<Package> getSubPackages();
-//	EList<DataElement> getDataElements();
-//	EList<DataType> getDataTypes();
+	// Facets: ParticipantDomain, ArtifactDomain, ResourceDomain, ProcessDomain, DataTypeDomain, DataDomain, CapabilityDomain
+	
+	//	EList<Package> getSubPackages();
 		
 }
