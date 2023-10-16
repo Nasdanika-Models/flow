@@ -46,6 +46,7 @@ import org.nasdanika.models.flow.processors.doc.FlowNodeProcessorFactory;
 import org.nasdanika.models.flow.util.FlowDrawioFactory;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.persistence.ObjectLoader;
+import org.nasdanika.models.capability.processors.doc.CapabilityNodeProcessorFactory;
 
 public class TestFlow {
 	
@@ -116,8 +117,9 @@ public class TestFlow {
 		
 		Consumer<Diagnostic> diagnosticConsumer = d -> d.dump(System.out, 0);
 		FlowNodeProcessorFactory flowNodeProcessorFactory = new FlowNodeProcessorFactory(context, null);		
+		CapabilityNodeProcessorFactory capabilityNodeProcessorFactory = new CapabilityNodeProcessorFactory(context, null);		
 		
-		EObjectNodeProcessorReflectiveFactory<WidgetFactory, WidgetFactory> eObjectNodeProcessorReflectiveFactory = new EObjectNodeProcessorReflectiveFactory<>(flowNodeProcessorFactory);
+		EObjectNodeProcessorReflectiveFactory<WidgetFactory, WidgetFactory> eObjectNodeProcessorReflectiveFactory = new EObjectNodeProcessorReflectiveFactory<>(flowNodeProcessorFactory, capabilityNodeProcessorFactory);
 		EObjectReflectiveProcessorFactoryProvider eObjectReflectiveProcessorFactoryProvider = new EObjectReflectiveProcessorFactoryProvider(eObjectNodeProcessorReflectiveFactory);
 		Map<Element, ProcessorInfo<Object>> registry = eObjectReflectiveProcessorFactoryProvider.getFactory().createProcessors(configs.values(), false, progressMonitor);
 		

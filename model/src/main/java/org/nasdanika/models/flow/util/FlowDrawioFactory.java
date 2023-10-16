@@ -7,12 +7,14 @@ import java.util.function.Consumer;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
 import org.nasdanika.drawio.model.Document;
 import org.nasdanika.drawio.model.Page;
 import org.nasdanika.drawio.model.Root;
+import org.nasdanika.models.capability.CapabilityPackage;
 import org.nasdanika.models.flow.FlowFactory;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.ModelElement;
@@ -29,6 +31,8 @@ import org.nasdanika.ncore.Marker;
  */
 public class FlowDrawioFactory {
 	
+	private static final String CAPABILITY_PACKAGE_KEY = "capability";
+	private static final String FLOW_PACKAGE_KEY = "flow";
 	protected FlowFactory factory;
 	
 	public FlowDrawioFactory() {
@@ -76,7 +80,7 @@ public class FlowDrawioFactory {
 	}
 	
 	/**
-	 * Creates a layer element depending on the kind
+	 * Creates a model element depending on the kind
 	 * @param page
 	 * @param parallel
 	 * @param elementProvider
@@ -102,7 +106,7 @@ public class FlowDrawioFactory {
 			return null;
 		}
 		
-		EObject ret = create(kind);
+		EObject ret = create(kind.trim());
 		if (ret instanceof org.nasdanika.models.flow.ModelElement) {
 			ModelElement retModelElement = (org.nasdanika.models.flow.ModelElement) ret;
 			configureModelElement(
@@ -180,12 +184,22 @@ public class FlowDrawioFactory {
 		if (Util.isBlank(kind)) {
 			return null;
 		}
-		EClassifier classifier = FlowPackage.eINSTANCE.getEClassifier(kind.trim());
+		int dotIdx = kind.indexOf('.');
+		EPackage ePackage = dotIdx == -1 ? getEPackage(FLOW_PACKAGE_KEY) : getEPackage(kind.substring(0, dotIdx));
+		EClassifier classifier = ePackage.getEClassifier(kind.trim());
 		if (classifier instanceof EClass) {
 			return create((EClass) classifier);
-		} 
+		}
 		
 		throw new IllegalArgumentException("Unsupported element kind: " + kind);
+	}
+	
+	protected EPackage getEPackage(String name) {
+		switch (name) {
+		case FLOW_PACKAGE_KEY: return FlowPackage.eINSTANCE;
+		case CAPABILITY_PACKAGE_KEY: return CapabilityPackage.eINSTANCE;
+		}
+		throw new IllegalArgumentException("Unsupported package key: " + name);
 	}
 	
 	/**
@@ -199,6 +213,48 @@ public class FlowDrawioFactory {
 	}
 	
 	// === Wiring ===
+	
+	// --- Phase 0: Top-down containment
+	
+	/**
+	 * Finds domain elements for implemented domains and sub-packages.
+	 * Adds them to the package, prunes the iterator.
+	 * 
+	 * @param document
+	 * @param pkg
+	 * @param registry
+	 * @param pass
+	 * @param progressMonitor
+	 */
+	@org.nasdanika.common.Transformer.Wire
+	public void wirePackage(
+			org.nasdanika.drawio.model.Document document,
+			Package pkg,
+			Map<EObject, EObject> registry,
+			int pass,
+			ProgressMonitor progressMonitor) {
+
+		System.out.println("Wiring: " + document + " " + pass);
+		
+	}
+	
+	
+	// --- Phase 1: Ref-id's - replace value, "grab" contained elements - prune iterator
+	
+	// --- Pase 3: Drawio containment, flow model non-containment. E.g. activity in participant
+
+//	@org.nasdanika.common.Transformer.Wire(targetType = Void.class)
+//	public void wireNulls(
+//			org.nasdanika.drawio.model.ModelElement modelElement,
+//			Map<EObject, EObject> registry,
+//			int pass,
+//			ProgressMonitor progressMonitor) {
+//
+//		System.out.println("Wiring null target: " + modelElement + " " + pass);
+//		
+//	}
+	
+	
 	
 	// --- Phase 0: Capabilities. TODO - extract to capabilities where possible ---
 	
@@ -265,28 +321,6 @@ public class FlowDrawioFactory {
 		//	Target.java
 	
 	// Wire test
-	@org.nasdanika.common.Transformer.Wire
-	public void wirePackage(
-			org.nasdanika.drawio.model.Document document,
-			Package pkg,
-			Map<EObject, EObject> registry,
-			int pass,
-			ProgressMonitor progressMonitor) {
-
-		System.out.println("Wiring: " + document + " " + pass);
-		
-	}
-
-	@org.nasdanika.common.Transformer.Wire(targetType = Void.class)
-	public void wireNulls(
-			org.nasdanika.drawio.model.ModelElement modelElement,
-			Map<EObject, EObject> registry,
-			int pass,
-			ProgressMonitor progressMonitor) {
-
-		System.out.println("Wiring null target: " + modelElement + " " + pass);
-		
-	}
 	
 	
 	// --- Phase 0 - Domains ---

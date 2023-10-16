@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-10-09T12:09:39.625Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="HOkrh1VWq-tbUGnCeJLA" version="22.0.2" type="device" pages="2">
+<mxfile host="Electron" modified="2023-10-15T23:25:10.178Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="wozOW3yl42yn_56yWdTU" version="22.0.2" type="device" pages="2">
   <diagram name="Process A" id="c7488fd3-1785-93aa-aadb-54a6760d102a">
     <mxGraphModel dx="1432" dy="1186" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -88,7 +88,7 @@
             <mxGeometry x="250" y="53.499999999999915" width="30" height="30" as="geometry" />
           </mxCell>
         </object>
-        <object label="Team 3" kind="Participant" id="2b4e8129b02d487f-4">
+        <object label="Team 3" kind="flow.Participant" id="2b4e8129b02d487f-4">
           <mxCell style="swimlane;html=1;startSize=20;horizontal=0;" parent="2b4e8129b02d487f-1" vertex="1">
             <mxGeometry y="320" width="680" height="150" as="geometry" />
           </mxCell>

@@ -2,6 +2,7 @@ module org.nasdanika.models.flow.processors {
 		
 	requires transitive org.nasdanika.models.flow;
 	requires transitive org.nasdanika.models.ecore.graph;
+	requires transitive org.nasdanika.models.capability.processors;
 	
 	exports org.nasdanika.models.flow.processors.doc;
 	opens org.nasdanika.models.flow.processors.doc; // For loading resources
