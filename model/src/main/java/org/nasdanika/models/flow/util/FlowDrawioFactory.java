@@ -191,12 +191,16 @@ public class FlowDrawioFactory {
 		EObject sourceDrawioElement,
 		org.nasdanika.models.flow.ModelElement semanticSource,
 		List<EReference> sourceReferences,
-		List<EObject> targetDrawioPath,
-		EObject semanticTarget,
+		LinkedList<EObject> targetDrawioPath,
 		Map<EObject, EObject> registry,
 		int pass,
 		ProgressMonitor progressMonitor) {
 		
+		EObject semanticTarget = registry.get(targetDrawioPath.getLast());
+		if (semanticTarget == null) {
+			return true;
+		}
+				
 		EClass semanticSourceEClass = semanticSource.eClass();
 		Optional<EReference> refOptional = sourceReferences
 			.stream()
@@ -210,6 +214,8 @@ public class FlowDrawioFactory {
 		}
 		
 		EReference ref = refOptional.get();
+		System.out.println(semanticSource + " - " + ref.getName() + " -> " + semanticTarget);
+		
 		if (ref.isMany()) {
 			((Collection<Object>) semanticSource.eGet(ref)).add(semanticTarget);
 		} else {
@@ -249,9 +255,23 @@ public class FlowDrawioFactory {
 			return false;
 		}
 		
+		// Package unconditionally grabs its domain elements and sub-packages
+		if (semanticSource instanceof Package) {
+			System.out.println("Reference: " + sourceReference.getName());
+			return 
+					sourceReference == FlowPackage.Literals.ARTIFACT_DOMAIN__ARTIFACTS 
+					|| sourceReference == FlowPackage.Literals.DATA_DOMAIN__DATA_ELEMENTS 
+					|| sourceReference == FlowPackage.Literals.DATA_TYPE_DOMAIN__DATA_TYPES 
+					|| sourceReference == FlowPackage.Literals.PARTICIPANT_DOMAIN__PARTICIPANTS 
+					|| sourceReference == FlowPackage.Literals.PROCESS_DOMAIN__PROCESSES 
+					|| sourceReference == FlowPackage.Literals.RESOURCE_DOMAIN__RESOURCES 
+					|| sourceReference == FlowPackage.Literals.PACKAGE__SUB_PACKAGES 
+					|| sourceReference == CapabilityPackage.Literals.CAPABILITY_DOMAIN__CAPABILITIES; 						
+		}
+		
 		// TODO - wire matching
 		
-		return true;
+		return false;
 	}
 	
 	/**
@@ -270,98 +290,6 @@ public class FlowDrawioFactory {
 		
 		return !sourceReference.isContainment();
 	}
-	
-	
-	
-	
-//	/**
-//	 * Recursive wiring of drawio containment 
-//	 * @param drawioElement
-//	 * @param flowModelElement
-//	 * @param registry
-//	 * @param referenceStream
-//	 * @param progressMonitor
-//	 */
-//	protected void wireContent(
-//			EObject drawioElement,
-//			Map<EObject, EObject> registry,
-//			Collection<EReference> references,
-//			ReferencePredicate referencePredicate,
-//			BiConsumer<EReference, EObject> elementConsumer,
-//			Collection<EObject> tracker,
-//			ProgressMonitor progressMonitor) {
-//		
-//		EObject flowModelElement = registry.get(drawioElement);
-//		if (flowModelElement == null) {
-//			// Check for reference property, filter references - pass predicate?
-//			
-//			for (EObject drawioChild: contents(drawioElement, tracker)) {
-//				wireReferences(
-//						drawioChild, 
-//						registry, 
-//						references, 
-//						referencePredicate,
-//						elementConsumer,
-//						tracker,
-//						progressMonitor);
-//			}
-//			
-//		} else { 
-//			references
-//				.stream()
-//				.filter(ref -> flowModelElement.eClass().getFeatureType(ref).isInstance(flowModelElement))
-//				.filter(ref -> matchReference(drawioElement, flowModelElement, ref, nextFlowModelChild))
-//					.sorted((a,b) -> NcoreUtil.cmpDistance(nextFlowModelChild.eClass(), flowModelElement.eClass().getFeatureType(a), flowModelElement.eClass().getFeatureType(b)))
-//					.findFirst()
-//					.ifPresent(ref -> {
-////						System.out.println("Containment " + flowModelElement + " *-" + ref.getName() + "- " + nextFlowModelChild);
-//						if (ref.isMany()) {
-//							((Collection<Object>) flowModelElement.eGet(ref)).add(nextFlowModelChild);
-//						} else {
-//							flowModelElement.eSet(ref, nextFlowModelChild);
-//						}
-//						cit.prune();
-//					});
-//		}
-//	}
-	
-//	/**
-//	 * 
-//	 * @param drawioModelElement
-//	 * @param container
-//	 * @param eReference
-//	 * @param candidate
-//	 * @return
-//	 */
-//	protected boolean matchReference(
-//			EObject drawioElement,
-//			EObject container, 
-//			EReference eReference, 
-//			EObject candidate) {
-//		if (drawioElement instanceof org.nasdanika.drawio.model.ModelElement) {
-//			String referenceProperty = getReferenceProperty();
-//			if (!Util.isBlank(referenceProperty)) {
-//				String refStr = ((org.nasdanika.drawio.model.ModelElement) drawioElement).getProperties().get(referenceProperty);
-//				if (!Util.isBlank(refStr)) {
-//					int dotIdx = refStr.lastIndexOf('.');
-//					if (dotIdx == -1) {
-//						throw new IllegalArgumentException("Invalid reference specification: " + refStr);					
-//					}
-//					if (!eReference.getName().equals(refStr.substring(dotIdx + 1))) {
-//						return false;
-//					}
-//					EClassifier classifier = getKind(refStr.substring(0, dotIdx));
-//					return classifier.isInstance(container);
-//				}
-//			}
-//		}
-//		return true;
-//	}
-//	
-//	protected String getReferenceProperty() {
-//		return "reference";
-//	}
-
 	
 	/**
 	 * Recursively inspects contained drawio elements and adds them to containment references if they match reference type and predicates.
@@ -384,16 +312,12 @@ public class FlowDrawioFactory {
 		for (EObject drawioChild: contents(drawioElement, tracker)) {
 			LinkedList<EObject> path = new LinkedList<>();
 			path.add(drawioChild);
-			EObject semanticTarget = registry.get(drawioChild);
-			Function<LinkedList<EObject>, Boolean> consumer = cPath -> {
-				if (semanticTarget == null) {
-					return true; 
-				}
+			Function<LinkedList<EObject>, Boolean> consumer = cPath -> {				
 				return wireReferences(
 						drawioElement, 
 						semanticElement, 
 						allContainments, 
-						path, semanticTarget, 
+						cPath, 
 						registry, 
 						pass, 
 						progressMonitor);
@@ -439,7 +363,7 @@ public class FlowDrawioFactory {
 						drawioElement, 
 						semanticElement, 
 						allNonContainments, 
-						path, semanticTarget, 
+						cPath, 
 						registry, 
 						pass, 
 						progressMonitor);
