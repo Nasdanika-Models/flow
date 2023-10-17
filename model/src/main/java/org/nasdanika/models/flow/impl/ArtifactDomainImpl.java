@@ -12,9 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.nasdanika.models.flow.Artifact;
 import org.nasdanika.models.flow.ArtifactDomain;
+import org.nasdanika.models.flow.ArtifactDomainElement;
 import org.nasdanika.models.flow.FlowPackage;
 
 /**
@@ -30,7 +29,7 @@ import org.nasdanika.models.flow.FlowPackage;
  *
  * @generated
  */
-public abstract class ArtifactDomainImpl extends ArtifactDomainElementImpl implements ArtifactDomain {
+public class ArtifactDomainImpl extends ArtifactDomainElementImpl implements ArtifactDomain {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,8 +56,8 @@ public abstract class ArtifactDomainImpl extends ArtifactDomainElementImpl imple
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Artifact> getArtifacts() {
-		return (EList<Artifact>)eDynamicGet(FlowPackage.ARTIFACT_DOMAIN__ARTIFACTS, FlowPackage.Literals.ARTIFACT_DOMAIN__ARTIFACTS, true, true);
+	public EList<ArtifactDomainElement> getArtifacts() {
+		return (EList<ArtifactDomainElement>)eDynamicGet(FlowPackage.ARTIFACT_DOMAIN__ARTIFACTS, FlowPackage.Literals.ARTIFACT_DOMAIN__ARTIFACTS, true, true);
 	}
 
 	/**
@@ -100,7 +99,7 @@ public abstract class ArtifactDomainImpl extends ArtifactDomainElementImpl imple
 		switch (featureID) {
 			case FlowPackage.ARTIFACT_DOMAIN__ARTIFACTS:
 				getArtifacts().clear();
-				getArtifacts().addAll((Collection<? extends Artifact>)newValue);
+				getArtifacts().addAll((Collection<? extends ArtifactDomainElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

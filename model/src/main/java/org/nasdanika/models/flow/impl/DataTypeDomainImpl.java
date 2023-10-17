@@ -12,9 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.nasdanika.models.flow.DataType;
 import org.nasdanika.models.flow.DataTypeDomain;
+import org.nasdanika.models.flow.DataTypeDomainElement;
 import org.nasdanika.models.flow.FlowPackage;
 
 /**
@@ -30,7 +29,7 @@ import org.nasdanika.models.flow.FlowPackage;
  *
  * @generated
  */
-public abstract class DataTypeDomainImpl extends DataTypeDomainElementImpl implements DataTypeDomain {
+public class DataTypeDomainImpl extends DataTypeDomainElementImpl implements DataTypeDomain {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,8 +56,8 @@ public abstract class DataTypeDomainImpl extends DataTypeDomainElementImpl imple
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<DataType> getDataTypes() {
-		return (EList<DataType>)eDynamicGet(FlowPackage.DATA_TYPE_DOMAIN__DATA_TYPES, FlowPackage.Literals.DATA_TYPE_DOMAIN__DATA_TYPES, true, true);
+	public EList<DataTypeDomainElement> getDataTypes() {
+		return (EList<DataTypeDomainElement>)eDynamicGet(FlowPackage.DATA_TYPE_DOMAIN__DATA_TYPES, FlowPackage.Literals.DATA_TYPE_DOMAIN__DATA_TYPES, true, true);
 	}
 
 	/**
@@ -100,7 +99,7 @@ public abstract class DataTypeDomainImpl extends DataTypeDomainElementImpl imple
 		switch (featureID) {
 			case FlowPackage.DATA_TYPE_DOMAIN__DATA_TYPES:
 				getDataTypes().clear();
-				getDataTypes().addAll((Collection<? extends DataType>)newValue);
+				getDataTypes().addAll((Collection<? extends DataTypeDomainElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

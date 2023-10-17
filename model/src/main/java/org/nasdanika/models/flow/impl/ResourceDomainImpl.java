@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.models.flow.FlowPackage;
-import org.nasdanika.models.flow.Resource;
 import org.nasdanika.models.flow.ResourceDomain;
+import org.nasdanika.models.flow.ResourceDomainElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +30,7 @@ import org.nasdanika.models.flow.ResourceDomain;
  *
  * @generated
  */
-public abstract class ResourceDomainImpl extends ResourceDomainElementImpl implements ResourceDomain {
+public class ResourceDomainImpl extends ResourceDomainElementImpl implements ResourceDomain {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,8 +57,8 @@ public abstract class ResourceDomainImpl extends ResourceDomainElementImpl imple
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Resource> getResources() {
-		return (EList<Resource>)eDynamicGet(FlowPackage.RESOURCE_DOMAIN__RESOURCES, FlowPackage.Literals.RESOURCE_DOMAIN__RESOURCES, true, true);
+	public EList<ResourceDomainElement> getResources() {
+		return (EList<ResourceDomainElement>)eDynamicGet(FlowPackage.RESOURCE_DOMAIN__RESOURCES, FlowPackage.Literals.RESOURCE_DOMAIN__RESOURCES, true, true);
 	}
 
 	/**
@@ -100,7 +100,7 @@ public abstract class ResourceDomainImpl extends ResourceDomainElementImpl imple
 		switch (featureID) {
 			case FlowPackage.RESOURCE_DOMAIN__RESOURCES:
 				getResources().clear();
-				getResources().addAll((Collection<? extends Resource>)newValue);
+				getResources().addAll((Collection<? extends ResourceDomainElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

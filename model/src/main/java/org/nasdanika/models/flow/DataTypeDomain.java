@@ -21,13 +21,13 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getDataTypeDomain()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface DataTypeDomain extends DataTypeDomainElement {
 	/**
 	 * Returns the value of the '<em><b>Data Types</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.flow.DataType}.
+	 * The list contents are of type {@link org.nasdanika.models.flow.DataTypeDomainElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -38,6 +38,6 @@ public interface DataTypeDomain extends DataTypeDomainElement {
 	 * @model containment="true" keys="id"
 	 * @generated
 	 */
-	EList<DataType> getDataTypes();
+	EList<DataTypeDomainElement> getDataTypes();
 
 } // DataTypeDomain

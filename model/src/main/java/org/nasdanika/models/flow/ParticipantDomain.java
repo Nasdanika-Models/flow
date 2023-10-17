@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getParticipantDomain()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface ParticipantDomain extends ParticipantDomainElement {

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.nasdanika.models.flow.Activity;
 import org.nasdanika.models.flow.Artifact;
+import org.nasdanika.models.flow.ArtifactDomain;
 import org.nasdanika.models.flow.ArtifactInfo;
 import org.nasdanika.models.flow.ArtifactProcessorRole;
 import org.nasdanika.models.flow.Call;
@@ -18,7 +19,9 @@ import org.nasdanika.models.flow.ComplexDataElement;
 import org.nasdanika.models.flow.CompositeArtifact;
 import org.nasdanika.models.flow.CompositeResource;
 import org.nasdanika.models.flow.Connection;
+import org.nasdanika.models.flow.DataDomain;
 import org.nasdanika.models.flow.DataType;
+import org.nasdanika.models.flow.DataTypeDomain;
 import org.nasdanika.models.flow.EcoreDataType;
 import org.nasdanika.models.flow.End;
 import org.nasdanika.models.flow.FlowFactory;
@@ -27,8 +30,11 @@ import org.nasdanika.models.flow.Gateway;
 import org.nasdanika.models.flow.InputPort;
 import org.nasdanika.models.flow.OutputPort;
 import org.nasdanika.models.flow.Participant;
+import org.nasdanika.models.flow.ParticipantDomain;
+import org.nasdanika.models.flow.ProcessDomain;
 import org.nasdanika.models.flow.ProcessElement;
 import org.nasdanika.models.flow.Resource;
+import org.nasdanika.models.flow.ResourceDomain;
 import org.nasdanika.models.flow.Role;
 import org.nasdanika.models.flow.Service;
 import org.nasdanika.models.flow.SimpleDataElement;
@@ -80,6 +86,7 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case FlowPackage.ARTIFACT_DOMAIN: return createArtifactDomain();
 			case FlowPackage.ARTIFACT: return createArtifact();
 			case FlowPackage.COMPOSITE_ARTIFACT: return createCompositeArtifact();
 			case FlowPackage.ARTIFACT_INFO: return createArtifactInfo();
@@ -96,18 +103,34 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 			case FlowPackage.TRANSITION: return createTransition();
 			case FlowPackage.CALL: return createCall();
 			case FlowPackage.ACTIVITY: return createActivity();
+			case FlowPackage.PROCESS_DOMAIN: return createProcessDomain();
 			case FlowPackage.PROCESS: return createProcess();
+			case FlowPackage.RESOURCE_DOMAIN: return createResourceDomain();
 			case FlowPackage.RESOURCE: return createResource();
 			case FlowPackage.COMPOSITE_RESOURCE: return createCompositeResource();
+			case FlowPackage.PARTICIPANT_DOMAIN: return createParticipantDomain();
 			case FlowPackage.PARTICIPANT: return createParticipant();
+			case FlowPackage.DATA_TYPE_DOMAIN: return createDataTypeDomain();
 			case FlowPackage.DATA_TYPE: return createDataType();
 			case FlowPackage.ECORE_DATA_TYPE: return createEcoreDataType();
+			case FlowPackage.DATA_DOMAIN: return createDataDomain();
 			case FlowPackage.COMPLEX_DATA_ELEMENT: return createComplexDataElement();
 			case FlowPackage.SIMPLE_DATA_ELEMENT: return createSimpleDataElement();
 			case FlowPackage.PACKAGE: return createPackage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ArtifactDomain createArtifactDomain() {
+		ArtifactDomainImpl artifactDomain = new ArtifactDomainImpl();
+		return artifactDomain;
 	}
 
 	/**
@@ -237,9 +260,31 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	 * @generated
 	 */
 	@Override
+	public ProcessDomain createProcessDomain() {
+		ProcessDomainImpl processDomain = new ProcessDomainImpl();
+		return processDomain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public org.nasdanika.models.flow.Process createProcess() {
 		ProcessImpl process = new ProcessImpl();
 		return process;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceDomain createResourceDomain() {
+		ResourceDomainImpl resourceDomain = new ResourceDomainImpl();
+		return resourceDomain;
 	}
 
 	/**
@@ -303,6 +348,17 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	 * @generated
 	 */
 	@Override
+	public DataDomain createDataDomain() {
+		DataDomainImpl dataDomain = new DataDomainImpl();
+		return dataDomain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Artifact createArtifact() {
 		ArtifactImpl artifact = new ArtifactImpl();
 		return artifact;
@@ -347,9 +403,31 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	 * @generated
 	 */
 	@Override
+	public ParticipantDomain createParticipantDomain() {
+		ParticipantDomainImpl participantDomain = new ParticipantDomainImpl();
+		return participantDomain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Participant createParticipant() {
 		ParticipantImpl participant = new ParticipantImpl();
 		return participant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DataTypeDomain createDataTypeDomain() {
+		DataTypeDomainImpl dataTypeDomain = new DataTypeDomainImpl();
+		return dataTypeDomain;
 	}
 
 	/**

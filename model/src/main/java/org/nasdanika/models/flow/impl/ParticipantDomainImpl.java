@@ -30,7 +30,7 @@ import org.nasdanika.models.flow.ParticipantDomainElement;
  *
  * @generated
  */
-public abstract class ParticipantDomainImpl extends ParticipantDomainElementImpl implements ParticipantDomain {
+public class ParticipantDomainImpl extends ParticipantDomainElementImpl implements ParticipantDomain {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

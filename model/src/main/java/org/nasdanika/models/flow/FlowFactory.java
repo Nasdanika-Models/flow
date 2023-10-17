@@ -22,6 +22,15 @@ public interface FlowFactory extends EFactory {
 	FlowFactory eINSTANCE = org.nasdanika.models.flow.impl.FlowFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Artifact Domain</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Artifact Domain</em>'.
+	 * @generated
+	 */
+	ArtifactDomain createArtifactDomain();
+
+	/**
 	 * Returns a new object of class '<em>Connection</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -121,6 +130,15 @@ public interface FlowFactory extends EFactory {
 	Activity createActivity();
 
 	/**
+	 * Returns a new object of class '<em>Process Domain</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Process Domain</em>'.
+	 * @generated
+	 */
+	ProcessDomain createProcessDomain();
+
+	/**
 	 * Returns a new object of class '<em>Process</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,6 +146,15 @@ public interface FlowFactory extends EFactory {
 	 * @generated
 	 */
 	Process createProcess();
+
+	/**
+	 * Returns a new object of class '<em>Resource Domain</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Domain</em>'.
+	 * @generated
+	 */
+	ResourceDomain createResourceDomain();
 
 	/**
 	 * Returns a new object of class '<em>Package</em>'.
@@ -175,6 +202,15 @@ public interface FlowFactory extends EFactory {
 	EcoreDataType createEcoreDataType();
 
 	/**
+	 * Returns a new object of class '<em>Data Domain</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Domain</em>'.
+	 * @generated
+	 */
+	DataDomain createDataDomain();
+
+	/**
 	 * Returns a new object of class '<em>Artifact</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -211,6 +247,15 @@ public interface FlowFactory extends EFactory {
 	CompositeResource createCompositeResource();
 
 	/**
+	 * Returns a new object of class '<em>Participant Domain</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Participant Domain</em>'.
+	 * @generated
+	 */
+	ParticipantDomain createParticipantDomain();
+
+	/**
 	 * Returns a new object of class '<em>Participant</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,6 +263,15 @@ public interface FlowFactory extends EFactory {
 	 * @generated
 	 */
 	Participant createParticipant();
+
+	/**
+	 * Returns a new object of class '<em>Data Type Domain</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Type Domain</em>'.
+	 * @generated
+	 */
+	DataTypeDomain createDataTypeDomain();
 
 	/**
 	 * Returns a new object of class '<em>Role</em>'.

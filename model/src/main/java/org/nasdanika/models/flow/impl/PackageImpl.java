@@ -16,13 +16,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.capability.CapabilityDomain;
 import org.nasdanika.models.capability.CapabilityDomainElement;
 import org.nasdanika.models.capability.CapabilityPackage;
-import org.nasdanika.models.flow.Artifact;
 import org.nasdanika.models.flow.ArtifactDomain;
 import org.nasdanika.models.flow.ArtifactDomainElement;
 import org.nasdanika.models.flow.DataDomain;
 import org.nasdanika.models.flow.DataDomainElement;
-import org.nasdanika.models.flow.DataElement;
-import org.nasdanika.models.flow.DataType;
 import org.nasdanika.models.flow.DataTypeDomain;
 import org.nasdanika.models.flow.DataTypeDomainElement;
 import org.nasdanika.models.flow.FlowPackage;
@@ -30,7 +27,6 @@ import org.nasdanika.models.flow.ParticipantDomain;
 import org.nasdanika.models.flow.ParticipantDomainElement;
 import org.nasdanika.models.flow.ProcessDomain;
 import org.nasdanika.models.flow.ProcessDomainElement;
-import org.nasdanika.models.flow.Resource;
 import org.nasdanika.models.flow.ResourceDomain;
 import org.nasdanika.models.flow.ResourceDomainElement;
 
@@ -92,8 +88,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<org.nasdanika.models.flow.Process> getProcesses() {
-		return (EList<org.nasdanika.models.flow.Process>)eDynamicGet(FlowPackage.PACKAGE__PROCESSES, FlowPackage.Literals.PROCESS_DOMAIN__PROCESSES, true, true);
+	public EList<ProcessDomainElement> getProcesses() {
+		return (EList<ProcessDomainElement>)eDynamicGet(FlowPackage.PACKAGE__PROCESSES, FlowPackage.Literals.PROCESS_DOMAIN__PROCESSES, true, true);
 	}
 
 	/**
@@ -114,8 +110,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Resource> getResources() {
-		return (EList<Resource>)eDynamicGet(FlowPackage.PACKAGE__RESOURCES, FlowPackage.Literals.RESOURCE_DOMAIN__RESOURCES, true, true);
+	public EList<ResourceDomainElement> getResources() {
+		return (EList<ResourceDomainElement>)eDynamicGet(FlowPackage.PACKAGE__RESOURCES, FlowPackage.Literals.RESOURCE_DOMAIN__RESOURCES, true, true);
 	}
 
 	/**
@@ -125,8 +121,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Artifact> getArtifacts() {
-		return (EList<Artifact>)eDynamicGet(FlowPackage.PACKAGE__ARTIFACTS, FlowPackage.Literals.ARTIFACT_DOMAIN__ARTIFACTS, true, true);
+	public EList<ArtifactDomainElement> getArtifacts() {
+		return (EList<ArtifactDomainElement>)eDynamicGet(FlowPackage.PACKAGE__ARTIFACTS, FlowPackage.Literals.ARTIFACT_DOMAIN__ARTIFACTS, true, true);
 	}
 
 	/**
@@ -136,8 +132,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<DataElement> getDataElements() {
-		return (EList<DataElement>)eDynamicGet(FlowPackage.PACKAGE__DATA_ELEMENTS, FlowPackage.Literals.DATA_DOMAIN__DATA_ELEMENTS, true, true);
+	public EList<DataDomainElement> getDataElements() {
+		return (EList<DataDomainElement>)eDynamicGet(FlowPackage.PACKAGE__DATA_ELEMENTS, FlowPackage.Literals.DATA_DOMAIN__DATA_ELEMENTS, true, true);
 	}
 
 	/**
@@ -158,8 +154,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<DataType> getDataTypes() {
-		return (EList<DataType>)eDynamicGet(FlowPackage.PACKAGE__DATA_TYPES, FlowPackage.Literals.DATA_TYPE_DOMAIN__DATA_TYPES, true, true);
+	public EList<DataTypeDomainElement> getDataTypes() {
+		return (EList<DataTypeDomainElement>)eDynamicGet(FlowPackage.PACKAGE__DATA_TYPES, FlowPackage.Literals.DATA_TYPE_DOMAIN__DATA_TYPES, true, true);
 	}
 
 	/**
@@ -233,23 +229,23 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 				return;
 			case FlowPackage.PACKAGE__ARTIFACTS:
 				getArtifacts().clear();
-				getArtifacts().addAll((Collection<? extends Artifact>)newValue);
+				getArtifacts().addAll((Collection<? extends ArtifactDomainElement>)newValue);
 				return;
 			case FlowPackage.PACKAGE__RESOURCES:
 				getResources().clear();
-				getResources().addAll((Collection<? extends Resource>)newValue);
+				getResources().addAll((Collection<? extends ResourceDomainElement>)newValue);
 				return;
 			case FlowPackage.PACKAGE__PROCESSES:
 				getProcesses().clear();
-				getProcesses().addAll((Collection<? extends org.nasdanika.models.flow.Process>)newValue);
+				getProcesses().addAll((Collection<? extends ProcessDomainElement>)newValue);
 				return;
 			case FlowPackage.PACKAGE__DATA_TYPES:
 				getDataTypes().clear();
-				getDataTypes().addAll((Collection<? extends DataType>)newValue);
+				getDataTypes().addAll((Collection<? extends DataTypeDomainElement>)newValue);
 				return;
 			case FlowPackage.PACKAGE__DATA_ELEMENTS:
 				getDataElements().clear();
-				getDataElements().addAll((Collection<? extends DataElement>)newValue);
+				getDataElements().addAll((Collection<? extends DataDomainElement>)newValue);
 				return;
 			case FlowPackage.PACKAGE__CAPABILITIES:
 				getCapabilities().clear();

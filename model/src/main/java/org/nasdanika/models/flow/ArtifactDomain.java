@@ -21,13 +21,13 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getArtifactDomain()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface ArtifactDomain extends ArtifactDomainElement {
 	/**
 	 * Returns the value of the '<em><b>Artifacts</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.flow.Artifact}.
+	 * The list contents are of type {@link org.nasdanika.models.flow.ArtifactDomainElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -38,6 +38,6 @@ public interface ArtifactDomain extends ArtifactDomainElement {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Artifact> getArtifacts();
+	EList<ArtifactDomainElement> getArtifacts();
 
 } // ArtifactDomain

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.models.flow.DataDomain;
-import org.nasdanika.models.flow.DataElement;
+import org.nasdanika.models.flow.DataDomainElement;
 import org.nasdanika.models.flow.FlowPackage;
 
 /**
@@ -30,7 +30,7 @@ import org.nasdanika.models.flow.FlowPackage;
  *
  * @generated
  */
-public abstract class DataDomainImpl extends DataDomainElementImpl implements DataDomain {
+public class DataDomainImpl extends DataDomainElementImpl implements DataDomain {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,8 +57,8 @@ public abstract class DataDomainImpl extends DataDomainElementImpl implements Da
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<DataElement> getDataElements() {
-		return (EList<DataElement>)eDynamicGet(FlowPackage.DATA_DOMAIN__DATA_ELEMENTS, FlowPackage.Literals.DATA_DOMAIN__DATA_ELEMENTS, true, true);
+	public EList<DataDomainElement> getDataElements() {
+		return (EList<DataDomainElement>)eDynamicGet(FlowPackage.DATA_DOMAIN__DATA_ELEMENTS, FlowPackage.Literals.DATA_DOMAIN__DATA_ELEMENTS, true, true);
 	}
 
 	/**
@@ -100,7 +100,7 @@ public abstract class DataDomainImpl extends DataDomainElementImpl implements Da
 		switch (featureID) {
 			case FlowPackage.DATA_DOMAIN__DATA_ELEMENTS:
 				getDataElements().clear();
-				getDataElements().addAll((Collection<? extends DataElement>)newValue);
+				getDataElements().addAll((Collection<? extends DataDomainElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

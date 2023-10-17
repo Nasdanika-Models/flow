@@ -21,13 +21,13 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getProcessDomain()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface ProcessDomain extends ProcessDomainElement {
 	/**
 	 * Returns the value of the '<em><b>Processes</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.flow.Process}.
+	 * The list contents are of type {@link org.nasdanika.models.flow.ProcessDomainElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -38,6 +38,6 @@ public interface ProcessDomain extends ProcessDomainElement {
 	 * @model containment="true" keys="id"
 	 * @generated
 	 */
-	EList<org.nasdanika.models.flow.Process> getProcesses();
+	EList<ProcessDomainElement> getProcesses();
 
 } // ProcessDomain

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.ProcessDomain;
+import org.nasdanika.models.flow.ProcessDomainElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +30,7 @@ import org.nasdanika.models.flow.ProcessDomain;
  *
  * @generated
  */
-public abstract class ProcessDomainImpl extends ProcessDomainElementImpl implements ProcessDomain {
+public class ProcessDomainImpl extends ProcessDomainElementImpl implements ProcessDomain {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,8 +57,8 @@ public abstract class ProcessDomainImpl extends ProcessDomainElementImpl impleme
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<org.nasdanika.models.flow.Process> getProcesses() {
-		return (EList<org.nasdanika.models.flow.Process>)eDynamicGet(FlowPackage.PROCESS_DOMAIN__PROCESSES, FlowPackage.Literals.PROCESS_DOMAIN__PROCESSES, true, true);
+	public EList<ProcessDomainElement> getProcesses() {
+		return (EList<ProcessDomainElement>)eDynamicGet(FlowPackage.PROCESS_DOMAIN__PROCESSES, FlowPackage.Literals.PROCESS_DOMAIN__PROCESSES, true, true);
 	}
 
 	/**
@@ -99,7 +100,7 @@ public abstract class ProcessDomainImpl extends ProcessDomainElementImpl impleme
 		switch (featureID) {
 			case FlowPackage.PROCESS_DOMAIN__PROCESSES:
 				getProcesses().clear();
-				getProcesses().addAll((Collection<? extends org.nasdanika.models.flow.Process>)newValue);
+				getProcesses().addAll((Collection<? extends ProcessDomainElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

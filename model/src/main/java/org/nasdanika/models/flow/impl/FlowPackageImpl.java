@@ -1635,8 +1635,8 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(artifactDomainElementEClass, ArtifactDomainElement.class, "ArtifactDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(artifactDomainEClass, ArtifactDomain.class, "ArtifactDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getArtifactDomain_Artifacts(), this.getArtifact(), null, "artifacts", null, 0, -1, ArtifactDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(artifactDomainEClass, ArtifactDomain.class, "ArtifactDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getArtifactDomain_Artifacts(), this.getArtifactDomainElement(), null, "artifacts", null, 0, -1, ArtifactDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getArtifact_Resources(), this.getResource(), this.getResource_Artifacts(), "resources", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1713,8 +1713,8 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(processDomainElementEClass, ProcessDomainElement.class, "ProcessDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(processDomainEClass, ProcessDomain.class, "ProcessDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProcessDomain_Processes(), this.getProcess(), null, "processes", null, 0, -1, ProcessDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(processDomainEClass, ProcessDomain.class, "ProcessDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProcessDomain_Processes(), this.getProcessDomainElement(), null, "processes", null, 0, -1, ProcessDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getProcessDomain_Processes().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(processEClass, org.nasdanika.models.flow.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1724,8 +1724,8 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(resourceDomainElementEClass, ResourceDomainElement.class, "ResourceDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(resourceDomainEClass, ResourceDomain.class, "ResourceDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceDomain_Resources(), this.getResource(), null, "resources", null, 0, -1, ResourceDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(resourceDomainEClass, ResourceDomain.class, "ResourceDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResourceDomain_Resources(), this.getResourceDomainElement(), null, "resources", null, 0, -1, ResourceDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getResourceDomain_Resources().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1740,7 +1740,7 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(participantDomainElementEClass, ParticipantDomainElement.class, "ParticipantDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(participantDomainEClass, ParticipantDomain.class, "ParticipantDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(participantDomainEClass, ParticipantDomain.class, "ParticipantDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParticipantDomain_Participants(), this.getParticipantDomainElement(), null, "participants", null, 0, -1, ParticipantDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getParticipantDomain_Participants().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
@@ -1752,8 +1752,8 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(dataTypeDomainElementEClass, DataTypeDomainElement.class, "DataTypeDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dataTypeDomainEClass, DataTypeDomain.class, "DataTypeDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataTypeDomain_DataTypes(), this.getDataType(), null, "dataTypes", null, 0, -1, DataTypeDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dataTypeDomainEClass, DataTypeDomain.class, "DataTypeDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataTypeDomain_DataTypes(), this.getDataTypeDomainElement(), null, "dataTypes", null, 0, -1, DataTypeDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getDataTypeDomain_DataTypes().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(dataTypeEClass, DataType.class, "DataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1765,8 +1765,8 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		initEClass(dataDomainElementEClass, DataDomainElement.class, "DataDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dataDomainEClass, DataDomain.class, "DataDomain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataDomain_DataElements(), this.getDataElement(), null, "dataElements", null, 0, -1, DataDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dataDomainEClass, DataDomain.class, "DataDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataDomain_DataElements(), this.getDataDomainElement(), null, "dataElements", null, 0, -1, DataDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getDataDomain_DataElements().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(dataElementEClass, DataElement.class, "DataElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

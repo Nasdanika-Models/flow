@@ -8,12 +8,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArtifactDomainElement" abstract="true"
       eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ArtifactDomain" abstract="true" eSuperTypes="#//ArtifactDomainElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ArtifactDomain" eSuperTypes="#//ArtifactDomainElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of artifacts"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
-        eType="#//Artifact" containment="true">
+        eType="#//ArtifactDomainElement" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Artifacts used in this package and sub-packages"/>
       </eAnnotations>
@@ -257,12 +257,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProcessDomainElement" abstract="true"
       eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ProcessDomain" abstract="true" eSuperTypes="#//ProcessDomainElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessDomain" eSuperTypes="#//ProcessDomainElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of processes"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
-        eType="#//Process" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//ProcessDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Flows defined in this package"/>
       </eAnnotations>
@@ -287,12 +287,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResourceDomainElement" abstract="true"
       eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ResourceDomain" abstract="true" eSuperTypes="#//ResourceDomainElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceDomain" eSuperTypes="#//ResourceDomainElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of resources"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
-        eType="#//Resource" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//ResourceDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Resources used in activities in this package and sub-packages"/>
       </eAnnotations>
@@ -336,7 +336,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParticipantDomainElement" abstract="true"
       eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParticipantDomain" abstract="true" eSuperTypes="#//ParticipantDomainElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ParticipantDomain" eSuperTypes="#//ParticipantDomainElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of particpants"/>
     </eAnnotations>
@@ -378,12 +378,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataTypeDomainElement" abstract="true"
       eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataTypeDomain" abstract="true" eSuperTypes="#//DataTypeDomainElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DataTypeDomain" eSuperTypes="#//DataTypeDomainElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of data types"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataTypes" upperBound="-1"
-        eType="#//DataType" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//DataTypeDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Data types used in this package and sub-packages"/>
       </eAnnotations>
@@ -417,12 +417,12 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataDomainElement" abstract="true" eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataDomain" abstract="true" eSuperTypes="#//DataDomainElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DataDomain" eSuperTypes="#//DataDomainElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of data elements"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataElements" upperBound="-1"
-        eType="#//DataElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//DataDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Data elements used in this package and sub-packages"/>
       </eAnnotations>

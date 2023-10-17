@@ -21,13 +21,13 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getResourceDomain()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface ResourceDomain extends ResourceDomainElement {
 	/**
 	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.flow.Resource}.
+	 * The list contents are of type {@link org.nasdanika.models.flow.ResourceDomainElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -38,6 +38,6 @@ public interface ResourceDomain extends ResourceDomainElement {
 	 * @model containment="true" keys="id"
 	 * @generated
 	 */
-	EList<Resource> getResources();
+	EList<ResourceDomainElement> getResources();
 
 } // ResourceDomain

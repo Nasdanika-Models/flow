@@ -21,13 +21,13 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getDataDomain()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface DataDomain extends DataDomainElement {
 	/**
 	 * Returns the value of the '<em><b>Data Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.flow.DataElement}.
+	 * The list contents are of type {@link org.nasdanika.models.flow.DataDomainElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -38,6 +38,6 @@ public interface DataDomain extends DataDomainElement {
 	 * @model containment="true" keys="id"
 	 * @generated
 	 */
-	EList<DataElement> getDataElements();
+	EList<DataDomainElement> getDataElements();
 
 } // DataDomain
