@@ -5,9 +5,7 @@ package org.nasdanika.models.flow.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.nasdanika.models.flow.Activity;
 import org.nasdanika.models.flow.Artifact;
@@ -40,7 +38,6 @@ import org.nasdanika.models.flow.Service;
 import org.nasdanika.models.flow.SimpleDataElement;
 import org.nasdanika.models.flow.Start;
 import org.nasdanika.models.flow.Transition;
-import org.nasdanika.models.flow.*;
 
 /**
  * <!-- begin-user-doc -->

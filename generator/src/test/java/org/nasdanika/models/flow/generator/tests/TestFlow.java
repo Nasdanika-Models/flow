@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.junit.jupiter.api.Test;
+import org.nasdanika.common.ContentMapper;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Diagnostic;
 import org.nasdanika.common.DiagramGenerator;
@@ -23,6 +24,7 @@ import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.PrintStreamProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.ReflectiveContentMapper;
 import org.nasdanika.common.Transformer;
 import org.nasdanika.diagramgenerator.plantuml.PlantUMLDiagramGenerator;
 import org.nasdanika.emf.persistence.EObjectLoader;
@@ -40,13 +42,14 @@ import org.nasdanika.html.model.app.gen.ActionSiteGenerator;
 import org.nasdanika.html.model.app.graph.WidgetFactory;
 import org.nasdanika.html.model.app.graph.emf.EObjectReflectiveProcessorFactoryProvider;
 import org.nasdanika.models.capability.CapabilityPackage;
+import org.nasdanika.models.capability.processors.doc.CapabilityNodeProcessorFactory;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.Package;
 import org.nasdanika.models.flow.processors.doc.FlowNodeProcessorFactory;
+import org.nasdanika.models.flow.util.FlowContainmentReferenceWires;
 import org.nasdanika.models.flow.util.FlowDrawioFactory;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.persistence.ObjectLoader;
-import org.nasdanika.models.capability.processors.doc.CapabilityNodeProcessorFactory;
 
 public class TestFlow {
 	
@@ -58,7 +61,10 @@ public class TestFlow {
 		URI diagramURI = URI.createFileURI(new File("flow.drawio").getCanonicalPath());
 		Resource diagramModel = resourceSet.getResource(diagramURI, true);
 
-		Transformer<EObject,EObject> flowFactory = new Transformer<>(new FlowDrawioFactory() {
+		ContentMapper<EObject, EObject> containmentContentMapper = new ReflectiveContentMapper<EObject, EObject>(new FlowContainmentReferenceWires());
+		ContentMapper<EObject, EObject> nonContainmentContentMapper = null; // TODO
+		
+		FlowDrawioFactory flowDrawioFactory = new FlowDrawioFactory(containmentContentMapper, nonContainmentContentMapper) {
 			
 			@Override
 			protected Package createPackage(ProgressMonitor progressMonitor) {
@@ -72,7 +78,8 @@ public class TestFlow {
 				}				
 			}
 			
-		});
+		};
+		Transformer<EObject,EObject> flowFactory = new Transformer<>(flowDrawioFactory);
 		Collection<EObject> diagramModelContents = new ArrayList<>();
 		diagramModel.getAllContents().forEachRemaining(e -> {
 			if (e instanceof org.nasdanika.drawio.model.Document

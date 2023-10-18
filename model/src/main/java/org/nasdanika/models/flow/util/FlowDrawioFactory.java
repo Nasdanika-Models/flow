@@ -8,7 +8,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -23,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.nasdanika.common.ContentMapper;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
 import org.nasdanika.drawio.model.Document;
@@ -35,7 +35,6 @@ import org.nasdanika.models.flow.ModelElement;
 import org.nasdanika.models.flow.Package;
 import org.nasdanika.models.flow.Process;
 import org.nasdanika.ncore.Marker;
-import org.nasdanika.ncore.util.NcoreUtil;
 
 /**
  * A factory creating flow model elements from Drawio model elements.
@@ -174,64 +173,66 @@ public class FlowDrawioFactory {
 		}
 	}
 		
-	/**
-	 * 
-	 * @param sourceDrawioElement Source drawio element 
-	 * @param semanticSource source semantic element
-	 * @param sourceReferences source semantic element references to possibly add the semantic target to
-	 * @param targetDrawioPath Drawio containment path of the target
-	 * @param semanticTarget target semantic element
-	 * @param registry
-	 * @param pass
-	 * @param progressMonitor
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	protected boolean wireReferences(
-		EObject sourceDrawioElement,
-		org.nasdanika.models.flow.ModelElement semanticSource,
-		List<EReference> sourceReferences,
-		LinkedList<EObject> targetDrawioPath,
-		Map<EObject, EObject> registry,
-		int pass,
-		ProgressMonitor progressMonitor) {
-		
-		EObject semanticTarget = registry.get(targetDrawioPath.getLast());
-		if (semanticTarget == null) {
-			return true;
-		}
-				
-		EClass semanticSourceEClass = semanticSource.eClass();
-		Optional<EReference> refOptional = sourceReferences
-			.stream()
-			.filter(ref -> semanticSourceEClass.getFeatureType(ref).isInstance(semanticTarget)) // Reference compatibility
-			.filter(ref -> matchReference(sourceDrawioElement, semanticSource, ref, targetDrawioPath, semanticTarget, registry, pass, progressMonitor))
-			.sorted((a,b) -> NcoreUtil.cmpDistance(semanticTarget.eClass(), semanticSourceEClass.getFeatureType(a), semanticSourceEClass.getFeatureType(b)))
-			.findFirst();
-		
-		if (refOptional.isEmpty()) {
-			return true; // Nothing wired, keep going
-		}
-		
-		EReference ref = refOptional.get();
-		System.out.println(semanticSource + " - " + ref.getName() + " -> " + semanticTarget);
-		
-		if (ref.isMany()) {
-			((Collection<Object>) semanticSource.eGet(ref)).add(semanticTarget);
-		} else {
-			semanticSource.eSet(ref, semanticTarget);
-		}
-		
-		return isWireContents(
-				sourceDrawioElement, 
-				semanticSource, 
-				ref, 
-				targetDrawioPath, 
-				semanticTarget, 
-				registry, 
-				pass, 
-				progressMonitor);
-	}
+//	/**
+//	 * 
+//	 * @param sourceDrawioElement Source drawio element 
+//	 * @param semanticSource source semantic element
+//	 * @param sourceReferences source semantic element references to possibly add the semantic target to
+//	 * @param targetDrawioPath Drawio containment path of the target
+//	 * @param semanticTarget target semantic element
+//	 * @param registry
+//	 * @param pass
+//	 * @param progressMonitor
+//	 * @return
+//	 */
+//	@SuppressWarnings("unchecked")
+//	protected boolean wireReferences(
+//		EObject sourceDrawioElement,
+//		org.nasdanika.models.flow.ModelElement semanticSource,
+//		List<EReference> sourceReferences,
+//		LinkedList<EObject> targetDrawioPath,
+//		Map<EObject, EObject> registry,
+//		int pass,
+//		ProgressMonitor progressMonitor) {
+//		
+//		EObject semanticTarget = registry.get(targetDrawioPath.getLast());
+//		if (semanticTarget == null) {
+//			return true;
+//		}
+//				
+//		EClass semanticSourceEClass = semanticSource.eClass();
+//		Optional<EReference> refOptional = sourceReferences
+//			.stream()
+////			.peek(ref -> System.out.println(">>> " + ref.getEContainingClass().getName() +"." + ref.getName() + " " + semanticSource.eClass().getName() + " " + semanticTarget.eClass().getName()))
+//			.filter(ref -> semanticSourceEClass.getFeatureType(ref).isInstance(semanticTarget)) // Reference compatibility
+////			.peek(ref -> System.out.println(">>>> " + ref.getEContainingClass().getName() +"." +  ref.getName()))
+//			.filter(ref -> matchReference(sourceDrawioElement, semanticSource, ref, targetDrawioPath, semanticTarget, registry, pass, progressMonitor))
+//			.sorted((a,b) -> NcoreUtil.cmpDistance(semanticTarget.eClass(), semanticSourceEClass.getFeatureType(a), semanticSourceEClass.getFeatureType(b)))
+//			.findFirst();
+//		
+//		if (refOptional.isEmpty()) {
+//			return true; // Nothing wired, keep going
+//		}
+//		
+//		EReference ref = refOptional.get();
+//		System.out.println(semanticSource + " - " + ref.getName() + " -> " + semanticTarget);
+//		
+//		if (ref.isMany()) {
+//			((Collection<Object>) semanticSource.eGet(ref)).add(semanticTarget);
+//		} else {
+//			semanticSource.eSet(ref, semanticTarget);
+//		}
+//		
+//		return isWireContents(
+//				sourceDrawioElement, 
+//				semanticSource, 
+//				ref, 
+//				targetDrawioPath, 
+//				semanticTarget, 
+//				registry, 
+//				pass, 
+//				progressMonitor);
+//	}
 	
 	/**
 	 * Matches reference using properties of source, target, and path elements. 
@@ -248,6 +249,17 @@ public class FlowDrawioFactory {
 			ProgressMonitor progressMonitor) {
 		
 		// Containment is pushed down - children can take contained objects from parents, other changes of existing containment are not allowed.
+		
+		/*
+		TODO: 
+			- ReferenceMatch record
+				- wireContents - go to contents if true or prune - don't go to contents if true
+				- wire - wire this if true
+				- nextMatch - process next match if true (for reflective)
+			- @WireReference annotation - matching by source and target types and condition evaluated in the context of the source drawio element with variables for path, semantic elements, reference, ...
+			- Reflective target for wiring - extract to Drawio module along with the generic/utility methods
+		*/
+		
 		EObject semanticTargetContainer = semanticTarget.eContainer();
 		if (sourceReference.isContainment() 
 				&& semanticTargetContainer != null
@@ -288,101 +300,121 @@ public class FlowDrawioFactory {
 			int pass,
 			ProgressMonitor progressMonitor) {
 		
-		return !sourceReference.isContainment();
+		return true;
 	}
 	
-	/**
-	 * Recursively inspects contained drawio elements and adds them to containment references if they match reference type and predicates.
-	 * @param drawioElement
-	 * @param flowModelElement
-	 * @param registry
-	 * @param pass
-	 * @param progressMonitor
-	 */
-	protected void wireContainment(
-			EObject drawioElement,
-			org.nasdanika.models.flow.ModelElement semanticElement,
-			Map<EObject, EObject> registry,
-			int pass,
-			ProgressMonitor progressMonitor) {
-
-		EList<EReference> allContainments = semanticElement.eClass().getEAllContainments();
-		HashSet<EObject> tracker = new HashSet<>();
-		
-		for (EObject drawioChild: contents(drawioElement, tracker)) {
-			LinkedList<EObject> path = new LinkedList<>();
-			path.add(drawioChild);
-			Function<LinkedList<EObject>, Boolean> consumer = cPath -> {				
-				return wireReferences(
-						drawioElement, 
-						semanticElement, 
-						allContainments, 
-						cPath, 
-						registry, 
-						pass, 
-						progressMonitor);
-			};
-			
-			wireContent(path, consumer, tracker);
-		}
-	}
+//	/**
+//	 * Recursively inspects contained drawio elements and adds them to containment references if they match reference type and predicates.
+//	 * @param drawioElement
+//	 * @param flowModelElement
+//	 * @param registry
+//	 * @param pass
+//	 * @param progressMonitor
+//	 */
+//	protected void wireContainment(
+//			EObject drawioElement,
+//			org.nasdanika.models.flow.ModelElement semanticElement,
+//			Map<EObject, EObject> registry,
+//			int pass,
+//			ProgressMonitor progressMonitor) {
+//
+//		EList<EReference> allContainments = semanticElement.eClass().getEAllContainments();
+//		HashSet<EObject> tracker = new HashSet<>();
+//		
+//		for (EObject drawioChild: contents(drawioElement, tracker)) {
+//			LinkedList<EObject> path = new LinkedList<>();
+//			path.add(drawioChild);
+//			Function<LinkedList<EObject>, Boolean> consumer = cPath -> {				
+//				return wireReferences(
+//						drawioElement, 
+//						semanticElement, 
+//						allContainments, 
+//						cPath, 
+//						registry, 
+//						pass, 
+//						progressMonitor);
+//			};
+//			
+//			wireContent(path, consumer, tracker);
+//		}
+//	}
 	
-	/**
-	 * Recursively inspects contained drawio elements and adds them to containment references if they match reference type and predicates.
-	 * @param drawioElement
-	 * @param flowModelElement
-	 * @param registry
-	 * @param pass
-	 * @param progressMonitor
-	 */
-	protected void wireNonContainment(
-			EObject drawioElement,
-			org.nasdanika.models.flow.ModelElement semanticElement,
-			Map<EObject, EObject> registry,
-			int pass,
-			ProgressMonitor progressMonitor) {
-
-		List<EReference> allNonContainments = semanticElement
-				.eClass()
-				.getEAllReferences()
-				.stream()
-				.filter(r -> !r.isContainment())
-				.toList();
-		
-		HashSet<EObject> tracker = new HashSet<>();
-		
-		for (EObject drawioChild: contents(drawioElement, tracker)) {
-			LinkedList<EObject> path = new LinkedList<>();
-			path.add(drawioChild);
-			EObject semanticTarget = registry.get(drawioChild);
-			Function<LinkedList<EObject>, Boolean> consumer = cPath -> {
-				if (semanticTarget == null) {
-					return true; 
-				}
-				return wireReferences(
-						drawioElement, 
-						semanticElement, 
-						allNonContainments, 
-						cPath, 
-						registry, 
-						pass, 
-						progressMonitor);
-			};
-			
-			wireContent(path, consumer, tracker);
-		}
-	}
+//	/**
+//	 * Recursively inspects contained drawio elements and adds them to containment references if they match reference type and predicates.
+//	 * @param drawioElement
+//	 * @param flowModelElement
+//	 * @param registry
+//	 * @param pass
+//	 * @param progressMonitor
+//	 */
+//	protected void wireNonContainment(
+//			EObject drawioElement,
+//			org.nasdanika.models.flow.ModelElement semanticElement,
+//			Map<EObject, EObject> registry,
+//			int pass,
+//			ProgressMonitor progressMonitor) {
+//
+//		List<EReference> allNonContainments = semanticElement
+//				.eClass()
+//				.getEAllReferences()
+//				.stream()
+//				.filter(r -> !r.isContainment())
+//				.toList();
+//		
+//		HashSet<EObject> tracker = new HashSet<>();
+//		
+//		for (EObject drawioChild: contents(drawioElement, tracker)) {
+//			LinkedList<EObject> path = new LinkedList<>();
+//			path.add(drawioChild);
+//			EObject semanticTarget = registry.get(drawioChild);
+//			Function<LinkedList<EObject>, Boolean> consumer = cPath -> {
+//				if (semanticTarget == null) {
+//					return true; 
+//				}
+//				return wireReferences(
+//						drawioElement, 
+//						semanticElement, 
+//						allNonContainments, 
+//						cPath, 
+//						registry, 
+//						pass, 
+//						progressMonitor);
+//			};
+//			
+//			wireContent(path, consumer, tracker);
+//		}
+//	}
 	
 	// ---
 	
 	protected FlowFactory factory;
+	protected ContentMapper<EObject, EObject> containmentContentMapper;
+	protected ContentMapper<EObject, EObject> nonContainmentContentMapper;
 	
-	public FlowDrawioFactory() {
-		this(FlowFactory.eINSTANCE);
+	/**
+	 * 
+	 * @param containmentContentMapper Used in wiring phase 0 to map/wire containment references
+	 * @param nonContainmentContentMapper Used in wiring phase 1 to map/wire non-containment references
+	 */
+	public FlowDrawioFactory(
+			ContentMapper<EObject,EObject> containmentContentMapper,
+			ContentMapper<EObject,EObject> nonContainmentContentMapper) {
+		this(containmentContentMapper, nonContainmentContentMapper, FlowFactory.eINSTANCE);
 	}
-	
-	public FlowDrawioFactory(FlowFactory factory) {
+
+	/**
+	 * 
+	 * @param containmentContentMapper Used in wiring phase 0 to map/wire containment references
+	 * @param nonContainmentContentMapper Used in wiring phase 1 to map/wire non-containment references
+	 * @param factory
+	 */
+	public FlowDrawioFactory(
+			ContentMapper<EObject,EObject> containmentContentMapper,
+			ContentMapper<EObject,EObject> nonContainmentContentMapper,
+			FlowFactory factory) {
 		this.factory = factory;
+		this.containmentContentMapper = containmentContentMapper;
+		this.nonContainmentContentMapper = nonContainmentContentMapper;
 	}
 		
 	/**
@@ -525,13 +557,10 @@ public class FlowDrawioFactory {
 			Map<EObject, EObject> registry,
 			int pass,
 			ProgressMonitor progressMonitor) {
-
-		wireContainment(
-				document, 
-				pkg, 
-				registry, 
-				pass, 
-				progressMonitor);
+		
+		if (containmentContentMapper != null) {
+			containmentContentMapper.wire(document, registry, progressMonitor);
+		}
 	}
 	
 	/**
@@ -552,13 +581,9 @@ public class FlowDrawioFactory {
 			int pass,
 			ProgressMonitor progressMonitor) {
 		
-		wireContainment(
-				drawioModelElement, 
-				flowModelElement, 
-				registry, 
-				pass, 
-				progressMonitor);
-		
+		if (containmentContentMapper != null) {
+			containmentContentMapper.wire(drawioModelElement, registry, progressMonitor);
+		}
 	}
 
 	/**
@@ -578,13 +603,10 @@ public class FlowDrawioFactory {
 			Map<EObject, EObject> registry,
 			int pass,
 			ProgressMonitor progressMonitor) {
-
-		wireNonContainment(
-				document, 
-				pkg, 
-				registry, 
-				pass, 
-				progressMonitor);
+		
+		if (nonContainmentContentMapper != null) {
+			nonContainmentContentMapper.wire(document, registry, progressMonitor);
+		}
 	}
 	
 	@org.nasdanika.common.Transformer.Wire(phase = 1)
@@ -594,14 +616,10 @@ public class FlowDrawioFactory {
 			Map<EObject, EObject> registry,
 			int pass,
 			ProgressMonitor progressMonitor) {
-		
-		wireNonContainment(
-				drawioModelElement, 
-				flowModelElement, 
-				registry, 
-				pass, 
-				progressMonitor);
-		
+				
+		if (nonContainmentContentMapper != null) {
+			nonContainmentContentMapper.wire(drawioModelElement, registry, progressMonitor);
+		}
 	}
 	
 	/**
