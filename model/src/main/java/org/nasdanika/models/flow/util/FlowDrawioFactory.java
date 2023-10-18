@@ -1,26 +1,13 @@
 package org.nasdanika.models.flow.util;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
-import org.eclipse.emf.common.util.AbstractTreeIterator;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.common.ContentMapper;
 import org.nasdanika.common.ProgressMonitor;
@@ -29,6 +16,8 @@ import org.nasdanika.drawio.model.Document;
 import org.nasdanika.drawio.model.Page;
 import org.nasdanika.drawio.model.Root;
 import org.nasdanika.models.capability.CapabilityPackage;
+import org.nasdanika.models.flow.ArtifactDomain;
+import org.nasdanika.models.flow.ArtifactDomainElement;
 import org.nasdanika.models.flow.FlowFactory;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.ModelElement;
@@ -109,281 +98,10 @@ public class FlowDrawioFactory {
 		return factory.create(type);
 	}
 	
-	/**
-	 * 
-	 * @param eObject
-	 * @return Tree iterator which is aware of page links and fails on double-visits (circular references)
-	 */
-	protected TreeIterator<EObject> allContents(EObject eObject) {		
-		return new AbstractTreeIterator<EObject>(eObject, false) {
-
-			private static final long serialVersionUID = 1L;
-
-			private Set<EObject> tracker = new HashSet<>();
-
-			@Override
-			public Iterator<EObject> getChildren(Object object) {
-				return contents((EObject) object, tracker).iterator();
-			}
-
-		};
-	}
-	
-	/**
-	 * 
-	 * @param eObject
-	 * @param tracker prevents infinite loops in case of circular references
-	 * @return Tree iterator which is aware of page links and fails on double-visits (circular references)
-	 */
-	protected List<EObject> contents(EObject eObject, Collection<EObject> tracker) {
-		if (tracker.add(eObject)) {
-	    	EList<EObject> eContents = eObject.eContents();
-	    	if (eObject instanceof org.nasdanika.drawio.model.ModelElement) {
-	    		org.nasdanika.drawio.model.ModelElement drawioModelElement = (org.nasdanika.drawio.model.ModelElement) eObject;
-	    		Page linkedPage = drawioModelElement.getLinkedPage();
-	    		if (linkedPage != null) {
-	    			List<EObject> ret = new ArrayList<>(eContents);
-	    			ret.add(linkedPage);
-	    			return ret;
-	    		}
-	    	}
-			return eContents;
-		}
-		return Collections.emptyList(); // Silently preventing infinite loops
-	}
-	
 	protected String getRefIdProperty() {
 		return "ref-id";
 	}
 	
-	/**
-	 * Recursive wiring of drawio containment 
-	 * 
-	 * @param path containment path with the first element being the immediate child of the wiring element 
-	 * @param consumer Consumes descendant path, returns true if traversal shall continue
-	 * @param tracker Tracker to avoid infinite loops
-	 */
-	protected void wireContent(LinkedList<EObject> path, Function<LinkedList<EObject>,Boolean> consumer, Collection<EObject> tracker) {
-		if (consumer.apply(path)) {
-			for (EObject child: contents(path.getLast(), tracker)) {
-				LinkedList<EObject> subPath = new LinkedList<>(path);
-				subPath.add(child);
-				wireContent(subPath, consumer, tracker);
-			}			
-		}
-	}
-		
-//	/**
-//	 * 
-//	 * @param sourceDrawioElement Source drawio element 
-//	 * @param semanticSource source semantic element
-//	 * @param sourceReferences source semantic element references to possibly add the semantic target to
-//	 * @param targetDrawioPath Drawio containment path of the target
-//	 * @param semanticTarget target semantic element
-//	 * @param registry
-//	 * @param pass
-//	 * @param progressMonitor
-//	 * @return
-//	 */
-//	@SuppressWarnings("unchecked")
-//	protected boolean wireReferences(
-//		EObject sourceDrawioElement,
-//		org.nasdanika.models.flow.ModelElement semanticSource,
-//		List<EReference> sourceReferences,
-//		LinkedList<EObject> targetDrawioPath,
-//		Map<EObject, EObject> registry,
-//		int pass,
-//		ProgressMonitor progressMonitor) {
-//		
-//		EObject semanticTarget = registry.get(targetDrawioPath.getLast());
-//		if (semanticTarget == null) {
-//			return true;
-//		}
-//				
-//		EClass semanticSourceEClass = semanticSource.eClass();
-//		Optional<EReference> refOptional = sourceReferences
-//			.stream()
-////			.peek(ref -> System.out.println(">>> " + ref.getEContainingClass().getName() +"." + ref.getName() + " " + semanticSource.eClass().getName() + " " + semanticTarget.eClass().getName()))
-//			.filter(ref -> semanticSourceEClass.getFeatureType(ref).isInstance(semanticTarget)) // Reference compatibility
-////			.peek(ref -> System.out.println(">>>> " + ref.getEContainingClass().getName() +"." +  ref.getName()))
-//			.filter(ref -> matchReference(sourceDrawioElement, semanticSource, ref, targetDrawioPath, semanticTarget, registry, pass, progressMonitor))
-//			.sorted((a,b) -> NcoreUtil.cmpDistance(semanticTarget.eClass(), semanticSourceEClass.getFeatureType(a), semanticSourceEClass.getFeatureType(b)))
-//			.findFirst();
-//		
-//		if (refOptional.isEmpty()) {
-//			return true; // Nothing wired, keep going
-//		}
-//		
-//		EReference ref = refOptional.get();
-//		System.out.println(semanticSource + " - " + ref.getName() + " -> " + semanticTarget);
-//		
-//		if (ref.isMany()) {
-//			((Collection<Object>) semanticSource.eGet(ref)).add(semanticTarget);
-//		} else {
-//			semanticSource.eSet(ref, semanticTarget);
-//		}
-//		
-//		return isWireContents(
-//				sourceDrawioElement, 
-//				semanticSource, 
-//				ref, 
-//				targetDrawioPath, 
-//				semanticTarget, 
-//				registry, 
-//				pass, 
-//				progressMonitor);
-//	}
-	
-	/**
-	 * Matches reference using properties of source, target, and path elements. 
-	 * @return
-	 */
-	protected boolean matchReference(
-			EObject sourceDrawioElement,
-			org.nasdanika.models.flow.ModelElement semanticSource,
-			EReference sourceReference,
-			List<EObject> targetDrawioPath,
-			EObject semanticTarget,
-			Map<EObject, EObject> registry,
-			int pass,
-			ProgressMonitor progressMonitor) {
-		
-		// Containment is pushed down - children can take contained objects from parents, other changes of existing containment are not allowed.
-		
-		/*
-		TODO: 
-			- ReferenceMatch record
-				- wireContents - go to contents if true or prune - don't go to contents if true
-				- wire - wire this if true
-				- nextMatch - process next match if true (for reflective)
-			- @WireReference annotation - matching by source and target types and condition evaluated in the context of the source drawio element with variables for path, semantic elements, reference, ...
-			- Reflective target for wiring - extract to Drawio module along with the generic/utility methods
-		*/
-		
-		EObject semanticTargetContainer = semanticTarget.eContainer();
-		if (sourceReference.isContainment() 
-				&& semanticTargetContainer != null
-				&& !EcoreUtil.isAncestor(semanticTargetContainer, semanticSource)) {
-			return false;
-		}
-		
-		// Package unconditionally grabs its domain elements and sub-packages
-		if (semanticSource instanceof Package) {
-			System.out.println("Reference: " + sourceReference.getName());
-			return 
-					sourceReference == FlowPackage.Literals.ARTIFACT_DOMAIN__ARTIFACTS 
-					|| sourceReference == FlowPackage.Literals.DATA_DOMAIN__DATA_ELEMENTS 
-					|| sourceReference == FlowPackage.Literals.DATA_TYPE_DOMAIN__DATA_TYPES 
-					|| sourceReference == FlowPackage.Literals.PARTICIPANT_DOMAIN__PARTICIPANTS 
-					|| sourceReference == FlowPackage.Literals.PROCESS_DOMAIN__PROCESSES 
-					|| sourceReference == FlowPackage.Literals.RESOURCE_DOMAIN__RESOURCES 
-					|| sourceReference == FlowPackage.Literals.PACKAGE__SUB_PACKAGES 
-					|| sourceReference == CapabilityPackage.Literals.CAPABILITY_DOMAIN__CAPABILITIES; 						
-		}
-		
-		// TODO - wire matching
-		
-		return false;
-	}
-	
-	/**
-	 * If this method returns true then wiring continues to the contents of just wired element. 
-	 * @return
-	 */
-	protected boolean isWireContents(
-			EObject sourceDrawioElement,
-			org.nasdanika.models.flow.ModelElement semanticSource,
-			EReference sourceReference,
-			List<EObject> targetDrawioPath,
-			EObject semanticTarget,
-			Map<EObject, EObject> registry,
-			int pass,
-			ProgressMonitor progressMonitor) {
-		
-		return true;
-	}
-	
-//	/**
-//	 * Recursively inspects contained drawio elements and adds them to containment references if they match reference type and predicates.
-//	 * @param drawioElement
-//	 * @param flowModelElement
-//	 * @param registry
-//	 * @param pass
-//	 * @param progressMonitor
-//	 */
-//	protected void wireContainment(
-//			EObject drawioElement,
-//			org.nasdanika.models.flow.ModelElement semanticElement,
-//			Map<EObject, EObject> registry,
-//			int pass,
-//			ProgressMonitor progressMonitor) {
-//
-//		EList<EReference> allContainments = semanticElement.eClass().getEAllContainments();
-//		HashSet<EObject> tracker = new HashSet<>();
-//		
-//		for (EObject drawioChild: contents(drawioElement, tracker)) {
-//			LinkedList<EObject> path = new LinkedList<>();
-//			path.add(drawioChild);
-//			Function<LinkedList<EObject>, Boolean> consumer = cPath -> {				
-//				return wireReferences(
-//						drawioElement, 
-//						semanticElement, 
-//						allContainments, 
-//						cPath, 
-//						registry, 
-//						pass, 
-//						progressMonitor);
-//			};
-//			
-//			wireContent(path, consumer, tracker);
-//		}
-//	}
-	
-//	/**
-//	 * Recursively inspects contained drawio elements and adds them to containment references if they match reference type and predicates.
-//	 * @param drawioElement
-//	 * @param flowModelElement
-//	 * @param registry
-//	 * @param pass
-//	 * @param progressMonitor
-//	 */
-//	protected void wireNonContainment(
-//			EObject drawioElement,
-//			org.nasdanika.models.flow.ModelElement semanticElement,
-//			Map<EObject, EObject> registry,
-//			int pass,
-//			ProgressMonitor progressMonitor) {
-//
-//		List<EReference> allNonContainments = semanticElement
-//				.eClass()
-//				.getEAllReferences()
-//				.stream()
-//				.filter(r -> !r.isContainment())
-//				.toList();
-//		
-//		HashSet<EObject> tracker = new HashSet<>();
-//		
-//		for (EObject drawioChild: contents(drawioElement, tracker)) {
-//			LinkedList<EObject> path = new LinkedList<>();
-//			path.add(drawioChild);
-//			EObject semanticTarget = registry.get(drawioChild);
-//			Function<LinkedList<EObject>, Boolean> consumer = cPath -> {
-//				if (semanticTarget == null) {
-//					return true; 
-//				}
-//				return wireReferences(
-//						drawioElement, 
-//						semanticElement, 
-//						allNonContainments, 
-//						cPath, 
-//						registry, 
-//						pass, 
-//						progressMonitor);
-//			};
-//			
-//			wireContent(path, consumer, tracker);
-//		}
-//	}
 	
 	// ---
 	
@@ -650,9 +368,20 @@ public class FlowDrawioFactory {
 			return false;
 		}
 
+		Package rootPackage = null;
+		for (EObject semanticElement: registry.values()) {
+			if (semanticElement instanceof Package && rootPackage == null || EcoreUtil.isAncestor(semanticElement, rootPackage)) {
+				rootPackage = (Package) semanticElement;
+			}
+		}
+		
 		switch (segments[0]) {
 		case "artifacts":
-			System.out.println("Yeah!");			
+			ArtifactDomainElement artifactDomainElement = findArtifact(rootPackage, segments, 1);
+			if (artifactDomainElement == null) {
+				throw new IllegalArgumentException("Artifact not found, ref-id: " + refId);
+			}
+			registry.put(modelElement, artifactDomainElement);
 			return true;
 		case "processes":
 		case "participants":
@@ -666,6 +395,18 @@ public class FlowDrawioFactory {
 			throw new IllegalArgumentException("Unsupported ref-id: '" + refId + "' in " + modelElement);						
 		}
 
+	}
+	
+	protected ArtifactDomainElement findArtifact(ArtifactDomain artifactDomain, String[] path, int idx) {
+		for (ArtifactDomainElement artifactDomainElement: artifactDomain.getArtifacts()) {
+			if (artifactDomainElement.getId().equals(path[idx])) {
+				if (idx == path.length - 1) {
+					return artifactDomainElement;
+				}
+				return findArtifact(((ArtifactDomain) artifactDomainElement), path, idx + 1);
+			}
+		}
+		return null;
 	}
 	
 	
