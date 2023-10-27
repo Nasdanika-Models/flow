@@ -6,8 +6,49 @@
       <details key="documentation" value="Base class for flow model elements"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArtifactDomainElement" abstract="true"
+  <eClassifiers xsi:type="ecore:EClass" name="SkillDomainElement" abstract="true"
       eSuperTypes="#//ModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SkillDomain" eSuperTypes="#//SkillDomainElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A grouping construct for skills"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="skills" upperBound="-1"
+        eType="#//SkillDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Artifacts used in this package and sub-packages"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Skill" eSuperTypes="#//SkillDomainElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Information passed between flow elements and operated on by participants using resources"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="skillConsumers" upperBound="-1"
+        eType="#//SkillConsumer" eOpposite="#//SkillConsumer/requiredSkills">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Roles which utilize this skill"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proficiencyLevels" upperBound="-1"
+        eType="#//Skill" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Skills can be sub-divided into proficiency levels. E.g. &quot;Beginner&quot;, &quot;Intermediate&quot;, &quot;Advanced&quot;. Or &quot;Junior&quot;, &quot;Senior&quot;."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SkillConsumer" abstract="true" interface="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Something requiring skills"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredSkills" upperBound="-1"
+        eType="#//Skill" eOpposite="#//Skill/skillConsumers">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Skills required by this consumer"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArtifactDomainElement" abstract="true"
+      eSuperTypes="#//ModelElement #//SkillConsumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="ArtifactDomain" eSuperTypes="#//ArtifactDomainElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of artifacts"/>
@@ -168,7 +209,7 @@
       <eGenericType eTypeParameter="#//Collaboratable/R"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//ModelElement #//SkillConsumer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A role of a participant in collaboration with other particpants in roles"/>
     </eAnnotations>
@@ -286,7 +327,7 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResourceDomainElement" abstract="true"
-      eSuperTypes="#//ModelElement"/>
+      eSuperTypes="#//ModelElement #//SkillConsumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="ResourceDomain" eSuperTypes="#//ResourceDomainElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of resources"/>
@@ -326,6 +367,12 @@
         <details key="documentation" value="ArtifactInfo which reference this resource"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceAreas" upperBound="-1"
+        eType="#//Resource" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A resource may be sub-divided into areas. E.g. GitHub has Git repositories, Actions, Pages, Wiki."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompositeResource" eSuperTypes="#//Resource">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -335,7 +382,7 @@
         eType="#//Resource" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParticipantDomainElement" abstract="true"
-      eSuperTypes="#//ModelElement"/>
+      eSuperTypes="#//ModelElement #//SkillConsumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="ParticipantDomain" eSuperTypes="#//ParticipantDomainElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of particpants"/>
@@ -475,7 +522,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//ModelElement #//ParticipantDomain #//ArtifactDomain #//ResourceDomain #//ProcessDomain #//DataTypeDomain #//DataDomain ../../org.nasdanika.models.capability/model/capability.ecore#//CapabilityDomain">
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//ModelElement #//ParticipantDomain #//ArtifactDomain #//ResourceDomain #//ProcessDomain #//DataTypeDomain #//DataDomain ../../org.nasdanika.models.capability/model/capability.ecore#//CapabilityDomain #//SkillDomain">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of processes and elements they reference - participants, ..."/>
     </eAnnotations>

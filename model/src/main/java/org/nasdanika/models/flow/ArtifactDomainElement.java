@@ -13,5 +13,5 @@ package org.nasdanika.models.flow;
  * @model abstract="true"
  * @generated
  */
-public interface ArtifactDomainElement extends ModelElement {
+public interface ArtifactDomainElement extends ModelElement, SkillConsumer {
 } // ArtifactDomainElement

@@ -29,6 +29,10 @@ import org.nasdanika.models.flow.ProcessDomain;
 import org.nasdanika.models.flow.ProcessDomainElement;
 import org.nasdanika.models.flow.ResourceDomain;
 import org.nasdanika.models.flow.ResourceDomainElement;
+import org.nasdanika.models.flow.Skill;
+import org.nasdanika.models.flow.SkillConsumer;
+import org.nasdanika.models.flow.SkillDomain;
+import org.nasdanika.models.flow.SkillDomainElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +42,7 @@ import org.nasdanika.models.flow.ResourceDomainElement;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getRequiredSkills <em>Required Skills</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getArtifacts <em>Artifacts</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getResources <em>Resources</em>}</li>
@@ -45,6 +50,7 @@ import org.nasdanika.models.flow.ResourceDomainElement;
  *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getDataTypes <em>Data Types</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getDataElements <em>Data Elements</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getCapabilities <em>Capabilities</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getSkills <em>Skills</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.PackageImpl#getSubPackages <em>Sub Packages</em>}</li>
  * </ul>
  *
@@ -77,8 +83,34 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	public EList<Skill> getRequiredSkills() {
+		return (EList<Skill>)eDynamicGet(FlowPackage.PACKAGE__REQUIRED_SKILLS, FlowPackage.Literals.SKILL_CONSUMER__REQUIRED_SKILLS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public EList<org.nasdanika.models.flow.Package> getSubPackages() {
 		return (EList<org.nasdanika.models.flow.Package>)eDynamicGet(FlowPackage.PACKAGE__SUB_PACKAGES, FlowPackage.Literals.PACKAGE__SUB_PACKAGES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FlowPackage.PACKAGE__REQUIRED_SKILLS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredSkills()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -154,6 +186,17 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	public EList<SkillDomainElement> getSkills() {
+		return (EList<SkillDomainElement>)eDynamicGet(FlowPackage.PACKAGE__SKILLS, FlowPackage.Literals.SKILL_DOMAIN__SKILLS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public EList<DataTypeDomainElement> getDataTypes() {
 		return (EList<DataTypeDomainElement>)eDynamicGet(FlowPackage.PACKAGE__DATA_TYPES, FlowPackage.Literals.DATA_TYPE_DOMAIN__DATA_TYPES, true, true);
 	}
@@ -166,6 +209,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FlowPackage.PACKAGE__REQUIRED_SKILLS:
+				return ((InternalEList<?>)getRequiredSkills()).basicRemove(otherEnd, msgs);
 			case FlowPackage.PACKAGE__PARTICIPANTS:
 				return ((InternalEList<?>)getParticipants()).basicRemove(otherEnd, msgs);
 			case FlowPackage.PACKAGE__ARTIFACTS:
@@ -180,6 +225,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 				return ((InternalEList<?>)getDataElements()).basicRemove(otherEnd, msgs);
 			case FlowPackage.PACKAGE__CAPABILITIES:
 				return ((InternalEList<?>)getCapabilities()).basicRemove(otherEnd, msgs);
+			case FlowPackage.PACKAGE__SKILLS:
+				return ((InternalEList<?>)getSkills()).basicRemove(otherEnd, msgs);
 			case FlowPackage.PACKAGE__SUB_PACKAGES:
 				return ((InternalEList<?>)getSubPackages()).basicRemove(otherEnd, msgs);
 		}
@@ -194,6 +241,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FlowPackage.PACKAGE__REQUIRED_SKILLS:
+				return getRequiredSkills();
 			case FlowPackage.PACKAGE__PARTICIPANTS:
 				return getParticipants();
 			case FlowPackage.PACKAGE__ARTIFACTS:
@@ -208,6 +257,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 				return getDataElements();
 			case FlowPackage.PACKAGE__CAPABILITIES:
 				return getCapabilities();
+			case FlowPackage.PACKAGE__SKILLS:
+				return getSkills();
 			case FlowPackage.PACKAGE__SUB_PACKAGES:
 				return getSubPackages();
 		}
@@ -223,6 +274,10 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FlowPackage.PACKAGE__REQUIRED_SKILLS:
+				getRequiredSkills().clear();
+				getRequiredSkills().addAll((Collection<? extends Skill>)newValue);
+				return;
 			case FlowPackage.PACKAGE__PARTICIPANTS:
 				getParticipants().clear();
 				getParticipants().addAll((Collection<? extends ParticipantDomainElement>)newValue);
@@ -251,6 +306,10 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 				getCapabilities().clear();
 				getCapabilities().addAll((Collection<? extends CapabilityDomainElement>)newValue);
 				return;
+			case FlowPackage.PACKAGE__SKILLS:
+				getSkills().clear();
+				getSkills().addAll((Collection<? extends SkillDomainElement>)newValue);
+				return;
 			case FlowPackage.PACKAGE__SUB_PACKAGES:
 				getSubPackages().clear();
 				getSubPackages().addAll((Collection<? extends org.nasdanika.models.flow.Package>)newValue);
@@ -267,6 +326,9 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FlowPackage.PACKAGE__REQUIRED_SKILLS:
+				getRequiredSkills().clear();
+				return;
 			case FlowPackage.PACKAGE__PARTICIPANTS:
 				getParticipants().clear();
 				return;
@@ -288,6 +350,9 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 			case FlowPackage.PACKAGE__CAPABILITIES:
 				getCapabilities().clear();
 				return;
+			case FlowPackage.PACKAGE__SKILLS:
+				getSkills().clear();
+				return;
 			case FlowPackage.PACKAGE__SUB_PACKAGES:
 				getSubPackages().clear();
 				return;
@@ -303,6 +368,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FlowPackage.PACKAGE__REQUIRED_SKILLS:
+				return !getRequiredSkills().isEmpty();
 			case FlowPackage.PACKAGE__PARTICIPANTS:
 				return !getParticipants().isEmpty();
 			case FlowPackage.PACKAGE__ARTIFACTS:
@@ -317,6 +384,8 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 				return !getDataElements().isEmpty();
 			case FlowPackage.PACKAGE__CAPABILITIES:
 				return !getCapabilities().isEmpty();
+			case FlowPackage.PACKAGE__SKILLS:
+				return !getSkills().isEmpty();
 			case FlowPackage.PACKAGE__SUB_PACKAGES:
 				return !getSubPackages().isEmpty();
 		}
@@ -330,6 +399,12 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == SkillConsumer.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.PACKAGE__REQUIRED_SKILLS: return FlowPackage.SKILL_CONSUMER__REQUIRED_SKILLS;
+				default: return -1;
+			}
+		}
 		if (baseClass == ParticipantDomainElement.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
@@ -407,6 +482,17 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 				default: return -1;
 			}
 		}
+		if (baseClass == SkillDomainElement.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == SkillDomain.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.PACKAGE__SKILLS: return FlowPackage.SKILL_DOMAIN__SKILLS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -417,6 +503,12 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == SkillConsumer.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.SKILL_CONSUMER__REQUIRED_SKILLS: return FlowPackage.PACKAGE__REQUIRED_SKILLS;
+				default: return -1;
+			}
+		}
 		if (baseClass == ParticipantDomainElement.class) {
 			switch (baseFeatureID) {
 				default: return -1;
@@ -491,6 +583,17 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 		if (baseClass == CapabilityDomain.class) {
 			switch (baseFeatureID) {
 				case CapabilityPackage.CAPABILITY_DOMAIN__CAPABILITIES: return FlowPackage.PACKAGE__CAPABILITIES;
+				default: return -1;
+			}
+		}
+		if (baseClass == SkillDomainElement.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == SkillDomain.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.SKILL_DOMAIN__SKILLS: return FlowPackage.PACKAGE__SKILLS;
 				default: return -1;
 			}
 		}

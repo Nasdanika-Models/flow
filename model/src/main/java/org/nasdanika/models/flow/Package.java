@@ -25,7 +25,7 @@ import org.nasdanika.models.capability.CapabilityDomain;
  * @model
  * @generated
  */
-public interface Package extends ModelElement, ParticipantDomain, ArtifactDomain, ResourceDomain, ProcessDomain, DataTypeDomain, DataDomain, CapabilityDomain {
+public interface Package extends ModelElement, ParticipantDomain, ArtifactDomain, ResourceDomain, ProcessDomain, DataTypeDomain, DataDomain, CapabilityDomain, SkillDomain {
 	/**
 	 * Returns the value of the '<em><b>Sub Packages</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.models.flow.Package}.

@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.models.flow.Resource#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.Resource#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.Resource#getInfos <em>Infos</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.Resource#getResourceAreas <em>Resource Areas</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.flow.FlowPackage#getResource()
@@ -95,5 +96,20 @@ public interface Resource extends ResourceDomainElement {
 	 * @generated
 	 */
 	EList<ArtifactInfo> getInfos();
+
+	/**
+	 * Returns the value of the '<em><b>Resource Areas</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.flow.Resource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A resource may be sub-divided into areas. E.g. GitHub has Git repositories, Actions, Pages, Wiki.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Resource Areas</em>' containment reference list.
+	 * @see org.nasdanika.models.flow.FlowPackage#getResource_ResourceAreas()
+	 * @model containment="true" keys="id"
+	 * @generated
+	 */
+	EList<Resource> getResourceAreas();
 
 } // Resource

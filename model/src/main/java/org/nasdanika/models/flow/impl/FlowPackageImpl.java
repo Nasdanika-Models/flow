@@ -55,6 +55,10 @@ import org.nasdanika.models.flow.ResourceDomainElement;
 import org.nasdanika.models.flow.Role;
 import org.nasdanika.models.flow.Service;
 import org.nasdanika.models.flow.SimpleDataElement;
+import org.nasdanika.models.flow.Skill;
+import org.nasdanika.models.flow.SkillConsumer;
+import org.nasdanika.models.flow.SkillDomain;
+import org.nasdanika.models.flow.SkillDomainElement;
 import org.nasdanika.models.flow.Source;
 import org.nasdanika.models.flow.Start;
 import org.nasdanika.models.flow.Target;
@@ -74,6 +78,30 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	private EClass modelElementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass skillDomainElementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass skillDomainEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass skillEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass skillConsumerEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -418,6 +446,86 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	@Override
 	public EClass getModelElement() {
 		return modelElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSkillDomainElement() {
+		return skillDomainElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSkillDomain() {
+		return skillDomainEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSkillDomain_Skills() {
+		return (EReference)skillDomainEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSkill() {
+		return skillEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSkill_SkillConsumers() {
+		return (EReference)skillEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSkill_ProficiencyLevels() {
+		return (EReference)skillEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSkillConsumer() {
+		return skillConsumerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSkillConsumer_RequiredSkills() {
+		return (EReference)skillConsumerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1136,6 +1244,16 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getResource_ResourceAreas() {
+		return (EReference)resourceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCompositeResource() {
 		return compositeResourceEClass;
 	}
@@ -1371,6 +1489,18 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		// Create classes and their features
 		modelElementEClass = createEClass(MODEL_ELEMENT);
 
+		skillDomainElementEClass = createEClass(SKILL_DOMAIN_ELEMENT);
+
+		skillDomainEClass = createEClass(SKILL_DOMAIN);
+		createEReference(skillDomainEClass, SKILL_DOMAIN__SKILLS);
+
+		skillEClass = createEClass(SKILL);
+		createEReference(skillEClass, SKILL__SKILL_CONSUMERS);
+		createEReference(skillEClass, SKILL__PROFICIENCY_LEVELS);
+
+		skillConsumerEClass = createEClass(SKILL_CONSUMER);
+		createEReference(skillConsumerEClass, SKILL_CONSUMER__REQUIRED_SKILLS);
+
 		artifactDomainElementEClass = createEClass(ARTIFACT_DOMAIN_ELEMENT);
 
 		artifactDomainEClass = createEClass(ARTIFACT_DOMAIN);
@@ -1462,6 +1592,7 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		createEReference(resourceEClass, RESOURCE__ROLES);
 		createEReference(resourceEClass, RESOURCE__PARTICIPANTS);
 		createEReference(resourceEClass, RESOURCE__INFOS);
+		createEReference(resourceEClass, RESOURCE__RESOURCE_AREAS);
 
 		compositeResourceEClass = createEClass(COMPOSITE_RESOURCE);
 		createEReference(compositeResourceEClass, COMPOSITE_RESOURCE__CHILDREN);
@@ -1546,7 +1677,11 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 
 		// Add supertypes to classes
 		modelElementEClass.getESuperTypes().add(theNcorePackage.getDocumentedNamedElementWithID());
+		skillDomainElementEClass.getESuperTypes().add(this.getModelElement());
+		skillDomainEClass.getESuperTypes().add(this.getSkillDomainElement());
+		skillEClass.getESuperTypes().add(this.getSkillDomainElement());
 		artifactDomainElementEClass.getESuperTypes().add(this.getModelElement());
+		artifactDomainElementEClass.getESuperTypes().add(this.getSkillConsumer());
 		artifactDomainEClass.getESuperTypes().add(this.getArtifactDomainElement());
 		g1 = createEGenericType(this.getArtifactDomainElement());
 		artifactEClass.getEGenericSuperTypes().add(g1);
@@ -1572,6 +1707,7 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		artifactProcessorEClass.getESuperTypes().add(this.getArtifactProducer());
 		artifactProcessorEClass.getESuperTypes().add(this.getArtifactConsumer());
 		roleEClass.getESuperTypes().add(this.getModelElement());
+		roleEClass.getESuperTypes().add(this.getSkillConsumer());
 		artifactProcessorRoleEClass.getESuperTypes().add(this.getRole());
 		artifactProcessorRoleEClass.getESuperTypes().add(this.getArtifactProcessor());
 		nodeEClass.getESuperTypes().add(this.getProcessElement());
@@ -1595,10 +1731,12 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		processEClass.getESuperTypes().add(this.getActivity());
 		processEClass.getESuperTypes().add(this.getProcessDomainElement());
 		resourceDomainElementEClass.getESuperTypes().add(this.getModelElement());
+		resourceDomainElementEClass.getESuperTypes().add(this.getSkillConsumer());
 		resourceDomainEClass.getESuperTypes().add(this.getResourceDomainElement());
 		resourceEClass.getESuperTypes().add(this.getResourceDomainElement());
 		compositeResourceEClass.getESuperTypes().add(this.getResource());
 		participantDomainElementEClass.getESuperTypes().add(this.getModelElement());
+		participantDomainElementEClass.getESuperTypes().add(this.getSkillConsumer());
 		participantDomainEClass.getESuperTypes().add(this.getParticipantDomainElement());
 		participantEClass.getESuperTypes().add(this.getParticipantDomainElement());
 		dataTypeDomainElementEClass.getESuperTypes().add(this.getModelElement());
@@ -1629,9 +1767,24 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		packageEClass.getESuperTypes().add(this.getDataTypeDomain());
 		packageEClass.getESuperTypes().add(this.getDataDomain());
 		packageEClass.getESuperTypes().add(theCapabilityPackage.getCapabilityDomain());
+		packageEClass.getESuperTypes().add(this.getSkillDomain());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(skillDomainElementEClass, SkillDomainElement.class, "SkillDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(skillDomainEClass, SkillDomain.class, "SkillDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSkillDomain_Skills(), this.getSkillDomainElement(), null, "skills", null, 0, -1, SkillDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getSkillDomain_Skills().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
+
+		initEClass(skillEClass, Skill.class, "Skill", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSkill_SkillConsumers(), this.getSkillConsumer(), this.getSkillConsumer_RequiredSkills(), "skillConsumers", null, 0, -1, Skill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSkill_ProficiencyLevels(), this.getSkill(), null, "proficiencyLevels", null, 0, -1, Skill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getSkill_ProficiencyLevels().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
+
+		initEClass(skillConsumerEClass, SkillConsumer.class, "SkillConsumer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSkillConsumer_RequiredSkills(), this.getSkill(), this.getSkill_SkillConsumers(), "requiredSkills", null, 0, -1, SkillConsumer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(artifactDomainElementEClass, ArtifactDomainElement.class, "ArtifactDomainElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1733,6 +1886,8 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		initEReference(getResource_Roles(), this.getRole(), this.getRole_Resources(), "roles", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResource_Participants(), this.getParticipant(), this.getParticipant_Resources(), "participants", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResource_Infos(), this.getArtifactInfo(), this.getArtifactInfo_Resources(), "infos", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResource_ResourceAreas(), this.getResource(), null, "resourceAreas", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getResource_ResourceAreas().getEKeys().add(theNcorePackage.getDocumentedNamedElementWithID_Id());
 
 		initEClass(compositeResourceEClass, CompositeResource.class, "CompositeResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompositeResource_Children(), this.getResource(), null, "children", null, 0, -1, CompositeResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1806,6 +1961,48 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Base class for flow model elements"
+		   });
+		addAnnotation
+		  (skillDomainEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A grouping construct for skills"
+		   });
+		addAnnotation
+		  (getSkillDomain_Skills(),
+		   source,
+		   new String[] {
+			   "documentation", "Artifacts used in this package and sub-packages"
+		   });
+		addAnnotation
+		  (skillEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Information passed between flow elements and operated on by participants using resources"
+		   });
+		addAnnotation
+		  (getSkill_SkillConsumers(),
+		   source,
+		   new String[] {
+			   "documentation", "Roles which utilize this skill"
+		   });
+		addAnnotation
+		  (getSkill_ProficiencyLevels(),
+		   source,
+		   new String[] {
+			   "documentation", "Skills can be sub-divided into proficiency levels. E.g. \"Beginner\", \"Intermediate\", \"Advanced\". Or \"Junior\", \"Senior\"."
+		   });
+		addAnnotation
+		  (skillConsumerEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Something requiring skills"
+		   });
+		addAnnotation
+		  (getSkillConsumer_RequiredSkills(),
+		   source,
+		   new String[] {
+			   "documentation", "Skills required by this consumer"
 		   });
 		addAnnotation
 		  (artifactDomainEClass,
@@ -2118,6 +2315,12 @@ public class FlowPackageImpl extends EPackageImpl implements FlowPackage {
 		   source,
 		   new String[] {
 			   "documentation", "ArtifactInfo which reference this resource"
+		   });
+		addAnnotation
+		  (getResource_ResourceAreas(),
+		   source,
+		   new String[] {
+			   "documentation", "A resource may be sub-divided into areas. E.g. GitHub has Git repositories, Actions, Pages, Wiki."
 		   });
 		addAnnotation
 		  (compositeResourceEClass,

@@ -53,6 +53,10 @@ import org.nasdanika.models.flow.ResourceDomainElement;
 import org.nasdanika.models.flow.Role;
 import org.nasdanika.models.flow.Service;
 import org.nasdanika.models.flow.SimpleDataElement;
+import org.nasdanika.models.flow.Skill;
+import org.nasdanika.models.flow.SkillConsumer;
+import org.nasdanika.models.flow.SkillDomain;
+import org.nasdanika.models.flow.SkillDomainElement;
 import org.nasdanika.models.flow.Source;
 import org.nasdanika.models.flow.Start;
 import org.nasdanika.models.flow.Target;
@@ -124,6 +128,22 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseModelElement(org.nasdanika.models.flow.ModelElement object) {
 				return createModelElementAdapter();
+			}
+			@Override
+			public Adapter caseSkillDomainElement(SkillDomainElement object) {
+				return createSkillDomainElementAdapter();
+			}
+			@Override
+			public Adapter caseSkillDomain(SkillDomain object) {
+				return createSkillDomainAdapter();
+			}
+			@Override
+			public Adapter caseSkill(Skill object) {
+				return createSkillAdapter();
+			}
+			@Override
+			public Adapter caseSkillConsumer(SkillConsumer object) {
+				return createSkillConsumerAdapter();
 			}
 			@Override
 			public Adapter caseArtifactDomainElement(ArtifactDomainElement object) {
@@ -716,6 +736,62 @@ public class FlowAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createModelElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.SkillDomainElement <em>Skill Domain Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.SkillDomainElement
+	 * @generated
+	 */
+	public Adapter createSkillDomainElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.SkillDomain <em>Skill Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.SkillDomain
+	 * @generated
+	 */
+	public Adapter createSkillDomainAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.Skill <em>Skill</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.Skill
+	 * @generated
+	 */
+	public Adapter createSkillAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.flow.SkillConsumer <em>Skill Consumer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.flow.SkillConsumer
+	 * @generated
+	 */
+	public Adapter createSkillConsumerAdapter() {
 		return null;
 	}
 

@@ -10,6 +10,17 @@
   <genPackages prefix="Flow" basePackage="org.nasdanika.models" disposableProviderFactory="true"
       ecorePackage="flow.ecore#/">
     <genClasses image="false" ecoreClass="flow.ecore#//ModelElement"/>
+    <genClasses image="false" ecoreClass="flow.ecore#//SkillDomainElement"/>
+    <genClasses ecoreClass="flow.ecore#//SkillDomain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//SkillDomain/skills"/>
+    </genClasses>
+    <genClasses ecoreClass="flow.ecore#//Skill">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Skill/skillConsumers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Skill/proficiencyLevels"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="flow.ecore#//SkillConsumer">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//SkillConsumer/requiredSkills"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="flow.ecore#//ArtifactDomainElement"/>
     <genClasses image="false" ecoreClass="flow.ecore#//ArtifactDomain">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//ArtifactDomain/artifacts"/>
@@ -90,6 +101,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Resource/roles"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Resource/participants"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Resource/infos"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Resource/resourceAreas"/>
     </genClasses>
     <genClasses ecoreClass="flow.ecore#//CompositeResource">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//CompositeResource/children"/>

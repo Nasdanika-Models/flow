@@ -185,6 +185,451 @@ public interface FlowPackage extends EPackage {
 	int MODEL_ELEMENT_OPERATION_COUNT = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.SkillDomainElementImpl <em>Skill Domain Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.SkillDomainElementImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSkillDomainElement()
+	 * @generated
+	 */
+	int SKILL_DOMAIN_ELEMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT__MARKERS = MODEL_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT__URIS = MODEL_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT__UUID = MODEL_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT__LABEL_PROTOTYPE = MODEL_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT__REPRESENTATIONS = MODEL_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT__ANNOTATIONS = MODEL_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT__NAME = MODEL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT__DOCUMENTATION = MODEL_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT__CONTEXT_HELP = MODEL_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT__ID = MODEL_ELEMENT__ID;
+
+	/**
+	 * The number of structural features of the '<em>Skill Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Skill Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_ELEMENT_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.SkillDomainImpl <em>Skill Domain</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.SkillDomainImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSkillDomain()
+	 * @generated
+	 */
+	int SKILL_DOMAIN = 2;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__MARKERS = SKILL_DOMAIN_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__URIS = SKILL_DOMAIN_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__DESCRIPTION = SKILL_DOMAIN_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__UUID = SKILL_DOMAIN_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__LABEL_PROTOTYPE = SKILL_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__REPRESENTATIONS = SKILL_DOMAIN_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__ANNOTATIONS = SKILL_DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__NAME = SKILL_DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__DOCUMENTATION = SKILL_DOMAIN_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__CONTEXT_HELP = SKILL_DOMAIN_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__ID = SKILL_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Skills</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN__SKILLS = SKILL_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Skill Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_FEATURE_COUNT = SKILL_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Skill Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_DOMAIN_OPERATION_COUNT = SKILL_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.SkillImpl <em>Skill</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.impl.SkillImpl
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSkill()
+	 * @generated
+	 */
+	int SKILL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__MARKERS = SKILL_DOMAIN_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__URIS = SKILL_DOMAIN_ELEMENT__URIS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__DESCRIPTION = SKILL_DOMAIN_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__UUID = SKILL_DOMAIN_ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__LABEL_PROTOTYPE = SKILL_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__REPRESENTATIONS = SKILL_DOMAIN_ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__ANNOTATIONS = SKILL_DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__NAME = SKILL_DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__DOCUMENTATION = SKILL_DOMAIN_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__CONTEXT_HELP = SKILL_DOMAIN_ELEMENT__CONTEXT_HELP;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__ID = SKILL_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Skill Consumers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__SKILL_CONSUMERS = SKILL_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Proficiency Levels</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__PROFICIENCY_LEVELS = SKILL_DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Skill</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_FEATURE_COUNT = SKILL_DOMAIN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Skill</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_OPERATION_COUNT = SKILL_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.flow.SkillConsumer <em>Skill Consumer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.flow.SkillConsumer
+	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSkillConsumer()
+	 * @generated
+	 */
+	int SKILL_CONSUMER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_CONSUMER__REQUIRED_SKILLS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Skill Consumer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_CONSUMER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Skill Consumer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_CONSUMER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ArtifactDomainElementImpl <em>Artifact Domain Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -192,7 +637,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactDomainElement()
 	 * @generated
 	 */
-	int ARTIFACT_DOMAIN_ELEMENT = 1;
+	int ARTIFACT_DOMAIN_ELEMENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -294,13 +739,22 @@ public interface FlowPackage extends EPackage {
 	int ARTIFACT_DOMAIN_ELEMENT__ID = MODEL_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN_ELEMENT__REQUIRED_SKILLS = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Artifact Domain Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int ARTIFACT_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Artifact Domain Element</em>' class.
@@ -319,7 +773,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactDomain()
 	 * @generated
 	 */
-	int ARTIFACT_DOMAIN = 2;
+	int ARTIFACT_DOMAIN = 6;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -421,6 +875,15 @@ public interface FlowPackage extends EPackage {
 	int ARTIFACT_DOMAIN__ID = ARTIFACT_DOMAIN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_DOMAIN__REQUIRED_SKILLS = ARTIFACT_DOMAIN_ELEMENT__REQUIRED_SKILLS;
+
+	/**
 	 * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -455,7 +918,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getConnection()
 	 * @generated
 	 */
-	int CONNECTION = 6;
+	int CONNECTION = 10;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.ArtifactProducer <em>Artifact Producer</em>}' class.
@@ -465,7 +928,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactProducer()
 	 * @generated
 	 */
-	int ARTIFACT_PRODUCER = 7;
+	int ARTIFACT_PRODUCER = 11;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ProcessElementImpl <em>Process Element</em>}' class.
@@ -475,7 +938,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getProcessElement()
 	 * @generated
 	 */
-	int PROCESS_ELEMENT = 8;
+	int PROCESS_ELEMENT = 12;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.Source <em>Source</em>}' class.
@@ -485,7 +948,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSource()
 	 * @generated
 	 */
-	int SOURCE = 9;
+	int SOURCE = 13;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.StartImpl <em>Start</em>}' class.
@@ -495,7 +958,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getStart()
 	 * @generated
 	 */
-	int START = 10;
+	int START = 14;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.InputPortImpl <em>Input Port</em>}' class.
@@ -505,7 +968,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getInputPort()
 	 * @generated
 	 */
-	int INPUT_PORT = 11;
+	int INPUT_PORT = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.ArtifactConsumer <em>Artifact Consumer</em>}' class.
@@ -515,7 +978,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactConsumer()
 	 * @generated
 	 */
-	int ARTIFACT_CONSUMER = 12;
+	int ARTIFACT_CONSUMER = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.Target <em>Target</em>}' class.
@@ -525,7 +988,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getTarget()
 	 * @generated
 	 */
-	int TARGET = 13;
+	int TARGET = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.EndImpl <em>End</em>}' class.
@@ -535,7 +998,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getEnd()
 	 * @generated
 	 */
-	int END = 14;
+	int END = 18;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.OutputPortImpl <em>Output Port</em>}' class.
@@ -545,7 +1008,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getOutputPort()
 	 * @generated
 	 */
-	int OUTPUT_PORT = 15;
+	int OUTPUT_PORT = 19;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.ArtifactProcessor <em>Artifact Processor</em>}' class.
@@ -555,7 +1018,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactProcessor()
 	 * @generated
 	 */
-	int ARTIFACT_PROCESSOR = 16;
+	int ARTIFACT_PROCESSOR = 20;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.NodeImpl <em>Node</em>}' class.
@@ -565,7 +1028,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getNode()
 	 * @generated
 	 */
-	int NODE = 20;
+	int NODE = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.GatewayImpl <em>Gateway</em>}' class.
@@ -575,7 +1038,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getGateway()
 	 * @generated
 	 */
-	int GATEWAY = 21;
+	int GATEWAY = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.TransitionImpl <em>Transition</em>}' class.
@@ -585,7 +1048,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getTransition()
 	 * @generated
 	 */
-	int TRANSITION = 23;
+	int TRANSITION = 27;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.CallImpl <em>Call</em>}' class.
@@ -595,7 +1058,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCall()
 	 * @generated
 	 */
-	int CALL = 24;
+	int CALL = 28;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ActivityImpl <em>Activity</em>}' class.
@@ -605,7 +1068,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getActivity()
 	 * @generated
 	 */
-	int ACTIVITY = 25;
+	int ACTIVITY = 29;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ProcessImpl <em>Process</em>}' class.
@@ -615,7 +1078,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getProcess()
 	 * @generated
 	 */
-	int PROCESS = 28;
+	int PROCESS = 32;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.PackageImpl <em>Package</em>}' class.
@@ -625,7 +1088,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 45;
+	int PACKAGE = 49;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.DataTypeImpl <em>Data Type</em>}' class.
@@ -635,7 +1098,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 38;
+	int DATA_TYPE = 42;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.DataElementImpl <em>Data Element</em>}' class.
@@ -645,7 +1108,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataElement()
 	 * @generated
 	 */
-	int DATA_ELEMENT = 42;
+	int DATA_ELEMENT = 46;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ComplexDataElementImpl <em>Complex Data Element</em>}' class.
@@ -655,7 +1118,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getComplexDataElement()
 	 * @generated
 	 */
-	int COMPLEX_DATA_ELEMENT = 43;
+	int COMPLEX_DATA_ELEMENT = 47;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.SimpleDataElementImpl <em>Simple Data Element</em>}' class.
@@ -665,7 +1128,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSimpleDataElement()
 	 * @generated
 	 */
-	int SIMPLE_DATA_ELEMENT = 44;
+	int SIMPLE_DATA_ELEMENT = 48;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.EcoreDataTypeImpl <em>Ecore Data Type</em>}' class.
@@ -675,7 +1138,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getEcoreDataType()
 	 * @generated
 	 */
-	int ECORE_DATA_TYPE = 39;
+	int ECORE_DATA_TYPE = 43;
 
 
 	/**
@@ -687,6 +1150,90 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getModelElement();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.SkillDomainElement <em>Skill Domain Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Skill Domain Element</em>'.
+	 * @see org.nasdanika.models.flow.SkillDomainElement
+	 * @generated
+	 */
+	EClass getSkillDomainElement();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.SkillDomain <em>Skill Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Skill Domain</em>'.
+	 * @see org.nasdanika.models.flow.SkillDomain
+	 * @generated
+	 */
+	EClass getSkillDomain();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.SkillDomain#getSkills <em>Skills</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Skills</em>'.
+	 * @see org.nasdanika.models.flow.SkillDomain#getSkills()
+	 * @see #getSkillDomain()
+	 * @generated
+	 */
+	EReference getSkillDomain_Skills();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Skill <em>Skill</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Skill</em>'.
+	 * @see org.nasdanika.models.flow.Skill
+	 * @generated
+	 */
+	EClass getSkill();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.flow.Skill#getSkillConsumers <em>Skill Consumers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Skill Consumers</em>'.
+	 * @see org.nasdanika.models.flow.Skill#getSkillConsumers()
+	 * @see #getSkill()
+	 * @generated
+	 */
+	EReference getSkill_SkillConsumers();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.Skill#getProficiencyLevels <em>Proficiency Levels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Proficiency Levels</em>'.
+	 * @see org.nasdanika.models.flow.Skill#getProficiencyLevels()
+	 * @see #getSkill()
+	 * @generated
+	 */
+	EReference getSkill_ProficiencyLevels();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.flow.SkillConsumer <em>Skill Consumer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Skill Consumer</em>'.
+	 * @see org.nasdanika.models.flow.SkillConsumer
+	 * @generated
+	 */
+	EClass getSkillConsumer();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.flow.SkillConsumer#getRequiredSkills <em>Required Skills</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Required Skills</em>'.
+	 * @see org.nasdanika.models.flow.SkillConsumer#getRequiredSkills()
+	 * @see #getSkillConsumer()
+	 * @generated
+	 */
+	EReference getSkillConsumer_RequiredSkills();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ArtifactDomainElement <em>Artifact Domain Element</em>}'.
@@ -1122,7 +1669,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifact()
 	 * @generated
 	 */
-	int ARTIFACT = 3;
+	int ARTIFACT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1224,6 +1771,15 @@ public interface FlowPackage extends EPackage {
 	int ARTIFACT__ID = ARTIFACT_DOMAIN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__REQUIRED_SKILLS = ARTIFACT_DOMAIN_ELEMENT__REQUIRED_SKILLS;
+
+	/**
 	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1294,7 +1850,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCompositeArtifact()
 	 * @generated
 	 */
-	int COMPOSITE_ARTIFACT = 4;
+	int COMPOSITE_ARTIFACT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1396,6 +1952,15 @@ public interface FlowPackage extends EPackage {
 	int COMPOSITE_ARTIFACT__ID = ARTIFACT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ARTIFACT__REQUIRED_SKILLS = ARTIFACT__REQUIRED_SKILLS;
+
+	/**
 	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1475,7 +2040,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 31;
+	int RESOURCE = 35;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ParticipantImpl <em>Participant</em>}' class.
@@ -1485,7 +2050,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getParticipant()
 	 * @generated
 	 */
-	int PARTICIPANT = 35;
+	int PARTICIPANT = 39;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.RoleImpl <em>Role</em>}' class.
@@ -1495,7 +2060,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 18;
+	int ROLE = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.ArtifactInfoImpl <em>Artifact Info</em>}' class.
@@ -1505,7 +2070,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactInfo()
 	 * @generated
 	 */
-	int ARTIFACT_INFO = 5;
+	int ARTIFACT_INFO = 9;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2631,7 +3196,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCollaboratable()
 	 * @generated
 	 */
-	int COLLABORATABLE = 17;
+	int COLLABORATABLE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
@@ -2760,13 +3325,22 @@ public interface FlowPackage extends EPackage {
 	int ROLE__ID = MODEL_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__REQUIRED_SKILLS = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Participants</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int ROLE__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' reference list.
@@ -2775,7 +3349,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int ROLE__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Role</em>' class.
@@ -2784,7 +3358,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int ROLE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Role</em>' class.
@@ -2803,7 +3377,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getArtifactProcessorRole()
 	 * @generated
 	 */
-	int ARTIFACT_PROCESSOR_ROLE = 19;
+	int ARTIFACT_PROCESSOR_ROLE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2903,6 +3477,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int ARTIFACT_PROCESSOR_ROLE__ID = ROLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_PROCESSOR_ROLE__REQUIRED_SKILLS = ROLE__REQUIRED_SKILLS;
 
 	/**
 	 * The feature id for the '<em><b>Participants</b></em>' reference list.
@@ -3326,7 +3909,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getService()
 	 * @generated
 	 */
-	int SERVICE = 22;
+	int SERVICE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -3959,13 +4542,22 @@ public interface FlowPackage extends EPackage {
 	int ACTIVITY__OUTPUT_PORTS = NODE__OUTPUT_PORTS;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVITY__REQUIRED_SKILLS = NODE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Participants</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY__PARTICIPANTS = NODE_FEATURE_COUNT + 0;
+	int ACTIVITY__PARTICIPANTS = NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' reference list.
@@ -3974,7 +4566,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY__RESOURCES = NODE_FEATURE_COUNT + 1;
+	int ACTIVITY__RESOURCES = NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
@@ -3983,7 +4575,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY__ROLES = NODE_FEATURE_COUNT + 2;
+	int ACTIVITY__ROLES = NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Activity</em>' class.
@@ -3992,7 +4584,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
+	int ACTIVITY_FEATURE_COUNT = NODE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Activity</em>' class.
@@ -4011,7 +4603,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getProcessDomainElement()
 	 * @generated
 	 */
-	int PROCESS_DOMAIN_ELEMENT = 26;
+	int PROCESS_DOMAIN_ELEMENT = 30;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -4138,7 +4730,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getProcessDomain()
 	 * @generated
 	 */
-	int PROCESS_DOMAIN = 27;
+	int PROCESS_DOMAIN = 31;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -4429,6 +5021,15 @@ public interface FlowPackage extends EPackage {
 	int PROCESS__OUTPUT_PORTS = ACTIVITY__OUTPUT_PORTS;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS__REQUIRED_SKILLS = ACTIVITY__REQUIRED_SKILLS;
+
+	/**
 	 * The feature id for the '<em><b>Participants</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4499,7 +5100,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getResourceDomainElement()
 	 * @generated
 	 */
-	int RESOURCE_DOMAIN_ELEMENT = 29;
+	int RESOURCE_DOMAIN_ELEMENT = 33;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -4601,13 +5202,22 @@ public interface FlowPackage extends EPackage {
 	int RESOURCE_DOMAIN_ELEMENT__ID = MODEL_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_DOMAIN_ELEMENT__REQUIRED_SKILLS = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Resource Domain Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Resource Domain Element</em>' class.
@@ -4626,7 +5236,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getResourceDomain()
 	 * @generated
 	 */
-	int RESOURCE_DOMAIN = 30;
+	int RESOURCE_DOMAIN = 34;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -4726,6 +5336,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_DOMAIN__ID = RESOURCE_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_DOMAIN__REQUIRED_SKILLS = RESOURCE_DOMAIN_ELEMENT__REQUIRED_SKILLS;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
@@ -4854,6 +5473,15 @@ public interface FlowPackage extends EPackage {
 	int RESOURCE__ID = RESOURCE_DOMAIN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__REQUIRED_SKILLS = RESOURCE_DOMAIN_ELEMENT__REQUIRED_SKILLS;
+
+	/**
 	 * The feature id for the '<em><b>Artifacts</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4890,13 +5518,22 @@ public interface FlowPackage extends EPackage {
 	int RESOURCE__INFOS = RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Resource Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__RESOURCE_AREAS = RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT + 4;
+	int RESOURCE_FEATURE_COUNT = RESOURCE_DOMAIN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Resource</em>' class.
@@ -4915,7 +5552,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getCompositeResource()
 	 * @generated
 	 */
-	int COMPOSITE_RESOURCE = 32;
+	int COMPOSITE_RESOURCE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -5017,6 +5654,15 @@ public interface FlowPackage extends EPackage {
 	int COMPOSITE_RESOURCE__ID = RESOURCE__ID;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__REQUIRED_SKILLS = RESOURCE__REQUIRED_SKILLS;
+
+	/**
 	 * The feature id for the '<em><b>Artifacts</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5053,6 +5699,15 @@ public interface FlowPackage extends EPackage {
 	int COMPOSITE_RESOURCE__INFOS = RESOURCE__INFOS;
 
 	/**
+	 * The feature id for the '<em><b>Resource Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_RESOURCE__RESOURCE_AREAS = RESOURCE__RESOURCE_AREAS;
+
+	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5087,7 +5742,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getParticipantDomainElement()
 	 * @generated
 	 */
-	int PARTICIPANT_DOMAIN_ELEMENT = 33;
+	int PARTICIPANT_DOMAIN_ELEMENT = 37;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -5189,13 +5844,22 @@ public interface FlowPackage extends EPackage {
 	int PARTICIPANT_DOMAIN_ELEMENT__ID = MODEL_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN_ELEMENT__REQUIRED_SKILLS = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Participant Domain Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int PARTICIPANT_DOMAIN_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Participant Domain Element</em>' class.
@@ -5214,7 +5878,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getParticipantDomain()
 	 * @generated
 	 */
-	int PARTICIPANT_DOMAIN = 34;
+	int PARTICIPANT_DOMAIN = 38;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -5314,6 +5978,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTICIPANT_DOMAIN__ID = PARTICIPANT_DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT_DOMAIN__REQUIRED_SKILLS = PARTICIPANT_DOMAIN_ELEMENT__REQUIRED_SKILLS;
 
 	/**
 	 * The feature id for the '<em><b>Participants</b></em>' containment reference list.
@@ -5442,6 +6115,15 @@ public interface FlowPackage extends EPackage {
 	int PARTICIPANT__ID = PARTICIPANT_DOMAIN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT__REQUIRED_SKILLS = PARTICIPANT_DOMAIN_ELEMENT__REQUIRED_SKILLS;
+
+	/**
 	 * The feature id for the '<em><b>Roles</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5503,7 +6185,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataTypeDomainElement()
 	 * @generated
 	 */
-	int DATA_TYPE_DOMAIN_ELEMENT = 36;
+	int DATA_TYPE_DOMAIN_ELEMENT = 40;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -5630,7 +6312,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataTypeDomain()
 	 * @generated
 	 */
-	int DATA_TYPE_DOMAIN = 37;
+	int DATA_TYPE_DOMAIN = 41;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -6064,7 +6746,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataDomainElement()
 	 * @generated
 	 */
-	int DATA_DOMAIN_ELEMENT = 40;
+	int DATA_DOMAIN_ELEMENT = 44;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -6191,7 +6873,7 @@ public interface FlowPackage extends EPackage {
 	 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getDataDomain()
 	 * @generated
 	 */
-	int DATA_DOMAIN = 41;
+	int DATA_DOMAIN = 45;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -6914,13 +7596,22 @@ public interface FlowPackage extends EPackage {
 	int PACKAGE__ID = MODEL_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Required Skills</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__REQUIRED_SKILLS = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Participants</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int PACKAGE__PARTICIPANTS = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
@@ -6929,7 +7620,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__ARTIFACTS = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int PACKAGE__ARTIFACTS = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
@@ -6938,7 +7629,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int PACKAGE__RESOURCES = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
@@ -6947,7 +7638,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PROCESSES = MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int PACKAGE__PROCESSES = MODEL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Data Types</b></em>' containment reference list.
@@ -6956,7 +7647,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__DATA_TYPES = MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int PACKAGE__DATA_TYPES = MODEL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Data Elements</b></em>' containment reference list.
@@ -6965,7 +7656,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__DATA_ELEMENTS = MODEL_ELEMENT_FEATURE_COUNT + 5;
+	int PACKAGE__DATA_ELEMENTS = MODEL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Capabilities</b></em>' containment reference list.
@@ -6974,7 +7665,16 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CAPABILITIES = MODEL_ELEMENT_FEATURE_COUNT + 6;
+	int PACKAGE__CAPABILITIES = MODEL_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Skills</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__SKILLS = MODEL_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Sub Packages</b></em>' containment reference list.
@@ -6983,7 +7683,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SUB_PACKAGES = MODEL_ELEMENT_FEATURE_COUNT + 7;
+	int PACKAGE__SUB_PACKAGES = MODEL_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -6992,7 +7692,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 8;
+	int PACKAGE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Package</em>' class.
@@ -7324,6 +8024,17 @@ public interface FlowPackage extends EPackage {
 	EReference getResource_Infos();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.Resource#getResourceAreas <em>Resource Areas</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resource Areas</em>'.
+	 * @see org.nasdanika.models.flow.Resource#getResourceAreas()
+	 * @see #getResource()
+	 * @generated
+	 */
+	EReference getResource_ResourceAreas();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.CompositeResource <em>Composite Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7577,6 +8288,70 @@ public interface FlowPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MODEL_ELEMENT = eINSTANCE.getModelElement();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.SkillDomainElementImpl <em>Skill Domain Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.SkillDomainElementImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSkillDomainElement()
+		 * @generated
+		 */
+		EClass SKILL_DOMAIN_ELEMENT = eINSTANCE.getSkillDomainElement();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.SkillDomainImpl <em>Skill Domain</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.SkillDomainImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSkillDomain()
+		 * @generated
+		 */
+		EClass SKILL_DOMAIN = eINSTANCE.getSkillDomain();
+		/**
+		 * The meta object literal for the '<em><b>Skills</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SKILL_DOMAIN__SKILLS = eINSTANCE.getSkillDomain_Skills();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.SkillImpl <em>Skill</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.impl.SkillImpl
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSkill()
+		 * @generated
+		 */
+		EClass SKILL = eINSTANCE.getSkill();
+		/**
+		 * The meta object literal for the '<em><b>Skill Consumers</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SKILL__SKILL_CONSUMERS = eINSTANCE.getSkill_SkillConsumers();
+		/**
+		 * The meta object literal for the '<em><b>Proficiency Levels</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SKILL__PROFICIENCY_LEVELS = eINSTANCE.getSkill_ProficiencyLevels();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.flow.SkillConsumer <em>Skill Consumer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.flow.SkillConsumer
+		 * @see org.nasdanika.models.flow.impl.FlowPackageImpl#getSkillConsumer()
+		 * @generated
+		 */
+		EClass SKILL_CONSUMER = eINSTANCE.getSkillConsumer();
+		/**
+		 * The meta object literal for the '<em><b>Required Skills</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SKILL_CONSUMER__REQUIRED_SKILLS = eINSTANCE.getSkillConsumer_RequiredSkills();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.ArtifactDomainElementImpl <em>Artifact Domain Element</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -8146,6 +8921,13 @@ public interface FlowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESOURCE__INFOS = eINSTANCE.getResource_Infos();
+		/**
+		 * The meta object literal for the '<em><b>Resource Areas</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE__RESOURCE_AREAS = eINSTANCE.getResource_ResourceAreas();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.CompositeResourceImpl <em>Composite Resource</em>}' class.
 		 * <!-- begin-user-doc -->

@@ -16,6 +16,8 @@ import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.Participant;
 import org.nasdanika.models.flow.Resource;
 import org.nasdanika.models.flow.Role;
+import org.nasdanika.models.flow.Skill;
+import org.nasdanika.models.flow.SkillConsumer;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +27,7 @@ import org.nasdanika.models.flow.Role;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.models.flow.impl.RoleImpl#getRequiredSkills <em>Required Skills</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.RoleImpl#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.RoleImpl#getResources <em>Resources</em>}</li>
  * </ul>
@@ -58,6 +61,17 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	public EList<Skill> getRequiredSkills() {
+		return (EList<Skill>)eDynamicGet(FlowPackage.ROLE__REQUIRED_SKILLS, FlowPackage.Literals.SKILL_CONSUMER__REQUIRED_SKILLS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Participant> getParticipants() {
 		return (EList<Participant>)eDynamicGet(FlowPackage.ROLE__PARTICIPANTS, FlowPackage.Literals.ROLE__PARTICIPANTS, true, true);
 	}
@@ -82,6 +96,8 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FlowPackage.ROLE__REQUIRED_SKILLS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredSkills()).basicAdd(otherEnd, msgs);
 			case FlowPackage.ROLE__PARTICIPANTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParticipants()).basicAdd(otherEnd, msgs);
 			case FlowPackage.ROLE__RESOURCES:
@@ -98,6 +114,8 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FlowPackage.ROLE__REQUIRED_SKILLS:
+				return ((InternalEList<?>)getRequiredSkills()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ROLE__PARTICIPANTS:
 				return ((InternalEList<?>)getParticipants()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ROLE__RESOURCES:
@@ -114,6 +132,8 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FlowPackage.ROLE__REQUIRED_SKILLS:
+				return getRequiredSkills();
 			case FlowPackage.ROLE__PARTICIPANTS:
 				return getParticipants();
 			case FlowPackage.ROLE__RESOURCES:
@@ -131,6 +151,10 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FlowPackage.ROLE__REQUIRED_SKILLS:
+				getRequiredSkills().clear();
+				getRequiredSkills().addAll((Collection<? extends Skill>)newValue);
+				return;
 			case FlowPackage.ROLE__PARTICIPANTS:
 				getParticipants().clear();
 				getParticipants().addAll((Collection<? extends Participant>)newValue);
@@ -151,6 +175,9 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FlowPackage.ROLE__REQUIRED_SKILLS:
+				getRequiredSkills().clear();
+				return;
 			case FlowPackage.ROLE__PARTICIPANTS:
 				getParticipants().clear();
 				return;
@@ -169,12 +196,46 @@ public class RoleImpl extends ModelElementImpl implements Role {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FlowPackage.ROLE__REQUIRED_SKILLS:
+				return !getRequiredSkills().isEmpty();
 			case FlowPackage.ROLE__PARTICIPANTS:
 				return !getParticipants().isEmpty();
 			case FlowPackage.ROLE__RESOURCES:
 				return !getResources().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == SkillConsumer.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.ROLE__REQUIRED_SKILLS: return FlowPackage.SKILL_CONSUMER__REQUIRED_SKILLS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == SkillConsumer.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.SKILL_CONSUMER__REQUIRED_SKILLS: return FlowPackage.ROLE__REQUIRED_SKILLS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //RoleImpl

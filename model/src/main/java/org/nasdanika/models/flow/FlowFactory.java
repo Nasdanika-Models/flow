@@ -22,6 +22,24 @@ public interface FlowFactory extends EFactory {
 	FlowFactory eINSTANCE = org.nasdanika.models.flow.impl.FlowFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Skill Domain</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Skill Domain</em>'.
+	 * @generated
+	 */
+	SkillDomain createSkillDomain();
+
+	/**
+	 * Returns a new object of class '<em>Skill</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Skill</em>'.
+	 * @generated
+	 */
+	Skill createSkill();
+
+	/**
 	 * Returns a new object of class '<em>Artifact Domain</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -36,6 +36,8 @@ import org.nasdanika.models.flow.ResourceDomain;
 import org.nasdanika.models.flow.Role;
 import org.nasdanika.models.flow.Service;
 import org.nasdanika.models.flow.SimpleDataElement;
+import org.nasdanika.models.flow.Skill;
+import org.nasdanika.models.flow.SkillDomain;
 import org.nasdanika.models.flow.Start;
 import org.nasdanika.models.flow.Transition;
 
@@ -83,6 +85,8 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case FlowPackage.SKILL_DOMAIN: return createSkillDomain();
+			case FlowPackage.SKILL: return createSkill();
 			case FlowPackage.ARTIFACT_DOMAIN: return createArtifactDomain();
 			case FlowPackage.ARTIFACT: return createArtifact();
 			case FlowPackage.COMPOSITE_ARTIFACT: return createCompositeArtifact();
@@ -117,6 +121,28 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SkillDomain createSkillDomain() {
+		SkillDomainImpl skillDomain = new SkillDomainImpl();
+		return skillDomain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Skill createSkill() {
+		SkillImpl skill = new SkillImpl();
+		return skill;
 	}
 
 	/**

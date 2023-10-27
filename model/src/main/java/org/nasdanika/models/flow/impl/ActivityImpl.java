@@ -18,6 +18,8 @@ import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.Participant;
 import org.nasdanika.models.flow.Resource;
 import org.nasdanika.models.flow.Role;
+import org.nasdanika.models.flow.Skill;
+import org.nasdanika.models.flow.SkillConsumer;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +29,7 @@ import org.nasdanika.models.flow.Role;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.models.flow.impl.ActivityImpl#getRequiredSkills <em>Required Skills</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ActivityImpl#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ActivityImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ActivityImpl#getRoles <em>Roles</em>}</li>
@@ -52,6 +55,17 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	protected EClass eStaticClass() {
 		return FlowPackage.Literals.ACTIVITY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Skill> getRequiredSkills() {
+		return (EList<Skill>)eDynamicGet(FlowPackage.ACTIVITY__REQUIRED_SKILLS, FlowPackage.Literals.SKILL_CONSUMER__REQUIRED_SKILLS, true, true);
 	}
 
 	/**
@@ -96,6 +110,8 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FlowPackage.ACTIVITY__REQUIRED_SKILLS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredSkills()).basicAdd(otherEnd, msgs);
 			case FlowPackage.ACTIVITY__PARTICIPANTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParticipants()).basicAdd(otherEnd, msgs);
 			case FlowPackage.ACTIVITY__RESOURCES:
@@ -112,6 +128,8 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FlowPackage.ACTIVITY__REQUIRED_SKILLS:
+				return ((InternalEList<?>)getRequiredSkills()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ACTIVITY__PARTICIPANTS:
 				return ((InternalEList<?>)getParticipants()).basicRemove(otherEnd, msgs);
 			case FlowPackage.ACTIVITY__RESOURCES:
@@ -130,6 +148,8 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FlowPackage.ACTIVITY__REQUIRED_SKILLS:
+				return getRequiredSkills();
 			case FlowPackage.ACTIVITY__PARTICIPANTS:
 				return getParticipants();
 			case FlowPackage.ACTIVITY__RESOURCES:
@@ -149,6 +169,10 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FlowPackage.ACTIVITY__REQUIRED_SKILLS:
+				getRequiredSkills().clear();
+				getRequiredSkills().addAll((Collection<? extends Skill>)newValue);
+				return;
 			case FlowPackage.ACTIVITY__PARTICIPANTS:
 				getParticipants().clear();
 				getParticipants().addAll((Collection<? extends Participant>)newValue);
@@ -173,6 +197,9 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FlowPackage.ACTIVITY__REQUIRED_SKILLS:
+				getRequiredSkills().clear();
+				return;
 			case FlowPackage.ACTIVITY__PARTICIPANTS:
 				getParticipants().clear();
 				return;
@@ -194,6 +221,8 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FlowPackage.ACTIVITY__REQUIRED_SKILLS:
+				return !getRequiredSkills().isEmpty();
 			case FlowPackage.ACTIVITY__PARTICIPANTS:
 				return !getParticipants().isEmpty();
 			case FlowPackage.ACTIVITY__RESOURCES:
@@ -211,6 +240,12 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == SkillConsumer.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.ACTIVITY__REQUIRED_SKILLS: return FlowPackage.SKILL_CONSUMER__REQUIRED_SKILLS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Role.class) {
 			switch (derivedFeatureID) {
 				case FlowPackage.ACTIVITY__PARTICIPANTS: return FlowPackage.ROLE__PARTICIPANTS;
@@ -239,6 +274,12 @@ public class ActivityImpl extends NodeImpl implements Activity {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == SkillConsumer.class) {
+			switch (baseFeatureID) {
+				case FlowPackage.SKILL_CONSUMER__REQUIRED_SKILLS: return FlowPackage.ACTIVITY__REQUIRED_SKILLS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Role.class) {
 			switch (baseFeatureID) {
 				case FlowPackage.ROLE__PARTICIPANTS: return FlowPackage.ACTIVITY__PARTICIPANTS;

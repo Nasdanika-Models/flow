@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Role extends ModelElement {
+public interface Role extends ModelElement, SkillConsumer {
 	/**
 	 * Returns the value of the '<em><b>Participants</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.models.flow.Participant}.

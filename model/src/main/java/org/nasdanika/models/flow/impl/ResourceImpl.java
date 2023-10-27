@@ -31,6 +31,7 @@ import org.nasdanika.models.flow.Role;
  *   <li>{@link org.nasdanika.models.flow.impl.ResourceImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ResourceImpl#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.nasdanika.models.flow.impl.ResourceImpl#getInfos <em>Infos</em>}</li>
+ *   <li>{@link org.nasdanika.models.flow.impl.ResourceImpl#getResourceAreas <em>Resource Areas</em>}</li>
  * </ul>
  *
  * @generated
@@ -106,6 +107,17 @@ public class ResourceImpl extends ResourceDomainElementImpl implements Resource 
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	public EList<Resource> getResourceAreas() {
+		return (EList<Resource>)eDynamicGet(FlowPackage.RESOURCE__RESOURCE_AREAS, FlowPackage.Literals.RESOURCE__RESOURCE_AREAS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FlowPackage.RESOURCE__ARTIFACTS:
@@ -136,6 +148,8 @@ public class ResourceImpl extends ResourceDomainElementImpl implements Resource 
 				return ((InternalEList<?>)getParticipants()).basicRemove(otherEnd, msgs);
 			case FlowPackage.RESOURCE__INFOS:
 				return ((InternalEList<?>)getInfos()).basicRemove(otherEnd, msgs);
+			case FlowPackage.RESOURCE__RESOURCE_AREAS:
+				return ((InternalEList<?>)getResourceAreas()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -156,6 +170,8 @@ public class ResourceImpl extends ResourceDomainElementImpl implements Resource 
 				return getParticipants();
 			case FlowPackage.RESOURCE__INFOS:
 				return getInfos();
+			case FlowPackage.RESOURCE__RESOURCE_AREAS:
+				return getResourceAreas();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,6 +201,10 @@ public class ResourceImpl extends ResourceDomainElementImpl implements Resource 
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends ArtifactInfo>)newValue);
 				return;
+			case FlowPackage.RESOURCE__RESOURCE_AREAS:
+				getResourceAreas().clear();
+				getResourceAreas().addAll((Collection<? extends Resource>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -209,6 +229,9 @@ public class ResourceImpl extends ResourceDomainElementImpl implements Resource 
 			case FlowPackage.RESOURCE__INFOS:
 				getInfos().clear();
 				return;
+			case FlowPackage.RESOURCE__RESOURCE_AREAS:
+				getResourceAreas().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -229,6 +252,8 @@ public class ResourceImpl extends ResourceDomainElementImpl implements Resource 
 				return !getParticipants().isEmpty();
 			case FlowPackage.RESOURCE__INFOS:
 				return !getInfos().isEmpty();
+			case FlowPackage.RESOURCE__RESOURCE_AREAS:
+				return !getResourceAreas().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
