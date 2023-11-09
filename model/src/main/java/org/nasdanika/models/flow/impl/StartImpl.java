@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.graph.model.ConnectionSource;
+import org.nasdanika.graph.model.ModelPackage;
 import org.nasdanika.models.flow.ArtifactInfo;
 import org.nasdanika.models.flow.ArtifactProducer;
 import org.nasdanika.models.flow.Connection;
@@ -62,7 +64,7 @@ public class StartImpl extends ProcessElementImpl implements Start {
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<Connection> getOutgoingConnections() {
-		return (EList<Connection>)eDynamicGet(FlowPackage.START__OUTGOING_CONNECTIONS, FlowPackage.Literals.SOURCE__OUTGOING_CONNECTIONS, true, true);
+		return (EList<Connection>)eDynamicGet(FlowPackage.START__OUTGOING_CONNECTIONS, ModelPackage.Literals.CONNECTION_SOURCE__OUTGOING_CONNECTIONS, true, true);
 	}
 
 	/**
@@ -176,9 +178,14 @@ public class StartImpl extends ProcessElementImpl implements Start {
 				default: return -1;
 			}
 		}
+		if (baseClass == ConnectionSource.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.START__OUTGOING_CONNECTIONS: return ModelPackage.CONNECTION_SOURCE__OUTGOING_CONNECTIONS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Source.class) {
 			switch (derivedFeatureID) {
-				case FlowPackage.START__OUTGOING_CONNECTIONS: return FlowPackage.SOURCE__OUTGOING_CONNECTIONS;
 				default: return -1;
 			}
 		}
@@ -198,9 +205,14 @@ public class StartImpl extends ProcessElementImpl implements Start {
 				default: return -1;
 			}
 		}
+		if (baseClass == ConnectionSource.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.CONNECTION_SOURCE__OUTGOING_CONNECTIONS: return FlowPackage.START__OUTGOING_CONNECTIONS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Source.class) {
 			switch (baseFeatureID) {
-				case FlowPackage.SOURCE__OUTGOING_CONNECTIONS: return FlowPackage.START__OUTGOING_CONNECTIONS;
 				default: return -1;
 			}
 		}

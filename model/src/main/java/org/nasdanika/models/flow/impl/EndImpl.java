@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.graph.model.ConnectionTarget;
+import org.nasdanika.graph.model.ModelPackage;
 import org.nasdanika.models.flow.ArtifactConsumer;
 import org.nasdanika.models.flow.ArtifactInfo;
 import org.nasdanika.models.flow.Connection;
@@ -62,7 +64,7 @@ public class EndImpl extends ProcessElementImpl implements End {
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<Connection> getIncomingConnections() {
-		return (EList<Connection>)eDynamicGet(FlowPackage.END__INCOMING_CONNECTIONS, FlowPackage.Literals.TARGET__INCOMING_CONNECTIONS, true, true);
+		return (EList<Connection>)eDynamicGet(FlowPackage.END__INCOMING_CONNECTIONS, ModelPackage.Literals.CONNECTION_TARGET__INCOMING_CONNECTIONS, true, true);
 	}
 
 	/**
@@ -191,9 +193,14 @@ public class EndImpl extends ProcessElementImpl implements End {
 				default: return -1;
 			}
 		}
+		if (baseClass == ConnectionTarget.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.END__INCOMING_CONNECTIONS: return ModelPackage.CONNECTION_TARGET__INCOMING_CONNECTIONS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Target.class) {
 			switch (derivedFeatureID) {
-				case FlowPackage.END__INCOMING_CONNECTIONS: return FlowPackage.TARGET__INCOMING_CONNECTIONS;
 				default: return -1;
 			}
 		}
@@ -213,9 +220,14 @@ public class EndImpl extends ProcessElementImpl implements End {
 				default: return -1;
 			}
 		}
+		if (baseClass == ConnectionTarget.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.CONNECTION_TARGET__INCOMING_CONNECTIONS: return FlowPackage.END__INCOMING_CONNECTIONS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Target.class) {
 			switch (baseFeatureID) {
-				case FlowPackage.TARGET__INCOMING_CONNECTIONS: return FlowPackage.END__INCOMING_CONNECTIONS;
 				default: return -1;
 			}
 		}

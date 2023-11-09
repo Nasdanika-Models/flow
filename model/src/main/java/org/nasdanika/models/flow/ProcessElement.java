@@ -2,6 +2,7 @@
  */
 package org.nasdanika.models.flow;
 
+import org.nasdanika.graph.model.GraphElement;
 import org.nasdanika.models.capability.RequirementConsumer;
 
 /**
@@ -14,5 +15,5 @@ import org.nasdanika.models.capability.RequirementConsumer;
  * @model
  * @generated
  */
-public interface ProcessElement extends ModelElement, RequirementConsumer {
+public interface ProcessElement extends ModelElement, RequirementConsumer, GraphElement {
 } // ProcessElement

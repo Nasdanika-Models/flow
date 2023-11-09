@@ -13,6 +13,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.graph.model.ConnectionSource;
+import org.nasdanika.graph.model.ConnectionTarget;
+import org.nasdanika.graph.model.ModelPackage;
 import org.nasdanika.models.flow.ArtifactConsumer;
 import org.nasdanika.models.flow.ArtifactInfo;
 import org.nasdanika.models.flow.ArtifactProcessor;
@@ -71,7 +74,7 @@ public abstract class NodeImpl extends ProcessElementImpl implements Node {
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<Connection> getOutgoingConnections() {
-		return (EList<Connection>)eDynamicGet(FlowPackage.NODE__OUTGOING_CONNECTIONS, FlowPackage.Literals.SOURCE__OUTGOING_CONNECTIONS, true, true);
+		return (EList<Connection>)eDynamicGet(FlowPackage.NODE__OUTGOING_CONNECTIONS, ModelPackage.Literals.CONNECTION_SOURCE__OUTGOING_CONNECTIONS, true, true);
 	}
 
 	/**
@@ -93,7 +96,7 @@ public abstract class NodeImpl extends ProcessElementImpl implements Node {
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<Connection> getIncomingConnections() {
-		return (EList<Connection>)eDynamicGet(FlowPackage.NODE__INCOMING_CONNECTIONS, FlowPackage.Literals.TARGET__INCOMING_CONNECTIONS, true, true);
+		return (EList<Connection>)eDynamicGet(FlowPackage.NODE__INCOMING_CONNECTIONS, ModelPackage.Literals.CONNECTION_TARGET__INCOMING_CONNECTIONS, true, true);
 	}
 
 	/**
@@ -296,9 +299,14 @@ public abstract class NodeImpl extends ProcessElementImpl implements Node {
 				default: return -1;
 			}
 		}
+		if (baseClass == ConnectionSource.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.NODE__OUTGOING_CONNECTIONS: return ModelPackage.CONNECTION_SOURCE__OUTGOING_CONNECTIONS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Source.class) {
 			switch (derivedFeatureID) {
-				case FlowPackage.NODE__OUTGOING_CONNECTIONS: return FlowPackage.SOURCE__OUTGOING_CONNECTIONS;
 				default: return -1;
 			}
 		}
@@ -308,9 +316,14 @@ public abstract class NodeImpl extends ProcessElementImpl implements Node {
 				default: return -1;
 			}
 		}
+		if (baseClass == ConnectionTarget.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.NODE__INCOMING_CONNECTIONS: return ModelPackage.CONNECTION_TARGET__INCOMING_CONNECTIONS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Target.class) {
 			switch (derivedFeatureID) {
-				case FlowPackage.NODE__INCOMING_CONNECTIONS: return FlowPackage.TARGET__INCOMING_CONNECTIONS;
 				default: return -1;
 			}
 		}
@@ -335,9 +348,14 @@ public abstract class NodeImpl extends ProcessElementImpl implements Node {
 				default: return -1;
 			}
 		}
+		if (baseClass == ConnectionSource.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.CONNECTION_SOURCE__OUTGOING_CONNECTIONS: return FlowPackage.NODE__OUTGOING_CONNECTIONS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Source.class) {
 			switch (baseFeatureID) {
-				case FlowPackage.SOURCE__OUTGOING_CONNECTIONS: return FlowPackage.NODE__OUTGOING_CONNECTIONS;
 				default: return -1;
 			}
 		}
@@ -347,9 +365,14 @@ public abstract class NodeImpl extends ProcessElementImpl implements Node {
 				default: return -1;
 			}
 		}
+		if (baseClass == ConnectionTarget.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.CONNECTION_TARGET__INCOMING_CONNECTIONS: return FlowPackage.NODE__INCOMING_CONNECTIONS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Target.class) {
 			switch (baseFeatureID) {
-				case FlowPackage.TARGET__INCOMING_CONNECTIONS: return FlowPackage.NODE__INCOMING_CONNECTIONS;
 				default: return -1;
 			}
 		}

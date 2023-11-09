@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="flow" nsURI="ecore://nasdanika.org/models/flow" nsPrefix="org.nasdanika.models.flow">
-  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID">
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true" eSuperTypes="../../org.nasdanika.models.capability/model/capability.ecore#//CapabilityDomainElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for flow model elements"/>
     </eAnnotations>
@@ -13,7 +13,7 @@
       <details key="documentation" value="A grouping construct for skills"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="skills" upperBound="-1"
-        eType="#//SkillDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//SkillDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Artifacts used in this package and sub-packages"/>
       </eAnnotations>
@@ -30,7 +30,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="proficiencyLevels" upperBound="-1"
-        eType="#//Skill" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//Skill" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Skills can be sub-divided into proficiency levels. E.g. &quot;Beginner&quot;, &quot;Intermediate&quot;, &quot;Advanced&quot;. Or &quot;Junior&quot;, &quot;Senior&quot;."/>
       </eAnnotations>
@@ -98,7 +98,7 @@
       <details key="documentation" value="Artifact containing other artifacts, e.g. a zip file"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
-        eType="#//Artifact" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id"/>
+        eType="#//Artifact" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArtifactInfo" eSuperTypes="#//ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -123,16 +123,14 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Connection" eSuperTypes="#//ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Connection">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for Transitions and Calls. Contained by its source."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Target"
-        eOpposite="#//Target/incomingConnections">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Connection target"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//ModelElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.graph.model/model/graph.ecore#//Connection">
+      <eTypeArguments eClassifier="#//Target"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArtifactProducer" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
@@ -142,18 +140,15 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProcessElement" eSuperTypes="#//ModelElement ../../org.nasdanika.models.capability/model/capability.ecore#//RequirementConsumer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Source" abstract="true" interface="true"
-      eSuperTypes="#//ArtifactProducer">
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessElement" eSuperTypes="#//ModelElement ../../org.nasdanika.models.capability/model/capability.ecore#//RequirementConsumer ../../org.nasdanika.graph.model/model/graph.ecore#//GraphElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Source" abstract="true" interface="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Source of connections"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingConnections" upperBound="-1"
-        eType="#//Connection" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Source outgoing connections"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//ArtifactProducer"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.graph.model/model/graph.ecore#//ConnectionSource">
+      <eTypeArguments eClassifier="#//Connection"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//ProcessElement #//Source">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -173,17 +168,14 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Target" abstract="true" interface="true"
-      eSuperTypes="#//ArtifactConsumer">
+  <eClassifiers xsi:type="ecore:EClass" name="Target" abstract="true" interface="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for connection targets"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingConnections" upperBound="-1"
-        eType="#//Connection" eOpposite="#//Connection/target">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Incoming connections - opposite to Connection.target"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//ArtifactConsumer"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.graph.model/model/graph.ecore#//ConnectionTarget">
+      <eTypeArguments eClassifier="#//Connection"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//ProcessElement #//Target">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -205,7 +197,7 @@
       <eBounds eClassifier="#//Role"/>
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
-        containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eGenericType eTypeParameter="#//Collaboratable/R"/>
     </eStructuralFeatures>
   </eClassifiers>
@@ -236,13 +228,13 @@
       <details key="documentation" value="A flow element which supports both outgoing and incoming connections"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputPorts" upperBound="-1"
-        eType="#//InputPort" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//InputPort" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Input ports may be used to group incoming connections"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputPorts" upperBound="-1"
-        eType="#//OutputPort" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//OutputPort" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Output ports can be used to group outgoing connections"/>
       </eAnnotations>
@@ -303,7 +295,7 @@
       <details key="documentation" value="A group of processes"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
-        eType="#//ProcessDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//ProcessDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Flows defined in this package"/>
       </eAnnotations>
@@ -314,7 +306,7 @@
       <details key="documentation" value="Flow is a composite activity"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//ProcessElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//ProcessElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Flow elements"/>
       </eAnnotations>
@@ -333,7 +325,7 @@
       <details key="documentation" value="A group of resources"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
-        eType="#//ResourceDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//ResourceDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Resources used in activities in this package and sub-packages"/>
       </eAnnotations>
@@ -368,7 +360,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resourceAreas" upperBound="-1"
-        eType="#//Resource" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//Resource" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A resource may be sub-divided into areas. E.g. GitHub has Git repositories, Actions, Pages, Wiki."/>
       </eAnnotations>
@@ -379,7 +371,7 @@
       <details key="documentation" value="Resource containing other resources, e.g. a file system or a tool suite"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
-        eType="#//Resource" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id"/>
+        eType="#//Resource" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParticipantDomainElement" abstract="true"
       eSuperTypes="#//ModelElement #//SkillConsumer"/>
@@ -388,7 +380,7 @@
       <details key="documentation" value="A group of particpants"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
-        eType="#//ParticipantDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//ParticipantDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Participants of activities in this package and sub-packages"/>
       </eAnnotations>
@@ -430,7 +422,7 @@
       <details key="documentation" value="A group of data types"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataTypes" upperBound="-1"
-        eType="#//DataTypeDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//DataTypeDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Data types used in this package and sub-packages"/>
       </eAnnotations>
@@ -469,7 +461,7 @@
       <details key="documentation" value="A group of data elements"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataElements" upperBound="-1"
-        eType="#//DataDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//DataDomainElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Data elements used in this package and sub-packages"/>
       </eAnnotations>
@@ -506,7 +498,7 @@
       <details key="documentation" value="A data element consisting of other data elements, a structure/class"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
-        eType="#//DataElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//DataElement" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Elements of the complex data elment. Also known as properties/fields/attributes"/>
       </eAnnotations>
@@ -527,7 +519,7 @@
       <details key="documentation" value="A group of processes and elements they reference - participants, ..."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subPackages" upperBound="-1"
-        eType="#//Package" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElementWithID/id">
+        eType="#//Package" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//StringIdentity/id">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Packages may form a hierarchy"/>
       </eAnnotations>

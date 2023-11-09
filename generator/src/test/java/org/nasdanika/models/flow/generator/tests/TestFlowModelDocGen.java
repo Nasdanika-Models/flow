@@ -50,6 +50,7 @@ import org.nasdanika.models.ecore.graph.processors.EcoreNodeProcessorFactory;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.processors.ecore.EcoreGenFlowProcessorsFactory;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.graph.model.ModelPackage;
 
 /**
  * Tests Ecore -> Graph -> Processor -> actions generation
@@ -63,6 +64,7 @@ public class TestFlowModelDocGen {
 		List<EPackage> ePackages = Arrays.asList(
 				EcorePackage.eINSTANCE, 
 				NcorePackage.eINSTANCE, 
+				ModelPackage.eINSTANCE, 
 				CapabilityPackage.eINSTANCE, 
 				FlowPackage.eINSTANCE);
 		ProgressMonitor progressMonitor = new NullProgressMonitor(); // new PrintStreamProgressMonitor();
@@ -111,6 +113,7 @@ public class TestFlowModelDocGen {
 		Map<EPackage, URI> packageURIMap = Map.ofEntries(
 			Map.entry(EcorePackage.eINSTANCE, URI.createURI("https://ecore.models.nasdanika.org/")),			
 			Map.entry(NcorePackage.eINSTANCE, URI.createURI("https://ncore.models.nasdanika.org/")),			
+			Map.entry(ModelPackage.eINSTANCE, URI.createURI("https://graph.models.nasdanika.org/")),			
 			Map.entry(CapabilityPackage.eINSTANCE, URI.createURI("https://capability.models.nasdanika.org/")),			
 			Map.entry(FlowPackage.eINSTANCE, baseActionURI)	
 		);

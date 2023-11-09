@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.graph.model.GraphElement;
 import org.nasdanika.models.capability.CapabilityPackage;
 import org.nasdanika.models.capability.Requirement;
 import org.nasdanika.models.capability.RequirementConsumer;
@@ -151,6 +152,11 @@ public class ProcessElementImpl extends ModelElementImpl implements ProcessEleme
 				default: return -1;
 			}
 		}
+		if (baseClass == GraphElement.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -164,6 +170,11 @@ public class ProcessElementImpl extends ModelElementImpl implements ProcessEleme
 		if (baseClass == RequirementConsumer.class) {
 			switch (baseFeatureID) {
 				case CapabilityPackage.REQUIREMENT_CONSUMER__REQUIREMENTS: return FlowPackage.PROCESS_ELEMENT__REQUIREMENTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == GraphElement.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

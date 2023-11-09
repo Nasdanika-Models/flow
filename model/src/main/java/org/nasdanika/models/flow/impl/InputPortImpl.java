@@ -13,6 +13,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.graph.model.ConnectionSource;
+import org.nasdanika.graph.model.GraphElement;
+import org.nasdanika.graph.model.ModelPackage;
 import org.nasdanika.models.flow.ArtifactInfo;
 import org.nasdanika.models.flow.ArtifactProducer;
 import org.nasdanika.models.flow.Connection;
@@ -62,7 +65,7 @@ public class InputPortImpl extends ModelElementImpl implements InputPort {
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<Connection> getOutgoingConnections() {
-		return (EList<Connection>)eDynamicGet(FlowPackage.INPUT_PORT__OUTGOING_CONNECTIONS, FlowPackage.Literals.SOURCE__OUTGOING_CONNECTIONS, true, true);
+		return (EList<Connection>)eDynamicGet(FlowPackage.INPUT_PORT__OUTGOING_CONNECTIONS, ModelPackage.Literals.CONNECTION_SOURCE__OUTGOING_CONNECTIONS, true, true);
 	}
 
 	/**
@@ -176,9 +179,19 @@ public class InputPortImpl extends ModelElementImpl implements InputPort {
 				default: return -1;
 			}
 		}
+		if (baseClass == GraphElement.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ConnectionSource.class) {
+			switch (derivedFeatureID) {
+				case FlowPackage.INPUT_PORT__OUTGOING_CONNECTIONS: return ModelPackage.CONNECTION_SOURCE__OUTGOING_CONNECTIONS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Source.class) {
 			switch (derivedFeatureID) {
-				case FlowPackage.INPUT_PORT__OUTGOING_CONNECTIONS: return FlowPackage.SOURCE__OUTGOING_CONNECTIONS;
 				default: return -1;
 			}
 		}
@@ -198,9 +211,19 @@ public class InputPortImpl extends ModelElementImpl implements InputPort {
 				default: return -1;
 			}
 		}
+		if (baseClass == GraphElement.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ConnectionSource.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.CONNECTION_SOURCE__OUTGOING_CONNECTIONS: return FlowPackage.INPUT_PORT__OUTGOING_CONNECTIONS;
+				default: return -1;
+			}
+		}
 		if (baseClass == Source.class) {
 			switch (baseFeatureID) {
-				case FlowPackage.SOURCE__OUTGOING_CONNECTIONS: return FlowPackage.INPUT_PORT__OUTGOING_CONNECTIONS;
 				default: return -1;
 			}
 		}

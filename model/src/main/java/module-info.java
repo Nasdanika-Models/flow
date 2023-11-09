@@ -8,4 +8,5 @@ module org.nasdanika.models.flow {
 	requires transitive org.eclipse.emf.common;
 	requires transitive org.nasdanika.models.capability;
 	requires transitive org.nasdanika.drawio.model;
+	requires transitive org.nasdanika.graph.model;
 }

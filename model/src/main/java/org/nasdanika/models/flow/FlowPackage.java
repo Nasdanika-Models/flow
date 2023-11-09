@@ -6,7 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.models.capability.CapabilityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__MARKERS = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__MARKERS;
+	int MODEL_ELEMENT__MARKERS = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Uris</b></em>' attribute list.
@@ -83,7 +83,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__URIS = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__URIS;
+	int MODEL_ELEMENT__URIS = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT__URIS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -92,7 +92,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__DESCRIPTION = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__DESCRIPTION;
+	int MODEL_ELEMENT__DESCRIPTION = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -101,7 +101,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__UUID = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__UUID;
+	int MODEL_ELEMENT__UUID = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Label Prototype</b></em>' containment reference.
@@ -110,7 +110,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__LABEL_PROTOTYPE = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__LABEL_PROTOTYPE;
+	int MODEL_ELEMENT__LABEL_PROTOTYPE = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT__LABEL_PROTOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' map.
@@ -119,7 +119,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__REPRESENTATIONS = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__REPRESENTATIONS;
+	int MODEL_ELEMENT__REPRESENTATIONS = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -128,7 +128,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__ANNOTATIONS = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__ANNOTATIONS;
+	int MODEL_ELEMENT__ANNOTATIONS = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -137,7 +137,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__NAME = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__NAME;
+	int MODEL_ELEMENT__NAME = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
@@ -146,7 +146,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__DOCUMENTATION = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__DOCUMENTATION;
+	int MODEL_ELEMENT__DOCUMENTATION = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Context Help</b></em>' containment reference list.
@@ -155,7 +155,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__CONTEXT_HELP = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__CONTEXT_HELP;
+	int MODEL_ELEMENT__CONTEXT_HELP = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT__CONTEXT_HELP;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -164,7 +164,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__ID = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID__ID;
+	int MODEL_ELEMENT__ID = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT__ID;
 
 	/**
 	 * The number of structural features of the '<em>Model Element</em>' class.
@@ -173,7 +173,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID_FEATURE_COUNT + 0;
+	int MODEL_ELEMENT_FEATURE_COUNT = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Model Element</em>' class.
@@ -182,7 +182,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_OPERATION_COUNT = NcorePackage.DOCUMENTED_NAMED_ELEMENT_WITH_ID_OPERATION_COUNT + 0;
+	int MODEL_ELEMENT_OPERATION_COUNT = CapabilityPackage.CAPABILITY_DOMAIN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.flow.impl.SkillDomainElementImpl <em>Skill Domain Element</em>}' class.
@@ -1277,17 +1277,6 @@ public interface FlowPackage extends EPackage {
 	EClass getConnection();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.flow.Connection#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see org.nasdanika.models.flow.Connection#getTarget()
-	 * @see #getConnection()
-	 * @generated
-	 */
-	EReference getConnection_Target();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.ArtifactProducer <em>Artifact Producer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1327,17 +1316,6 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSource();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.flow.Source#getOutgoingConnections <em>Outgoing Connections</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Outgoing Connections</em>'.
-	 * @see org.nasdanika.models.flow.Source#getOutgoingConnections()
-	 * @see #getSource()
-	 * @generated
-	 */
-	EReference getSource_OutgoingConnections();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.Start <em>Start</em>}'.
@@ -1389,17 +1367,6 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTarget();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.flow.Target#getIncomingConnections <em>Incoming Connections</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Incoming Connections</em>'.
-	 * @see org.nasdanika.models.flow.Target#getIncomingConnections()
-	 * @see #getTarget()
-	 * @generated
-	 */
-	EReference getTarget_IncomingConnections();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.flow.End <em>End</em>}'.
@@ -2325,13 +2292,22 @@ public interface FlowPackage extends EPackage {
 	int CONNECTION__TARGET = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Bidirectional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTION__BIDIRECTIONAL = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Connection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int CONNECTION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Connection</em>' class.
@@ -2505,13 +2481,22 @@ public interface FlowPackage extends EPackage {
 	int SOURCE__OUTPUTS = ARTIFACT_PRODUCER__OUTPUTS;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__ID = ARTIFACT_PRODUCER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Outgoing Connections</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__OUTGOING_CONNECTIONS = ARTIFACT_PRODUCER_FEATURE_COUNT + 0;
+	int SOURCE__OUTGOING_CONNECTIONS = ARTIFACT_PRODUCER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Source</em>' class.
@@ -2520,7 +2505,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FEATURE_COUNT = ARTIFACT_PRODUCER_FEATURE_COUNT + 1;
+	int SOURCE_FEATURE_COUNT = ARTIFACT_PRODUCER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Source</em>' class.
@@ -2847,13 +2832,22 @@ public interface FlowPackage extends EPackage {
 	int TARGET__INPUTS = ARTIFACT_CONSUMER__INPUTS;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET__ID = ARTIFACT_CONSUMER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Incoming Connections</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET__INCOMING_CONNECTIONS = ARTIFACT_CONSUMER_FEATURE_COUNT + 0;
+	int TARGET__INCOMING_CONNECTIONS = ARTIFACT_CONSUMER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Target</em>' class.
@@ -2862,7 +2856,7 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_FEATURE_COUNT = ARTIFACT_CONSUMER_FEATURE_COUNT + 1;
+	int TARGET_FEATURE_COUNT = ARTIFACT_CONSUMER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Target</em>' class.
@@ -4209,6 +4203,15 @@ public interface FlowPackage extends EPackage {
 	int TRANSITION__TARGET = CONNECTION__TARGET;
 
 	/**
+	 * The feature id for the '<em><b>Bidirectional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__BIDIRECTIONAL = CONNECTION__BIDIRECTIONAL;
+
+	/**
 	 * The feature id for the '<em><b>Payload</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4342,6 +4345,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int CALL__TARGET = TRANSITION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Bidirectional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL__BIDIRECTIONAL = TRANSITION__BIDIRECTIONAL;
 
 	/**
 	 * The feature id for the '<em><b>Payload</b></em>' reference list.
@@ -8387,13 +8399,6 @@ public interface FlowPackage extends EPackage {
 		 */
 		EClass CONNECTION = eINSTANCE.getConnection();
 		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONNECTION__TARGET = eINSTANCE.getConnection_Target();
-		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.ArtifactProducer <em>Artifact Producer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8427,13 +8432,6 @@ public interface FlowPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOURCE = eINSTANCE.getSource();
-		/**
-		 * The meta object literal for the '<em><b>Outgoing Connections</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOURCE__OUTGOING_CONNECTIONS = eINSTANCE.getSource_OutgoingConnections();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.StartImpl <em>Start</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -8477,13 +8475,6 @@ public interface FlowPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TARGET = eINSTANCE.getTarget();
-		/**
-		 * The meta object literal for the '<em><b>Incoming Connections</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TARGET__INCOMING_CONNECTIONS = eINSTANCE.getTarget_IncomingConnections();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.flow.impl.EndImpl <em>End</em>}' class.
 		 * <!-- begin-user-doc -->

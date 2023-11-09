@@ -471,11 +471,6 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 				default: return -1;
 			}
 		}
-		if (baseClass == CapabilityDomainElement.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == CapabilityDomain.class) {
 			switch (derivedFeatureID) {
 				case FlowPackage.PACKAGE__CAPABILITIES: return CapabilityPackage.CAPABILITY_DOMAIN__CAPABILITIES;
@@ -572,11 +567,6 @@ public class PackageImpl extends ModelElementImpl implements org.nasdanika.model
 		if (baseClass == DataDomain.class) {
 			switch (baseFeatureID) {
 				case FlowPackage.DATA_DOMAIN__DATA_ELEMENTS: return FlowPackage.PACKAGE__DATA_ELEMENTS;
-				default: return -1;
-			}
-		}
-		if (baseClass == CapabilityDomainElement.class) {
-			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

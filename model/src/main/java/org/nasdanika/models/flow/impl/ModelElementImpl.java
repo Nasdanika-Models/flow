@@ -4,9 +4,9 @@ package org.nasdanika.models.flow.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.nasdanika.models.capability.impl.CapabilityDomainElementImpl;
 import org.nasdanika.models.flow.FlowPackage;
 import org.nasdanika.models.flow.ModelElement;
-import org.nasdanika.ncore.impl.DocumentedNamedElementWithIDImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +15,7 @@ import org.nasdanika.ncore.impl.DocumentedNamedElementWithIDImpl;
  *
  * @generated
  */
-public abstract class ModelElementImpl extends DocumentedNamedElementWithIDImpl implements ModelElement {
+public abstract class ModelElementImpl extends CapabilityDomainElementImpl implements ModelElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

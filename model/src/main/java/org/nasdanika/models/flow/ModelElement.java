@@ -2,7 +2,7 @@
  */
 package org.nasdanika.models.flow;
 
-import org.nasdanika.ncore.DocumentedNamedElementWithID;
+import org.nasdanika.models.capability.CapabilityDomainElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +18,6 @@ import org.nasdanika.ncore.DocumentedNamedElementWithID;
  * @model abstract="true"
  * @generated
  */
-public interface ModelElement extends DocumentedNamedElementWithID {
+public interface ModelElement extends CapabilityDomainElement {
 
 } // ModelElement
